@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Universal Video Downloader - Download from 1000+ Sites</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Free online tool to download videos from Instagram, YouTube, TikTok, Facebook, Twitter, and 1000+ more sites in HD quality. No app required, fast and secure.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f8f9fa;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo span {
+      color: #ffdc80;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Main Content */
+    .main-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .main-section {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .input-container {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    #url {
+      width: 100%;
+      padding: 18px 60px 18px 20px;
+      font-size: 16px;
+      border: 2px solid #e1e5e9;
+      border-radius: 50px;
+      outline: none;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    #url:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .paste-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .paste-btn:hover {
+      background: #5a67d8;
+    }
+
+    button[type="button"] {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 10px;
+    }
+
+    button[type="button"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    #preview {
+      margin-top: 30px;
+    }
+
+    #preview video {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-weight: 500;
+      padding: 10px;
+      border-radius: 10px;
+      min-height: 20px;
+    }
+
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .feature-desc {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Supported Platforms */
+    .platforms {
+      margin-bottom: 40px;
+    }
+
+    .platforms h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+      font-size: 28px;
+    }
+
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .platform-item {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .platform-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .platform-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .platform-name {
+      font-weight: 600;
+      color: #333;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer {
+      background: #2d3748;
+      color: white;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 15px;
+      color: #ffdc80;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section a {
+      color: #a0aec0;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #4a5568;
+      color: #a0aec0;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .main-section {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .platforms-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-container {
+        margin: 20px auto;
+        padding: 0 10px;
+      }
+
+      .main-section {
+        padding: 20px 15px;
+      }
+
+      #url {
+        padding: 14px 50px 14px 15px;
+        font-size: 16px;
+      }
+
+      button[type="button"] {
+        padding: 14px 30px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <span>📥</span> ReelDownloader
+      </div>
+      <nav class="nav-links">
+        <a href="#instagram">Instagram</a>
+        <a href="#youtube">YouTube</a>
+        <a href="#tiktok">TikTok</a>
+        <a href="#facebook">Facebook</a>
+        <a href="#twitter">Twitter</a>
+        <a href="#more">More</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <section class="main-section">
+      <h1>Universal Video Downloader</h1>
+      <p class="subtitle">Download HD videos from 1000+ websites including Instagram, YouTube, TikTok, Facebook, Twitter
+        & more. No app required, 100% free!</p>
+
+      <div class="input-container">
+        <input id="url" placeholder="Paste any video link from supported platforms..." type="text">
+        <button class="paste-btn" onclick="pasteFromClipboard()">Paste</button>
+      </div>
+
+      <button type="button" onclick="processLink()">Download HD Video</button>
+
+      <div id="preview"></div>
+      <div id="status"></div>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Lightning Fast</div>
+        <div class="feature-desc">Download videos in seconds with our optimized servers</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">100% Secure</div>
+        <div class="feature-desc">No login required, your data stays private and secure</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <div class="feature-title">Mobile Friendly</div>
+        <div class="feature-desc">Works perfectly on all devices - phone, tablet, desktop</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎥</div>
+        <div class="feature-title">HD Quality</div>
+        <div class="feature-desc">Download videos in original HD quality without watermark</div>
+      </div>
+    </section>
+
+    <!-- Supported Platforms Section -->
+    <section class="platforms">
+      <h2>Supported Platforms</h2>
+      <div class="platforms-grid">
+        <div class="platform-item">
+          <div class="platform-icon">📘</div>
+          <div class="platform-name">Facebook</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">🐦</div>
+          <div class="platform-name">Twitter/X</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">📺</div>
+          <div class="platform-name">YouTube</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">📸</div>
+          <div class="platform-name">Instagram</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">🎵</div>
+          <div class="platform-name">TikTok</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">🔴</div>
+          <div class="platform-name">Reddit</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">▶️</div>
+          <div class="platform-name">Vimeo</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">🎬</div>
+          <div class="platform-name">Dailymotion</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">💼</div>
+          <div class="platform-name">LinkedIn</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">🎮</div>
+          <div class="platform-name">Twitch</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">📱</div>
+          <div class="platform-name">Snapchat</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">➕</div>
+          <div class="platform-name">1000+ More</div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
+        And many more! Our tool supports videos from over 1000 websites worldwide.
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Popular Platforms</h3>
+        <ul>
+          <li><a href="#instagram">Instagram Reels</a></li>
+          <li><a href="#youtube">YouTube Shorts</a></li>
+          <li><a href="#tiktok">TikTok Videos</a></li>
+          <li><a href="#facebook">Facebook Videos</a></li>
+          <li><a href="#twitter">Twitter Videos</a></li>
+          <li><a href="#reddit">Reddit Videos</a></li>
+          <li><a href="#vimeo">Vimeo</a></li>
+          <li><a href="#twitch">Twitch Clips</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Other Platforms</h3>
+        <ul>
+          <li><a href="#dailymotion">Dailymotion</a></li>
+          <li><a href="#linkedin">LinkedIn</a></li>
+          <li><a href="#snapchat">Snapchat</a></li>
+          <li><a href="#pinterest">Pinterest</a></li>
+          <li><a href="#tumblr">Tumblr</a></li>
+          <li><a href="#soundcloud">SoundCloud</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2026 ReelDownloader. All rights reserved. | Made with ❤️ for content creators</p>
+    </div>
+  </footer>
+
+  <script>
+    let currentURL = "";
+
+    function pasteFromClipboard() {
+      navigator.clipboard.readText().then(text => {
+        document.getElementById("url").value = text;
+      }).catch(err => {
+        alert("Failed to paste from clipboard");
+      });
+    }
+
+    function processLink() {
+      const url = document.getElementById("url").value;
+      const status = document.getElementById("status");
+      const preview = document.getElementById("preview");
+
+      if (!url) {
+        status.innerText = "Please paste a video link first!";
+        status.style.color = "#e53e3e";
+        status.style.background = "#fed7d7";
+        return;
+      }
+
+      status.innerText = "Processing video...";
+      status.style.color = "#2b6cb0";
+      status.style.background = "#bee3f8";
+      preview.innerHTML = "";
+
+      fetch("http://127.0.0.1:8000/preview", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `url=${encodeURIComponent(url)}`
+      })
+        .then(res => res.json())
+        .then(data => {
+          currentURL = url;
+
+          preview.innerHTML = `
+      <video controls width="100%" style="margin-top:15px">
+        <source src="${data.video_url}" type="video/mp4">
+      </video>
+      <br><br>
+      <button type="button" onclick="download()">Download HD Video</button>
+    `;
+
+          status.innerText = "Video ready! Click download to save.";
+          status.style.color = "#38a169";
+          status.style.background = "#c6f6d5";
+        })
+        .catch(() => {
+          status.innerText = "Failed to process video. Please check the link and try again.";
+          status.style.color = "#e53e3e";
+          status.style.background = "#fed7d7";
+        });
+    }
+
+    function download() {
+      const status = document.getElementById("status");
+      status.innerText = "HD Video Downloading... Please wait.";
+      status.style.color = "#2b6cb0";
+      status.style.background = "#bee3f8";
+
+      fetch("http://127.0.0.1:8000/download", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `url=${encodeURIComponent(currentURL)}`
+      })
+        .then(res => {
+          const contentDisposition = res.headers.get('Content-Disposition');
+          let filename = 'video.mp4';
+          if (contentDisposition) {
+            const match = contentDisposition.match(/filename="(.+)"/);
+            if (match) filename = match[1];
+          }
+          return res.blob().then(blob => ({ blob, filename }));
+        })
+        .then(({ blob, filename }) => {
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = filename;
+          a.click();
+          status.innerText = "Download completed! Check your downloads folder.";
+          status.style.color = "#38a169";
+          status.style.background = "#c6f6d5";
+        })
+        .catch(() => {
+          status.innerText = "Download failed. Please try again.";
+          status.style.color = "#e53e3e";
+          status.style.background = "#fed7d7";
+        });
+    }
+  </script>
+
+</body>
+
+</html>

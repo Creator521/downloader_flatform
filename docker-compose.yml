@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: video_downloader
+    ports:
+      - "8000:8000"
+    restart: always
+    environment:
+      - WORKERS=4
+    volumes:
+      - ./temp:/app/temp # Map temp folder just in case (though we don't use it now)

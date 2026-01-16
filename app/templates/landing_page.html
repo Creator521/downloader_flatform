@@ -1,0 +1,428 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+
+{% block schema %}
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ReelDownloader",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+{% if page.faq_schema %}
+<script type="application/ld+json">
+{{ page.faq_schema | safe }}
+</script>
+{% endif %}
+
+{% if page.howto_schema %}
+<script type="application/ld+json">
+{{ page.howto_schema | safe }}
+</script>
+{% endif %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hero-section {
+        text-align: center;
+        padding: 50px 0;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        margin-bottom: 40px;
+    }
+
+    .hero-h1 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .input-group {
+        max-width: 600px;
+        margin: 30px auto;
+        position: relative;
+        display: flex;
+        gap: 10px;
+    }
+
+    .url-input {
+        flex: 1;
+        padding: 15px 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 50px;
+        font-size: 16px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .url-input:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .download-btn {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        padding: 0 40px;
+        border-radius: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 40px;
+    }
+
+    .main-article {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .content-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+            display: none;
+        }
+
+        /* Hide sidebar on mobile or move to bottom */
+        .hero-h1 {
+            font-size: 28px;
+        }
+
+        .input-group {
+            flex-direction: column;
+        }
+
+        .download-btn {
+            padding: 15px;
+        }
+    }
+
+    /* Preview Card Styles */
+    .preview-card {
+        margin-top: 30px;
+        border: 1px solid #e2e8f0;
+        padding: 20px;
+        border-radius: 15px;
+        display: none;
+        text-align: left;
+    }
+
+    .preview-flex {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .preview-thumb {
+        width: 200px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .preview-info {
+        flex: 1;
+    }
+
+    .meta-tag {
+        display: inline-block;
+        background: #edf2f7;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        margin-right: 10px;
+        color: #4a5568;
+    }
+
+    .download-options {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .dl-btn-option {
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        text-align: center;
+        flex: 1;
+        min-width: 140px;
+        cursor: pointer;
+    }
+
+    .dl-video {
+        background: #48bb78;
+        color: white;
+        border: none;
+    }
+
+    .dl-audio {
+        background: #ed8936;
+        color: white;
+        border: none;
+    }
+
+    .error-msg {
+        color: #e53e3e;
+        background: #fff5f5;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 20px;
+        display: none;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <h1 class="hero-h1">{{ page.h1 }}</h1>
+    <p class="subtitle" style="color:#718096; font-size: 18px;">{{ page.subtitle }}</p>
+
+    <!-- Ad Spot: Above Fold -->
+    <div style="margin-top: 20px;">
+        {% include "components/ads.html" with context %}
+    </div>
+
+    <!-- Tool Interface -->
+    <form id="downloadForm" class="input-group" onsubmit="handleDownload(event)">
+        <input type="text" id="urlInput" class="url-input" placeholder="Paste {{ page.platform }} link here..."
+            required>
+        <button type="submit" class="download-btn">Download</button>
+    </form>
+
+    <div id="loading" style="display:none; color:#667eea; font-weight:bold;">Processing...</div>
+    <div id="error" class="error-msg"></div>
+
+    <!-- Result Area -->
+    <div id="result" class="preview-card">
+        <div class="preview-flex">
+            <img id="thumb" src="" class="preview-thumb" alt="Video Thumbnail">
+            <div class="preview-info">
+                <h3 id="videoTitle" style="margin-bottom: 10px;">Video Title</h3>
+                <div style="margin-bottom: 15px;">
+                    <span class="meta-tag">👤 <span id="uploader">User</span></span>
+                    <span class="meta-tag">👁️ <span id="views">0</span></span>
+                    <span class="meta-tag">⏱️ <span id="duration">0:00</span></span>
+                </div>
+                <p style="font-size: 14px; color: #718096; margin-bottom: 15px;">Ready to download! Select your format
+                    below.</p>
+
+                <div class="download-options">
+                    <button onclick="triggerDownload('video')" class="dl-btn-option dl-video">Download Video
+                        (MP4)</button>
+                    <!-- Show audio button only if not Youtube (unless we implement strict mp3 conversion) -->
+                    <button onclick="triggerDownload('audio')" class="dl-btn-option dl-audio">Download Audio
+                        (M4A)</button>
+                </div>
+
+                <!-- Result Area Ad (High CTR) -->
+                {% with ad_type='result_area' %}
+                {% include "components/ads.html" %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="content-grid">
+    <div class="main-article">
+        <!-- Introduction -->
+        <h2 style="margin-bottom:20px;">What is {{ page.tool_name }}?</h2>
+        <div style="color:#4a5568; margin-bottom: 30px;">
+            <p>{{ page.intro_text }}</p>
+        </div>
+
+        <!-- Ad Spot: Content -->
+        {% include "components/ads.html" with context %}
+
+        <!-- How To Guide -->
+        <h2 style="margin-bottom:20px;">How to Download {{ page.keyword }}?</h2>
+        <div class="howto-steps">
+            {% for step in page.steps %}
+            <div style="margin-bottom: 15px; padding-left: 20px; border-left: 3px solid #667eea;">
+                <h3 style="font-size: 18px;">{{ step.title }}</h3>
+                <p>{{ step.desc }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Features -->
+        <h2 style="margin-top: 40px; margin-bottom:20px;">Features</h2>
+        <ul style="list-style-position: inside; color: #4a5568;">
+            {% for feature in page.features %}
+            <li style="margin-bottom: 10px;">✅ <strong>{{ feature.title }}:</strong> {{ feature.desc }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- FAQ Section -->
+        <h2 style="margin-top: 40px; margin-bottom:20px;">Frequently Asked Questions</h2>
+        <div class="faq-section">
+            {% for faq in page.faqs %}
+            <details style="margin-bottom: 15px; padding: 15px; background: #f7fafc; border-radius: 8px;">
+                <summary style="font-weight: 600; cursor: pointer;">{{ faq.question }}</summary>
+                <p style="margin-top: 10px; color: #4a5568;">{{ faq.answer }}</p>
+            </details>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <!-- Sidebar Ad -->
+        {% with ad_type='sidebar' %}
+        {% include "components/ads.html" %}
+        {% endwith %}
+
+        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <h3 style="margin-bottom: 15px;">Popular Tools</h3>
+            <ul style="list-style: none;">
+                <li style="margin-bottom:10px;"><a href="/instagram-reel-downloader"
+                        style="color: #667eea; text-decoration: none;">Instagram Reels</a></li>
+                <li style="margin-bottom:10px;"><a href="/tiktok-mp3-downloader"
+                        style="color: #667eea; text-decoration: none;">TikTok MP3</a></li>
+                <li style="margin-bottom:10px;"><a href="/youtube-shorts-downloader"
+                        style="color: #667eea; text-decoration: none;">YouTube Shorts</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let currentVideoData = null;
+
+    async function handleDownload(e) {
+        e.preventDefault();
+        const url = document.getElementById('urlInput').value;
+        const loading = document.getElementById('loading');
+        const result = document.getElementById('result');
+        const error = document.getElementById('error');
+
+        if (!url) return;
+
+        // Reset UI
+        loading.style.display = 'block';
+        result.style.display = 'none';
+        error.style.display = 'none';
+
+        try {
+            const formData = new FormData();
+            formData.append('url', url);
+
+            const res = await fetch('/preview', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) throw new Error(data.detail || 'Failed to fetch video');
+
+            currentVideoData = { url: data.video_url, original_input: url }; // Check backend response structure
+
+            // Update UI
+            document.getElementById('thumb').src = data.thumbnail;
+            document.getElementById('videoTitle').innerText = data.title;
+            document.getElementById('uploader').innerText = data.uploader || 'Unknown';
+            document.getElementById('views').innerText = data.view_count || 'N/A';
+            document.getElementById('duration').innerText = data.duration || 'N/A';
+
+            result.style.display = 'block';
+        } catch (err) {
+            error.innerText = err.message;
+            error.style.display = 'block';
+        } finally {
+            loading.style.display = 'none';
+        }
+    }
+
+    async function triggerDownload(format) {
+        const status = document.getElementById('loading'); // Reuse loading div
+        status.innerText = "Downloading...";
+        status.style.display = 'block';
+
+        try {
+            const formData = new FormData();
+            formData.append('url', document.getElementById('urlInput').value);
+            formData.append('format', format); // Pass format
+
+            const res = await fetch('/download', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!res.ok) {
+                const err = await res.json();
+                throw new Error(err.detail || "Download failed");
+            }
+
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            // Try to get filename from header or fallback
+            const disposition = res.headers.get('Content-Disposition');
+            let filename = 'video.mp4';
+            if (disposition && disposition.indexOf('attachment') !== -1) {
+                var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                var matches = filenameRegex.exec(disposition);
+                if (matches != null && matches[1]) {
+                    filename = matches[1].replace(/['"]/g, '');
+                }
+            }
+            if (format === 'audio' && !filename.endsWith('.m4a') && !filename.endsWith('.mp3')) {
+                filename = filename.replace(/\.[^/.]+$/, ".m4a");
+            }
+
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            status.innerText = "Download Complete!";
+            setTimeout(() => { status.style.display = 'none'; status.innerText = "Processing..."; }, 3000);
+        } catch (err) {
+            alert("Error: " + err.message);
+            status.style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}

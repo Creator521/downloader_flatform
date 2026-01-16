@@ -1,0 +1,50 @@
+<!-- Components/Ads.html -->
+<!-- This file allows easy management of all ad codes -->
+
+{% if ad_type == 'header' %}
+<!-- HEADER AD (728x90) -->
+<div class="ad-banner-header" style="background:#f0f0f0; border:1px dashed #ccc; padding:20px; text-align:center;">
+    <span style="font-size:12px; color:#999;">ADVERTISEMENT (728x90)</span>
+    <!-- Paste Google AdSense Display Unit Here -->
+</div>
+
+{% elif ad_type == 'sidebar' %}
+<!-- SIDEBAR AD (300x250) -->
+<div class="ad-sidebar"
+    style="background:#f0f0f0; border:1px dashed #ccc; width:100%; height:250px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
+    <span style="font-size:12px; color:#999;">ADVERTISEMENT (300x250)</span>
+    <!-- Paste Sidebar Ad Code Here -->
+</div>
+
+{% elif ad_type == 'content' %}
+<!-- IN-CONTENT AD (Responsive) -->
+<div class="ad-content"
+    style="background:#f0f0f0; border:1px dashed #ccc; padding:40px; text-align:center; margin: 30px 0;">
+    <span style="font-size:12px; color:#999;">SPONSORED CONTENT</span>
+</div>
+
+{% elif ad_type == 'sticky_footer' %}
+<!-- STICKY FOOTER AD (Mobile/Desktop) -->
+<div class="ad-sticky-footer"
+    style="position:fixed; bottom:0; left:0; width:100%; height:90px; background:white; border-top:1px solid #ddd; z-index:9999; display:flex; align-items:center; justify-content:center; box-shadow:0 -5px 15px rgba(0,0,0,0.1);">
+    <div
+        style="width:728px; height:90px; background:#e2e8f0; border:1px dashed #999; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:12px; color:#666;">STICKY FOOTER AD (728x90)</span>
+        <!-- Paste Sticky Ad Code Here -->
+    </div>
+    <button onclick="this.parentElement.style.display='none'"
+        style="position:absolute; right:10px; top:10px; border:none; background:none; font-size:20px; cursor:pointer;">&times;</button>
+</div>
+
+{% elif ad_type == 'result_area' %}
+<!-- RESULT AREA AD (High CTR) -->
+<div class="ad-result"
+    style="width:100%; margin-top:20px; padding:15px; background:#f7fafc; border:1px solid #e2e8f0; border-radius:10px; text-align:center;">
+    <span style="font-size:11px; color:#a0aec0; display:block; margin-bottom:5px;">ADVERTISEMENT</span>
+    <div
+        style="background:#ddd; height:100px; display:flex; align-items:center; justify-content:center; border-radius:5px;">
+        <!-- Paste Native Ad Code Here -->
+        <span style="color:#666;">NATIVE AD PARTNER</span>
+    </div>
+</div>
+{% endif %}
