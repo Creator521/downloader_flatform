@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Universal Downloader Blog - Tips, Tricks & Guides{% endblock %}
+{% block description %}Read our latest guides on how to download videos from Instagram, YouTube, TikTok, and more. Stay updated with the best tips and tools.{% endblock %}
+
+{% block content %}
+<section class="blog-header" style="text-align: center; padding: 60px 20px;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 20px; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Latest Tips & Guides
+    </h1>
+    <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">
+        Master the art of saving content. Tutorials, updates, and expert advice for content creators.
+    </p>
+</section>
+
+<section class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
+    {% for slug, post in posts.items() %}
+    <article class="blog-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease;">
+        <div class="card-content" style="padding: 25px;">
+            <div class="tags" style="margin-bottom: 15px;">
+                {% for tag in post.tags %}
+                <span style="background: #eef2ff; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-right: 5px;">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            <h2 style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4;">
+                <a href="/blog/{{ slug }}" style="text-decoration: none; color: var(--text); transition: color 0.2s;">
+                    {{ post.title }}
+                </a>
+            </h2>
+            <p style="color: #666; margin-bottom: 20px; font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                {{ post.description }}
+            </p>
+            <div class="meta" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 15px; font-size: 0.85rem; color: #888;">
+                <span>{{ post.date }}</span>
+                <a href="/blog/{{ slug }}" style="color: var(--primary); text-decoration: none; font-weight: 600;">Read More →</a>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+
+<style>
+    .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    .blog-card h2 a:hover {
+        color: var(--primary) !important;
+    }
+</style>
+{% endblock %}

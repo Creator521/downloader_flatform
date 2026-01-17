@@ -120,61 +120,137 @@
 
 <body>
 
-    <header>
-        <div class="container header-content">
-            <a href="/" class="logo"><span>📥</span> ReelDownloader</a>
-            <nav>
-                <!-- Navigation can go here -->
-            </nav>
-        </div>
-    </header>
+    <style>
+        /* Previous styles remain... */
 
-    <!-- Header Ad Slot -->
-    <div class="container">
-        {% include "components/ads.html" with context %}
-    </div>
+        /* Mobile Menu Styles */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
 
-    <!-- Main Content -->
-    <main class="container">
-        {% block content %}{% endblock %}
-    </main>
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
 
-    <footer>
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                /* Adjust based on header height */
+                right: 20px;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                width: 200px;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                color: #333 !important;
+                /* Override white text for mobile dropdown */
+                font-weight: 600;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="container header-content">
+                <a href="/" class="logo"><span>📥</span> ReelDownloader</a>
+
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+
+                <nav class="nav-links">
+                    <a href="/" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
+                    <a href="/blog" style="color: white; text-decoration: none; font-weight: 500;">Blog</a>
+                    <a href="/about-us" style="color: white; text-decoration: none; font-weight: 500;">About</a>
+                    <a href="/contact-us" style="color: white; text-decoration: none; font-weight: 500;">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <script>
+            function toggleMenu() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            }
+        </script>
+
+        {# Header Ad Slot (Disabled for AdSense Review) #}
+        {#
         <div class="container">
-            <div class="footer-links">
-                <div>
-                    <h3>Tools</h3>
-                    <ul>
-                        <li><a href="/instagram-video-downloader">Instagram Downloader</a></li>
-                        <li><a href="/tiktok-video-downloader">TikTok Downloader</a></li>
-                        <li><a href="/youtube-video-downloader">YouTube Downloader</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="/privacy-policy">Privacy Policy</a></li>
-                        <li><a href="/terms-of-service">Terms of Service</a></li>
-                        <li><a href="/dmca">DMCA</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px; border-top: 1px solid #4a5568; padding-top: 20px;">
-                <p>&copy; 2026 ReelDownloader. All rights reserved.</p>
-            </div>
+            {% include "components/ads.html" with context %}
         </div>
-    </footer>
+        #}
 
-    <!-- Sticky Footer Ad -->
-    {% with ad_type='sticky_footer' %}
-    {% include "components/ads.html" %}
-    {% endwith %}
+        <!-- Main Content -->
+        <main class="container">
+            {% block content %}{% endblock %}
+        </main>
 
-    <script>
-        // Global scripts
-    </script>
-    {% block extra_js %}{% endblock %}
+        <footer>
+            <div class="container">
+                <div class="footer-links">
+                    <div>
+                        <h3>Tools</h3>
+                        <ul>
+                            <li><a href="/instagram-video-downloader">Instagram Downloader</a></li>
+                            <li><a href="/tiktok-video-downloader">TikTok Downloader</a></li>
+                            <li><a href="/youtube-video-downloader">YouTube Downloader</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                            <li><a href="/terms-of-service">Terms of Service</a></li>
+                            <li><a href="/disclaimer">Disclaimer</a></li>
+                            <li><a href="/dmca">DMCA</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px; border-top: 1px solid #4a5568; padding-top: 20px;">
+                    <p>&copy; 2026 ReelDownloader. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
 
-</body>
+        {# Sticky Footer Ad (Disabled for AdSense Review) #}
+        {#
+        {% with ad_type='sticky_footer' %}
+        {% include "components/ads.html" %}
+        {% endwith %}
+        #}
+
+        <script>
+            // Global scripts
+        </script>
+        {% block extra_js %}{% endblock %}
+
+    </body>
 
 </html>

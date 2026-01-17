@@ -4,3 +4,4 @@ yt-dlp
 python-multipart
 slowapi
 gunicorn
+jinja2

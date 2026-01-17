@@ -7,6 +7,7 @@ import yt_dlp
 import os
 import json
 from app.seo_data import SEO_PAGES
+from app.blog_data import BLOG_POSTS
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
@@ -76,11 +77,94 @@ def create_route(path, data):
         page_data["faq_schema"] = json.dumps(faq_schema)
         page_data["howto_schema"] = json.dumps(howto_schema)
 
-        return templates.TemplateResponse("landing_page.html", {"request": request, "page": page_data})
+        # Get latest 6 blog posts for the footer area
+        latest_posts = dict(list(BLOG_POSTS.items())[:6])
+
+        return templates.TemplateResponse("landing_page.html", {"request": request, "page": page_data, "latest_posts": latest_posts})
+
+# Register all routes
 
 # Register all routes
 for path, data in SEO_PAGES.items():
     create_route(path, data)
+
+# 🔹 BLOG ROUTES
+@app.get("/blog", response_class=HTMLResponse)
+async def blog_list(request: Request):
+    return templates.TemplateResponse("blog_list.html", {"request": request, "posts": BLOG_POSTS})
+
+@app.get("/blog/{slug}", response_class=HTMLResponse)
+async def blog_post(request: Request, slug: str):
+    post = BLOG_POSTS.get(slug)
+    if not post:
+        raise HTTPException(status_code=404, detail="Blog post not found")
+    return templates.TemplateResponse("blog_post.html", {"request": request, "post": post})
+
+# 🔹 LEGAL ROUTES
+@app.get("/about-us", response_class=HTMLResponse)
+async def about_us(request: Request):
+    content = """
+    <h2>Our Mission</h2>
+    <p>ReelDownloader was built with a simple mission: to help content creators, marketers, and everyday users save their favorite videos for offline viewing. We believe in an open internet where content is accessible to everyone.</p>
+    <h2>Who We Are</h2>
+    <p>We are a small team of developers and video enthusiasts passionate about building useful web tools. Our infrastructure is designed to be fast, reliable, and secure.</p>
+    """
+    return templates.TemplateResponse("legal.html", {"request": request, "title": "About Us", "content": content})
+
+@app.get("/contact-us", response_class=HTMLResponse)
+async def contact_us(request: Request):
+    content = """
+    <h2>Get in Touch</h2>
+    <p>We love hearing from our users! Whether you have a feature request, a bug report, or just want to say hello, feel free to contact us.</p>
+    <p>We typically respond within 24-48 hours.</p>
+    """
+    return templates.TemplateResponse("legal.html", {"request": request, "title": "Contact Us", "content": content, "email": "support@reeldownloader.com"})
+
+@app.get("/privacy-policy", response_class=HTMLResponse)
+async def privacy_policy(request: Request):
+    content = """
+    <h2>1. Information We Collect</h2>
+    <p>We do not require you to create an account to use our service. We may collect non-personal information such as your browser type, language preference, and referring site for analytics purposes.</p>
+    <h2>2. Cookies</h2>
+    <p>We use cookies to improve your experience and to serve personalized ads via Google AdSense.</p>
+    <h2>3. Third-Party Services</h2>
+    <p>We use third-party services like Google Analytics and Google AdSense. These services have their own privacy policies.</p>
+    """
+    return templates.TemplateResponse("legal.html", {"request": request, "title": "Privacy Policy", "content": content})
+
+@app.get("/terms-of-service", response_class=HTMLResponse)
+async def terms_of_service(request: Request):
+    content = """
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing this website, you agree to be bound by these Terms and Conditions and all applicable laws and regulations.</p>
+    <h2>2. Usage License</h2>
+    <p>Permission is granted to temporarily download one copy of the materials (videos) for personal, non-commercial transitory viewing only.</p>
+    <h2>3. Disclaimer</h2>
+    <p>The materials on ReelDownloader are provided on an 'as is' basis. We make no warranties, expressed or implied.</p>
+    """
+    return templates.TemplateResponse("legal.html", {"request": request, "title": "Terms & Conditions", "content": content})
+
+@app.get("/disclaimer", response_class=HTMLResponse)
+async def disclaimer(request: Request):
+    content = """
+    <h2>Not Affiliated</h2>
+    <p>ReelDownloader is an independent tool and is NOT affiliated, endorsed, sponsored, or certified by Instagram, Facebook, TikTok, YouTube, or any other platform.</p>
+    <p>All logos and trademarks displayed on this site are the property of their respective owners.</p>
+    <h2>User Responsibility</h2>
+    <p>You are solely responsible for valid downloads and any copyright infringements that may occur as a result of using this tool.</p>
+    """
+    return templates.TemplateResponse("legal.html", {"request": request, "title": "Disclaimer", "content": content})
+
+@app.get("/dmca", response_class=HTMLResponse)
+async def dmca(request: Request):
+    content = """
+    <h2>Copyright Infringement</h2>
+    <p>We respect the intellectual property of others. If you believe your work has been copied in a way that constitutes copyright infringement, please contact us.</p>
+    <h2>Removal Request</h2>
+    <p>Since we do not host files, we can only block specific URLs from being processed by our tool. Please send the URL to our email.</p>
+    """
+    return templates.TemplateResponse("legal.html", {"request": request, "title": "DMCA Policy", "content": content, "email": "dmca@reeldownloader.com"})
+
 
 # 🔹 API ROUTES (Keep existing logic)
 # Note: Root "/" is already handled by SEO_PAGES loop above if present in dictionary

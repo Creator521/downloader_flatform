@@ -2,27 +2,49 @@
 
 SEO_PAGES = {
     "/": {
-        "title": "Universal Video Downloader - Download from 1000+ Sites",
-        "description": "Best free online video downloader. Download videos from Instagram, YouTube, TikTok, Facebook in HD. No watermark, no login, 100% free.",
+        "title": "Universal Video Downloader - Save From Popular Platforms",
+        "description": "Best free online video saver. Save publicly available videos for offline viewing in HD. No watermark, no login, 100% free tool.",
         "h1": "Universal Video Downloader Online",
-        "subtitle": "Download HD videos from Instagram, YouTube, TikTok, and more.",
+        "subtitle": "Save Publicly Available Videos in HD Quality",
         "tool_name": "Universal Video Downloader",
-        "intro_text": "Our Universal Video Downloader is the ultimate tool for saving videos from the web. Whether it's a funny TikTok, an inspiring Instagram Reel, or a YouTube tutorial, we help you save it fast, free, and in high quality.",
+        "intro_text": """
+        <p>Welcome to <strong>ReelDownloader</strong>, your all-in-one solution for saving publicly available video content from the web. in today's fast-paced digital world, we consume hours of video content daily. From educational tutorials and cooking guides to entertaining clips and music videos, the internet is a goldmine of information. However, streaming these videos repeatedly consumes significant data and requires a constant internet connection.</p>
+
+        <h3>What is Universal Video Downloader?</h3>
+        <p>Our tool is a web-based utility designed to help users archive videos for <strong>personal offline viewing</strong>. It works by processing public URLs from popular video sharing platforms and extracting the media file so you can store it on your device. Whether you are a student saving lectures, a traveler building an offline playlist, or a creator looking for inspiration, our downloader makes the process seamless.</p>
+
+        <h3>Streaming vs. Downloading: Why Save Offline?</h3>
+        <p>While streaming is convenient, it has its downsides. Buffering issues, poor internet connectivity, and high mobile data usage can ruin the viewing experience. By downloading videos:</p>
+        <ul>
+            <li><strong>Save Data:</strong> Download once, watch infinitely without using extra data.</li>
+            <li><strong>No Buffering:</strong> Enjoy smooth playback even in areas with poor or no signal.</li>
+            <li><strong>High Quality:</strong> Ensure you are always watching in the best resolution (HD, 4K) rather than a compressed stream.</li>
+        </ul>
+
+        <h3>Only Publicly Available Content</h3>
+        <p>We strictly support the downloading of <strong>publicly available content</strong> only. Our tool cannot and will not access private profiles, age-restricted content, or encrypted streams. We respect the privacy settings of creators and platforms. If a video is not accessible to the general public via a standard link, our tool will not process it.</p>
+
+        <h3>Personal Use & Fair Use Policy</h3>
+        <p>This tool is intended for <strong>personal use only</strong> (e.g., time-shifting, archiving, offline viewing). Users must not use this tool for copyright infringement or commercial distribution. We encourage all users to respect the intellectual property rights of content creators. If you plan to use a video for anything other than personal viewing, please ensure you have the creator's permission or that your usage falls under "Fair Use" laws.</p>
+
+        <h3>How It Works</h3>
+        <p>Our intelligent system analyzes the URL you provide to identify the video source. It then fetches the video file directly from the content delivery network (CDN) and offers it to you in various formats (MP4, MP3) and resolutions. The entire process happens in your browser, ensuring privacy and speed without the need for installing suspicious software.</p>
+        """,
         "keyword": "video",
-        "platform": "any",
+        "platform": "any platform",
         "steps": [
-            {"title": "Step 1: Copy Link", "desc": "Find the video you want to download and copy its URL."},
+            {"title": "Step 1: Copy Link", "desc": "Find the public video you want to save and copy its URL."},
             {"title": "Step 2: Paste URL", "desc": "Paste the link into the input box above."},
-            {"title": "Step 3: Download", "desc": "Click the download button and choose your format (Video or Audio)."}
+            {"title": "Step 3: Download", "desc": "Click the download button and choose your format."}
         ],
         "features": [
-            {"title": "1000+ Sites", "desc": "Supports all major platforms including FB, Twitter, Vimeo."},
-            {"title": "No Watermark", "desc": "Get clean videos without logos or usernames."},
-            {"title": "HD Quality", "desc": "Download in 1080p, 4K, or original quality."}
+            {"title": "Multi-Platform", "desc": "Supports many popular video sharing sites."},
+            {"title": "No Watermark", "desc": "Get clean video files for best viewing experience."},
+            {"title": "HD Quality", "desc": "Save in the highest available resolution."}
         ],
         "faqs": [
-            {"question": "Is this downloader free?", "answer": "Yes, our tool is 100% free to use forever."},
-            {"question": "Do I need to install software?", "answer": "No, it works directly in your browser on any device."}
+            {"question": "Is this tool free?", "answer": "Yes, our universal downloader is completely free to use."},
+            {"question": "Can I save private videos?", "answer": "No, we only support publicly accessible videos to respect user privacy."}
         ]
     },
     "/instagram-video-downloader": {
