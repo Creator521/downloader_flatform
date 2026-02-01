@@ -48,12 +48,15 @@ SEO_PAGES = {
         ]
     },
     "/instagram-video-downloader": {
-        "title": "Instagram Video Downloader - Download HD Videos (No Watermark)",
-        "description": "Download Instagram videos in HD quality. Save Insta videos to gallery. Fast, free, and secure downloader for Android, iPhone, and PC.",
-        "h1": "Instagram Video Downloader Online",
+        "title": "Download Instagram Videos - Fast, Free, Online & HD (No Watermark)",
+        "description": "Download Instagram videos online for free in HD quality. Best Instagram video downloader for Reels, Stories & IGTV. Fast, safe, no login required.",
+        "h1": "Instagram Video Downloader",
         "subtitle": "Save Instagram Videos in HD Quality – Instant & Free",
         "tool_name": "Instagram Video Downloader",
-        "intro_text": "Downloading Instagram videos has never been easier. Our specialized tool allows you to save posts, IGTV, and videos from Instagram directly to your device gallery. Enjoy high-definition playback offline.",
+        "intro_text": """
+        <p>Instagram is one of the most popular social media platforms in the world, filled with incredible videos, reels, and stories that inspire and entertain millions daily. However, one major limitation frustrates users: the inability to <strong>download Instagram videos</strong> directly within the app. Whether it's a funny meme, a cooking tutorial, or a memorable moment shared by a friend, we've all wanted to save these videos for offline viewing.</p>
+        <p>That's where our <strong>Instagram Video Downloader</strong> comes in. We offer a <strong>fast, free, and secure</strong> solution to save any publicly available Instagram video in high definition (HD). No need for screenshots or screen recordings that ruin quality. With our online tool, you can build your personal offline collection in seconds, without installing suspicious apps or creating an account.</p>
+        """,
         "keyword": "Instagram video",
         "platform": "Instagram",
         "steps": [
@@ -62,13 +65,56 @@ SEO_PAGES = {
             {"title": "Step 3: Save Video", "desc": "Choose MP4 format and the video will save to your device."}
         ],
         "features": [
-            {"title": "HD Quality", "desc": "Save videos in original upload quality (720p, 1080p)."},
-            {"title": "No Login", "desc": "We do not ask for your Instagram password."},
-            {"title": "Fast Speed", "desc": "Our servers process videos in milliseconds."}
+            {"title": "🚀 Blazing Fast Speed", "desc": "Our optimized servers process videos in milliseconds."},
+            {"title": "💧 No Watermark", "desc": "Download clean videos without distracting logos."},
+            {"title": "✨ HD Quality", "desc": "Save videos in 1080p or 4K original quality."},
+            {"title": "🆓 100% Free", "desc": "No hidden costs, unlimited downloads."},
+            {"title": "🔒 Secure & Anonymous", "desc": "We do not track your history or notify creators."}
+        ],
+        "extra_sections": [
+            {
+                "title": "How to Download Videos from Instagram on Mobile & PC",
+                "content": """
+                <p>Our tool is a web-based utility, meaning it works seamlessly across all devices and operating systems. Here is how you can use it on your specific device.</p>
+                <h3>On Android</h3>
+                <p>Android users can use Chrome, Firefox, or any other browser. Simply copy the link from the Instagram app, paste it into our tool, and tap download. The video will appear in your "Downloads" folder or Gallery app under "Videos".</p>
+                <h3>On iPhone (iOS)</h3>
+                <p>For iOS users (iPhone/iPad), use the Safari browser. Paste the link and hit download. When prompted, tap "Download". You can find your saved video by tapping the blue arrow icon in the address bar and selecting "Downloads". From there, you can save it to your Photos app.</p>
+                <h3>On PC (Windows & Mac)</h3>
+                <p>Using a desktop or laptop? It's even easier. Copy the URL from the browser address bar of the Instagram post. Paste it into our tool, and the MP4 file will be downloaded directly to your computer's designated download location.</p>
+                """
+            },
+            {
+                "title": "What Types of Instagram Content Can You Download?",
+                "content": """
+                <p>Our versatile tool supports various Instagram formats. We believe in providing a comprehensive solution for all your media needs.</p>
+                <ul>
+                    <li><strong>Instagram Reels:</strong> Download short-form, entertaining Reels with original audio preserved.</li>
+                    <li><strong>Standard Videos:</strong> Save regular timeline video posts from your favorite creators.</li>
+                    <li><strong>IGTV:</strong> We support downloading longer-format IGTV videos in full quality.</li>
+                    <li><strong>Carousel Videos:</strong> If a post contains multiple videos (carousel), our tool can detect and download them.</li>
+                </ul>
+                """
+            },
+            {
+                "title": "Is It Legal to Download Instagram Videos?",
+                "content": """
+                <p>This is a common question. Using an <strong>Instagram video downloader</strong> is generally safe for <strong>personal use</strong> (creating offline archives, watching later). However, it is important to respect copyright laws:</p>
+                <ul>
+                    <li>You should not repost downloaded content as your own without permission.</li>
+                    <li>You must not use downloaded videos for commercial purposes.</li>
+                    <li>Always credit the original creator if you share the content elsewhere.</li>
+                </ul>
+                <p>We strictly encourage "Fair Use" and respect the intellectual property rights of all creators.</p>
+                """
+            }
         ],
         "faqs": [
-            {"question": "Can I download from private accounts?", "answer": "No, we respect privacy. You can only download from public accounts."},
-            {"question": "Where are videos saved?", "answer": "They are saved in your device's default 'Downloads' folder or Gallery."}
+            {"question": "Is it free to download Instagram videos?", "answer": "Yes, our tool is completely free to use for everyone. You can download as many videos as you like."},
+            {"question": "Can I download Instagram Reels?", "answer": "Absolutely! We fully support downloading Instagram Reels in HD quality."},
+            {"question": "Is login required?", "answer": "No, you do not need to log in to your Instagram account or register on our site."},
+            {"question": "Is this tool safe?", "answer": "Yes, our site uses SSL encryption. We do not store your data or downloaded files."},
+            {"question": "Does it work on mobile?", "answer": "Yes, our downloader is responsive and works perfectly on both Android and iOS devices."}
         ]
     },
     "/instagram-reel-downloader": {
@@ -96,27 +142,73 @@ SEO_PAGES = {
         ]
     },
     "/tiktok-video-downloader": {
-        "title": "TikTok Video Downloader - No Watermark (HD MP4)",
-        "description": "Download TikTok videos without watermark. Save TikToks in HD MP4. Fast & free TikTok downloader for mobile and PC.",
-        "h1": "TikTok Video Downloader - No Watermark",
+        "title": "Download TikTok Video Without Watermark - Fast, Free, HD & Online",
+        "description": "Download TikTok video without watermark online for free. Save HD TikToks securely. Best TikTok video downloader no watermark for Android, iPhone & PC.",
+        "h1": "Download TikTok Video Without Watermark",
         "subtitle": "Remove Watermark from TikTok Videos Instantly",
-        "tool_name": "TikTok Downloader",
-        "intro_text": "TikTok videos are great, but the bouncing watermark is annoying. Use our tool to download clean, watermark-free TikToks. Perfect for sharing on other platforms like Reels or Shorts.",
+        "tool_name": "TikTok Video Downloader",
+        "intro_text": """
+        <p>TikTok has taken the world by storm with its short, catchy, and creative videos. From viral dance challenges to life hacks, there is so much content we love to watch and share. However, sharing these videos outside the app often comes with a frustrating problem: the bouncing watermark. This logo not only distracts from the content but also covers important parts of the video.</p>
+        <p>If you have been searching for a way to <strong>download TikTok video</strong> content clean and clear, you are in the right place. Our <strong>TikTok Video Downloader Without Watermark</strong> offers a seamless solution. It allows you to save your favorite TikToks in original High Definition (HD) quality, completely free of charge. Whether for your personal collection, ease of sharing, or offline viewing, we make it simple.</p>
+        """,
         "keyword": "TikTok video",
         "platform": "TikTok",
         "steps": [
-            {"title": "Step 1: Share & Copy", "desc": "In TikTok, tap 'Share' -> 'Copy Link'."},
-            {"title": "Step 2: Paste Link", "desc": "Paste the link here to remove the watermark."},
-            {"title": "Step 3: Download", "desc": "Get your clean HD video in seconds."}
+            {"title": "Step 1: Copy Link", "desc": "Open TikTok, tap 'Share' (arrow icon) and select 'Copy Link'."},
+            {"title": "Step 2: Paste URL", "desc": "Paste the link here to process the video."},
+            {"title": "Step 3: Download", "desc": "Get your clean HD video without watermark in seconds."}
         ],
         "features": [
-            {"title": "Watermark Remover", "desc": "Advanced AI removes the TikTok logo completely."},
-            {"title": "High Speed", "desc": "Optimized for valid TikTok links."},
-            {"title": "MP4/MP3", "desc": "Save video or just the sound."}
+            {"title": "🚫 No Watermark", "desc": "Completely removes the TikTok logo and username overlay."},
+            {"title": "✨ High Quality", "desc": "Get the video in original HD brilliance."},
+            {"title": "💸 Free Forever", "desc": "No subscriptions, unlimited downloads."},
+            {"title": "⚡ Lightning Fast", "desc": "Process videos in seconds."},
+            {"title": "📱 All Devices", "desc": "Works perfectly on PC, Mac, Android, and iPhone."}
+        ],
+        "extra_sections": [
+            {
+                "title": "How to Download TikTok Videos on Mobile & PC",
+                "content": """
+                <p>Our online downloader is designed to work perfectly on any device with a web browser. Here is a quick guide for your specific device.</p>
+                <h3>On Android</h3>
+                <p>Open Chrome or your preferred browser. Paste the TikTok link into our tool and tap download. The video will be saved to your device's "Downloads" folder.</p>
+                <h3>On iPhone (iOS)</h3>
+                <p>Launch Safari and visit our site. Paste the link and tap download. Tap the blue downloads icon in Safari to find your saved video, then save it to Photos.</p>
+                <h3>On PC (Windows & Mac)</h3>
+                <p>Simply copy the URL from the browser address bar of the TikTok web video. Paste it into our downloader, and the clean MP4 file will be downloaded directly to your computer.</p>
+                """
+            },
+            {
+                "title": "What Types of TikTok Videos Can You Download?",
+                "content": """
+                <p>We support a wide range of content from TikTok, ensuring you can save whatever you enjoy watching.</p>
+                <ul>
+                    <li><strong>Public Videos:</strong> Any video from a public account can be downloaded instantly.</li>
+                    <li><strong>Trending Music Videos:</strong> Save dance covers and music clips.</li>
+                    <li><strong>Educational Clips:</strong> Keep tutorials and life hacks handy for offline reference.</li>
+                    <li><strong>Funny Memes:</strong> Build your own library of the funniest TikToks to share with friends.</li>
+                </ul>
+                """
+            },
+            {
+                "title": "Is It Legal to Download TikTok Videos?",
+                "content": """
+                <p>Downloading videos for <strong>personal use</strong> (like watching offline) is generally considered acceptable. However, you must respect the intellectual property rights of the content creators.</p>
+                <ul>
+                    <li>Do not re-upload downloaded videos as your own work.</li>
+                    <li>Do not use the content for commercial purposes without permission.</li>
+                    <li>Always credit the original creator if you share the video on other platforms.</li>
+                </ul>
+                """
+            }
         ],
         "faqs": [
-            {"question": "Is it free to remove watermarks?", "answer": "Yes, our watermark removal tool is completely free."},
-            {"question": "Does it work on TikTok Lite?", "answer": "Yes, links from both the main app and Lite app work."}
+            {"question": "Can I download TikTok videos without watermark?", "answer": "Yes! Our core feature is removing the watermark so you get a clean, high-quality video."},
+            {"question": "Is this TikTok downloader free?", "answer": "Yes, it is 100% free. You can download as many videos as you want without paying a cent."},
+            {"question": "Does it work on iPhone and Android?", "answer": "Yes, our tool is web-based and works perfectly on all mobile browsers including Safari and Chrome."},
+            {"question": "Is login required?", "answer": "No, we do not require you to sign up or log in. Your privacy is important to us."},
+            {"question": "Is it safe to use?", "answer": "Absolutely. Our site is secure, and we do not store your download history or the videos you process."},
+            {"question": "Can I download private TikTok videos?", "answer": "No, we can only access and download videos that are set to 'Public'."}
         ]
     },
     "/youtube-video-downloader": {
@@ -165,6 +257,100 @@ SEO_PAGES = {
         "faqs": [
             {"question": "What is the max length?", "answer": "We support videos up to 2 hours long."},
             {"question": "Is there a limit?", "answer": "No, convert as many videos as you like."}
+        ]
+    },
+    "/tiktok-mp3-downloader": {
+        "title": "TikTok to MP3 Converter - Download TikTok Audio",
+        "description": "Convert TikTok videos to MP3 audio. High quality sound extraction. Fast, free TikTok MP3 downloader for mobile and PC.",
+        "h1": "TikTok to MP3 Converter",
+        "subtitle": "Extract Audio from TikTok Videos Instantly",
+        "tool_name": "TikTok MP3 Converter",
+        "intro_text": "Love a song or sound on TikTok? Use our tool to extract the audio and save it as an MP3 file directly to your device.",
+        "keyword": "TikTok MP3",
+        "platform": "TikTok",
+        "steps": [
+            {"title": "Step 1: Copy Link", "desc": "Copy the TikTok video link."},
+            {"title": "Step 2: Paste Link", "desc": "Paste it here and click Download."},
+            {"title": "Step 3: Save Audio", "desc": "Download the extracted MP3 file."}
+        ],
+        "features": [
+            {"title": "Clear Audio", "desc": "Extracts the original high-quality audio."},
+            {"title": "Fast", "desc": "No waiting, get your MP3 in seconds."},
+            {"title": "Free", "desc": "Unlimited conversions for free."}
+        ],
+        "faqs": [
+            {"question": "Can I use the sound for my videos?", "answer": "Yes, you can use it for personal projects."}
+        ]
+    },
+    "/youtube-shorts-downloader": {
+        "title": "YouTube Shorts Downloader - Save Shorts Video HD",
+        "description": "Download YouTube Shorts videos in HD. Free online Shorts saver. Save YT Shorts to gallery.",
+        "h1": "YouTube Shorts Downloader",
+        "subtitle": "Download YouTube Shorts in HD Quality",
+        "tool_name": "YouTube Shorts Downloader",
+        "intro_text": "YouTube Shorts are addictive, but you can't watch them offline easily. Our downloader lets you save any Short to your phone or PC in high definition.",
+        "keyword": "YouTube Shorts",
+        "platform": "YouTube Shorts",
+        "steps": [
+            {"title": "Step 1: Copy Link", "desc": "Tap 'Share' on the Short and copy the link."},
+            {"title": "Step 2: Paste", "desc": "Paste the link in the box above."},
+            {"title": "Step 3: Download", "desc": "Save the video in HD format."}
+        ],
+        "features": [
+            {"title": "HD Quality", "desc": "Save Shorts in their original quality."},
+            {"title": "Unlimited", "desc": "Download as many Shorts as you want."},
+            {"title": "No Login", "desc": "No account required."}
+        ],
+        "faqs": [
+            {"question": "Do you watermark Shorts?", "answer": "No, we provide clean videos."}
+        ]
+    },
+    "/x-video-downloader": {
+        "title": "X Video Downloader - Download Twitter Videos",
+        "description": "Download videos from X (formerly Twitter). Save X videos and GIFs in HD. Free Twitter video downloader.",
+        "h1": "X (Twitter) Video Downloader",
+        "subtitle": "Save Videos & GIFs from X (Twitter)",
+        "tool_name": "X Video Downloader",
+        "intro_text": "Save videos and GIFs from X (Twitter) directly to your device. Whether it's a news clip, a funny meme, or a sports highlight, keep it offline forever.",
+        "keyword": "X video",
+        "platform": "X (Twitter)",
+        "steps": [
+            {"title": "Step 1: Copy Link", "desc": "Click the share icon on the X post and copy the link."},
+            {"title": "Step 2: Paste Link", "desc": "Paste the X link into our downloader."},
+            {"title": "Step 3: Download", "desc": "Choose your resolution and save."}
+        ],
+        "features": [
+            {"title": "HD Support", "desc": "Download in the best available quality."},
+            {"title": "GIF Support", "desc": "Also works for saving GIFs from tweets."},
+            {"title": "Private & Secure", "desc": "We don't track your downloads."}
+        ],
+        "faqs": [
+            {"question": "Can I download from private accounts?", "answer": "No, only public tweets are supported."},
+            {"question": "Is it free?", "answer": "Yes, completely free forever."}
+        ]
+    },
+    "/snapchat-video-downloader": {
+        "title": "Snapchat Video Downloader - Save Spotlight & Stories",
+        "description": "Download Snapchat videos, Spotlight, and Stories. Save Snap videos in HD MP4. Free Snapchat downloader online.",
+        "h1": "Snapchat Video Downloader",
+        "subtitle": "Download Snapchat Videos & Stories Instantly",
+        "tool_name": "Snapchat Downloader",
+        "intro_text": "Found a funny Snap or an amazing Spotlight video? Use our Snapchat Downloader to save it to your gallery before it disappears.",
+        "keyword": "Snapchat video",
+        "platform": "Snapchat",
+        "steps": [
+            {"title": "Step 1: Copy Link", "desc": "Tap 'Share' on the Snap or Spotlight and copy the link."},
+            {"title": "Step 2: Paste Link", "desc": "Paste the link here to process the video."},
+            {"title": "Step 3: Download", "desc": "Save the Snap video in HD to your device."}
+        ],
+        "features": [
+            {"title": "Spotlight Support", "desc": "Download public Spotlight videos easily."},
+            {"title": "Anonymous", "desc": "Save videos without notifying the user."},
+            {"title": "High Quality", "desc": "Keep the original video quality."}
+        ],
+        "faqs": [
+            {"question": "Can I download private Snaps?", "answer": "No, only public Spotlight and Story videos are supported."},
+            {"question": "Do you persist the videos?", "answer": "No, we do not store any content on our servers."}
         ]
     }
 }

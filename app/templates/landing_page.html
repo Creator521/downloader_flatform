@@ -34,191 +34,6 @@
 {% endblock %}
 
 {% block extra_css %}
-<style>
-    .hero-section {
-        text-align: center;
-        padding: 50px 0;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        margin-bottom: 40px;
-    }
-
-    .hero-h1 {
-        font-size: 36px;
-        margin-bottom: 15px;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .input-group {
-        max-width: 600px;
-        margin: 30px auto;
-        position: relative;
-        display: flex;
-        gap: 10px;
-    }
-
-    .url-input {
-        flex: 1;
-        padding: 15px 20px;
-        border: 2px solid #e2e8f0;
-        border-radius: 50px;
-        font-size: 16px;
-        outline: none;
-        transition: 0.3s;
-    }
-
-    .url-input:focus {
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-    }
-
-    .download-btn {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        border: none;
-        padding: 0 40px;
-        border-radius: 50px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .download-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-    }
-
-    .content-grid {
-        display: grid;
-        grid-template-columns: 1fr 300px;
-        gap: 40px;
-    }
-
-    .main-article {
-        background: white;
-        padding: 40px;
-        border-radius: 15px;
-    }
-
-    .sidebar {
-        position: sticky;
-        top: 20px;
-    }
-
-    @media (max-width: 768px) {
-        .content-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .sidebar {
-            display: none;
-        }
-
-        /* Hide sidebar on mobile or move to bottom */
-        .hero-h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .hero-section {
-            padding: 30px 15px;
-            /* Reduced padding */
-        }
-
-        .input-group {
-            flex-direction: column;
-            margin: 20px auto;
-        }
-
-        .download-btn {
-            padding: 15px;
-            width: 100%;
-            /* Full width button */
-        }
-
-        .subtitle {
-            font-size: 16px !important;
-        }
-    }
-
-    /* Preview Card Styles */
-    .preview-card {
-        margin-top: 30px;
-        border: 1px solid #e2e8f0;
-        padding: 20px;
-        border-radius: 15px;
-        display: none;
-        text-align: left;
-    }
-
-    .preview-flex {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    .preview-thumb {
-        width: 200px;
-        border-radius: 10px;
-        object-fit: cover;
-    }
-
-    .preview-info {
-        flex: 1;
-    }
-
-    .meta-tag {
-        display: inline-block;
-        background: #edf2f7;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 12px;
-        margin-right: 10px;
-        color: #4a5568;
-    }
-
-    .download-options {
-        margin-top: 15px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    .dl-btn-option {
-        padding: 10px 20px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 500;
-        text-align: center;
-        flex: 1;
-        min-width: 140px;
-        cursor: pointer;
-    }
-
-    .dl-video {
-        background: #48bb78;
-        color: white;
-        border: none;
-    }
-
-    .dl-audio {
-        background: #ed8936;
-        color: white;
-        border: none;
-    }
-
-    .error-msg {
-        color: #e53e3e;
-        background: #fff5f5;
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 20px;
-        display: none;
-    }
-</style>
 {% endblock %}
 
 {% block content %}
@@ -238,6 +53,14 @@
     <form id="downloadForm" class="input-group" onsubmit="handleDownload(event)">
         <input type="text" id="urlInput" class="url-input" placeholder="Paste {{ page.platform }} link here..."
             required>
+        <button type="button" class="paste-btn" onclick="handlePaste()" title="Paste from clipboard">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+            </svg>
+            Paste
+        </button>
         <button type="submit" class="download-btn">Download</button>
     </form>
 
@@ -310,6 +133,18 @@
             {% endfor %}
         </ul>
 
+        <!-- Extra Sections (SEO Content) -->
+        {% if page.extra_sections %}
+        {% for section in page.extra_sections %}
+        <div class="extra-section" style="margin-top: 40px;">
+            <h2 style="margin-bottom: 20px;">{{ section.title }}</h2>
+            <div style="color: #4a5568; line-height: 1.6;">
+                {{ section.content | safe }}
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
         <!-- FAQ Section -->
         <h2 style="margin-top: 40px; margin-bottom:20px;">Frequently Asked Questions</h2>
         <div class="faq-section">
@@ -376,10 +211,16 @@
             <ul style="list-style: none;">
                 <li style="margin-bottom:10px;"><a href="/instagram-reel-downloader"
                         style="color: #667eea; text-decoration: none;">Instagram Reels</a></li>
+                <li style="margin-bottom:10px;"><a href="/tiktok-video-downloader"
+                        style="color: #667eea; text-decoration: none;">TikTok Video (No Watermark)</a></li>
                 <li style="margin-bottom:10px;"><a href="/tiktok-mp3-downloader"
                         style="color: #667eea; text-decoration: none;">TikTok MP3</a></li>
                 <li style="margin-bottom:10px;"><a href="/youtube-shorts-downloader"
                         style="color: #667eea; text-decoration: none;">YouTube Shorts</a></li>
+                <li style="margin-bottom:10px;"><a href="/x-video-downloader"
+                        style="color: #667eea; text-decoration: none;">X (Twitter) Video</a></li>
+                <li style="margin-bottom:10px;"><a href="/snapchat-video-downloader"
+                        style="color: #667eea; text-decoration: none;">Snapchat Video</a></li>
             </ul>
         </div>
     </aside>
@@ -388,102 +229,4 @@
 {% endblock %}
 
 {% block extra_js %}
-<script>
-    let currentVideoData = null;
-
-    async function handleDownload(e) {
-        e.preventDefault();
-        const url = document.getElementById('urlInput').value;
-        const loading = document.getElementById('loading');
-        const result = document.getElementById('result');
-        const error = document.getElementById('error');
-
-        if (!url) return;
-
-        // Reset UI
-        loading.style.display = 'block';
-        result.style.display = 'none';
-        error.style.display = 'none';
-
-        try {
-            const formData = new FormData();
-            formData.append('url', url);
-
-            const res = await fetch('/preview', {
-                method: 'POST',
-                body: formData
-            });
-
-            const data = await res.json();
-
-            if (!res.ok) throw new Error(data.detail || 'Failed to fetch video');
-
-            currentVideoData = { url: data.video_url, original_input: url }; // Check backend response structure
-
-            // Update UI
-            document.getElementById('thumb').src = data.thumbnail;
-            document.getElementById('videoTitle').innerText = data.title;
-            document.getElementById('uploader').innerText = data.uploader || 'Unknown';
-            document.getElementById('views').innerText = data.view_count || 'N/A';
-            document.getElementById('duration').innerText = data.duration || 'N/A';
-
-            result.style.display = 'block';
-        } catch (err) {
-            error.innerText = err.message;
-            error.style.display = 'block';
-        } finally {
-            loading.style.display = 'none';
-        }
-    }
-
-    async function triggerDownload(format) {
-        const status = document.getElementById('loading'); // Reuse loading div
-        status.innerText = "Downloading...";
-        status.style.display = 'block';
-
-        try {
-            const formData = new FormData();
-            formData.append('url', document.getElementById('urlInput').value);
-            formData.append('format', format); // Pass format
-
-            const res = await fetch('/download', {
-                method: 'POST',
-                body: formData
-            });
-
-            if (!res.ok) {
-                const err = await res.json();
-                throw new Error(err.detail || "Download failed");
-            }
-
-            const blob = await res.blob();
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            // Try to get filename from header or fallback
-            const disposition = res.headers.get('Content-Disposition');
-            let filename = 'video.mp4';
-            if (disposition && disposition.indexOf('attachment') !== -1) {
-                var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
-                var matches = filenameRegex.exec(disposition);
-                if (matches != null && matches[1]) {
-                    filename = matches[1].replace(/['"]/g, '');
-                }
-            }
-            if (format === 'audio' && !filename.endsWith('.m4a') && !filename.endsWith('.mp3')) {
-                filename = filename.replace(/\.[^/.]+$/, ".m4a");
-            }
-
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            status.innerText = "Download Complete!";
-            setTimeout(() => { status.style.display = 'none'; status.innerText = "Processing..."; }, 3000);
-        } catch (err) {
-            alert("Error: " + err.message);
-            status.style.display = 'none';
-        }
-    }
-</script>
 {% endblock %}

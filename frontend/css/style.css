@@ -1,0 +1,353 @@
+/* Global Styles from base.html */
+:root {
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --text: #333;
+    --bg: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ad Banner (Header) */
+.ad-banner-header {
+    width: 100%;
+    max-width: 728px;
+    height: 90px;
+    background: #eee;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+/* Footer */
+footer {
+    background: #2d3748;
+    color: white;
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.footer-links h3 {
+    color: #ffdc80;
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: #a0aec0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        /* Adjust based on header height */
+        right: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 200px;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        color: #333 !important;
+        /* Override white text for mobile dropdown */
+        font-weight: 600;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Styles from landing_page.html */
+.hero-section {
+    text-align: center;
+    padding: 50px 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.hero-h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    background-clip: text; /* Standard property */
+    -webkit-text-fill-color: transparent;
+}
+
+.input-group {
+    max-width: 600px;
+    margin: 30px auto;
+    position: relative;
+    display: flex;
+    gap: 10px;
+}
+
+.url-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.url-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.paste-btn {
+    background: #edf2f7;
+    color: #4a5568;
+    border: 2px solid #e2e8f0;
+    padding: 0 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.paste-btn:hover {
+    background: #e2e8f0;
+    border-color: #cbd5e0;
+    transform: translateY(-2px);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+}
+
+.main-article {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    /* Hide sidebar on mobile or move to bottom */
+    .hero-h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .hero-section {
+        padding: 30px 15px;
+        /* Reduced padding */
+    }
+
+    .input-group {
+        flex-direction: column;
+        margin: 20px auto;
+    }
+
+    .download-btn {
+        padding: 15px;
+        width: 100%;
+        /* Full width button */
+    }
+
+    .subtitle {
+        font-size: 16px !important;
+    }
+}
+
+/* Preview Card Styles */
+.preview-card {
+    margin-top: 30px;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 15px;
+    display: none;
+    text-align: left;
+}
+
+.preview-flex {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.preview-thumb {
+    width: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.preview-info {
+    flex: 1;
+}
+
+.meta-tag {
+    display: inline-block;
+    background: #edf2f7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 10px;
+    color: #4a5568;
+}
+
+.download-options {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.dl-btn-option {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+    cursor: pointer;
+}
+
+.dl-video {
+    background: #48bb78;
+    color: white;
+    border: none;
+}
+
+.dl-audio {
+    background: #ed8936;
+    color: white;
+    border: none;
+}
+
+.error-msg {
+    color: #e53e3e;
+    background: #fff5f5;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: none;
+}

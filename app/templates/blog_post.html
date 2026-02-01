@@ -9,7 +9,7 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "{{ post.title }}",
-  "image": "https://yourdomain.com/static/images/blog-placeholder.jpg",  
+  "image": "{{ domain_name }}/static/images/blog-placeholder.jpg",  
   "author": {
     "@type": "Person",
     "name": "{{ post.author }}"
@@ -19,7 +19,7 @@
     "name": "NoteDownloader",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://yourdomain.com/static/logo.png"
+      "url": "{{ domain_name }}/static/logo.png"
     }
   },
   "datePublished": "{{ post.date }}",

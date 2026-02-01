@@ -15,102 +15,7 @@
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
 
     <!-- Critical CSS -->
-    <style>
-        :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --text: #333;
-            --bg: #f8f9fa;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 20px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Ad Banner (Header) */
-        .ad-banner-header {
-            width: 100%;
-            max-width: 728px;
-            height: 90px;
-            background: #eee;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-        }
-
-        /* Footer */
-        footer {
-            background: #2d3748;
-            color: white;
-            padding: 40px 0;
-            margin-top: 60px;
-        }
-
-        .footer-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-links h3 {
-            color: #ffdc80;
-            margin-bottom: 15px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: #a0aec0;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/style.css">
 
     {% block extra_css %}{% endblock %}
 
@@ -120,61 +25,7 @@
 
 <body>
 
-    <style>
-        /* Previous styles remain... */
 
-        /* Mobile Menu Styles */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                /* Adjust based on header height */
-                right: 20px;
-                background: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                width: 200px;
-                z-index: 1000;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                color: #333 !important;
-                /* Override white text for mobile dropdown */
-                font-weight: 600;
-                padding: 10px 0;
-                border-bottom: 1px solid #eee;
-            }
-
-            .nav-links a:last-child {
-                border-bottom: none;
-            }
-        }
-    </style>
     </head>
 
     <body>
@@ -194,11 +45,7 @@
             </div>
         </header>
 
-        <script>
-            function toggleMenu() {
-                document.querySelector('.nav-links').classList.toggle('active');
-            }
-        </script>
+
 
         {# Header Ad Slot (Disabled for AdSense Review) #}
         {#
@@ -249,6 +96,7 @@
         <script>
             // Global scripts
         </script>
+        <script src="/static/js/main.js" defer></script>
         {% block extra_js %}{% endblock %}
 
     </body>

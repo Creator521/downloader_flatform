@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Form, HTTPException, BackgroundTasks, Request
 from fastapi.middleware.cors import CORSMiddleware
+# Trigger reload for template update
 from fastapi.responses import FileResponse, HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -13,15 +14,19 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import functools
 import time
+import requests
+from urllib.parse import quote
 
 limiter = Limiter(key_func=get_remote_address)
 app = FastAPI()
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# Simple In-Memory Cache for Preview
-# Dict[URL, (Timestamp, Data)]
-PREVIEW_CACHE = {}
+import redis
+
+# Redis Configuration
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+redis_client = redis.from_url(REDIS_URL, decode_responses=True)
 CACHE_DURATION = 3600 # 1 Hour
 
 app.add_middleware(
@@ -31,8 +36,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/static", StaticFiles(directory="e:/downloader_flatform/frontend"), name="static")
-templates = Jinja2Templates(directory="e:/downloader_flatform/app/templates")
+
+from pathlib import Path
+
+# ... existing code ...
+
+app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent / "frontend"), name="static")
+templates = Jinja2Templates(directory=Path(__file__).parent / "templates")
+
 
 TEMP_DIR = "temp"
 os.makedirs(TEMP_DIR, exist_ok=True)
@@ -98,7 +109,11 @@ async def blog_post(request: Request, slug: str):
     post = BLOG_POSTS.get(slug)
     if not post:
         raise HTTPException(status_code=404, detail="Blog post not found")
-    return templates.TemplateResponse("blog_post.html", {"request": request, "post": post})
+    domain_name = os.getenv("DOMAIN_NAME", "yourdomain.com")
+    if not domain_name.startswith("http"):
+        domain_name = f"http://{domain_name}"
+        
+    return templates.TemplateResponse("blog_post.html", {"request": request, "post": post, "domain_name": domain_name})
 
 # 🔹 LEGAL ROUTES
 @app.get("/about-us", response_class=HTMLResponse)
@@ -175,24 +190,47 @@ async def dmca(request: Request):
 async def sitemap():
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    base = "http://yourdomain.com" # Should be config
+    base = os.getenv("DOMAIN_NAME", "yourdomain.com") 
+    if not base.startswith("http"):
+        base = f"http://{base}"
+
     for path in SEO_PAGES:
         xml += f'  <url><loc>{base}{path}</loc><changefreq>daily</changefreq></url>\n'
     xml += '</urlset>'
     return HTMLResponse(content=xml, media_type="application/xml")
 
+import requests
+from urllib.parse import quote
+
+# ... (keep existing imports)
+
+# 🔹 PROXY IMAGE ROUTE (Fix for Instagram Thumbnails)
+@app.get("/proxy-image")
+def proxy_image(url: str):
+    if not url:
+        raise HTTPException(status_code=404, detail="URL required")
+    try:
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            "Referer": "https://www.instagram.com/"
+        }
+        resp = requests.get(url, headers=headers, stream=True, timeout=10)
+        return StreamingResponse(resp.raw, media_type=resp.headers.get("Content-Type", "image/jpeg"))
+    except Exception:
+        raise HTTPException(status_code=404, detail="Image not found")
 
 # 🔹 PREVIEW API
 @app.post("/preview")
 @limiter.limit("10/minute")
 def preview(request: Request, url: str = Form(...)):
-    # Check Cache
-    if url in PREVIEW_CACHE:
-        timestamp, data = PREVIEW_CACHE[url]
-        if time.time() - timestamp < CACHE_DURATION:
-            return data
-        else:
-            del PREVIEW_CACHE[url] # Expired
+    # Check Cache (Redis)
+    try:
+        cached_data = redis_client.get(url)
+        if cached_data:
+            return json.loads(cached_data)
+    except Exception as e:
+        print(f"Redis Error: {e}")
+
     ydl_opts = {
         "quiet": True,
         "skip_download": True
@@ -202,13 +240,25 @@ def preview(request: Request, url: str = Form(...)):
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
             
+        # PROXY THUMBNAIL IF NEEDED
+        thumb = info.get("thumbnail")
+        if thumb and ("instagram.com" in thumb or "fbcdn" in thumb):
+            thumb = f"/proxy-image?url={quote(thumb)}"
+
         data = {
             "title": info.get("title"),
-            "thumbnail": info.get("thumbnail"),
-            "video_url": info.get("url")
+            "thumbnail": thumb,
+            "video_url": info.get("url"),
+            "uploader": info.get("uploader"),
+            "view_count": info.get("view_count"),
+            "duration": info.get("duration")
         }
-        # Save to Cache
-        PREVIEW_CACHE[url] = (time.time(), data)
+        # Save to Cache (Redis)
+        try:
+            redis_client.setex(url, CACHE_DURATION, json.dumps(data))
+        except Exception as e:
+            print(f"Redis Save Error: {e}")
+            
         return data
     except yt_dlp.utils.DownloadError as e:
         raise HTTPException(status_code=400, detail=f"Invalid video URL: {str(e)}")
