@@ -4,11 +4,6 @@ yt-dlp
 python-multipart
 slowapi
 gunicorn
-fastapi
-uvicorn
-yt-dlp
-python-multipart
-slowapi
-gunicorn
 jinja2
 redis
+requests

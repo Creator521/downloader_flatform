@@ -9,6 +9,7 @@ import os
 import json
 from app.seo_data import SEO_PAGES
 from app.blog_data import BLOG_POSTS
+from app.proxy_utils import ProxyManager
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
@@ -21,6 +22,8 @@ limiter = Limiter(key_func=get_remote_address)
 app = FastAPI()
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+proxy_manager = ProxyManager()
 
 import redis
 
@@ -233,8 +236,13 @@ def preview(request: Request, url: str = Form(...)):
 
     ydl_opts = {
         "quiet": True,
-        "skip_download": True
+        "skip_download": True,
+        "cookiefile": proxy_manager.get_cookie_file(),
     }
+    
+    proxy = proxy_manager.get_proxy()
+    if proxy:
+        ydl_opts["proxy"] = proxy
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -275,8 +283,13 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
     # 1. Get Metadata first (lightweight)
     ydl_opts_meta = {
         "quiet": True,
-        "skip_download": True
+        "skip_download": True,
+        "cookiefile": proxy_manager.get_cookie_file(),
     }
+    
+    proxy = proxy_manager.get_proxy()
+    if proxy:
+        ydl_opts_meta["proxy"] = proxy
     
     try:
         with yt_dlp.YoutubeDL(ydl_opts_meta) as ydl:
@@ -314,8 +327,19 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         "--output", "-",           # Output to stdout
         "--format", format_code,
         "--quiet",                 # No logs in stdout
-        url
     ]
+    
+    # Add Cookie File
+    cookie_file = proxy_manager.get_cookie_file()
+    if cookie_file:
+        cmd.extend(["--cookies", cookie_file])
+
+    # Add Proxy
+    proxy = proxy_manager.get_proxy()
+    if proxy:
+        cmd.extend(["--proxy", proxy])
+        
+    cmd.append(url)
 
     try:
         # bufsize=0 ensures unbuffered output for smoother streaming

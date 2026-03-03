@@ -6,12 +6,14 @@ services:
     container_name: video_downloader
     restart: always
     environment:
-      - WORKERS=4
+      - WORKERS=8
       - DOMAIN_NAME=${DOMAIN_NAME:-localhost}
       - REDIS_URL=redis://redis:6379/0
     volumes:
       - ./temp:/app/temp
       - ./app/templates:/app/app/templates # Hot reload for templates
+      - ./proxies.txt:/app/proxies.txt
+      - ./cookies.txt:/app/cookies.txt
     depends_on:
       - redis
 

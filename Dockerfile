@@ -23,4 +23,4 @@ EXPOSE 8000
 
 # Run the application with Gunicorn for production
 # Workers = 4 usually good for general use, or 2*CPU+1
-CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "app.main:app", "--bind", "0.0.0.0:8000"]
+CMD gunicorn -w ${WORKERS:-4} -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
