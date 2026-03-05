@@ -1,104 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Universal Video Downloader{% endblock %}</title>
     <meta name="description" content="{% block description %}Free online video downloader.{% endblock %}">
-
-    <!-- Canonical Tag -->
     <link rel="canonical" href="{{ request.url }}">
-
-    <!-- Favicon -->
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
-
-    <!-- Critical CSS -->
-    <link rel="stylesheet" href="/static/css/style.css">
-
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
+    <link rel="stylesheet" href="/downloader/static/css/style.css">
     {% block extra_css %}{% endblock %}
-
-    <!-- JSON-LD Utils -->
     {% block schema %}{% endblock %}
 </head>
-
 <body>
 
+<header>
+    <div class="container header-content">
+        <a href="/downloader/" class="logo"><span>📥</span> ReelDownloader</a>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <nav class="nav-links">
+            <a href="/downloader/" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
+            <a href="/downloader/blog" style="color: white; text-decoration: none; font-weight: 500;">Blog</a>
+            <a href="/downloader/about-us" style="color: white; text-decoration: none; font-weight: 500;">About</a>
+            <a href="/downloader/contact-us" style="color: white; text-decoration: none; font-weight: 500;">Contact</a>
+        </nav>
+    </div>
+</header>
 
-    </head>
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
 
-    <body>
-
-        <header>
-            <div class="container header-content">
-                <a href="/" class="logo"><span>📥</span> ReelDownloader</a>
-
-                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-
-                <nav class="nav-links">
-                    <a href="/" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
-                    <a href="/blog" style="color: white; text-decoration: none; font-weight: 500;">Blog</a>
-                    <a href="/about-us" style="color: white; text-decoration: none; font-weight: 500;">About</a>
-                    <a href="/contact-us" style="color: white; text-decoration: none; font-weight: 500;">Contact</a>
-                </nav>
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <div>
+                <h3>Tools</h3>
+                <ul>
+                    <li><a href="/downloader/instagram-video-downloader">Instagram Downloader</a></li>
+                    <li><a href="/downloader/tiktok-video-downloader">TikTok Downloader</a></li>
+                    <li><a href="/downloader/youtube-video-downloader">YouTube Downloader</a></li>
+                </ul>
             </div>
-        </header>
-
-
-
-        {# Header Ad Slot (Disabled for AdSense Review) #}
-        {#
-        <div class="container">
-            {% include "components/ads.html" with context %}
+            <div>
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="/downloader/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/downloader/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/downloader/disclaimer">Disclaimer</a></li>
+                    <li><a href="/downloader/dmca">DMCA</a></li>
+                </ul>
+            </div>
         </div>
-        #}
+        <div style="text-align: center; margin-top: 40px; border-top: 1px solid #4a5568; padding-top: 20px;">
+            <p>&copy; 2026 ReelDownloader. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
-        <!-- Main Content -->
-        <main class="container">
-            {% block content %}{% endblock %}
-        </main>
+<script src="/downloader/static/js/main.js" defer></script>
+{% block extra_js %}{% endblock %}
 
-        <footer>
-            <div class="container">
-                <div class="footer-links">
-                    <div>
-                        <h3>Tools</h3>
-                        <ul>
-                            <li><a href="/instagram-video-downloader">Instagram Downloader</a></li>
-                            <li><a href="/tiktok-video-downloader">TikTok Downloader</a></li>
-                            <li><a href="/youtube-video-downloader">YouTube Downloader</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Legal</h3>
-                        <ul>
-                            <li><a href="/privacy-policy">Privacy Policy</a></li>
-                            <li><a href="/terms-of-service">Terms of Service</a></li>
-                            <li><a href="/disclaimer">Disclaimer</a></li>
-                            <li><a href="/dmca">DMCA</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 40px; border-top: 1px solid #4a5568; padding-top: 20px;">
-                    <p>&copy; 2026 ReelDownloader. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
-
-        {# Sticky Footer Ad (Disabled for AdSense Review) #}
-        {#
-        {% with ad_type='sticky_footer' %}
-        {% include "components/ads.html" %}
-        {% endwith %}
-        #}
-
-        <script>
-            // Global scripts
-        </script>
-        <script src="/static/js/main.js" defer></script>
-        {% block extra_js %}{% endblock %}
-
-    </body>
-
+</body>
 </html>
