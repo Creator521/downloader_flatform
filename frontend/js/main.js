@@ -35,7 +35,7 @@ async function handleDownload(e) {
         const formData = new FormData();
         formData.append('url', url);
 
-        const res = await fetch('/preview', {
+        const res = await fetch('/downloader/preview', {
             method: 'POST',
             body: formData
         });
@@ -70,7 +70,7 @@ async function triggerDownload(format) {
         formData.append('url', document.getElementById('urlInput').value);
         formData.append('format', format); // Pass format
 
-        const res = await fetch('/download', {
+        const res = await fetch('/downloader/download', {
             method: 'POST',
             body: formData
         });
