@@ -25,13 +25,13 @@ BLOG_POSTS = {
             </ul>
 
             <h2>How to Download Instagram Reels Online (Step-by-Step)</h2>
-            <p>Ready to save your first Reel? Follow these simple steps to use our <strong><a href="/instagram-reel-downloader">Instagram Reels Downloader</a></strong>. It works efficiently on any browser, including Chrome, Safari, and Firefox.</p>
+            <p>Ready to save your first Reel? Follow these simple steps to use our <strong><a href="/downloader/instagram-reel-downloader">Instagram Reels Downloader</a></strong>. It works efficiently on any browser, including Chrome, Safari, and Firefox.</p>
 
             <h3>Step 1: Copy the Reel Link</h3>
             <p>Open the Instagram app or website. Find the Reel you want to download. Tap the <strong>three dots (⋮)</strong> or the <strong>Share (paper plane) icon</strong> at the bottom right of the screen. Select the <strong>"Copy Link"</strong> option.</p>
             
             <h3>Step 2: Paste the Link</h3>
-            <p>Navigate to our <a href="/">Universal Video Downloader</a> homepage. You will see a search box at the top. <strong>Paste the copied link</strong> into this box.</p>
+            <p>Navigate to our <a href="/downloader/">Universal Video Downloader</a> homepage. You will see a search box at the top. <strong>Paste the copied link</strong> into this box.</p>
 
             <h3>Step 3: Download in HD</h3>
             <p>Click the <strong>"Download"</strong> button. Our system will fetch the video details in seconds. You will see options to download the video in various qualities (720p, 1080p). Click the download button next to the highest quality to save the <strong>Instagram Reel mp4</strong> to your device.</p>
@@ -72,7 +72,7 @@ BLOG_POSTS = {
             <p>Absolutely not. Instagram does not notify creators when you download their content through third-party tools. Your download is completely anonymous.</p>
 
             <h3>Can I download Instagram audio/mp3 only?</h3>
-            <p>Yes! If you only want the trending song or dialogue from a Reel, use our <a href="/instagram-audio-downloader">Instagram Audio Downloader</a> feature to extract high-quality MP3s.</p>
+            <p>Yes! If you only want the trending song or dialogue from a Reel, use our <a href="/downloader/instagram-audio-downloader">Instagram Audio Downloader</a> feature to extract high-quality MP3s.</p>
 
             <h2>Conclusion</h2>
             <p>Saving your favorite moments from Instagram shouldn't be complicated. With our <strong>free Instagram Reels downloader</strong>, you can save HD videos directly to your gallery in seconds, without watermarks or app installations.</p>
@@ -108,7 +108,7 @@ BLOG_POSTS = {
             <p>Open Instagram and locate the video. Ensure the video looks crisp on your screen (wait for it to buffer fully). Tap the <strong>three dots (⋮)</strong> and select <strong>"Copy Link"</strong>.</p>
             
             <h3>Step 2: Use Our HD Downloader</h3>
-            <p>Go to our <a href="/">Universal Video Downloader</a>. Paste the link into the input field. Using a web-based tool is superior to apps because it accesses the direct CDN link.</p>
+            <p>Go to our <a href="/downloader/">Universal Video Downloader</a>. Paste the link into the input field. Using a web-based tool is superior to apps because it accesses the direct CDN link.</p>
 
             <h3>Step 3: Choose 1080p Resolution</h3>
             <p>Once you click "Download", our system upgrades the fetch request. You will often see multiple quality options. Always look for <strong>1080p</strong> or <strong>Original</strong> quality. Click the download button next to it.</p>
@@ -561,7 +561,7 @@ BLOG_POSTS = {
         <p>TikTok's watermark is iconic, but sometimes you want a clean video for your personal archive or to share on other platforms without the bouncing logo distracting your viewers.</p>
         
         <h2>Method 1: Using an Online Downloader (Recommended)</h2>
-        <p>The safest and fastest method is to use a web-based tool like our <a href="/tiktok-video-downloader">TikTok Video Downloader</a>. It requires no installation:</p>
+        <p>The safest and fastest method is to use a web-based tool like our <a href="/downloader/tiktok-video-downloader">TikTok Video Downloader</a>. It requires no installation:</p>
         <ol>
             <li>Copy the link from the TikTok app.</li>
             <li>Paste it into the downloader.</li>
