@@ -22,5 +22,5 @@ jobs:
         script: |
           cd /opt/downloader
           git pull origin main
-          docker compose down
-          docker compose up -d --build
+          docker compose build app
+          docker compose up -d --no-deps app

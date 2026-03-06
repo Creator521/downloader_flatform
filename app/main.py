@@ -212,6 +212,21 @@ from urllib.parse import quote
 def proxy_image(url: str):
     if not url:
         raise HTTPException(status_code=404, detail="URL required")
+        
+    # Security: SSRF Protection
+    from urllib.parse import urlparse
+    parsed_url = urlparse(url)
+    allowed_domains = ["instagram.com", "cdninstagram.com", "fbcdn.net", "twimg.com", "ytimg.com", "tiktok.com", "tiktokcdn.com"]
+    
+    is_allowed = False
+    for domain in allowed_domains:
+        if parsed_url.hostname and (parsed_url.hostname == domain or parsed_url.hostname.endswith("." + domain)):
+            is_allowed = True
+            break
+            
+    if not is_allowed:
+        raise HTTPException(status_code=403, detail="Domain not allowed for proxying")
+        
     try:
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",

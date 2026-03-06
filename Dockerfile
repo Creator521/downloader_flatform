@@ -1,5 +1,4 @@
-# Use official lightweight Python image
-FROM python:3.9-slim
+FROM python:3.11-slim
 
 # Install system dependencies (ffmpeg is required for yt-dlp audio conversion if needed, though we stream raw mostly)
 RUN apt-get update && apt-get install -y \
