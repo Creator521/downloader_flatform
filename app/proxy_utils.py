@@ -25,10 +25,12 @@ class ProxyManager:
         return random.choice(self.proxies)
 
     def get_cookie_file(self) -> Optional[str]:
-        """Returns the path to the cookie file if it exists."""
-        if os.path.exists(self.cookie_file):
-            return self.cookie_file
-        print(f"Warning: Cookie file {self.cookie_file} not found.")
+        """Returns the path to the cookie file if it exists and is not empty."""
+        try:
+            if os.path.exists(self.cookie_file) and os.path.getsize(self.cookie_file) > 10:
+                return self.cookie_file
+        except OSError:
+            pass
         return None
 
 # Global instance

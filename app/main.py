@@ -237,8 +237,11 @@ def preview(request: Request, url: str = Form(...)):
     ydl_opts = {
         "quiet": True,
         "skip_download": True,
-        "cookiefile": proxy_manager.get_cookie_file(),
     }
+    
+    cookie_file = proxy_manager.get_cookie_file()
+    if cookie_file:
+        ydl_opts["cookiefile"] = cookie_file
     
     proxy = proxy_manager.get_proxy()
     if proxy:
@@ -287,8 +290,11 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
     ydl_opts_meta = {
         "quiet": True,
         "skip_download": True,
-        "cookiefile": proxy_manager.get_cookie_file(),
     }
+    
+    cookie_file = proxy_manager.get_cookie_file()
+    if cookie_file:
+        ydl_opts_meta["cookiefile"] = cookie_file
     
     proxy = proxy_manager.get_proxy()
     if proxy:
