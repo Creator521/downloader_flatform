@@ -11,7 +11,7 @@ services:
       - REDIS_URL=redis://redis:6379/0
       - ROOT_PATH=/downloader
     ports:
-      - "5000:8000"
+      - "5001:8000"
     volumes:
       - ./temp:/app/temp
       - ./proxies.txt:/app/proxies.txt
