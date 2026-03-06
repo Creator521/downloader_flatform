@@ -269,7 +269,10 @@ def preview(request: Request, url: str = Form(...)):
             
         return data
     except yt_dlp.utils.DownloadError as e:
-        raise HTTPException(status_code=400, detail=f"Invalid video URL: {str(e)}")
+        error_msg = str(e).lower()
+        if "sign in" in error_msg or "login" in error_msg:
+             raise HTTPException(status_code=400, detail="This platform requires login/cookies to download video. Please provide valid cookies.")
+        raise HTTPException(status_code=400, detail=f"Download Error: {str(e)}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Server error: {str(e)}")
 
@@ -317,6 +320,9 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             filename = "".join(c for c in filename if c.isalnum() or c in (' ', '.', '_', '-')).strip()
 
     except Exception as e:
+        error_msg = str(e).lower()
+        if "sign in" in error_msg or "login" in error_msg or "requested format is not available" in error_msg:
+            raise HTTPException(status_code=400, detail="This platform requires login/cookies to download video. Please provide valid cookies.")
         raise HTTPException(status_code=400, detail=f"Could not fetch metadata: {str(e)}")
 
     # 2. Start Streaming Subprocess
