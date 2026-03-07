@@ -4,3 +4,5 @@ temp/
 .env
 .venv/
 .vscode/
+cookies.txt
+proxies.txt
