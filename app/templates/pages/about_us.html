@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - ReelDownloader{% endblock %}
+
+{% block content %}
+<div class="legal-container"
+    style="background: white; padding: 40px; border-radius: 15px; margin: 40px auto; max-width: 900px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+    <h1 style="color: #2d3748; margin-bottom: 20px;">About Us</h1>
+    <hr style="margin-bottom: 30px; border: 0; border-top: 1px solid #e2e8f0;">
+
+    <div class="legal-content" style="font-size: 1.05rem; line-height: 1.8; color: #4a5568;">
+        <h2>Our Mission</h2>
+        <p>ReelDownloader was built with a simple mission: to help content creators, marketers, and everyday users save their favorite videos for offline viewing. We believe in an open internet where content is accessible to everyone.</p>
+        <h2>Who We Are</h2>
+        <p>We are a small team of developers and video enthusiasts passionate about building useful web tools. Our infrastructure is designed to be fast, reliable, and secure.</p>
+    </div>
+
+    <div style="margin-top: 40px; text-align: center; color: #a0aec0; font-size: 0.9rem;">
+        <p>Last Updated: January 2026</p>
+    </div>
+</div>
+
+<style>
+    .legal-content h2 { margin-top: 30px; margin-bottom: 15px; color: #2d3748; font-size: 1.4rem; }
+    .legal-content p { margin-bottom: 20px; }
+    .legal-content ul { padding-left: 20px; margin-bottom: 20px; }
+    .legal-content li { margin-bottom: 10px; }
+</style>
+{% endblock %}
