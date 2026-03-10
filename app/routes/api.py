@@ -87,7 +87,7 @@ def preview(request: Request, url: str = Form(...)):
         # PROXY THUMBNAIL IF NEEDED
         thumb = info.get("thumbnail")
         if thumb and ("instagram.com" in thumb or "fbcdn" in thumb):
-            thumb = f"/downloader/proxy-image?url={quote(thumb)}"
+            thumb = f"/proxy-image?url={quote(thumb)}"
 
         data = {
             "title": info.get("title"),

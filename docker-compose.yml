@@ -7,9 +7,8 @@ services:
     restart: always
     environment:
       - WORKERS=4
-      - DOMAIN_NAME=localhost
+      - DOMAIN_NAME=https://snapreeldownload.com
       - REDIS_URL=redis://redis:6379/0
-      - ROOT_PATH=/downloader
     ports:
       - "5001:8000"
     volumes:

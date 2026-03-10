@@ -7,7 +7,7 @@
     <meta name="description" content="{% block description %}Free online video downloader.{% endblock %}">
     <link rel="canonical" href="{{ request.url }}">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
-    <link rel="stylesheet" href="/downloader/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     {% block extra_css %}{% endblock %}
     {% block schema %}{% endblock %}
 </head>
@@ -15,13 +15,13 @@
 
 <header>
     <div class="container header-content">
-        <a href="/downloader/" class="logo"><span>📥</span> ReelDownloader</a>
+        <a href="/" class="logo"><span>📥</span> ReelDownloader</a>
         <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         <nav class="nav-links">
-            <a href="/downloader/" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
-            <a href="/downloader/blog" style="color: white; text-decoration: none; font-weight: 500;">Blog</a>
-            <a href="/downloader/about-us" style="color: white; text-decoration: none; font-weight: 500;">About</a>
-            <a href="/downloader/contact-us" style="color: white; text-decoration: none; font-weight: 500;">Contact</a>
+            <a href="/" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
+            <a href="/blog" style="color: white; text-decoration: none; font-weight: 500;">Blog</a>
+            <a href="/about-us" style="color: white; text-decoration: none; font-weight: 500;">About</a>
+            <a href="/contact-us" style="color: white; text-decoration: none; font-weight: 500;">Contact</a>
         </nav>
     </div>
 </header>
@@ -36,18 +36,18 @@
             <div>
                 <h3>Tools</h3>
                 <ul>
-                    <li><a href="/downloader/instagram-video-downloader">Instagram Downloader</a></li>
-                    <li><a href="/downloader/tiktok-video-downloader">TikTok Downloader</a></li>
-                    <li><a href="/downloader/youtube-video-downloader">YouTube Downloader</a></li>
+                    <li><a href="/instagram-video-downloader">Instagram Downloader</a></li>
+                    <li><a href="/tiktok-video-downloader">TikTok Downloader</a></li>
+                    <li><a href="/youtube-video-downloader">YouTube Downloader</a></li>
                 </ul>
             </div>
             <div>
                 <h3>Legal</h3>
                 <ul>
-                    <li><a href="/downloader/privacy-policy">Privacy Policy</a></li>
-                    <li><a href="/downloader/terms-of-service">Terms of Service</a></li>
-                    <li><a href="/downloader/disclaimer">Disclaimer</a></li>
-                    <li><a href="/downloader/dmca">DMCA</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/disclaimer">Disclaimer</a></li>
+                    <li><a href="/dmca">DMCA</a></li>
                 </ul>
             </div>
         </div>
@@ -57,7 +57,7 @@
     </div>
 </footer>
 
-<script src="/downloader/static/js/main.js" defer></script>
+<script src="/static/js/main.js" defer></script>
 {% block extra_js %}{% endblock %}
 
 </body>
