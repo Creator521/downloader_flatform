@@ -77,19 +77,34 @@ for path, data in PROGRAMMATIC_PAGES.items():
 
 @router.get("/robots.txt")
 async def robots_txt():
-    """Serve robots.txt for search engine crawlers."""
+    """Serve a production-ready robots.txt for search engine crawlers."""
     import os
     domain = os.getenv("DOMAIN_NAME", "https://snapreeldownload.com")
     if not domain.startswith("http"):
         domain = f"https://{domain}"
 
     content = (
+        "# robots.txt for snapreeldownload.com\n"
+        "# Last updated: 2026-03-11\n"
+        "\n"
+        "# ── Allow all search engines ────────────────────────\n"
         "User-agent: *\n"
+        "\n"
+        "# Allow: Public pages (homepage, tools, blog, legal)\n"
         "Allow: /\n"
+        "Allow: /blog\n"
+        "Allow: /sitemap.xml\n"
+        "\n"
+        "# Block: Internal API & backend endpoints\n"
         "Disallow: /preview\n"
         "Disallow: /download\n"
         "Disallow: /proxy-image\n"
+        "Disallow: /api/\n"
         "\n"
+        "# Crawl politely\n"
+        "Crawl-delay: 1\n"
+        "\n"
+        "# ── Sitemap location ────────────────────────────────\n"
         f"Sitemap: {domain}/sitemap.xml\n"
     )
     from fastapi.responses import PlainTextResponse
