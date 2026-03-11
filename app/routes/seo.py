@@ -83,13 +83,14 @@ async def robots_txt():
     if not domain.startswith("http"):
         domain = f"https://{domain}"
 
-    content = f"""User-agent: *
-Allow: /
-Disallow: /preview
-Disallow: /download
-Disallow: /proxy-image
-
-Sitemap: {domain}/sitemap.xml
-"""
+    content = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Disallow: /preview\n"
+        "Disallow: /download\n"
+        "Disallow: /proxy-image\n"
+        "\n"
+        f"Sitemap: {domain}/sitemap.xml\n"
+    )
     from fastapi.responses import PlainTextResponse
     return PlainTextResponse(content=content, media_type="text/plain")
