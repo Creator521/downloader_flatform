@@ -1,6 +1,9 @@
 import os
 import random
+import logging
 from typing import Optional
+
+logger = logging.getLogger(__name__)
 
 class ProxyManager:
     def __init__(self, proxy_file: str = "proxies.txt", cookie_file: str = "cookies.txt"):
@@ -16,7 +19,7 @@ class ProxyManager:
                 # Filter out empty lines and comments
                 self.proxies = [line.strip() for line in f if line.strip() and not line.startswith("#")]
         else:
-            print(f"Warning: Proxy file {self.proxy_file} not found.")
+            logger.warning(f"Proxy file {self.proxy_file} not found.")
 
     def get_proxy(self) -> Optional[str]:
         """Returns a random proxy from the list, or None if no proxies are available."""

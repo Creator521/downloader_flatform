@@ -6,3 +6,5 @@ temp/
 .vscode/
 cookies.txt
 proxies.txt
+logs.txt
+*.save

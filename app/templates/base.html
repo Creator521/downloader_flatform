@@ -7,6 +7,24 @@
     <meta name="description" content="{% block description %}Free online video downloader.{% endblock %}">
     <link rel="canonical" href="{{ request.url }}">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
+
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SnapReelDownload">
+    <meta property="og:title" content="{% block og_title %}Universal Video Downloader{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Free online video downloader. Save videos from Instagram, TikTok, YouTube, Facebook & Twitter in HD.{% endblock %}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:image" content="{% block og_image %}/static/images/og-default.png{% endblock %}">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Universal Video Downloader{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Save videos from Instagram, TikTok, YouTube, Facebook & Twitter in HD quality.{% endblock %}">
+
+    <!-- Performance Hints -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
     <link rel="stylesheet" href="/static/css/style.css">
     {% block extra_css %}{% endblock %}
     {% block schema %}{% endblock %}
@@ -15,13 +33,13 @@
 
 <header>
     <div class="container header-content">
-        <a href="/" class="logo"><span>📥</span> ReelDownloader</a>
+        <a href="/" class="logo"><span>📥</span> SnapReelDownload</a>
         <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         <nav class="nav-links">
-            <a href="/" style="color: white; text-decoration: none; font-weight: 500;">Home</a>
-            <a href="/blog" style="color: white; text-decoration: none; font-weight: 500;">Blog</a>
-            <a href="/about-us" style="color: white; text-decoration: none; font-weight: 500;">About</a>
-            <a href="/contact-us" style="color: white; text-decoration: none; font-weight: 500;">Contact</a>
+            <a href="/" class="nav-link">Home</a>
+            <a href="/blog" class="nav-link">Blog</a>
+            <a href="/about-us" class="nav-link">About</a>
+            <a href="/contact-us" class="nav-link">Contact</a>
         </nav>
     </div>
 </header>
@@ -34,11 +52,33 @@
     <div class="container">
         <div class="footer-links">
             <div>
-                <h3>Tools</h3>
+                <h3>Video Downloaders</h3>
                 <ul>
-                    <li><a href="/instagram-video-downloader">Instagram Downloader</a></li>
-                    <li><a href="/tiktok-video-downloader">TikTok Downloader</a></li>
-                    <li><a href="/youtube-video-downloader">YouTube Downloader</a></li>
+                    <li><a href="/instagram-video-downloader">Instagram Video</a></li>
+                    <li><a href="/instagram-reel-downloader">Instagram Reels</a></li>
+                    <li><a href="/instagram-photo-downloader">Instagram Photo</a></li>
+                    <li><a href="/tiktok-video-downloader">TikTok Video</a></li>
+                    <li><a href="/youtube-video-downloader">YouTube Video</a></li>
+                    <li><a href="/facebook-video-downloader">Facebook Video</a></li>
+                    <li><a href="/twitter-video-downloader">Twitter Video</a></li>
+                    <li><a href="/x-video-downloader">X (Twitter)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Audio Converters</h3>
+                <ul>
+                    <li><a href="/youtube-to-mp3">YouTube to MP3</a></li>
+                    <li><a href="/tiktok-mp3-downloader">TikTok to MP3</a></li>
+                    <li><a href="/youtube-shorts-downloader">YouTube Shorts</a></li>
+                    <li><a href="/snapchat-video-downloader">Snapchat Video</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/about-us">About Us</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
                 </ul>
             </div>
             <div>
@@ -52,7 +92,7 @@
             </div>
         </div>
         <div style="text-align: center; margin-top: 40px; border-top: 1px solid #4a5568; padding-top: 20px;">
-            <p>&copy; 2026 ReelDownloader. All rights reserved.</p>
+            <p>&copy; 2026 SnapReelDownload. All rights reserved.</p>
         </div>
     </div>
 </footer>

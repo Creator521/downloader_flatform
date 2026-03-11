@@ -8,6 +8,7 @@ from pathlib import Path
 
 from app.seo_data import SEO_PAGES
 from app.blog_data import BLOG_POSTS
+from app.programmatic_seo_data import PROGRAMMATIC_PAGES
 
 logger = logging.getLogger(__name__)
 
@@ -68,3 +69,27 @@ def create_route(path: str, data: dict):
 # Register all SEO routes
 for path, data in SEO_PAGES.items():
     create_route(path, data)
+
+# Register all programmatic SEO routes
+for path, data in PROGRAMMATIC_PAGES.items():
+    create_route(path, data)
+
+
+@router.get("/robots.txt")
+async def robots_txt():
+    """Serve robots.txt for search engine crawlers."""
+    import os
+    domain = os.getenv("DOMAIN_NAME", "https://snapreeldownload.com")
+    if not domain.startswith("http"):
+        domain = f"https://{domain}"
+
+    content = f"""User-agent: *
+Allow: /
+Disallow: /preview
+Disallow: /download
+Disallow: /proxy-image
+
+Sitemap: {domain}/sitemap.xml
+"""
+    from fastapi.responses import PlainTextResponse
+    return PlainTextResponse(content=content, media_type="text/plain")

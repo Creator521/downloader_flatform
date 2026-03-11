@@ -26,6 +26,20 @@ async function handleDownload(e) {
 
     if (!url) return;
 
+    // Basic URL validation
+    try {
+        const parsedUrl = new URL(url);
+        if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+            error.innerText = 'Please enter a valid HTTP or HTTPS URL.';
+            error.style.display = 'block';
+            return;
+        }
+    } catch (e) {
+        error.innerText = 'Please enter a valid URL (e.g., https://www.youtube.com/watch?v=...)';
+        error.style.display = 'block';
+        return;
+    }
+
     // Reset UI
     loading.style.display = 'block';
     result.style.display = 'none';

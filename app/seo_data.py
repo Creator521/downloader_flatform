@@ -352,5 +352,251 @@ SEO_PAGES = {
             {"question": "Can I download private Snaps?", "answer": "No, only public Spotlight and Story videos are supported."},
             {"question": "Do you persist the videos?", "answer": "No, we do not store any content on our servers."}
         ]
+    },
+    "/instagram-photo-downloader": {
+        "title": "Instagram Photo Downloader - Save HD Images Free Online",
+        "description": "Download Instagram photos in full HD quality. Save Instagram images, carousel photos & profile pictures online. Free, fast, no login required.",
+        "h1": "Instagram Photo Downloader",
+        "subtitle": "Save Instagram Photos & Images in Original HD Quality",
+        "tool_name": "Instagram Photo Downloader",
+        "intro_text": """
+        <p>Instagram is home to millions of breathtaking photographs — from professional photography and travel shots to food art and fashion inspiration. But saving these images in their <strong>original full resolution</strong> isn't straightforward within the app. Screenshots lose quality, and the built-in save feature only bookmarks posts.</p>
+        <p>Our <strong>Instagram Photo Downloader</strong> solves this problem. It lets you download any publicly available Instagram photo in its <strong>original HD resolution</strong> — the exact file uploaded by the creator, without compression or quality loss. Whether you want to save an inspirational quote, a product image for reference, or an entire carousel of photos, our tool does it all in seconds.</p>
+        """,
+        "keyword": "Instagram photo",
+        "platform": "Instagram",
+        "steps": [
+            {"title": "Step 1: Copy Photo Link", "desc": "Open Instagram, find the photo post, tap the three dots (⋮) and select 'Copy Link'."},
+            {"title": "Step 2: Paste URL", "desc": "Paste the copied Instagram photo link into the input box above."},
+            {"title": "Step 3: Download Image", "desc": "Click Download and save the full-resolution image to your device."}
+        ],
+        "features": [
+            {"title": "📸 Full HD Quality", "desc": "Download photos in their original uploaded resolution — no compression."},
+            {"title": "🖼️ Carousel Support", "desc": "Save all images from multi-photo carousel posts."},
+            {"title": "👤 Profile Pictures", "desc": "Download profile pictures in full size, not the tiny thumbnail."},
+            {"title": "🆓 100% Free", "desc": "No hidden costs, unlimited downloads, no registration."},
+            {"title": "🔒 Privacy First", "desc": "We don't track your downloads or require any login."}
+        ],
+        "extra_sections": [
+            {
+                "title": "How to Download Instagram Photos on Any Device",
+                "content": """
+                <p>Our web-based tool works seamlessly across all devices — no app installation needed.</p>
+                <h3>On Android</h3>
+                <p>Open Chrome, paste the Instagram photo link into our tool, and tap download. The image will be saved to your Downloads folder or Gallery.</p>
+                <h3>On iPhone (iOS)</h3>
+                <p>Use Safari to visit our site. Paste the link, tap download. Long-press the image to save it directly to your Photos app.</p>
+                <h3>On PC (Windows & Mac)</h3>
+                <p>Copy the Instagram post URL from your browser, paste it into our tool, and the full-resolution image will download directly to your computer.</p>
+                """
+            },
+            {
+                "title": "What Types of Instagram Photos Can You Download?",
+                "content": """
+                <ul>
+                    <li><strong>Single Photos:</strong> Standard feed posts with one image.</li>
+                    <li><strong>Carousel Posts:</strong> Multi-image posts — download individual photos.</li>
+                    <li><strong>Profile Pictures:</strong> Get the full-size version of any public profile picture.</li>
+                    <li><strong>Story Highlights:</strong> Save images from publicly shared Story Highlights.</li>
+                </ul>
+                """
+            }
+        ],
+        "faqs": [
+            {"question": "Can I download Instagram photos in full quality?", "answer": "Yes! Our tool downloads the original file directly from Instagram's CDN, preserving full resolution."},
+            {"question": "Can I download multiple photos from a carousel?", "answer": "Yes, our tool detects carousel posts and allows you to download individual images."},
+            {"question": "Is login required?", "answer": "No, you don't need to log in to Instagram or create an account on our site."},
+            {"question": "Can I download photos from private accounts?", "answer": "No, we only support downloading from public Instagram accounts."},
+            {"question": "Does it work on mobile?", "answer": "Yes, our tool works perfectly on Android and iOS browsers."}
+        ]
+    },
+    "/facebook-video-downloader": {
+        "title": "Facebook Video Downloader - Download FB Videos HD Online Free",
+        "description": "Download Facebook videos in HD quality for free. Save FB Reels, Stories & public videos online. Fast Facebook video downloader for mobile & PC.",
+        "h1": "Facebook Video Downloader Online",
+        "subtitle": "Download Facebook Videos in HD Quality – Free & Fast",
+        "tool_name": "Facebook Video Downloader",
+        "intro_text": """
+        <p>Facebook remains one of the largest video platforms in the world, with billions of video views every day. From funny clips shared by friends to breaking news, cooking tutorials, and viral Reels — there's always something worth saving. But Facebook doesn't offer a built-in download button for most videos.</p>
+        <p>Our <strong>Facebook Video Downloader</strong> provides a <strong>fast, free, and reliable</strong> way to save any publicly available Facebook video in <strong>HD quality</strong>. No software to install, no account to create — just paste the link and download. Works perfectly on Android, iPhone, and PC.</p>
+        """,
+        "keyword": "Facebook video",
+        "platform": "Facebook",
+        "steps": [
+            {"title": "Step 1: Copy Video Link", "desc": "Open Facebook, find the video, click the three dots (⋯) and select 'Copy link'."},
+            {"title": "Step 2: Paste URL", "desc": "Paste the Facebook video link into the download box above."},
+            {"title": "Step 3: Download HD", "desc": "Click Download, choose your quality, and save the video to your device."}
+        ],
+        "features": [
+            {"title": "📺 HD & SD Options", "desc": "Choose between HD (720p/1080p) and SD quality based on your needs."},
+            {"title": "🎬 FB Reels Support", "desc": "Download Facebook Reels in full quality without watermark."},
+            {"title": "⚡ Lightning Fast", "desc": "Our optimized servers process Facebook videos in seconds."},
+            {"title": "📱 All Devices", "desc": "Works on Android, iPhone, iPad, Windows, and Mac."},
+            {"title": "🔐 Safe & Private", "desc": "SSL encrypted. We don't store your videos or browsing data."}
+        ],
+        "extra_sections": [
+            {
+                "title": "How to Download Facebook Videos on Mobile & PC",
+                "content": """
+                <p>Our online tool works on any device with a modern web browser.</p>
+                <h3>On Android</h3>
+                <p>Open the Facebook app, find the video, tap 'Share' → 'Copy Link'. Open Chrome, visit our tool, paste the link, and tap Download.</p>
+                <h3>On iPhone (iOS)</h3>
+                <p>Copy the video link from Facebook. Open Safari, paste the link into our tool, and tap Download. Find your video via Safari's downloads icon.</p>
+                <h3>On PC (Windows & Mac)</h3>
+                <p>Right-click the video on Facebook and copy the URL. Paste it into our tool and the MP4 file downloads directly.</p>
+                """
+            },
+            {
+                "title": "What Facebook Content Can You Download?",
+                "content": """
+                <ul>
+                    <li><strong>Public Videos:</strong> Any video from a public page, group, or profile.</li>
+                    <li><strong>Facebook Reels:</strong> Short-form video content.</li>
+                    <li><strong>Shared Videos:</strong> Videos shared from other pages.</li>
+                    <li><strong>Watch Videos:</strong> Content from the Facebook Watch tab.</li>
+                </ul>
+                <p><strong>Note:</strong> Private profile and closed group videos are not supported.</p>
+                """
+            },
+            {
+                "title": "Is It Legal to Download Facebook Videos?",
+                "content": """
+                <p>Downloading publicly available videos for <strong>personal offline viewing</strong> is generally acceptable. However:</p>
+                <ul>
+                    <li>Do not re-upload or redistribute content without permission.</li>
+                    <li>Do not use downloads for commercial purposes.</li>
+                    <li>Always credit the original creator when sharing.</li>
+                </ul>
+                """
+            }
+        ],
+        "faqs": [
+            {"question": "Is this Facebook video downloader free?", "answer": "Yes, completely free with no limits on downloads."},
+            {"question": "Can I download Facebook Reels?", "answer": "Yes! We fully support downloading Facebook Reels in HD quality."},
+            {"question": "Do I need to log in?", "answer": "No login required on Facebook or our site."},
+            {"question": "Can I download private Facebook videos?", "answer": "No, we can only download videos set to 'Public'."},
+            {"question": "What format are the downloads?", "answer": "Videos are downloaded in MP4 format, compatible with all devices."},
+            {"question": "Does it work on iPhone?", "answer": "Yes, works perfectly on Safari and Chrome for iOS."}
+        ]
+    },
+    "/twitter-video-downloader": {
+        "title": "Twitter Video Downloader - Download X Videos HD Free Online",
+        "description": "Download Twitter/X videos and GIFs in HD quality for free. Save tweets with video online. Best Twitter video downloader for Android, iPhone & PC.",
+        "h1": "Twitter Video Downloader Online",
+        "subtitle": "Download Videos & GIFs from Twitter (X) – Free & Fast",
+        "tool_name": "Twitter Video Downloader",
+        "intro_text": """
+        <p>Twitter (now X) is a hub for breaking news, sports highlights, viral memes, and trending video content. Millions of videos are shared daily, but saving them directly from the platform isn't always easy — Twitter doesn't offer a native download button for videos.</p>
+        <p>Our <strong>Twitter Video Downloader</strong> makes it effortless to save any publicly available video or GIF from Twitter/X. Get <strong>HD quality</strong> downloads in MP4 format, completely <strong>free</strong>. No login, no software installation — just paste the tweet URL and download instantly.</p>
+        """,
+        "keyword": "Twitter video",
+        "platform": "Twitter (X)",
+        "steps": [
+            {"title": "Step 1: Copy Tweet Link", "desc": "Find the tweet with the video, click the share icon (↗) and select 'Copy link'."},
+            {"title": "Step 2: Paste URL", "desc": "Paste the tweet link into the download box above."},
+            {"title": "Step 3: Download Video", "desc": "Click Download and save the HD video or GIF to your device."}
+        ],
+        "features": [
+            {"title": "🐦 Twitter & X Support", "desc": "Works with both twitter.com and x.com links seamlessly."},
+            {"title": "🎞️ GIF Downloads", "desc": "Save Twitter GIFs as MP4 video files for easy sharing."},
+            {"title": "📺 HD Quality", "desc": "Download in the best available resolution (up to 1080p)."},
+            {"title": "⚡ Instant Processing", "desc": "Videos are processed and ready in seconds."},
+            {"title": "🔒 No Login Required", "desc": "Download anonymously without any account."}
+        ],
+        "extra_sections": [
+            {
+                "title": "How to Download Twitter Videos on Mobile & PC",
+                "content": """
+                <h3>On Android</h3>
+                <p>Open Twitter/X app, find the tweet. Tap the share icon → 'Copy Link'. Open Chrome, visit our tool, paste the link, and download.</p>
+                <h3>On iPhone (iOS)</h3>
+                <p>Copy the tweet link from the Twitter app. Open Safari, paste the URL, tap Download. Save to Photos from Safari downloads.</p>
+                <h3>On PC (Windows & Mac)</h3>
+                <p>Copy the tweet URL from the browser address bar. Paste into our tool and the MP4 downloads directly.</p>
+                """
+            },
+            {
+                "title": "What Twitter Content Can You Download?",
+                "content": """
+                <ul>
+                    <li><strong>Video Tweets:</strong> Any video in a public tweet.</li>
+                    <li><strong>Twitter GIFs:</strong> Animated GIFs download as MP4 files.</li>
+                    <li><strong>Sports Highlights:</strong> Save clips from live sports coverage.</li>
+                    <li><strong>News Clips:</strong> Download breaking news videos from journalists.</li>
+                </ul>
+                """
+            }
+        ],
+        "faqs": [
+            {"question": "Can I download videos from X (Twitter)?", "answer": "Yes! Our tool works with both twitter.com and x.com URLs."},
+            {"question": "Can I download Twitter GIFs?", "answer": "Yes, Twitter GIFs are downloaded as MP4 video files."},
+            {"question": "Is this tool free?", "answer": "100% free with no download limits."},
+            {"question": "Do I need a Twitter account?", "answer": "No login or account required."},
+            {"question": "Can I download from private accounts?", "answer": "No, only public tweets are supported."},
+            {"question": "What quality are the downloads?", "answer": "We download in the highest available quality, typically 720p or 1080p."}
+        ]
+    },
+    "/instagram-story-downloader": {
+        "title": "Instagram Story Downloader - Save Stories HD Free Online",
+        "description": "Download Instagram Stories in HD. Save Instagram Story videos and photos anonymously. Free online tool, no login required.",
+        "h1": "Instagram Story Downloader",
+        "subtitle": "Save Instagram Stories Anonymously in HD Quality",
+        "tool_name": "Instagram Story Downloader",
+        "intro_text": """
+        <p>Instagram Stories disappear after 24 hours, but sometimes you want to keep them forever. Our <strong>Instagram Story Downloader</strong> lets you save any publicly visible Story — videos and photos — in <strong>original HD quality</strong> before they vanish.</p>
+        <p>Download Stories <strong>anonymously</strong> without the creator knowing. No login required, no app to install. Works on all devices.</p>
+        """,
+        "keyword": "Instagram Story",
+        "platform": "Instagram",
+        "steps": [
+            {"title": "Step 1: Copy Story Link", "desc": "Open the Instagram Story, tap the three dots (⋮) and select 'Copy Link'."},
+            {"title": "Step 2: Paste URL", "desc": "Paste the Story link into the input box above."},
+            {"title": "Step 3: Download", "desc": "Click Download to save the Story video or photo to your device."}
+        ],
+        "features": [
+            {"title": "👻 Anonymous Viewing", "desc": "View and download Stories without the creator knowing."},
+            {"title": "📸 Photos & Videos", "desc": "Save both Story photos and videos in HD."},
+            {"title": "⏰ Beat the 24hr Limit", "desc": "Save Stories before they disappear forever."},
+            {"title": "🆓 100% Free", "desc": "No costs, no limits, no registration."},
+            {"title": "🔒 Private & Secure", "desc": "We don't track downloads or store any data."}
+        ],
+        "faqs": [
+            {"question": "Can I download Instagram Stories anonymously?", "answer": "Yes, the Story owner will not be notified."},
+            {"question": "Can I save Stories from private accounts?", "answer": "No, only public account Stories are supported."},
+            {"question": "Do Stories expire after download?", "answer": "No, once downloaded the file is yours to keep forever."},
+            {"question": "Does it work on iPhone?", "answer": "Yes, works perfectly on Safari and Chrome for iOS."}
+        ]
+    },
+    "/pinterest-video-downloader": {
+        "title": "Pinterest Video Downloader - Download Pinterest Videos HD Free",
+        "description": "Download Pinterest videos and GIFs in HD quality for free. Save Pinterest video pins online. Fast, no login, works on all devices.",
+        "h1": "Pinterest Video Downloader",
+        "subtitle": "Save Pinterest Videos & GIFs in HD Quality",
+        "tool_name": "Pinterest Video Downloader",
+        "intro_text": """
+        <p>Pinterest is filled with inspiring video content — from DIY tutorials and recipe videos to fashion lookbooks and home decor ideas. But Pinterest doesn't offer a native download button for video pins.</p>
+        <p>Our <strong>Pinterest Video Downloader</strong> lets you save any public video pin in <strong>HD quality</strong>. Just paste the pin URL and download instantly. Free, fast, and works on all devices.</p>
+        """,
+        "keyword": "Pinterest video",
+        "platform": "Pinterest",
+        "steps": [
+            {"title": "Step 1: Copy Pin Link", "desc": "Open the Pinterest video pin and copy the URL from the browser or tap 'Copy link'."},
+            {"title": "Step 2: Paste URL", "desc": "Paste the Pinterest video link into the box above."},
+            {"title": "Step 3: Download Video", "desc": "Click Download and save the HD video to your device."}
+        ],
+        "features": [
+            {"title": "📌 Pin Video Support", "desc": "Download video pins in their original quality."},
+            {"title": "🎞️ GIF Support", "desc": "Save animated GIF pins as video files."},
+            {"title": "✨ HD Quality", "desc": "Get the highest resolution available."},
+            {"title": "📱 All Devices", "desc": "Works on Android, iPhone, and PC."},
+            {"title": "🆓 Free Forever", "desc": "No charges, no limits, no account needed."}
+        ],
+        "faqs": [
+            {"question": "Can I download Pinterest videos for free?", "answer": "Yes, our tool is 100% free with no download limits."},
+            {"question": "Does it work with GIF pins?", "answer": "Yes, animated pins are downloaded as video files."},
+            {"question": "Is login required?", "answer": "No, just paste the link and download."},
+            {"question": "What format are downloads?", "answer": "Videos are saved in MP4 format."}
+        ]
     }
 }

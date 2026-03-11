@@ -4,18 +4,50 @@ import subprocess
 import sys
 import os
 import logging
+import ipaddress
 from fastapi import APIRouter, Form, HTTPException, Request
 from fastapi.responses import StreamingResponse
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 import yt_dlp
 
-from app.proxy_utils import ProxyManager
+from app.proxy_utils import proxy_manager
 from app.dependencies import limiter
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
-proxy_manager = ProxyManager()
+
+
+def validate_url(url: str) -> str:
+    """Validate and sanitize URL to prevent SSRF attacks."""
+    if not url or not url.strip():
+        raise HTTPException(status_code=400, detail="URL is required.")
+    
+    url = url.strip()
+    parsed = urlparse(url)
+    
+    # Only allow http and https schemes
+    if parsed.scheme not in ("http", "https"):
+        raise HTTPException(status_code=400, detail="Only HTTP and HTTPS URLs are allowed.")
+    
+    if not parsed.hostname:
+        raise HTTPException(status_code=400, detail="Invalid URL: no hostname found.")
+    
+    # Block internal/private IPs
+    try:
+        ip = ipaddress.ip_address(parsed.hostname)
+        if ip.is_private or ip.is_loopback or ip.is_reserved:
+            raise HTTPException(status_code=400, detail="Internal URLs are not allowed.")
+    except ValueError:
+        # Not an IP address, it's a hostname — that's fine
+        pass
+    
+    # Block common internal hostnames
+    blocked_hosts = ["localhost", "0.0.0.0", "metadata.google.internal"]
+    if parsed.hostname.lower() in blocked_hosts:
+        raise HTTPException(status_code=400, detail="This URL is not allowed.")
+    
+    return url
 
 
 def get_redis_client():
@@ -62,6 +94,7 @@ def cache_set(key: str, value: dict, ttl: int = CACHE_DURATION):
 @router.post("/preview")
 @limiter.limit("10/minute")
 def preview(request: Request, url: str = Form(...)):
+    url = validate_url(url)
     # Check Cache (Redis) — Point 7: fail-safe
     cached_data = cache_get(url)
     if cached_data:
@@ -119,6 +152,7 @@ def preview(request: Request, url: str = Form(...)):
 @router.post("/download")
 @limiter.limit("5/minute")
 def download(request: Request, url: str = Form(...), format: str = Form("video")):
+    url = validate_url(url)
     # 1. Get Metadata — Point 9: Try Redis cache first to avoid double yt-dlp extraction
     cached_data = cache_get(url)
 
@@ -192,7 +226,7 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         proc = subprocess.Popen(
             cmd,
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
             bufsize=10**7  # 10MB buffer
         )
 
