@@ -2,16 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE54GEBP04"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-LE54GEBP04');
-    </script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Universal Video Downloader{% endblock %}</title>
     <meta name="description" content="{% block description %}Free online video downloader.{% endblock %}">
@@ -31,10 +21,15 @@
     <meta name="twitter:title" content="{% block twitter_title %}Universal Video Downloader{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}Save videos from Instagram, TikTok, YouTube, Facebook & Twitter in HD quality.{% endblock %}">
 
-    <!-- Performance Hints -->
+    <!-- Performance: Preconnect to critical origins -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- Critical CSS: Preload stylesheet -->
+    <link rel="preload" href="/static/css/style.css" as="style">
     <link rel="stylesheet" href="/static/css/style.css">
     {% block extra_css %}{% endblock %}
     {% block schema %}{% endblock %}
@@ -44,7 +39,7 @@
 <header>
     <div class="container header-content">
         <a href="/" class="logo"><span>📥</span> SnapReelDownload</a>
-        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
         <nav class="nav-links">
             <a href="/" class="nav-link">Home</a>
             <a href="/blog" class="nav-link">Blog</a>
@@ -109,6 +104,22 @@
 
 <script src="/static/js/main.js" defer></script>
 {% block extra_js %}{% endblock %}
+
+<!-- Google Analytics: Load AFTER page renders (non-blocking) -->
+<script>
+window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-LE54GEBP04';
+    s.async = true;
+    document.head.appendChild(s);
+    s.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LE54GEBP04');
+    };
+});
+</script>
 
 </body>
 </html>
