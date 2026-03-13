@@ -75,6 +75,14 @@ for path, data in PROGRAMMATIC_PAGES.items():
     create_route(path, data)
 
 
+@router.get("/ads.txt")
+async def ads_txt():
+    """Serve ads.txt for ad network verification."""
+    content = "google.com, pub-3721817985222293, DIRECT, f08c47fec0942fa0"
+    from fastapi.responses import PlainTextResponse
+    return PlainTextResponse(content=content, media_type="text/plain")
+
+
 @router.get("/robots.txt")
 async def robots_txt():
     """Serve a production-ready robots.txt for search engine crawlers."""
