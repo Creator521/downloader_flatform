@@ -29,7 +29,9 @@ OLD_REDIRECTS = {
     "/facebook-video-downloader": "/facebook",
     "/instagram-story-downloader": "/story",
     "/story-saver": "/story",
+    "/story-saver/": "/story",
     "/igtv": "/video",
+    "/igtv/": "/video",
     "/pinterest-video-downloader": "/pinterest"
 }
 
