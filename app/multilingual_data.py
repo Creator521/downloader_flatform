@@ -81,6 +81,51 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         {"question": f"Can I use this on mobile?", "answer": "Yes, works on Android and iOS."}
     ]
     
+    # Add extra SEO content sections only on the homepage (universal downloader)
+    extra_sections = []
+    if path == "/":
+        extra_sections = [
+            {
+                "title": "Download Videos from Instagram, TikTok, YouTube & More",
+                "content": (
+                    "<p>Snap Reel Download is a free online tool to download videos from popular platforms like "
+                    "Instagram, TikTok, YouTube, Facebook, and more. Paste any public video link into the box above "
+                    "and click Download to save it instantly.</p>"
+                    "<p>We never require login, and your privacy is protected — it’s 100% free and anonymous.</p>"
+                )
+            },
+            {
+                "title": "How to Use the Universal Video Downloader",
+                "content": (
+                    "<ol>"
+                    "<li>Copy the video link from your browser.</li>"
+                    "<li>Paste it into the box above.</li>"
+                    "<li>Click Download and choose the format you want.</li>"
+                    "</ol>"
+                    "<p>It works on any device (mobile, tablet, desktop), and you don’t need to install any app.</p>"
+                )
+            },
+            {
+                "title": "Key Features of Snap Reel Download",
+                "content": (
+                    "<ul>"
+                    "<li>✅ Free & unlimited downloads (no signup required).</li>"
+                    "<li>✅ Works on Android, iPhone, and desktop.</li>"
+                    "<li>✅ Fast downloads in original quality.</li>"
+                    "<li>✅ Supports Instagram, TikTok, YouTube, Facebook, Twitter, Pinterest, and more.</li>"
+                    "<li>✅ No tracking or personal data stored.</li>"
+                    "</ul>"
+                )
+            },
+            {
+                "title": "Why Use Our Video Downloader",
+                "content": (
+                    "<p>Many social platforms don’t let you save videos directly. Our tool makes it easy to keep any public video for offline viewing, sharing with friends, or saving for later.</p>"
+                    "<p>We built the tool to be simple, safe, and reliable: just paste a link and download — no ads in the download process, no popups, and no surprising redirects.</p>"
+                )
+            }
+        ]
+
     return {
         "title": title[:60],
         "description": desc[:160],
@@ -93,6 +138,7 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         "steps": steps,
         "features": features,
         "faqs": faqs,
+        "extra_sections": extra_sections,
         "lang": lang
     }
 
