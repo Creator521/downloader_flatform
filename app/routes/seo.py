@@ -28,6 +28,8 @@ OLD_REDIRECTS = {
     "/instagram-photo-downloader": "/photo",
     "/facebook-video-downloader": "/facebook",
     "/instagram-story-downloader": "/story",
+    "/story-saver": "/story",
+    "/igtv": "/video",
     "/pinterest-video-downloader": "/pinterest"
 }
 
