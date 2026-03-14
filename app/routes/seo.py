@@ -51,10 +51,31 @@ def create_route(path: str, data: dict):
                 "text": step["desc"]
             })
 
+        # Deduce hreflangs for programmatic pages
+        hreflangs_map = {}
+        target_lang = data.get("lang")
+        if target_lang: # It means this is a programmatic page
+            from app.programmatic_seo_data import SUPPORTED_LANGUAGES
+            base_url = str(request.base_url).rstrip('/')
+            
+            # The current path could be '/hi/instagram-reel' or '/instagram-reel'
+            # Let's derive the english root path first
+            path_parts = path.strip('/').split('/')
+            if path_parts[0] in SUPPORTED_LANGUAGES:
+                en_root = '/' + '/'.join(path_parts[1:])
+            else:
+                en_root = path
+                
+            for lang in SUPPORTED_LANGUAGES:
+                prefix = f"/{lang}" if lang != "en" else ""
+                hreflangs_map[lang] = f"{base_url}{prefix}{en_root}"
+
         # Inject schema into page data
         page_data = data.copy()
         page_data["faq_schema"] = json.dumps(faq_schema)
         page_data["howto_schema"] = json.dumps(howto_schema)
+        if hreflangs_map:
+            page_data["hreflangs"] = hreflangs_map
 
         # Get latest 6 blog posts for the footer area
         latest_posts = dict(list(BLOG_POSTS.items())[:6])

@@ -1,13 +1,43 @@
 # app/programmatic_seo_data.py
-"""Programmatic SEO page generator — creates 50+ pages from templates."""
+"""Programmatic SEO page generator — creates 50+ pages from templates, translated into multiple languages."""
 
+# ── Translations ─────────────────────────────────────────────────────────────
+# Simple dictionary to translate the primary action verbs and modifiers for the URL slugs and SEO titles
+TRANSLATIONS = {
+    "en": {"Download": "Download", "Save": "Save", "Online": "Online", "Free": "Free", "in HD": "in HD", "to MP4": "to MP4"},
+    "es": {"Download": "Descargar", "Save": "Guardar", "Online": "En línea", "Free": "Gratis", "in HD": "en HD", "to MP4": "a MP4"},
+    "hi": {"Download": "डाउनलोड", "Save": "सेव", "Online": "ऑनलाइन", "Free": "मुफ्त", "in HD": "HD में", "to MP4": "MP4 में"},
+    "ar": {"Download": "تحميل", "Save": "حفظ", "Online": "عبر الانترنت", "Free": "مجاني", "in HD": "بجودة HD", "to MP4": "إلى MP4"},
+    "id": {"Download": "Unduh", "Save": "Simpan", "Online": "Online", "Free": "Gratis", "in HD": "dalam HD", "to MP4": "ke MP4"},
+    "pt": {"Download": "Baixar", "Save": "Salvar", "Online": "Online", "Free": "Grátis", "in HD": "em HD", "to MP4": "para MP4"},
+    "fr": {"Download": "Télécharger", "Save": "Sauvegarder", "Online": "En ligne", "Free": "Gratuit", "in HD": "en HD", "to MP4": "vers MP4"}
+}
 
-def _make_page(path, platform, keyword, action, modifier, tool_name, extra_desc=""):
-    """Generate a complete SEO page dict from minimal inputs."""
-    title = f"{action} {keyword} {modifier} - Free Online {tool_name}".strip()
-    desc = f"{action} {keyword} {modifier} for free. {extra_desc} Fast, safe, no login required. Works on Android, iPhone & PC."
-    h1 = f"{action} {keyword} {modifier}".strip()
-    subtitle = f"Free Online {tool_name} – {modifier if modifier else 'Fast & Easy'}".strip()
+SUPPORTED_LANGUAGES = list(TRANSLATIONS.keys())
+
+def _translate(text, lang):
+    """Simple translation replacement for core keywords."""
+    if lang == "en" or not text:
+        return text
+    
+    trans_dict = TRANSLATIONS.get(lang, {})
+    for eng_word, trans_word in trans_dict.items():
+        if eng_word in text:
+            text = text.replace(eng_word, trans_word)
+    return text
+
+def _make_page(path, platform, keyword, action, modifier, tool_name, extra_desc="", lang="en"):
+    """Generate a complete SEO page dict from minimal inputs, adapted for language."""
+    
+    # Translate core keywords for SEO tags
+    t_action = _translate(action, lang)
+    t_modifier = _translate(modifier, lang)
+    t_keyword = keyword # Leaving nouns like 'Instagram Videos' in English as they are universally understood brands
+    
+    title = f"{t_action} {t_keyword} {t_modifier} - Free {tool_name}".strip()
+    desc = f"{t_action} {t_keyword} {t_modifier} for free. {extra_desc} Fast, safe, no login required. Works on Android, iPhone & PC."
+    h1 = f"{t_action} {t_keyword} {t_modifier}".strip()
+    subtitle = f"Free Online {tool_name} – {t_modifier if modifier else 'Fast & Easy'}".strip()
 
     intro = f"""
     <p>Looking for a fast and reliable way to <strong>{action.lower()} {keyword.lower()}</strong>? You've come to the right place.
@@ -31,11 +61,13 @@ def _make_page(path, platform, keyword, action, modifier, tool_name, extra_desc=
     ]
 
     faqs = [
-        {"question": f"Is this {tool_name.lower()} free?", "answer": "Yes, completely free with no limits."},
-        {"question": "Do I need to install an app?", "answer": "No, our tool works directly in your web browser."},
-        {"question": "Is login required?", "answer": "No, you can download without any account or login."},
-        {"question": f"Can I {action.lower()} in HD?", "answer": "Yes, we always fetch the highest available quality."},
-        {"question": "Is it safe to use?", "answer": "Absolutely. Our site uses SSL encryption and we don't store any data."}
+        {"question": f"What is the {tool_name}?", "answer": f"It is a free, web-based tool that allows you to download public {keyword.lower()} directly to your phone or computer. No app installation is needed."},
+        {"question": "Is it legal to download these videos?", "answer": "Saving public posts for personal, offline viewing is generally acceptable. However, you should not share or reuse copyrighted content without the creator's permission."},
+        {"question": "Do I need to log in or create an account?", "answer": "No! Our tool is 100% anonymous. You do not need to log in, register, or provide any personal information."},
+        {"question": "Are there any daily download limits?", "answer": "No, you can download as many videos or photos as you want. There are no limits on daily usage."},
+        {"question": "What video formats and quality are supported?", "answer": "We always fetch the highest quality available (usually HD MP4 for videos, and high-res JPG for photos)."},
+        {"question": "Where are the files saved on my device?", "answer": "On a computer, they usually save to your 'Downloads' folder. On a smartphone (iPhone or Android), they save directly to your camera roll or browser downloads folder."},
+        {"question": "Can I download from private accounts?", "answer": "No. To respect user privacy, our tool can only fetch content from public accounts."}
     ]
 
     return {
@@ -49,7 +81,8 @@ def _make_page(path, platform, keyword, action, modifier, tool_name, extra_desc=
         "platform": platform,
         "steps": steps,
         "features": features,
-        "faqs": faqs
+        "faqs": faqs,
+        "lang": lang
     }
 
 
@@ -69,6 +102,13 @@ KEYWORD_PAGES_CONFIG = [
     ("/instagram-video-saver-online", "Instagram", "Instagram Videos", "Save", "Online", "Online Instagram Video Saver", "Works on any device, any browser."),
     ("/free-instagram-video-downloader", "Instagram", "Instagram Videos", "Download", "Free", "Free Instagram Video Downloader", "No registration, no payments, ever."),
     ("/download-instagram-reels-without-watermark", "Instagram", "Instagram Reels Without Watermark", "Download", "", "Instagram Reels Downloader", "Get clean videos without any logos."),
+    # New highly-specific competitor endpoints
+    ("/story-saver", "Instagram", "Instagram Stories", "Download", "", "Instagram Story Saver", "Save stories before they disappear in 24 hours."),
+    ("/igtv", "Instagram", "Instagram IGTV", "Download", "", "IGTV Downloader", "Download long-form IGTV videos offline."),
+    ("/carousel", "Instagram", "Instagram Carousel", "Download", "", "Carousel Downloader", "Download multiple photos/videos from a single post."),
+    ("/instagram-photo-downloader", "Instagram", "Instagram Photos", "Download", "in HD", "Instagram Photo Downloader", "Save high-quality images from any public post."),
+    ("/instagram-anonymously-viewer", "Instagram", "Instagram Stories", "View", "Anonymously", "Anonymous Story Viewer", "Watch and download stories without them knowing."),
+    ("/instagram-highlights-downloader", "Instagram", "Instagram Highlights", "Download", "", "Highlights Downloader", "Save full profile highlights covers and videos."),
     # YouTube variations
     ("/download-youtube-video-online", "YouTube", "YouTube Videos", "Download", "Online", "Online YouTube Video Downloader", "Save any public YouTube video."),
     ("/youtube-video-downloader-free", "YouTube", "YouTube Videos", "Download", "Free", "Free YouTube Video Downloader", "No cost, no limits, no ads."),
@@ -128,11 +168,11 @@ DEVICE_PAGES_CONFIG = [
 ]
 
 
-def _make_device_page(path, platform, keyword, action, modifier, device_tip):
+def _make_device_page(path, platform, keyword, action, modifier, device_tip, lang="en"):
     """Generate device-specific page with tailored instructions."""
     page = _make_page(path, platform, keyword, action, modifier,
                       f"{keyword.split(' on ')[0] if ' on ' in keyword else keyword} Downloader",
-                      device_tip)
+                      device_tip, lang=lang)
     # Override intro with device-specific content
     page["intro_text"] = f"""
     <p>Want to <strong>{action.lower()} {keyword.lower()}</strong>? Our free online tool makes it easy.
@@ -144,21 +184,26 @@ def _make_device_page(path, platform, keyword, action, modifier, device_tip):
 
 
 def generate_all_programmatic_pages():
-    """Generate all programmatic SEO pages and return as a single dict."""
+    """Generate all programmatic SEO pages across multiple languages and return as a single dict."""
     pages = {}
 
-    # Keyword variation pages
-    for config in KEYWORD_PAGES_CONFIG:
-        path, platform, keyword, action, modifier, tool_name, extra = config
-        pages[path] = _make_page(path, platform, keyword, action, modifier, tool_name, extra)
+    for lang in SUPPORTED_LANGUAGES:
+        lang_prefix = f"/{lang}" if lang != "en" else ""
+        
+        # Keyword variation pages
+        for config in KEYWORD_PAGES_CONFIG:
+            path, platform, keyword, action, modifier, tool_name, extra = config
+            full_path = f"{lang_prefix}{path}"
+            pages[full_path] = _make_page(full_path, platform, keyword, action, modifier, tool_name, extra, lang=lang)
 
-    # Device-specific pages
-    for config in DEVICE_PAGES_CONFIG:
-        path, platform, keyword, action, modifier, device_tip = config
-        pages[path] = _make_device_page(path, platform, keyword, action, modifier, device_tip)
+        # Device-specific pages
+        for config in DEVICE_PAGES_CONFIG:
+            path, platform, keyword, action, modifier, device_tip = config
+            full_path = f"{lang_prefix}{path}"
+            pages[full_path] = _make_device_page(full_path, platform, keyword, action, modifier, device_tip, lang=lang)
 
     return pages
 
 
-# Export the generated pages
+# Export the generated pages (dict size goes from ~50 to ~350+)
 PROGRAMMATIC_PAGES = generate_all_programmatic_pages()

@@ -40,8 +40,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- Static Files ---
+# --- Static Files & Caching Middleware ---
 app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent / "frontend"), name="static")
+
+@app.middleware("http")
+async def add_cache_headers(request, call_next):
+    response = await call_next(request)
+    if request.url.path.startswith("/static"):
+        response.headers["Cache-Control"] = "public, max-age=2592000" # 30 Days cache
+    return response
 
 # --- Temp Directory ---
 TEMP_DIR = "temp"
