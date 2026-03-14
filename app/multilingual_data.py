@@ -109,7 +109,7 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             },
             {
                 "title": f"Save {brand_name} {content_word} on Windows & Mac PC",
-                "content": f"<p><strong>Desktop Download Steps:</strong></p><ol><li>Open {brand_name} in Chrome, Firefox, Safari, or Edge</li><li>Find your {content_word} and copy its link</li><li>Visit snapreeldownload.com in your browser</li><li>Paste the link into the download box</li><li>Click the Download button</li><li>Select your format (MP4 video or MP3 audio)</li><li>The file saves to your Downloads folder</li></ol><p><strong>Windows Tip:</strong> Check C:\Users\[YourName]\Downloads | <strong>Mac Tip:</strong> Downloads are in ~/Downloads</p>"
+                "content": f"<p><strong>Desktop Download Steps:</strong></p><ol><li>Open {brand_name} in Chrome, Firefox, Safari, or Edge</li><li>Find your {content_word} and copy its link</li><li>Visit snapreeldownload.com in your browser</li><li>Paste the link into the download box</li><li>Click the Download button</li><li>Select your format (MP4 video or MP3 audio)</li><li>The file saves to your Downloads folder</li></ol><p><strong>Windows Tip:</strong> Check C:\\\\Users\\\\[YourName]\\\\Downloads | <strong>Mac Tip:</strong> Downloads are in ~/Downloads</p>"
             },
             {
                 "title": "Is It Legal to Download Videos?",
@@ -118,7 +118,6 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         ]
     else:
         # Homepage only
-        extra_sections = [
         extra_sections = [
             {
                 "title": "Download Videos from Instagram, TikTok, YouTube & More",
