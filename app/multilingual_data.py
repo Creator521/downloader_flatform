@@ -77,13 +77,48 @@ def make_page_data(path, platform, brand_name, content_key, lang):
     ]
     
     faqs = [
-        {"question": f"Is this {brand_name} {t['dl']} free?", "answer": "Yes, absolutely free!"},
-        {"question": f"Can I use this on mobile?", "answer": "Yes, works on Android and iOS."}
+        {"question": f"Is this {brand_name} {t['dl']} completely free?", "answer": "Yes, absolutely free! No hidden charges, no premium features, no watermarks added. Download unlimited videos forever at no cost."},
+        {"question": f"Do I need to create an account or sign up?", "answer": "No! Our tool works instantly without signup, registration, or login. Just paste the link and download."},
+        {"question": f"Can {brand_name} creators see that I downloaded their {content_word}?", "answer": "No, your download is completely anonymous. The creator is never notified, and your activity is completely private."},
+        {"question": f"Is it legal to download {brand_name} {content_word}s?", "answer": "Yes, for personal use like offline viewing, archiving, or educational reference. However, do not repost content as your own or use for commercial purposes without permission."},
+        {"question": f"What formats can I download {content_word}s in?", "answer": "We support MP4 for videos and M4A for audio. MP4 works on all devices and players. Audio extraction is available for compatible content."},
+        {"question": f"Can I use this on my iPhone/iPad?", "answer": "Yes! Works perfectly on iOS through Safari or Chrome. Downloaded videos appear in your Photos app or Files app."},
+        {"question": f"Does this work on Android phones?", "answer": "Absolutely. Android users can use Chrome, Firefox, or any browser. Videos download to your Downloads folder or Gallery."},
+        {"question": f"Can I download {content_word}s on my computer?", "answer": "Yes, works great on Windows, Mac, and Linux. Use any modern browser (Chrome, Firefox, Safari, Edge)."},
+        {"question": f"Why is {brand_name} not letting me download with my app?", "answer": f"{brand_name} doesn't allow native downloads to encourage app engagement. Our tool bypasses this limitation legally for personal use."},
+        {"question": f"What if the download fails or the link doesn't work?", "answer": "Make sure the link is correct and the content is still public. If still failing, try a different video. We support only public, accessible content."},
+        {"question": f"Can I download private {content_word}s or accounts?", "answer": "No, we only support publicly accessible content. Private profiles, age-restricted content, and deleted posts cannot be downloaded."},
+        {"question": f"Is my data safe with your tool?", "answer": "Yes! We use SSL encryption, never store your personal data, never log your activity, and never sell information. Complete privacy guaranteed."},
+        {"question": f"How long does a download take?", "answer": "Most downloads complete in seconds, depending on video length and file size. Longer videos may take 20-30 seconds."},
+        {"question": f"Can I download story content that will disappear?", "answer": "For Stories and Highlights - yes, if the creator has made them public. Private stories cannot be accessed per privacy policy."},
     ]
     
-    # Add extra SEO content sections only on the homepage (universal downloader)
+    # Add extra SEO content sections - device guides for tool pages
     extra_sections = []
-    if path == "/":
+    
+    if path != "/":
+        # For tool pages: Add device-specific download guides
+        extra_sections = [
+            {
+                "title": f"How to Download {brand_name} {content_word} on iPhone/iOS",
+                "content": f"<p><strong>iOS Download Steps:</strong></p><ol><li>Open {brand_name} app and find your {content_word}</li><li>Tap Share button → Copy Link</li><li>Open Safari or Chrome browser</li><li>Visit snapreeldownload.com</li><li>Paste the link and tap Download</li><li>Video appears in Photos app or Downloads folder</li></ol><p><strong>Tip:</strong> Safari usually provides the smoothest download experience on iOS.</p>"
+            },
+            {
+                "title": f"Download {brand_name} {content_word} on Android Devices",
+                "content": f"<p><strong>Android Download Steps:</strong></p><ol><li>Open the {brand_name} app and locate your {content_word}</li><li>Tap the three-dot menu (⋮)</li><li>Select Copy Link</li><li>Open Chrome, Firefox, or your browser</li><li>Go to snapreeldownload.com</li><li>Paste the link and tap Download</li><li>Check your Downloads folder or Gallery app</li></ol><p><strong>Tip:</strong> Files usually save automatically to your Downloads folder or Gallery.</p>"
+            },
+            {
+                "title": f"Save {brand_name} {content_word} on Windows & Mac PC",
+                "content": f"<p><strong>Desktop Download Steps:</strong></p><ol><li>Open {brand_name} in Chrome, Firefox, Safari, or Edge</li><li>Find your {content_word} and copy its link</li><li>Visit snapreeldownload.com in your browser</li><li>Paste the link into the download box</li><li>Click the Download button</li><li>Select your format (MP4 video or MP3 audio)</li><li>The file saves to your Downloads folder</li></ol><p><strong>Windows Tip:</strong> Check C:\Users\[YourName]\Downloads | <strong>Mac Tip:</strong> Downloads are in ~/Downloads</p>"
+            },
+            {
+                "title": "Is It Legal to Download Videos?",
+                "content": "<p>Yes! Downloading public videos for <strong>personal use is completely legal</strong> under Fair Use copyright laws in most countries.</p><ul><li><strong>✅ Legal:</strong> Personal offline viewing, archiving for yourself, educational reference, time-shifting</li><li><strong>❌ Not Legal:</strong> Reposting as your own, commercial use, redistribution without permission, claiming authorship</li></ul><p><strong>Best Practice:</strong> Always credit the original creator if you share downloaded content anywhere.</p>"
+            }
+        ]
+    else:
+        # Homepage only
+        extra_sections = [
         extra_sections = [
             {
                 "title": "Download Videos from Instagram, TikTok, YouTube & More",
