@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Universal Video Downloader{% endblock %}</title>
+    <title>{% block title %}Snap Reel Download{% endblock %}</title>
     <meta name="description" content="{% block description %}Free online video downloader.{% endblock %}">
     <link rel="canonical" href="{{ (page.canonical | default(request.url)) if page is defined else request.url }}">
     {% block hreflangs %}{% endblock %}
@@ -12,14 +12,14 @@
     <!-- OpenGraph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SnapReelDownload">
-    <meta property="og:title" content="{% block og_title %}Universal Video Downloader{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Snap Reel Download{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Free online video downloader. Save videos from Instagram, TikTok, YouTube, Facebook & Twitter in HD.{% endblock %}">
     <meta property="og:url" content="{{ (page.canonical | default(request.url)) if page is defined else request.url }}">
     <meta property="og:image" content="{% block og_image %}/static/images/og-default.png{% endblock %}">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{% block twitter_title %}Universal Video Downloader{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}Snap Reel Download{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}Save videos from Instagram, TikTok, YouTube, Facebook & Twitter in HD quality.{% endblock %}">
 
     <!-- Performance: Preconnect to critical origins -->
@@ -126,4 +126,5 @@ window.addEventListener('load', function() {
 
 </body>
 </html>
+
 

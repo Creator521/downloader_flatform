@@ -1,5 +1,5 @@
 """
-ReelDownloader — FastAPI Application Entry Point
+Snap Reel Download — FastAPI Application Entry Point
 Slim entry point: all route logic lives in app/routes/ modules.
 """
 import os
@@ -69,4 +69,5 @@ app.include_router(api_router)
 app.include_router(proxy_router)
 app.include_router(sitemap_router)
 
-logger.info("ReelDownloader app initialized with modular routes.")
+logger.info("Snap Reel Download app initialized with modular routes.")
+

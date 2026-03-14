@@ -2,15 +2,15 @@
 
 SEO_PAGES = {
     "/": {
-        "title": "Universal Video Downloader - Save From Popular Platforms",
+        "title": "Snap Reel Download - Save From Popular Platforms",
         "description": "Best free online video saver. Save publicly available videos for offline viewing in HD. No watermark, no login, 100% free tool.",
-        "h1": "Universal Video Downloader Online",
+        "h1": "Snap Reel Download Online",
         "subtitle": "Save Publicly Available Videos in HD Quality",
-        "tool_name": "Universal Video Downloader",
+        "tool_name": "Snap Reel Download",
         "intro_text": """
-        <p>Welcome to <strong>ReelDownloader</strong>, your all-in-one solution for saving publicly available video content from the web. in today's fast-paced digital world, we consume hours of video content daily. From educational tutorials and cooking guides to entertaining clips and music videos, the internet is a goldmine of information. However, streaming these videos repeatedly consumes significant data and requires a constant internet connection.</p>
+        <p>Welcome to <strong>Snap Reel Download</strong>, your all-in-one solution for saving publicly available video content from the web. in today's fast-paced digital world, we consume hours of video content daily. From educational tutorials and cooking guides to entertaining clips and music videos, the internet is a goldmine of information. However, streaming these videos repeatedly consumes significant data and requires a constant internet connection.</p>
 
-        <h3>What is Universal Video Downloader?</h3>
+        <h3>What is Snap Reel Download?</h3>
         <p>Our tool is a web-based utility designed to help users archive videos for <strong>personal offline viewing</strong>. It works by processing public URLs from popular video sharing platforms and extracting the media file so you can store it on your device. Whether you are a student saving lectures, a traveler building an offline playlist, or a creator looking for inspiration, our downloader makes the process seamless.</p>
 
         <h3>Streaming vs. Downloading: Why Save Offline?</h3>
@@ -600,3 +600,4 @@ SEO_PAGES = {
         ]
     }
 }
+
