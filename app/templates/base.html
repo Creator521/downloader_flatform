@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Universal Video Downloader{% endblock %}</title>
     <meta name="description" content="{% block description %}Free online video downloader.{% endblock %}">
-    <link rel="canonical" href="{{ page.canonical | default(request.url) }}">
+    <link rel="canonical" href="{{ (page.canonical | default(request.url)) if page is defined else request.url }}">
     {% block hreflangs %}{% endblock %}
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📥</text></svg>">
 
@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="SnapReelDownload">
     <meta property="og:title" content="{% block og_title %}Universal Video Downloader{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Free online video downloader. Save videos from Instagram, TikTok, YouTube, Facebook & Twitter in HD.{% endblock %}">
-    <meta property="og:url" content="{{ page.canonical | default(request.url) }}">
+    <meta property="og:url" content="{{ (page.canonical | default(request.url)) if page is defined else request.url }}">
     <meta property="og:image" content="{% block og_image %}/static/images/og-default.png{% endblock %}">
 
     <!-- Twitter Card Meta Tags -->
