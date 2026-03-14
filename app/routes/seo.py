@@ -6,14 +6,35 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from pathlib import Path
 
-from app.seo_data import SEO_PAGES
+from app.multilingual_data import MULTILINGUAL_PAGES
 from app.blog_data import BLOG_POSTS
-from app.programmatic_seo_data import PROGRAMMATIC_PAGES
+from fastapi.responses import HTMLResponse, RedirectResponse
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
 templates = Jinja2Templates(directory=Path(__file__).parent.parent / "templates")
+
+# 301 Redirects from old english paths to new short paths
+OLD_REDIRECTS = {
+    "/instagram-video-downloader": "/video",
+    "/instagram-reel-downloader": "/reels",
+    "/tiktok-video-downloader": "/tiktok",
+    "/youtube-video-downloader": "/youtube",
+    "/tiktok-mp3-downloader": "/tiktok", 
+    "/youtube-shorts-downloader": "/youtube",
+    "/x-video-downloader": "/twitter",
+    "/snapchat-video-downloader": "/snapchat",
+    "/instagram-photo-downloader": "/photo",
+    "/facebook-video-downloader": "/facebook",
+    "/instagram-story-downloader": "/story",
+    "/pinterest-video-downloader": "/pinterest"
+}
+
+for old_path, new_path in OLD_REDIRECTS.items():
+    @router.get(old_path, include_in_schema=False)
+    async def redirect_old_route(request: Request, _old=old_path, _new=new_path):
+        return RedirectResponse(url=_new, status_code=301)
 
 
 def create_route(path: str, data: dict):
@@ -51,32 +72,12 @@ def create_route(path: str, data: dict):
                 "text": step["desc"]
             })
 
-        # Deduce hreflangs for programmatic pages
-        hreflangs_map = {}
-        target_lang = data.get("lang")
-        if target_lang: # It means this is a programmatic page
-            from app.programmatic_seo_data import SUPPORTED_LANGUAGES
-            base_url = str(request.base_url).rstrip('/')
-            
-            # The current path could be '/hi/instagram-reel' or '/instagram-reel'
-            # Let's derive the english root path first
-            path_parts = path.strip('/').split('/')
-            if path_parts[0] in SUPPORTED_LANGUAGES:
-                en_root = '/' + '/'.join(path_parts[1:])
-            else:
-                en_root = path
-                
-            for lang in SUPPORTED_LANGUAGES:
-                prefix = f"/{lang}" if lang != "en" else ""
-                hreflangs_map[lang] = f"{base_url}{prefix}{en_root}"
-
         # Inject schema into page data
         page_data = data.copy()
         page_data["faq_schema"] = json.dumps(faq_schema)
         page_data["howto_schema"] = json.dumps(howto_schema)
-        if hreflangs_map:
-            page_data["hreflangs"] = hreflangs_map
-
+        # Hreflangs array is already populated in data["hreflangs"] from MULTILINGUAL_PAGES
+        
         # Get latest 6 blog posts for the footer area
         latest_posts = dict(list(BLOG_POSTS.items())[:6])
 
@@ -87,12 +88,8 @@ def create_route(path: str, data: dict):
         })
 
 
-# Register all SEO routes
-for path, data in SEO_PAGES.items():
-    create_route(path, data)
-
-# Register all programmatic SEO routes
-for path, data in PROGRAMMATIC_PAGES.items():
+# Register all explicitly generated multilingual SEO routes
+for path, data in MULTILINGUAL_PAGES.items():
     create_route(path, data)
 
 

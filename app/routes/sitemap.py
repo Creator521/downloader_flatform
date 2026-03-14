@@ -5,9 +5,8 @@ from datetime import date
 from fastapi import APIRouter
 from fastapi.responses import HTMLResponse
 
-from app.seo_data import SEO_PAGES
+from app.multilingual_data import MULTILINGUAL_PAGES
 from app.blog_data import BLOG_POSTS
-from app.programmatic_seo_data import PROGRAMMATIC_PAGES
 
 logger = logging.getLogger(__name__)
 
@@ -36,15 +35,11 @@ async def sitemap():
     # Homepage (highest priority)
     xml += f'  <url><loc>{base}/</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>\n'
 
-    # Core SEO landing pages (high priority)
-    for path in SEO_PAGES:
+    # Multilingual SEO landing pages
+    for path in MULTILINGUAL_PAGES:
         if path == "/":
             continue
         xml += f'  <url><loc>{base}{path}</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>\n'
-
-    # Programmatic SEO pages (medium-high priority)
-    for path in PROGRAMMATIC_PAGES:
-        xml += f'  <url><loc>{base}{path}</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n'
 
     # Blog list page
     xml += f'  <url><loc>{base}/blog</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n'
