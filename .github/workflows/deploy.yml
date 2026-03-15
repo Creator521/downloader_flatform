@@ -23,6 +23,6 @@ jobs:
           set -e
           cd /opt/downloader
           git pull origin main
-          docker compose build app
-          docker compose up -d
+          # Rebuild and recreate the service to ensure latest code is used
+          docker compose up -d --build --force-recreate
           docker image prune -f
