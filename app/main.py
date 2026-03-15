@@ -8,7 +8,17 @@ from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.gzip import GZIPMiddleware
+
+# GZip middleware can be in Starlette (preferred) or FastAPI (older versions).
+# Use a safe import so the app won't crash if the environment has a different FastAPI version.
+try:
+    from starlette.middleware.gzip import GZipMiddleware
+except ImportError:
+    try:
+        from fastapi.middleware.gzip import GZipMiddleware
+    except ImportError:
+        GZipMiddleware = None
+
 from fastapi.staticfiles import StaticFiles
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
@@ -28,7 +38,8 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # --- GZip Compression Middleware (for faster delivery) ---
-app.add_middleware(GZIPMiddleware, minimum_size=1000)
+if GZipMiddleware is not None:
+    app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # --- CORS Middleware ---
 ALLOWED_ORIGINS = [
