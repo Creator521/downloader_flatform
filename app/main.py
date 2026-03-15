@@ -8,6 +8,7 @@ from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZIPMiddleware
 from fastapi.staticfiles import StaticFiles
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
@@ -25,6 +26,9 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# --- GZip Compression Middleware (for faster delivery) ---
+app.add_middleware(GZIPMiddleware, minimum_size=1000)
 
 # --- CORS Middleware ---
 ALLOWED_ORIGINS = [
@@ -46,8 +50,23 @@ app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent / "front
 @app.middleware("http")
 async def add_cache_headers(request, call_next):
     response = await call_next(request)
+    
+    # Aggressive caching for static files
     if request.url.path.startswith("/static"):
-        response.headers["Cache-Control"] = "public, max-age=2592000" # 30 Days cache
+        # JS/CSS files - long cache
+        if request.url.path.endswith(('.js', '.css')):
+            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"  # 1 year
+        # Images - long cache
+        elif request.url.path.endswith(('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')):
+            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"  # 1 year
+        # Other static assets
+        else:
+            response.headers["Cache-Control"] = "public, max-age=2592000"  # 30 days
+    
+    # Add extra headers for performance
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    
     return response
 
 # --- Temp Directory ---
