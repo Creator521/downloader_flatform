@@ -38,8 +38,9 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # --- GZip Compression Middleware (for faster delivery) ---
-if GZipMiddleware is not None:
-    app.add_middleware(GZipMiddleware, minimum_size=1000)
+# Temporarily disabled - causing slowdown
+# if GZipMiddleware is not None:
+#     app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # --- CORS Middleware ---
 ALLOWED_ORIGINS = [
@@ -61,23 +62,23 @@ app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent / "front
 @app.middleware("http")
 async def add_cache_headers(request, call_next):
     response = await call_next(request)
-    
-    # Aggressive caching for static files
+
+    # Optimized caching for static files
     if request.url.path.startswith("/static"):
-        # JS/CSS files - long cache
+        # JS/CSS files - 6 months cache
         if request.url.path.endswith(('.js', '.css')):
-            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"  # 1 year
-        # Images - long cache
+            response.headers["Cache-Control"] = "public, max-age=15552000"  # 6 months
+        # Images - 1 year cache
         elif request.url.path.endswith(('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')):
-            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"  # 1 year
-        # Other static assets
+            response.headers["Cache-Control"] = "public, max-age=31536000"  # 1 year
+        # Other static assets - 1 month
         else:
             response.headers["Cache-Control"] = "public, max-age=2592000"  # 30 days
-    
-    # Add extra headers for performance
+
+    # Add security headers
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "SAMEORIGIN"
-    
+
     return response
 
 # --- Temp Directory ---
