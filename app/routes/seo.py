@@ -138,6 +138,14 @@ async def llms_txt():
     return FileResponse(file_path)
 
 
+@router.get("/favicon.ico", include_in_schema=False)
+async def favicon_ico():
+    """Serve favicon.ico by redirecting to the PNG version or serving it directly."""
+    from fastapi.responses import FileResponse
+    file_path = Path(__file__).parent.parent.parent / "frontend" / "favicon.png"
+    return FileResponse(file_path)
+
+
 @router.get("/robots.txt")
 async def robots_txt():
     """Serve a production-ready robots.txt for search engine crawlers."""
