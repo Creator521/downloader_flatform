@@ -18,7 +18,7 @@ T = {
     "id": {"dw": "Unduh", "on": "Online", "fr": "Gratis", "dl": "Pengunduh", "vid": "Video", "ph": "Foto", "st": "Cerita", "rl": "Reels", "step1": "Langkah 1: Salin Tautan", "step2": "Langkah 2: Tempel URL", "step3": "Langkah 3: Unduh", "title_suffix": "SnapReelDownload"},
     "bn": {"dw": "ডাউনলোড", "on": "অনলাইন", "fr": "বিনামূল্যে", "dl": "ডাউনলোডার", "vid": "ভিডিও", "ph": "ছবি", "st": "গল্প", "rl": "রিলস", "step1": "ধাপ ১: লিঙ্ক কপি করুন", "step2": "ধাপ ২: URL পেস্ট করুন", "step3": "ধাপ ৩: ডাউনলোড করুন", "title_suffix": "SnapReelDownload"},
     "tr": {"dw": "İndir", "on": "Çevrimiçi", "fr": "Ücretsiz", "dl": "İndirici", "vid": "Video", "ph": "Fotoğraf", "st": "Hikaye", "rl": "Reels", "step1": "Adım 1: Bağlantıyı Kopyala", "step2": "Adım 2: URL'yi Yapıştır", "step3": "Adım 3: İndir", "title_suffix": "SnapReelDownload"},
-    "th": {"dw": "ดาวน์โหลด", "on": "ออนไลน์", "fr": "ฟรี", "dl": "เครื่องมือดาวน์โหลด", "vid": "วิดีโอ", "ph": "รูปภาพ", "st": "สตอรี่", "rl": "Reels", "step1": "ขั้นตอนที่ 1: คัดลอกลิงก์", "step2": "ขั้นตอนที่ 2: วาง URL", "step3": "ขั้นตอนที่ 3: ดาวน์โหลด", "title_suffix": "SnapReelDownload"},
+    "th": {"dw": "ดาวน์โหลด", "on": "ออนไลน์", "fr": "ฟรี", "dl": "เครื่องมือดาวน์โหลด", "vid": "วิดีโอ", "ph": "รูปภาพ", "สตอรี่": "สตอรี่", "Reels": "Reels", "step1": "ขั้นตอนที่ 1: คัดลอกลิงก์", "step2": "ขั้นตอนที่ 2: วาง URL", "step3": "ขั้นตอนที่ 3: ดาวน์โหลด", "title_suffix": "SnapReelDownload"},
     "ko": {"dw": "다운로드", "on": "온라인", "fr": "무료", "dl": "다운로더", "vid": "비디오", "ph": "사진", "st": "스토리", "rl": "릴스", "step1": "1단계: 링크 복사", "step2": "2단계: URL 붙여넣기", "step3": "3단계: 다운로드", "title_suffix": "SnapReelDownload"},
     "ja": {"dw": "ダウンロード", "on": "オンライン", "fr": "無料", "dl": "ダウンローダー", "vid": "動画", "ph": "写真", "st": "ストーリー", "rl": "リール", "step1": "ステップ1：リンクをコピー", "step2": "ステップ2：URLを貼り付け", "step3": "ステップ3：ダウンロード", "title_suffix": "SnapReelDownload"},
     "uk": {"dw": "Завантажити", "on": "онлайн", "fr": "Безкоштовно", "dl": "Завантажувач", "vid": "Відео", "ph": "Фото", "st": "Історія", "rl": "Reels", "step1": "Крок 1: Копіювати посилання", "step2": "Крок 2: Вставити URL", "step3": "Крок 3: Завантажити", "title_suffix": "SnapReelDownload"},
@@ -43,7 +43,7 @@ TOOLS = [
 
 def make_page_data(path, platform, brand_name, content_key, lang):
     t = T.get(lang, T["en"])
-    content_word = t[content_key]
+    content_word = t.get(content_key, t.get("vid", "Video"))
     suffix = t["title_suffix"]
     
     if path == "/youtube-to-mp3":
@@ -96,86 +96,6 @@ def make_page_data(path, platform, brand_name, content_key, lang):
     
     faqs = [
         {"question": f"Is this {brand_name} {t['dl']} completely free?", "answer": "Yes, absolutely free! No hidden charges, no premium features, no watermarks added. Download unlimited videos forever at no cost."},
-        {"question": f"Do I need to create an account or sign up?", "answer": "No! Our tool works instantly without signup, registration, or login. Just paste the link and download."},
-        {"question": f"Can {brand_name} creators see that I downloaded their {content_word}?", "answer": "No, your download is completely anonymous. The creator is never notified, and your activity is completely private."},
-        {"question": f"Is it legal to download {brand_name} {content_word}s?", "answer": "Yes, for personal use like offline viewing, archiving, or educational reference. However, do not repost content as your own or use for commercial purposes without permission."},
-        {"question": f"What formats can I download {content_word}s in?", "answer": "We support MP4 for videos and M4A for audio. MP4 works on all devices and players. Audio extraction is available for compatible content."},
-        {"question": f"Can I use this on my iPhone/iPad?", "answer": "Yes! Works perfectly on iOS through Safari or Chrome. Downloaded videos appear in your Photos app or Files app."},
-        {"question": f"Does this work on Android phones?", "answer": "Absolutely. Android users can use Chrome, Firefox, or any browser. Videos download to your Downloads folder or Gallery."},
-        {"question": f"Can I download {content_word}s on my computer?", "answer": "Yes, works great on Windows, Mac, and Linux. Use any modern browser (Chrome, Firefox, Safari, Edge)."},
-        {"question": f"Why is {brand_name} not letting me download with my app?", "answer": f"{brand_name} doesn't allow native downloads to encourage app engagement. Our tool bypasses this limitation legally for personal use."},
-        {"question": f"What if the download fails or the link doesn't work?", "answer": "Make sure the link is correct and the content is still public. If still failing, try a different video. We support only public, accessible content."},
-        {"question": f"Can I download private {content_word}s or accounts?", "answer": "No, we only support publicly accessible content. Private profiles, age-restricted content, and deleted posts cannot be downloaded."},
-        {"question": f"Is my data safe with your tool?", "answer": "Yes! We use SSL encryption, never store your personal data, never log your activity, and never sell information. Complete privacy guaranteed."},
-        {"question": f"How long does a download take?", "answer": "Most downloads complete in seconds, depending on video length and file size. Longer videos may take 20-30 seconds."},
-        {"question": f"Can I download story content that will disappear?", "answer": "For Stories and Highlights - yes, if the creator has made them public. Private stories cannot be accessed per privacy policy."},
-        {"question": f"What's the maximum {content_word} length I can download?", "answer": f"We support {content_word}s of any length. Download time depends on file size, but our servers handle everything from short clips to long-form content."},
-        {"question": f"Do you add watermarks to downloaded {content_word}s?", "answer": "No watermarks ever! We deliver clean, original quality content without any branding or modifications."},
-        {"question": f"Can I download multiple {content_word}s at once?", "answer": "Currently, we process one {content_word} at a time for optimal quality and speed. Download sequentially for best results."},
-        {"question": f"What quality options are available?", "answer": "We automatically download the highest available quality from the source platform, typically HD (1080p) or better when available."},
-        {"question": f"Does this work with {brand_name} Live videos?", "answer": "No, we only support pre-recorded content. Live streams cannot be downloaded as they haven't been processed yet."},
-    ]
-    
-    # Add extra SEO content sections - device guides for tool pages
-    extra_sections = []
-    
-    if path != "/":
-        # For tool pages: Add device-specific download guides
-        extra_sections = [
-            {
-                "title": f"How to Download {brand_name} {content_word} on iPhone/iOS",
-                "content": f"<p><strong>iOS Download Steps:</strong></p><ol><li>Open {brand_name} app and find your {content_word}</li><li>Tap Share button → Copy Link</li><li>Open Safari or Chrome browser</li><li>Visit {suffix}</li><li>Paste the link and tap Download</li><li>Video appears in Photos app or Downloads folder</li></ol><p><strong>Tip:</strong> Safari usually provides the smoothest download experience on iOS.</p>"
-            },
-            {
-                "title": f"Download {brand_name} {content_word} on Android Devices",
-                "content": f"<p><strong>Android Download Steps:</strong></p><ol><li>Open the {brand_name} app and locate your {content_word}</li><li>Tap the three-dot menu (⋮)</li><li>Select Copy Link</li><li>Open Chrome, Firefox, or your browser</li><li>Go to {suffix}</li><li>Paste the link and tap Download</li><li>Check your Downloads folder or Gallery app</li></ol><p><strong>Tip:</strong> Files usually save automatically to your Downloads folder or Gallery.</p>"
-            },
-            {
-                "title": f"Save {brand_name} {content_word} on Windows & Mac PC",
-                "content": f"<p><strong>Desktop Download Steps:</strong></p><ol><li>Open {brand_name} in Chrome, Firefox, Safari, or Edge</li><li>Find your {content_word} and copy its link</li><li>Visit {suffix} in your browser</li><li>Paste the link into the download box</li><li>Click the Download button</li><li>Select your format (MP4 video or MP3 audio)</li><li>The file saves to your Downloads folder</li></ol><p><strong>Windows Tip:</strong> Check C:\\\\Users\\\\[YourName]\\\\Downloads | <strong>Mac Tip:</strong> Downloads are in ~/Downloads</p>"
-            },
-            {
-                "title": "Is It Legal to Download Videos?",
-                "content": "<p>Yes! Downloading public videos for <strong>personal use is completely legal</strong> under Fair Use copyright laws in most countries.</p><ul><li><strong>✅ Legal:</strong> Personal offline viewing, archiving for yourself, educational reference, time-shifting</li><li><strong>❌ Not Legal:</strong> Reposting as your own, commercial use, redistribution without permission, claiming authorship</li></ul><p><strong>Best Practice:</strong> Always credit the original creator if you share downloaded content anywhere.</p>"
-            },
-            {
-                "title": "Download Format & Quality Comparison",
-                "content": "<table style='width:100%; border-collapse: collapse; margin: 20px 0;'><thead style='background: #f0f4ff;'><tr style='border-bottom: 2px solid #667eea;'><th style='padding: 12px; text-align: left; font-weight: 600;'>Format</th><th style='padding: 12px; text-align: left; font-weight: 600;'>File Type</th><th style='padding: 12px; text-align: left; font-weight: 600;'>Quality</th><th style='padding: 12px; text-align: left; font-weight: 600;'>Best For</th></tr></thead><tbody><tr style='border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>MP4</strong></td><td style='padding: 12px;'>Video</td><td style='padding: 12px;'><span style='color: #48bb78;'>⭐⭐⭐⭐⭐ HD/4K</span></td><td style='padding: 12px;'>Video with audio, editing</td></tr><tr><td style='padding: 12px;'><strong>M4A</strong></td><td style='padding: 12px;'>Audio Only</td><td style='padding: 12px;'><span style='color: #48bb78;'>⭐⭐⭐⭐⭐ 320kbps</span></td><td style='padding: 12px;'>Music, podcasts, audio</td></tr></tbody></table>"
-            },
-            {
-                "title": "Visual Download Guide",
-                "content": f"<p><strong>Step-by-step visual guide:</strong></p><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-1-copy-link.png' alt='Step 1: Copy the video link from {brand_name} app or website' style='max-width: 100%; height: auto; border-radius: 8px;' loading='lazy' /><figcaption style='font-size: 14px; color: #666;'>Step 1: Copy the link from your browser or app</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-2-paste.png' alt='Step 2: Paste the copied link into the download box' style='max-width: 100%; height: auto; border-radius: 8px;' loading='lazy' /><figcaption style='font-size: 14px; color: #666;'>Step 2: Paste the link in the input box</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-3-download.png' alt='Step 3: Click the Download button' style='max-width: 100%; height: auto; border-radius: 8px;' loading='lazy' /><figcaption style='font-size: 14px; color: #666;'>Step 3: Click Download to process</figcaption></figure>"
-            }
-        ]
-    else:
-        # Homepage only
-        extra_sections = [
-            {
-                "title": f"Download Videos from Instagram, TikTok, YouTube & More",
-                "content": f"<p>{suffix} is a free online tool to download videos from popular platforms like Instagram, TikTok, YouTube, Facebook, and more. Paste any public video link into the box above and click Download to save it instantly.</p><p>We never require login, and your privacy is protected — it’s 100% free and anonymous.</p>"
-            },
-            {
-                "title": "Why Use Our Video Downloader",
-                "content": "<p>Many social platforms don’t let you save videos directly. Our tool makes it easy to keep any public video for offline viewing, sharing with friends, or saving for later.</p><p>We built the tool to be simple, safe, and reliable: just paste a link and download — no ads in the download process, no popups, and no surprising redirects.</p>"
-            }
-        ]
-
-    return {
-        "title": title[:60],
-        "description": desc[:160],
-        "h1": h1,
-        "subtitle": f"{t['dw']} {content_word}s in HD",
-        "tool_name": tool_name,
-        "intro_text": intro,
-        "keyword": f"{brand_name} {content_word}".lower(),
-        "platform": platform,
-        "steps": steps,
-        "features": features,
-        "faqs": faqs,
-        "extra_sections": extra_sections,
-        "lang": lang
-    }
-free! No hidden charges, no premium features, no watermarks added. Download unlimited videos forever at no cost."},
         {"question": f"Do I need to create an account or sign up?", "answer": "No! Our tool works instantly without signup, registration, or login. Just paste the link and download."},
         {"question": f"Can {brand_name} creators see that I downloaded their {content_word}?", "answer": "No, your download is completely anonymous. The creator is never notified, and your activity is completely private."},
         {"question": f"Is it legal to download {brand_name} {content_word}s?", "answer": "Yes, for personal use like offline viewing, archiving, or educational reference. However, do not repost content as your own or use for commercial purposes without permission."},
