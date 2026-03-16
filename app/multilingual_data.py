@@ -18,7 +18,7 @@ T = {
     "id": {"dw": "Unduh", "on": "Online", "fr": "Gratis", "dl": "Pengunduh", "vid": "Video", "ph": "Foto", "st": "Cerita", "rl": "Reels", "step1": "Langkah 1: Salin Tautan", "step2": "Langkah 2: Tempel URL", "step3": "Langkah 3: Unduh", "title_suffix": "SnapReelDownload"},
     "bn": {"dw": "ডাউনলোড", "on": "অনলাইন", "fr": "বিনামূল্যে", "dl": "ডাউনলোডার", "vid": "ভিডিও", "ph": "ছবি", "st": "গল্প", "rl": "রিলস", "step1": "ধাপ ১: লিঙ্ক কপি করুন", "step2": "ধাপ ২: URL পেস্ট করুন", "step3": "ধাপ ৩: ডাউনলোড করুন", "title_suffix": "SnapReelDownload"},
     "tr": {"dw": "İndir", "on": "Çevrimiçi", "fr": "Ücretsiz", "dl": "İndirici", "vid": "Video", "ph": "Fotoğraf", "st": "Hikaye", "rl": "Reels", "step1": "Adım 1: Bağlantıyı Kopyala", "step2": "Adım 2: URL'yi Yapıştır", "step3": "Adım 3: İndir", "title_suffix": "SnapReelDownload"},
-    "th": {"dw": "ดาวน์โหลด", "on": "ออนไลน์", "fr": "ฟรี", "dl": "เครื่องมือดาวน์โหลด", "vid": "วิดีโอ", "ph": "รูปภาพ", "สตอรี่": "สตอรี่", "Reels": "Reels", "step1": "ขั้นตอนที่ 1: คัดลอกลิงก์", "step2": "ขั้นตอนที่ 2: วาง URL", "step3": "ขั้นตอนที่ 3: ดาวน์โหลด", "title_suffix": "SnapReelDownload"},
+    "th": {"dw": "ดาวน์โหลด", "on": "ออนไลน์", "fr": "ฟรี", "dl": "เครื่องมือดาวน์โหลด", "vid": "วิดีโอ", "ph": "รูปภาพ", "st": "สตอรี่", "rl": "Reels", "step1": "ขั้นตอนที่ 1: คัดลอกลิงก์", "step2": "ขั้นตอนที่ 2: วาง URL", "step3": "ขั้นตอนที่ 3: ดาวน์โหลด", "title_suffix": "SnapReelDownload"},
     "ko": {"dw": "다운로드", "on": "온라인", "fr": "무료", "dl": "다운로더", "vid": "비디오", "ph": "사진", "st": "스토리", "rl": "릴스", "step1": "1단계: 링크 복사", "step2": "2단계: URL 붙여넣기", "step3": "3단계: 다운로드", "title_suffix": "SnapReelDownload"},
     "ja": {"dw": "ダウンロード", "on": "オンライン", "fr": "無料", "dl": "ダウンローダー", "vid": "動画", "ph": "写真", "st": "ストーリー", "rl": "リール", "step1": "ステップ1：リンクをコピー", "step2": "ステップ2：URLを貼り付け", "step3": "ステップ3：ダウンロード", "title_suffix": "SnapReelDownload"},
     "uk": {"dw": "Завантажити", "on": "онлайн", "fr": "Безкоштовно", "dl": "Завантажувач", "vid": "Відео", "ph": "Фото", "st": "Історія", "rl": "Reels", "step1": "Крок 1: Копіювати посилання", "step2": "Крок 2: Вставити URL", "step3": "Крок 3: Завантажити", "title_suffix": "SnapReelDownload"},
@@ -46,6 +46,19 @@ def make_page_data(path, platform, brand_name, content_key, lang):
     content_word = t.get(content_key, t.get("vid", "Video"))
     suffix = t["title_suffix"]
     
+    # Keyword Injection Logic (Phase 3)
+    # Target common variations and misspellings (instgram, yotube)
+    misspellings = ""
+    if lang == "en":
+        if brand_name == "Instagram":
+            misspellings = "Instgram video download, download instgram video, instgram download video"
+        elif brand_name == "YouTube":
+            misspellings = "Yotube video download, download yotube videos, yotube download video"
+        elif brand_name == "TikTok":
+            misspellings = "Download tiktok video without watermark, tiktok video download without watermark"
+        elif brand_name == "Facebook":
+            misspellings = "Download facebook video online, facebook video download online"
+
     if path == "/youtube-to-mp3":
         if lang == "hi":
             title = f'यूट्यूब से MP3 कनवर्टर ऑनलाइन मुफ्त | उच्च गुणवत्ता | {suffix}'
@@ -68,15 +81,23 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             desc = f'Descarga videos de Instagram, TikTok, YouTube y más gratis. Guarda videos HD sin marca de agua.'
         else:
             title = f'{suffix} - Free Online Video Downloader | Instagram, TikTok, YouTube'
-            desc = f'Download videos from Instagram, TikTok, YouTube, Facebook & more for free. Save HD videos without watermark.'
+            desc = f'Download videos and reels from Instagram, TikTok, YouTube, Facebook & more. Save HD quality contents online.'
         
         h1 = f'Universal {content_word} {t["dl"]}'
         tool_name = f'Universal {content_word} {t["dl"]}'
     else:
-        # Generic tool page title/desc generation logic
+        # Tool pages: Inject targeted keywords into descriptions
+        if lang == "en":
+            if brand_name == "TikTok":
+                desc = f'Download TikTok videos without watermark in HD. Best free tiktok video downloader online. Fast, secure and unlimited.'
+            elif brand_name == "Facebook":
+                desc = f'Download Facebook videos online in HD. Best tool for FB video download and reels saving. Free & Anonymous.'
+            else:
+                desc = f'{t["dw"]} {brand_name} {content_word} in HD quality for {t["fr"]}. Save {content_word}s without watermark. Fast & secure.'
+        else:
+            desc = f'{t["dw"]} {brand_name} {content_word} in HD quality for {t["fr"]}. Save {content_word}s without watermark. Fast & secure.'
+            
         title = f'{t["dw"]} {brand_name} {content_word} HD {t["fr"]} {t["on"]} | {suffix}'
-        desc = f'{t["dw"]} {brand_name} {content_word} in HD quality for {t["fr"]}. Save {content_word}s without watermark. Fast & secure.'
-        
         h1 = f'{t["dw"]} {brand_name} {content_word}'
         tool_name = f'{brand_name} {content_word} {t["dl"]}'
         
@@ -133,7 +154,17 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             {
                 "title": f"Save {brand_name} {content_word} on Windows & Mac PC",
                 "content": f"<p><strong>Desktop Download Steps:</strong></p><ol><li>Open {brand_name} in Chrome, Firefox, Safari, or Edge</li><li>Find your {content_word} and copy its link</li><li>Visit snapreeldownload.com in your browser</li><li>Paste the link into the download box</li><li>Click the Download button</li><li>Select your format (MP4 video or MP3 audio)</li><li>The file saves to your Downloads folder</li></ol><p><strong>Windows Tip:</strong> Check C:\\\\Users\\\\[YourName]\\\\Downloads | <strong>Mac Tip:</strong> Downloads are in ~/Downloads</p>"
-            },
+            }
+        ]
+        
+        # Inject misspelling keywords naturally if in English
+        if misspellings:
+            extra_sections.append({
+                "title": "People also search for",
+                "content": f"<p style='opacity: 0.8; font-size: 14px;'>Users looking for specialized tools often search for: <strong>{misspellings}</strong>. Our tool supports all these variations and ensures high-quality results every time.</p>"
+            })
+
+        extra_sections.extend([
             {
                 "title": "Is It Legal to Download Videos?",
                 "content": "<p>Yes! Downloading public videos for <strong>personal use is completely legal</strong> under Fair Use copyright laws in most countries.</p><ul><li><strong>✅ Legal:</strong> Personal offline viewing, archiving for yourself, educational reference, time-shifting</li><li><strong>❌ Not Legal:</strong> Reposting as your own, commercial use, redistribution without permission, claiming authorship</li></ul><p><strong>Best Practice:</strong> Always credit the original creator if you share downloaded content anywhere.</p>"
@@ -158,16 +189,16 @@ def make_page_data(path, platform, brand_name, content_key, lang):
                 "title": "Visual Download Guide",
                 "content": "<p><strong>Step-by-step visual guide:</strong></p><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-1-copy-link.png' alt='Step 1: Copy the video link from Instagram app or website - tap share button and select copy link option' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 1: Copy the video link from your browser or app</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-2-paste.png' alt='Step 2: Paste the copied Instagram video link into the download input field above' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 2: Paste the link in the input box</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-3-download.png' alt='Step 3: Click the Download button to start processing the Instagram video' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 3: Click Download to process</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-4-format.png' alt='Step 4: Choose your preferred download format - MP4 video or MP3 audio from available options' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 4: Select format and quality</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-5-save.png' alt='Step 5: Download completes automatically and video saves to your device downloads folder' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 5: File downloads to your device</figcaption></figure>"
             }
-        ]
+        ])
     else:
-        # Homepage only
+        # Homepage only optimization
         extra_sections = [
             {
                 "title": "Download Videos from Instagram, TikTok, YouTube & More",
                 "content": (
-                    "<p>Snap Reel Download is a free online tool to download videos from popular platforms like "
-                    "Instagram, TikTok, YouTube, Facebook, and more. Paste any public video link into the box above "
-                    "and click Download to save it instantly.</p>"
+                    "<p>Snap Reel Download is the best online tool to <strong>download instgram video</strong>, "
+                    "save <strong>yotube video download</strong> content, and get TikTok videos without watermarks. "
+                    "Paste any public link into the box above and save instantly in HD.</p>"
                     "<p>We never require login, and your privacy is protected — it’s 100% free and anonymous.</p>"
                 )
             },
@@ -175,11 +206,11 @@ def make_page_data(path, platform, brand_name, content_key, lang):
                 "title": "How to Use the Universal Video Downloader",
                 "content": (
                     "<ol>"
-                    "<li>Copy the video link from your browser.</li>"
+                    "<li>Copy the video link from your browser or app.</li>"
                     "<li>Paste it into the box above.</li>"
-                    "<li>Click Download and choose the format you want.</li>"
+                    "<li>Click Download and choose the format you want (MP4 or MP3).</li>"
                     "</ol>"
-                    "<p>It works on any device (mobile, tablet, desktop), and you don’t need to install any app.</p>"
+                    "<p>It works on any device (mobile, tablet, desktop), supporting <strong>facebook video download online</strong> and many more.</p>"
                 )
             },
             {
@@ -188,8 +219,8 @@ def make_page_data(path, platform, brand_name, content_key, lang):
                     "<ul>"
                     "<li>✅ Free & unlimited downloads (no signup required).</li>"
                     "<li>✅ Works on Android, iPhone, and desktop.</li>"
-                    "<li>✅ Fast downloads in original quality.</li>"
-                    "<li>✅ Supports Instagram, TikTok, YouTube, Facebook, Twitter, Pinterest, and more.</li>"
+                    "<li>✅ Fast downloads in original quality (HD/4K).</li>"
+                    "<li>✅ Supports Instagram (instgram), TikTok, YouTube (yotube), Facebook, and Twitter.</li>"
                     "<li>✅ No tracking or personal data stored.</li>"
                     "</ul>"
                 )
