@@ -38,9 +38,8 @@ app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # --- GZip Compression Middleware (for faster delivery) ---
-# Temporarily disabled - causing slowdown
-# if GZipMiddleware is not None:
-#     app.add_middleware(GZipMiddleware, minimum_size=1000)
+if GZipMiddleware is not None:
+    app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # --- CORS Middleware ---
 ALLOWED_ORIGINS = [

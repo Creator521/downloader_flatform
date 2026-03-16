@@ -40,8 +40,8 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
     <!-- Critical CSS: Preload stylesheet -->
-    <link rel="preload" href="/static/css/style.css" as="style">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preload" href="/static/css/style.min.css" as="style">
+    <link rel="stylesheet" href="/static/css/style.min.css">
     {% block extra_css %}{% endblock %}
 {% block schema %}
 <!-- JSON-LD Structured Data -->
@@ -177,7 +177,7 @@
     </div>
 </footer>
 
-<script src="/static/js/main.js" defer></script>
+<script src="/static/js/main.min.js" defer></script>
 {% block extra_js %}{% endblock %}
 
 <!-- Google Analytics: Load AFTER page renders (non-blocking) -->
