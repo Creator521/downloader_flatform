@@ -8,21 +8,21 @@ SUPPORTED_LANGUAGES = [
 
 # Core translated keywords
 T = {
-    "en": {"dw": "Download", "on": "Online", "fr": "Free", "dl": "Downloader", "vid": "Video", "ph": "Photo", "st": "Story", "rl": "Reels", "step1": "Step 1: Copy Link", "step2": "Step 2: Paste URL", "step3": "Step 3: Download"},
-    "hi": {"dw": "डाउनलोड", "on": "ऑनलाइन", "fr": "मुफ्त", "dl": "डाउनलोडर", "vid": "वीडियो", "ph": "फोटो", "st": "स्टोरी", "rl": "रील्स", "step1": "स्टेप 1: लिंक कॉपी करें", "step2": "स्टेप 2: URL पेस्ट करें", "step3": "स्टेप 3: डाउनलोड करें"},
-    "es": {"dw": "Descargar", "on": "en línea", "fr": "Gratis", "dl": "Descargador", "vid": "Video", "ph": "Foto", "st": "Historia", "rl": "Reels", "step1": "Paso 1: Copiar enlace", "step2": "Paso 2: Pegar URL", "step3": "Paso 3: Descargar"},
-    "fr": {"dw": "Télécharger", "on": "en ligne", "fr": "Gratuit", "dl": "Téléchargeur", "vid": "Vidéo", "ph": "Photo", "st": "Story", "rl": "Reels", "step1": "Étape 1: Copier le lien", "step2": "Étape 2: Coller l'URL", "step3": "Étape 3: Télécharger"},
-    "de": {"dw": "Herunterladen", "on": "Online", "fr": "Kostenlos", "dl": "Downloader", "vid": "Video", "ph": "Foto", "st": "Story", "rl": "Reels", "step1": "Schritt 1: Link kopieren", "step2": "Schritt 2: URL einfügen", "step3": "Schritt 3: Herunterladen"},
-    "pt": {"dw": "Baixar", "on": "Online", "fr": "Grátis", "dl": "Baixador", "vid": "Vídeo", "ph": "Foto", "st": "Story", "rl": "Reels", "step1": "Passo 1: Copiar link", "step2": "Passo 2: Colar URL", "step3": "Passo 3: Baixar"},
-    "ar": {"dw": "تحميل", "on": "عبر الانترنت", "fr": "مجاني", "dl": "محمل", "vid": "فيديو", "ph": "صورة", "st": "قصة", "rl": "ريلز", "step1": "الخطوة 1: انسخ الرابط", "step2": "الخطوة 2: الصق الرابط", "step3": "الخطوة 3: تحميل"},
-    "id": {"dw": "Unduh", "on": "Online", "fr": "Gratis", "dl": "Pengunduh", "vid": "Video", "ph": "Foto", "st": "Cerita", "rl": "Reels", "step1": "Langkah 1: Salin Tautan", "step2": "Langkah 2: Tempel URL", "step3": "Langkah 3: Unduh"},
-    "bn": {"dw": "ডাউনলোড", "on": "অনলাইন", "fr": "বিনামূল্যে", "dl": "ডাউনলোডার", "vid": "ভিডিও", "ph": "ছবি", "st": "গল্প", "rl": "রিলস", "step1": "ধাপ ১: লিঙ্ক কপি করুন", "step2": "ধাপ ২: URL পেস্ট করুন", "step3": "ধাপ ৩: ডাউনলোড করুন"},
-    "tr": {"dw": "İndir", "on": "Çevrimiçi", "fr": "Ücretsiz", "dl": "İndirici", "vid": "Video", "ph": "Fotoğraf", "st": "Hikaye", "rl": "Reels", "step1": "Adım 1: Bağlantıyı Kopyala", "step2": "Adım 2: URL'yi Yapıştır", "step3": "Adım 3: İndir"},
-    "th": {"dw": "ดาวน์โหลด", "on": "ออนไลน์", "fr": "ฟรี", "dl": "เครื่องมือดาวน์โหลด", "vid": "วิดีโอ", "ph": "รูปภาพ", "st": "สตอรี่", "rl": "Reels", "step1": "ขั้นตอนที่ 1: คัดลอกลิงก์", "step2": "ขั้นตอนที่ 2: วาง URL", "step3": "ขั้นตอนที่ 3: ดาวน์โหลด"},
-    "ko": {"dw": "다운로드", "on": "온라인", "fr": "무료", "dl": "다운로더", "vid": "비디오", "ph": "사진", "st": "스토리", "rl": "릴스", "step1": "1단계: 링크 복사", "step2": "2단계: URL 붙여넣기", "step3": "3단계: 다운로드"},
-    "ja": {"dw": "ダウンロード", "on": "オンライン", "fr": "無料", "dl": "ダウンローダー", "vid": "動画", "ph": "写真", "st": "ストーリー", "rl": "リール", "step1": "ステップ1：リンクをコピー", "step2": "ステップ2：URLを貼り付け", "step3": "ステップ3：ダウンロード"},
-    "uk": {"dw": "Завантажити", "on": "онлайн", "fr": "Безкоштовно", "dl": "Завантажувач", "vid": "Відео", "ph": "Фото", "st": "Історія", "rl": "Reels", "step1": "Крок 1: Копіювати посилання", "step2": "Крок 2: Вставити URL", "step3": "Крок 3: Завантажити"},
-    "pl": {"dw": "Pobierz", "on": "Online", "fr": "Za darmo", "dl": "Pobieracz", "vid": "Wideo", "ph": "Zdjęcie", "st": "Relacja", "rl": "Reels", "step1": "Krok 1: Kopiuj link", "step2": "Krok 2: Wklej URL", "step3": "Krok 3: Pobierz"},
+    "en": {"dw": "Download", "on": "Online", "fr": "Free", "dl": "Downloader", "vid": "Video", "ph": "Photo", "st": "Story", "rl": "Reels", "step1": "Step 1: Copy Link", "step2": "Step 2: Paste URL", "step3": "Step 3: Download", "title_suffix": "SnapReelDownload"},
+    "hi": {"dw": "डाउनलोड", "on": "ऑनलाइन", "fr": "मुफ्त", "dl": "डाउनलोडर", "vid": "वीडियो", "ph": "फोटो", "st": "स्टोरी", "rl": "रील्स", "step1": "स्टेप 1: लिंक कॉपी करें", "step2": "स्टेप 2: URL पेस्ट करें", "step3": "स्टेप 3: डाउनलोड करें", "title_suffix": "SnapReelDownload"},
+    "es": {"dw": "Descargar", "on": "en línea", "fr": "Gratis", "dl": "Descargador", "vid": "Video", "ph": "Foto", "st": "Historia", "rl": "Reels", "step1": "Paso 1: Copiar enlace", "step2": "Paso 2: Pegar URL", "step3": "Paso 3: Descargar", "title_suffix": "SnapReelDownload"},
+    "fr": {"dw": "Télécharger", "on": "en ligne", "fr": "Gratuit", "dl": "Téléchargeur", "vid": "Vidéo", "ph": "Photo", "st": "Story", "rl": "Reels", "step1": "Étape 1: Copier le lien", "step2": "Étape 2: Coller l'URL", "step3": "Étape 3: Télécharger", "title_suffix": "SnapReelDownload"},
+    "de": {"dw": "Herunterladen", "on": "Online", "fr": "Kostenlos", "dl": "Downloader", "vid": "Video", "ph": "Foto", "st": "Story", "rl": "Reels", "step1": "Schritt 1: Link kopieren", "step2": "Schritt 2: URL einfügen", "step3": "Schritt 3: Herunterladen", "title_suffix": "SnapReelDownload"},
+    "pt": {"dw": "Baixar", "on": "Online", "fr": "Grátis", "dl": "Baixador", "vid": "Vídeo", "ph": "Foto", "st": "Story", "rl": "Reels", "step1": "Passo 1: Copiar link", "step2": "Passo 2: Colar URL", "step3": "Passo 3: Baixar", "title_suffix": "SnapReelDownload"},
+    "ar": {"dw": "تحميل", "on": "عبر الانترنت", "fr": "مجاني", "dl": "محمل", "vid": "فيديو", "ph": "صورة", "st": "قصة", "rl": "ريلز", "step1": "الخطوة 1: انسخ الرابط", "step2": "الخطوة 2: الصق الرابط", "step3": "الخطوة 3: تحميل", "title_suffix": "SnapReelDownload"},
+    "id": {"dw": "Unduh", "on": "Online", "fr": "Gratis", "dl": "Pengunduh", "vid": "Video", "ph": "Foto", "st": "Cerita", "rl": "Reels", "step1": "Langkah 1: Salin Tautan", "step2": "Langkah 2: Tempel URL", "step3": "Langkah 3: Unduh", "title_suffix": "SnapReelDownload"},
+    "bn": {"dw": "ডাউনলোড", "on": "অনলাইন", "fr": "বিনামূল্যে", "dl": "ডাউনলোডার", "vid": "ভিডিও", "ph": "ছবি", "st": "গল্প", "rl": "রিলস", "step1": "ধাপ ১: লিঙ্ক কপি করুন", "step2": "ধাপ ২: URL পেস্ট করুন", "step3": "ধাপ ৩: ডাউনলোড করুন", "title_suffix": "SnapReelDownload"},
+    "tr": {"dw": "İndir", "on": "Çevrimiçi", "fr": "Ücretsiz", "dl": "İndirici", "vid": "Video", "ph": "Fotoğraf", "st": "Hikaye", "rl": "Reels", "step1": "Adım 1: Bağlantıyı Kopyala", "step2": "Adım 2: URL'yi Yapıştır", "step3": "Adım 3: İndir", "title_suffix": "SnapReelDownload"},
+    "th": {"dw": "ดาวน์โหลด", "on": "ออนไลน์", "fr": "ฟรี", "dl": "เครื่องมือดาวน์โหลด", "vid": "วิดีโอ", "ph": "รูปภาพ", "st": "สตอรี่", "rl": "Reels", "step1": "ขั้นตอนที่ 1: คัดลอกลิงก์", "step2": "ขั้นตอนที่ 2: วาง URL", "step3": "ขั้นตอนที่ 3: ดาวน์โหลด", "title_suffix": "SnapReelDownload"},
+    "ko": {"dw": "다운로드", "on": "온라인", "fr": "무료", "dl": "다운로더", "vid": "비디오", "ph": "사진", "st": "스토리", "rl": "릴스", "step1": "1단계: 링크 복사", "step2": "2단계: URL 붙여넣기", "step3": "3단계: 다운로드", "title_suffix": "SnapReelDownload"},
+    "ja": {"dw": "ダウンロード", "on": "オンライン", "fr": "無料", "dl": "ダウンローダー", "vid": "動画", "ph": "写真", "st": "ストーリー", "rl": "リール", "step1": "ステップ1：リンクをコピー", "step2": "ステップ2：URLを貼り付け", "step3": "ステップ3：ダウンロード", "title_suffix": "SnapReelDownload"},
+    "uk": {"dw": "Завантажити", "on": "онлайн", "fr": "Безкоштовно", "dl": "Завантажувач", "vid": "Відео", "ph": "Фото", "st": "Історія", "rl": "Reels", "step1": "Крок 1: Копіювати посилання", "step2": "Крок 2: Вставити URL", "step3": "Крок 3: Завантажити", "title_suffix": "SnapReelDownload"},
+    "pl": {"dw": "Pobierz", "on": "Online", "fr": "Za darmo", "dl": "Pobieracz", "vid": "Wideo", "ph": "Zdjęcie", "st": "Relacja", "rl": "Reels", "step1": "Krok 1: Kopiuj link", "step2": "Krok 2: Wklej URL", "step3": "Krok 3: Pobierz", "title_suffix": "SnapReelDownload"},
 }
 
 TOOLS = [
@@ -38,49 +38,49 @@ TOOLS = [
     ("/twitter", "Twitter (X)", "Twitter", "vid"),
     ("/pinterest", "Pinterest", "Pinterest", "vid"),
     ("/snapchat", "Snapchat", "Snapchat", "vid"),
-    ("/youtube-to-mp3", "YouTube", "YouTube to MP3", "vid") # The exception path kept exactly as is
+    ("/youtube-to-mp3", "YouTube", "YouTube to MP3", "vid")
 ]
 
 def make_page_data(path, platform, brand_name, content_key, lang):
     t = T.get(lang, T["en"])
-    
     content_word = t[content_key]
+    suffix = t["title_suffix"]
     
     if path == "/youtube-to-mp3":
-        title = f'YouTube to MP3 Converter Online Free | High Quality 320kbps | SnapReelDownload'
-        desc = f'Convert YouTube videos to MP3 audio online for free. Download high-quality 320kbps MP3 files instantly. No registration required, works on all devices.'
+        if lang == "hi":
+            title = f'यूट्यूब से MP3 कनवर्टर ऑनलाइन मुफ्त | उच्च गुणवत्ता | {suffix}'
+            desc = f'यूट्यूब वीडियो को ऑनलाइन मुफ्त में MP3 में बदलें। 320kbps उच्च गुणवत्ता वाली MP3 फाइलें तुरंत डाउनलोड करें।'
+        elif lang == "es":
+            title = f'Convertidor de YouTube a MP3 gratis | Alta calidad | {suffix}'
+            desc = f'Convierte videos de YouTube a MP3 gratis en línea. Descarga archivos MP3 de alta calidad al instante.'
+        else:
+            title = f'YouTube to MP3 Converter Online Free | High Quality 320kbps | {suffix}'
+            desc = f'Convert YouTube videos to MP3 audio online for free. Download high-quality 320kbps MP3 files instantly.'
+        
         h1 = f'YouTube to MP3 {t["dl"]}'
         tool_name = "YouTube to MP3"
     elif path == "/":
-        title = "SnapReelDownload - Free Online Video Downloader | Instagram, TikTok, YouTube, Facebook"
-        desc = f'Download videos from Instagram, TikTok, YouTube, Facebook & more for free. Save HD videos without watermark. Fast, secure, no login required.'
+        if lang == "hi":
+            title = f'{suffix} - मुफ्त ऑनलाइन वीडियो डाउनलोडर | इंस्टाग्राम, टिकटोकर, यूट्यूब'
+            desc = f'इंस्टाग्राम, टिकटॉक, यूट्यूब, फेसबुक और अन्य से वीडियो मुफ्त में डाउनलोड करें। बिना वॉटरमार्क के एचडी वीडियो सेव करें।'
+        elif lang == "es":
+            title = f'{suffix} - Descargador de videos en línea gratis | Instagram, TikTok'
+            desc = f'Descarga videos de Instagram, TikTok, YouTube y más gratis. Guarda videos HD sin marca de agua.'
+        else:
+            title = f'{suffix} - Free Online Video Downloader | Instagram, TikTok, YouTube'
+            desc = f'Download videos from Instagram, TikTok, YouTube, Facebook & more for free. Save HD videos without watermark.'
+        
         h1 = f'Universal {content_word} {t["dl"]}'
         tool_name = f'Universal {content_word} {t["dl"]}'
-    elif path == "/reels":
-        title = "Download Instagram Reels HD Free Online | No Watermark | SnapReelDownload"
-        desc = f'Download Instagram Reels in HD quality for free. Save Reels videos without watermark instantly. Works on iPhone, Android & PC. No login required.'
-        h1 = f'{t["dw"]} {brand_name} {content_word}'
-        tool_name = f'{brand_name} {content_word} {t["dl"]}'
-    elif path == "/story":
-        title = "Instagram Story Downloader Online Free | Save Stories HD | SnapReelDownload"
-        desc = f'Download Instagram Stories for free online. Save disappearing Stories in HD quality before they expire. Anonymous, fast, and secure.'
-        h1 = f'{t["dw"]} {brand_name} {content_word}'
-        tool_name = f'{brand_name} {content_word} {t["dl"]}'
-    elif path == "/photo":
-        title = "Download Instagram Photos HD Free | Save Pictures Online | SnapReelDownload"
-        desc = f'Download Instagram photos and images in HD quality for free. Save pictures without watermark. Works on all devices, no signup required.'
-        h1 = f'{t["dw"]} {brand_name} {content_word}'
-        tool_name = f'{brand_name} {content_word} {t["dl"]}'
     else:
-        if platform == "Instagram":
-            title = f'Download {brand_name} {content_word} HD Free Online | No Watermark | SnapReelDownload'
-        else:
-            title = f'{platform} {content_word} Downloader Online Free | HD Quality | SnapReelDownload'
-        desc = f'Download {brand_name} {content_word} in HD quality for free. Save {content_word}s without watermark. Fast, secure, works on iPhone, Android & PC.'
+        # Generic tool page title/desc generation logic
+        title = f'{t["dw"]} {brand_name} {content_word} HD {t["fr"]} {t["on"]} | {suffix}'
+        desc = f'{t["dw"]} {brand_name} {content_word} in HD quality for {t["fr"]}. Save {content_word}s without watermark. Fast & secure.'
+        
         h1 = f'{t["dw"]} {brand_name} {content_word}'
         tool_name = f'{brand_name} {content_word} {t["dl"]}'
         
-    intro = f"<p>{t['dw']} {brand_name} {content_word} {t['on']}. fast, secure and free.</p>"
+    intro = f"<p>{t['dw']} {brand_name} {content_word} {t['on']}. {t['fr']}, fast and secure.</p>"
     
     steps = [
         {"title": t["step1"], "desc": f"Copy the link of the {content_word}."},
@@ -96,6 +96,12 @@ def make_page_data(path, platform, brand_name, content_key, lang):
     
     faqs = [
         {"question": f"Is this {brand_name} {t['dl']} completely free?", "answer": "Yes, absolutely free! No hidden charges, no premium features, no watermarks added. Download unlimited videos forever at no cost."},
+        {"question": f"Do I need to create an account or sign up?", "answer": "No! Our tool works instantly without signup, registration, or login. Just paste the link and download."},
+        {"question": f"Can {brand_name} creators see that I downloaded their {content_word}?", "answer": "No, your download is completely anonymous. The creator is never notified, and your activity is completely private."},
+        {"question": f"Is it legal to download {brand_name} {content_word}s?", "answer": "Yes, for personal use like offline viewing, archiving, or educational reference. However, do not repost content as your own or use for commercial purposes without permission."},
+        {"question": f"What formats can I download {content_word}s in?", "answer": "We support MP4 for videos and M4A for audio. MP4 works on all devices and players. Audio extraction is available for compatible content."},
+    ]
+free! No hidden charges, no premium features, no watermarks added. Download unlimited videos forever at no cost."},
         {"question": f"Do I need to create an account or sign up?", "answer": "No! Our tool works instantly without signup, registration, or login. Just paste the link and download."},
         {"question": f"Can {brand_name} creators see that I downloaded their {content_word}?", "answer": "No, your download is completely anonymous. The creator is never notified, and your activity is completely private."},
         {"question": f"Is it legal to download {brand_name} {content_word}s?", "answer": "Yes, for personal use like offline viewing, archiving, or educational reference. However, do not repost content as your own or use for commercial purposes without permission."},

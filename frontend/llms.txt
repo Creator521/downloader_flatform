@@ -1,0 +1,29 @@
+# SnapReelDownload
+
+Free online video downloader for Instagram, TikTok, YouTube, Facebook, Twitter, and more.
+
+## Description
+SnapReelDownload is a web-based utility designed to help users archive publicly available video content for personal offline viewing. It supports various platforms and provides high-quality MP4 and MP3 downloads without requiring login or registration.
+
+## Features
+- No Watermark: Clean video downloads.
+- HD Quality: Support for 1080p and 4K where available.
+- Multi-platform: Works with Instagram (Reels, Stories, Photos), TikTok, YouTube (Videos, Shorts), Facebook, and X (Twitter).
+- Fast & Secure: SSL encryption and fast server-side processing.
+- Device Compatibility: Works on iOS, Android, Windows, and Mac.
+
+## Tools
+- Instagram Video Downloader: /en/video
+- Instagram Reels Downloader: /en/reels
+- Instagram Photo Downloader: /en/photo
+- Instagram Story Downloader: /en/story
+- TikTok Video Downloader: /en/tiktok
+- YouTube Video Downloader: /en/youtube
+- YouTube to MP3 Converter: /en/youtube-to-mp3
+- Facebook Video Downloader: /en/facebook
+- Twitter Video Downloader: /en/twitter
+- Pinterest Video Downloader: /en/pinterest
+- Snapchat Video Downloader: /en/snapchat
+
+## Compliance
+We only support publicly available content and respect creator privacy settings. This tool is intended for personal, non-commercial use only.

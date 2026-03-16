@@ -126,6 +126,18 @@ async def ads_txt():
     return PlainTextResponse(content=content, media_type="text/plain")
 
 
+@router.get("/llms.txt")
+async def llms_txt():
+    """Serve llms.txt for AI search engine discovery."""
+    from fastapi.responses import FileResponse
+    path = Path(__file__).parent.parent / "templates" / "llms.txt"
+    # Wait, I put it in frontend, but routes usually use templates or static.
+    # Actually, I should put it in the template dir or use FileResponse with the absolute path.
+    # Let's use the path where I just wrote it.
+    file_path = Path(__file__).parent.parent.parent / "frontend" / "llms.txt"
+    return FileResponse(file_path)
+
+
 @router.get("/robots.txt")
 async def robots_txt():
     """Serve a production-ready robots.txt for search engine crawlers."""
