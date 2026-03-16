@@ -47,18 +47,36 @@ def make_page_data(path, platform, brand_name, content_key, lang):
     content_word = t[content_key]
     
     if path == "/youtube-to-mp3":
-        title = f'YouTube to MP3 {t["dl"]} {t["on"]} {t["fr"]}'
-        desc = f'{t["dw"]} YouTube to MP3 {t["on"]} {t["fr"]}. High quality 320kbps.'
+        title = f'YouTube to MP3 Converter Online Free | High Quality 320kbps | SnapReelDownload'
+        desc = f'Convert YouTube videos to MP3 audio online for free. Download high-quality 320kbps MP3 files instantly. No registration required, works on all devices.'
         h1 = f'YouTube to MP3 {t["dl"]}'
         tool_name = "YouTube to MP3"
     elif path == "/":
-        title = f'Universal {content_word} {t["dl"]} {t["on"]} {t["fr"]}'
-        desc = f'{t["dw"]} {content_word}s {t["on"]} {t["fr"]}. Fast, free {content_word} {t["dl"]}.'
+        title = "SnapReelDownload - Free Online Video Downloader | Instagram, TikTok, YouTube, Facebook"
+        desc = f'Download videos from Instagram, TikTok, YouTube, Facebook & more for free. Save HD videos without watermark. Fast, secure, no login required.'
         h1 = f'Universal {content_word} {t["dl"]}'
         tool_name = f'Universal {content_word} {t["dl"]}'
+    elif path == "/reels":
+        title = "Download Instagram Reels HD Free Online | No Watermark | SnapReelDownload"
+        desc = f'Download Instagram Reels in HD quality for free. Save Reels videos without watermark instantly. Works on iPhone, Android & PC. No login required.'
+        h1 = f'{t["dw"]} {brand_name} {content_word}'
+        tool_name = f'{brand_name} {content_word} {t["dl"]}'
+    elif path == "/story":
+        title = "Instagram Story Downloader Online Free | Save Stories HD | SnapReelDownload"
+        desc = f'Download Instagram Stories for free online. Save disappearing Stories in HD quality before they expire. Anonymous, fast, and secure.'
+        h1 = f'{t["dw"]} {brand_name} {content_word}'
+        tool_name = f'{brand_name} {content_word} {t["dl"]}'
+    elif path == "/photo":
+        title = "Download Instagram Photos HD Free | Save Pictures Online | SnapReelDownload"
+        desc = f'Download Instagram photos and images in HD quality for free. Save pictures without watermark. Works on all devices, no signup required.'
+        h1 = f'{t["dw"]} {brand_name} {content_word}'
+        tool_name = f'{brand_name} {content_word} {t["dl"]}'
     else:
-        title = f'{t["dw"]} {brand_name} {content_word} {t["on"]} {t["fr"]}'
-        desc = f'{t["dw"]} {brand_name} {content_word} {t["on"]} {t["fr"]} without watermark. Fast {brand_name} {t["dl"]}.'
+        if platform == "Instagram":
+            title = f'Download {brand_name} {content_word} HD Free Online | No Watermark | SnapReelDownload'
+        else:
+            title = f'{platform} {content_word} Downloader Online Free | HD Quality | SnapReelDownload'
+        desc = f'Download {brand_name} {content_word} in HD quality for free. Save {content_word}s without watermark. Fast, secure, works on iPhone, Android & PC.'
         h1 = f'{t["dw"]} {brand_name} {content_word}'
         tool_name = f'{brand_name} {content_word} {t["dl"]}'
         
@@ -91,6 +109,11 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         {"question": f"Is my data safe with your tool?", "answer": "Yes! We use SSL encryption, never store your personal data, never log your activity, and never sell information. Complete privacy guaranteed."},
         {"question": f"How long does a download take?", "answer": "Most downloads complete in seconds, depending on video length and file size. Longer videos may take 20-30 seconds."},
         {"question": f"Can I download story content that will disappear?", "answer": "For Stories and Highlights - yes, if the creator has made them public. Private stories cannot be accessed per privacy policy."},
+        {"question": f"What's the maximum {content_word} length I can download?", "answer": f"We support {content_word}s of any length. Download time depends on file size, but our servers handle everything from short clips to long-form content."},
+        {"question": f"Do you add watermarks to downloaded {content_word}s?", "answer": "No watermarks ever! We deliver clean, original quality content without any branding or modifications."},
+        {"question": f"Can I download multiple {content_word}s at once?", "answer": "Currently, we process one {content_word} at a time for optimal quality and speed. Download sequentially for best results."},
+        {"question": f"What quality options are available?", "answer": "We automatically download the highest available quality from the source platform, typically HD (1080p) or better when available."},
+        {"question": f"Does this work with {brand_name} Live videos?", "answer": "No, we only support pre-recorded content. Live streams cannot be downloaded as they haven't been processed yet."},
     ]
     
     # Add extra SEO content sections - device guides for tool pages
@@ -125,7 +148,7 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             },
             {
                 "title": "Other Download Tools We Offer",
-                "content": "<p><strong>Need to download from a different platform?</strong> Check out our complete tool suite:</p><ul style='columns: 2; column-gap: 30px;'><li><a href='/video' style='color: #667eea; text-decoration: none; font-weight: 500;'>📹 Instagram Video Downloader</a></li><li><a href='/reels' style='color: #667eea; text-decoration: none; font-weight: 500;'>🎬 Instagram Reels Downloader</a></li><li><a href='/photo' style='color: #667eea; text-decoration: none; font-weight: 500;'>📸 Instagram Photo Downloader</a></li><li><a href='/story' style='color: #667eea; text-decoration: none; font-weight: 500;'>📖 Instagram Story Downloader</a></li><li><a href='/tiktok' style='color: #667eea; text-decoration: none; font-weight: 500;'>🎵 TikTok Video Downloader</a></li><li><a href='/youtube' style='color: #667eea; text-decoration: none; font-weight: 500;'>▶️ YouTube Video Downloader</a></li><li><a href='/facebook' style='color: #667eea; text-decoration: none; font-weight: 500;'>👥 Facebook Video Downloader</a></li><li><a href='/youtube-to-mp3' style='color: #667eea; text-decoration: none; font-weight: 500;'>🎶 YouTube to MP3 Converter</a></li></ul>"
+                "content": "<p><strong>Need to download from a different platform?</strong> Check out our complete tool suite:</p><ul style='columns: 2; column-gap: 30px; column-rule: 1px solid #e2e8f0; padding: 20px;'><li><a href='/video' style='color: #667eea; text-decoration: none; font-weight: 500;'>📹 Instagram Video Downloader</a> - Download IGTV and regular videos</li><li><a href='/reels' style='color: #667eea; text-decoration: none; font-weight: 500;'>🎬 Instagram Reels Downloader</a> - Save trending Reels content</li><li><a href='/photo' style='color: #667eea; text-decoration: none; font-weight: 500;'>📸 Instagram Photo Downloader</a> - Download images and carousels</li><li><a href='/story' style='color: #667eea; text-decoration: none; font-weight: 500;'>📖 Instagram Story Downloader</a> - Save disappearing Stories</li><li><a href='/tiktok' style='color: #667eea; text-decoration: none; font-weight: 500;'>🎵 TikTok Video Downloader</a> - Download viral TikTok videos</li><li><a href='/youtube' style='color: #667eea; text-decoration: none; font-weight: 500;'>▶️ YouTube Video Downloader</a> - Save YouTube content offline</li><li><a href='/facebook' style='color: #667eea; text-decoration: none; font-weight: 500;'>👥 Facebook Video Downloader</a> - Download Facebook videos and reels</li><li><a href='/youtube-to-mp3' style='color: #667eea; text-decoration: none; font-weight: 500;'>🎶 YouTube to MP3 Converter</a> - Extract audio from videos</li></ul><p><strong>Popular combinations:</strong> Many users download Instagram Reels and convert them to MP3 using our <a href='/youtube-to-mp3' style='color: #667eea; font-weight: 500;'>YouTube to MP3 tool</a> for background music.</p>"
             },
             {
                 "title": "Platform Feature Comparison Matrix",
@@ -133,7 +156,7 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             },
             {
                 "title": "Visual Download Guide",
-                "content": "<p><strong>Step-by-step visual guide:</strong></p><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-1-copy-link.png' alt='Step 1: Copy the video link from your browser address bar or share button' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 1: Copy the video link</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-2-paste.png' alt='Step 2: Paste the copied link into the downloader box at the top' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 2: Paste the link in the box above</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-3-download.png' alt='Step 3: Click the Download button to process the video' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 3: Click Download</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-4-format.png' alt='Step 4: Choose your preferred file format and quality from available options' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 4: Select format & quality</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-5-save.png' alt='Step 5: File downloads automatically to your device downloads folder' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 5: File saved to your device</figcaption></figure>"
+                "content": "<p><strong>Step-by-step visual guide:</strong></p><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-1-copy-link.png' alt='Step 1: Copy the video link from Instagram app or website - tap share button and select copy link option' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 1: Copy the video link from your browser or app</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-2-paste.png' alt='Step 2: Paste the copied Instagram video link into the download input field above' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 2: Paste the link in the input box</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-3-download.png' alt='Step 3: Click the Download button to start processing the Instagram video' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 3: Click Download to process</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-4-format.png' alt='Step 4: Choose your preferred download format - MP4 video or MP3 audio from available options' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 4: Select format and quality</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-5-save.png' alt='Step 5: Download completes automatically and video saves to your device downloads folder' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' loading='lazy' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 5: File downloads to your device</figcaption></figure>"
             }
         ]
     else:
@@ -202,15 +225,14 @@ def generate_multilingual_pages():
     
     for path, platform, brand_name, content_key in TOOLS:
         for lang in SUPPORTED_LANGUAGES:
-            # Generate the URL structure
-            # e.g., /hi/reels, or /reels for en. /youtube-to-mp3 is kept same as per exception.
-            prefix = "" if lang == "en" else f"/{lang}"
+            # Generate the URL structure with language prefix for all languages
+            prefix = f"/{lang}"
             full_path = f"{prefix}{path}"
             
             # Root path handling
-            if full_path == "":
-                full_path = "/"
-            elif full_path.endswith("/") and full_path != "/":
+            if full_path == f"/{lang}":
+                full_path = f"/{lang}/"
+            elif full_path.endswith("/") and full_path != f"/{lang}/":
                 full_path = full_path.rstrip("/")
             
             # Create page data
@@ -219,11 +241,11 @@ def generate_multilingual_pages():
             # Setup hreflangs
             hreflangs_map = {}
             for l in SUPPORTED_LANGUAGES:
-                l_prefix = "" if l == "en" else f"/{l}"
+                l_prefix = f"/{l}"
                 l_full = f"{l_prefix}{path}"
-                if l_full == "": 
-                    l_full = "/"
-                elif l_full.endswith("/") and l_full != "/":
+                if l_full == f"/{l}": 
+                    l_full = f"/{l}/"
+                elif l_full.endswith("/") and l_full != f"/{l}/":
                     l_full = l_full.rstrip("/")
                 hreflangs_map[l] = f"{base_domain}{l_full}"
                 

@@ -39,7 +39,17 @@ async def sitemap():
     for path in MULTILINGUAL_PAGES:
         if path == "/":
             continue
-        xml += f'  <url><loc>{base}{path}</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>\n'
+        # Set different priorities based on tool type
+        priority = "0.8"
+        changefreq = "daily"
+        if "/youtube-to-mp3" in path:
+            priority = "0.9"  # High priority for popular tool
+        elif any(tool in path for tool in ["/reels", "/video", "/tiktok", "/youtube"]):
+            priority = "0.8"  # Medium-high for popular platforms
+        else:
+            priority = "0.7"  # Medium for other tools
+            
+        xml += f'  <url><loc>{base}{path}</loc><lastmod>{today}</lastmod><changefreq>{changefreq}</changefreq><priority>{priority}</priority></url>\n'
 
     # Blog list page
     xml += f'  <url><loc>{base}/blog</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n'

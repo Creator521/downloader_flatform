@@ -67,17 +67,22 @@ async def add_cache_headers(request, call_next):
     if request.url.path.startswith("/static"):
         # JS/CSS files - 6 months cache
         if request.url.path.endswith(('.js', '.css')):
-            response.headers["Cache-Control"] = "public, max-age=15552000"  # 6 months
+            response.headers["Cache-Control"] = "public, max-age=15552000, immutable"  # 6 months
         # Images - 1 year cache
         elif request.url.path.endswith(('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')):
-            response.headers["Cache-Control"] = "public, max-age=31536000"  # 1 year
+            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"  # 1 year
         # Other static assets - 1 month
         else:
             response.headers["Cache-Control"] = "public, max-age=2592000"  # 30 days
 
+    # Dynamic content caching for SEO pages (5 minutes)
+    elif request.url.path.startswith(("/en/", "/hi/", "/es/", "/fr/", "/de/", "/pt/", "/ar/", "/id/", "/bn/", "/tr/", "/th/", "/ko/", "/ja/", "/uk/", "/pl/")):
+        response.headers["Cache-Control"] = "public, max-age=300"  # 5 minutes for SEO pages
+
     # Add security headers
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
 
     return response
 

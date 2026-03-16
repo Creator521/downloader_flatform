@@ -35,6 +35,27 @@ OLD_REDIRECTS = {
     "/pinterest-video-downloader": "/pinterest"
 }
 
+# 301 Redirects from old English URLs (without lang prefix) to new /en/ URLs
+EN_REDIRECTS = {
+    "/": "/en/",
+    "/reels": "/en/reels",
+    "/video": "/en/video", 
+    "/photo": "/en/photo",
+    "/story": "/en/story",
+    "/youtube": "/en/youtube",
+    "/tiktok": "/en/tiktok",
+    "/facebook": "/en/facebook",
+    "/twitter": "/en/twitter",
+    "/pinterest": "/en/pinterest",
+    "/snapchat": "/en/snapchat",
+    "/youtube-to-mp3": "/en/youtube-to-mp3"
+}
+
+for old_path, new_path in EN_REDIRECTS.items():
+    @router.get(old_path, include_in_schema=False)
+    async def redirect_en(request: Request, _old=old_path, _new=new_path):
+        return RedirectResponse(url=_new, status_code=301)
+
 for old_path, new_path in OLD_REDIRECTS.items():
     @router.get(old_path, include_in_schema=False)
     async def redirect_old_route(request: Request, _old=old_path, _new=new_path):
@@ -115,7 +136,7 @@ async def robots_txt():
 
     content = (
         "# robots.txt for snapreeldownload.com\n"
-        "# Last updated: 2026-03-11\n"
+        "# Last updated: 2026-03-16\n"
         "\n"
         "# ── Allow all search engines ────────────────────────\n"
         "User-agent: *\n"
@@ -124,13 +145,43 @@ async def robots_txt():
         "Allow: /\n"
         "Allow: /blog\n"
         "Allow: /sitemap.xml\n"
+        "Allow: /ads.txt\n"
+        "Allow: /robots.txt\n"
+        "\n"
+        "# Allow: Multilingual SEO pages\n"
+        "Allow: /en/\n"
+        "Allow: /hi/\n"
+        "Allow: /es/\n"
+        "Allow: /fr/\n"
+        "Allow: /de/\n"
+        "Allow: /pt/\n"
+        "Allow: /ar/\n"
+        "Allow: /id/\n"
+        "Allow: /bn/\n"
+        "Allow: /tr/\n"
+        "Allow: /th/\n"
+        "Allow: /ko/\n"
+        "Allow: /ja/\n"
+        "Allow: /uk/\n"
+        "Allow: /pl/\n"
         "\n"
         "# Block: Internal API & backend endpoints\n"
         "Disallow: /preview\n"
         "Disallow: /proxy-image\n"
         "Disallow: /api/\n"
+        "Disallow: /temp/\n"
+        "Disallow: /*?*\n"
         "\n"
-        "# ── Sitemap location ────────────────────────────────\n"
+        "# Block: Admin and development files\n"
+        "Disallow: /admin\n"
+        "Disallow: /_debug\n"
+        "Disallow: /*.log$\n"
+        "Disallow: /*.tmp$\n"
+        "\n"
+        "# ── Crawl delay (be nice to our servers) ──────────\n"
+        "Crawl-delay: 1\n"
+        "\n"
+        "# ── Sitemap location ───────────────────────────────\n"
         f"Sitemap: {domain}/sitemap.xml\n"
     )
     from fastapi.responses import PlainTextResponse
