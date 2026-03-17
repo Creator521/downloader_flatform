@@ -480,64 +480,7 @@ SEO_PAGES = {
             {"question": "Does it work on iPhone?", "answer": "Yes, works perfectly on Safari and Chrome for iOS."}
         ]
     },
-    "/story": {
-        "title": "Twitter Video Downloader - Download X Videos HD Free Online",
-        "description": "Download Twitter/X videos and GIFs in HD quality for free. Save tweets with video online. Best Twitter video downloader for Android, iPhone & PC.",
-        "h1": "Twitter Video Downloader Online",
-        "subtitle": "Download Videos & GIFs from Twitter (X) – Free & Fast",
-        "tool_name": "Twitter Video Downloader",
-        "intro_text": """
-        <p>Twitter (now X) is a hub for breaking news, sports highlights, viral memes, and trending video content. Millions of videos are shared daily, but saving them directly from the platform isn't always easy — Twitter doesn't offer a native download button for videos.</p>
-        <p>Our <strong>Twitter Video Downloader</strong> makes it effortless to save any publicly available video or GIF from Twitter/X. Get <strong>HD quality</strong> downloads in MP4 format, completely <strong>free</strong>. No login, no software installation — just paste the tweet URL and download instantly.</p>
-        """,
-        "keyword": "Twitter video",
-        "platform": "Twitter (X)",
-        "steps": [
-            {"title": "Step 1: Copy Tweet Link", "desc": "Find the tweet with the video, click the share icon (↗) and select 'Copy link'."},
-            {"title": "Step 2: Paste URL", "desc": "Paste the tweet link into the download box above."},
-            {"title": "Step 3: Download Video", "desc": "Click Download and save the HD video or GIF to your device."}
-        ],
-        "features": [
-            {"title": "🐦 Twitter & X Support", "desc": "Works with both twitter.com and x.com links seamlessly."},
-            {"title": "🎞️ GIF Downloads", "desc": "Save Twitter GIFs as MP4 video files for easy sharing."},
-            {"title": "📺 HD Quality", "desc": "Download in the best available resolution (up to 1080p)."},
-            {"title": "⚡ Instant Processing", "desc": "Videos are processed and ready in seconds."},
-            {"title": "🔒 No Login Required", "desc": "Download anonymously without any account."}
-        ],
-        "extra_sections": [
-            {
-                "title": "How to Download Twitter Videos on Mobile & PC",
-                "content": """
-                <h3>On Android</h3>
-                <p>Open Twitter/X app, find the tweet. Tap the share icon → 'Copy Link'. Open Chrome, visit our tool, paste the link, and download.</p>
-                <h3>On iPhone (iOS)</h3>
-                <p>Copy the tweet link from the Twitter app. Open Safari, paste the URL, tap Download. Save to Photos from Safari downloads.</p>
-                <h3>On PC (Windows & Mac)</h3>
-                <p>Copy the tweet URL from the browser address bar. Paste into our tool and the MP4 downloads directly.</p>
-                """
-            },
-            {
-                "title": "What Twitter Content Can You Download?",
-                "content": """
-                <ul>
-                    <li><strong>Video Tweets:</strong> Any video in a public tweet.</li>
-                    <li><strong>Twitter GIFs:</strong> Animated GIFs download as MP4 files.</li>
-                    <li><strong>Sports Highlights:</strong> Save clips from live sports coverage.</li>
-                    <li><strong>News Clips:</strong> Download breaking news videos from journalists.</li>
-                </ul>
-                """
-            }
-        ],
-        "faqs": [
-            {"question": "Can I download videos from X (Twitter)?", "answer": "Yes! Our tool works with both twitter.com and x.com URLs."},
-            {"question": "Can I download Twitter GIFs?", "answer": "Yes, Twitter GIFs are downloaded as MP4 video files."},
-            {"question": "Is this tool free?", "answer": "100% free with no download limits."},
-            {"question": "Do I need a Twitter account?", "answer": "No login or account required."},
-            {"question": "Can I download from private accounts?", "answer": "No, only public tweets are supported."},
-            {"question": "What quality are the downloads?", "answer": "We download in the highest available quality, typically 720p or 1080p."}
-        ]
-    },
-    "/story-redirect": { # Temp key to avoid conflict if any, wait story is already taken for /twitter? No, /twitter should be /twitter.
+    "/story": { 
         "title": "Instagram Story Downloader - Save Stories HD Free Online",
         "description": "Download Instagram Stories in HD. Save Instagram Story videos and photos anonymously. Free online tool, no login required.",
         "h1": "Instagram Story Downloader",

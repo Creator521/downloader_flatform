@@ -205,7 +205,8 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         # If it's English, it can be at the top level or inside an "en" key.
         # For other languages, it must be inside a key like "hi", "es", etc.
         lang_data = override.get(lang, {})
-        if not lang_data and lang == "en":
+        if not lang_data:
+            # Fallback to top-level if specific lang key is missing
             lang_data = override
 
         if isinstance(lang_data, dict):
