@@ -47,7 +47,7 @@ SEO_PAGES = {
             {"question": "Can I save private videos?", "answer": "No, we only support publicly accessible videos to respect user privacy."}
         ]
     },
-    "/instagram-video-downloader": {
+    "/video": {
         "title": "Download Instagram Videos - Fast, Free, Online & HD (No Watermark)",
         "description": "Download Instagram videos online for free in HD quality. Best Instagram video downloader for Reels, Stories & IGTV. Fast, safe, no login required.",
         "h1": "Instagram Video Downloader",
@@ -117,7 +117,7 @@ SEO_PAGES = {
             {"question": "Does it work on mobile?", "answer": "Yes, our downloader is responsive and works perfectly on both Android and iOS devices."}
         ]
     },
-    "/instagram-reel-downloader": {
+    "/reels": {
         "title": "Instagram Reel Downloader - Download Reels Without Watermark (HD)",
         "description": "Download Instagram Reels without watermark in MP4. Save Reels audio (MP3). Best free Reels saver for Android & iOS.",
         "h1": "Instagram Reel Downloader Online",
@@ -141,7 +141,7 @@ SEO_PAGES = {
             {"question": "Can I download Reels on iPhone?", "answer": "Yes, it works perfectly on Safari and Chrome for iOS."}
         ]
     },
-    "/tiktok-video-downloader": {
+    "/tiktok": {
         "title": "Download TikTok Video Without Watermark - Fast, Free, HD & Online",
         "description": "Download TikTok video without watermark online for free. Save HD TikToks securely. Best TikTok video downloader no watermark for Android, iPhone & PC.",
         "h1": "Download TikTok Video Without Watermark",
@@ -211,7 +211,7 @@ SEO_PAGES = {
             {"question": "Can I download private TikTok videos?", "answer": "No, we can only access and download videos that are set to 'Public'."}
         ]
     },
-    "/youtube-video-downloader": {
+    "/youtube": {
         "title": "YouTube Video Downloader - Download 4K & 1080p Online",
         "description": "Download YouTube videos in 4K, 1080p, 720p. Convert YouTube to MP4. Free online YT video saver for PC and Mobile.",
         "h1": "YouTube Video Downloader Online",
@@ -305,7 +305,7 @@ SEO_PAGES = {
             {"question": "Do you watermark Shorts?", "answer": "No, we provide clean videos."}
         ]
     },
-    "/x-video-downloader": {
+    "/twitter": {
         "title": "X Video Downloader - Download Twitter Videos",
         "description": "Download videos from X (formerly Twitter). Save X videos and GIFs in HD. Free Twitter video downloader.",
         "h1": "X (Twitter) Video Downloader",
@@ -329,7 +329,7 @@ SEO_PAGES = {
             {"question": "Is it free?", "answer": "Yes, completely free forever."}
         ]
     },
-    "/snapchat-video-downloader": {
+    "/snapchat": {
         "title": "Snapchat Video Downloader - Save Spotlight & Stories",
         "description": "Download Snapchat videos, Spotlight, and Stories. Save Snap videos in HD MP4. Free Snapchat downloader online.",
         "h1": "Snapchat Video Downloader",
@@ -353,7 +353,7 @@ SEO_PAGES = {
             {"question": "Do you persist the videos?", "answer": "No, we do not store any content on our servers."}
         ]
     },
-    "/instagram-photo-downloader": {
+    "/photo": {
         "title": "Instagram Photo Downloader - Save HD Images Free Online",
         "description": "Download Instagram photos in full HD quality. Save Instagram images, carousel photos & profile pictures online. Free, fast, no login required.",
         "h1": "Instagram Photo Downloader",
@@ -410,7 +410,7 @@ SEO_PAGES = {
             {"question": "Does it work on mobile?", "answer": "Yes, our tool works perfectly on Android and iOS browsers."}
         ]
     },
-    "/facebook-video-downloader": {
+    "/facebook": {
         "title": "Facebook Video Downloader - Download FB Videos HD Online Free",
         "description": "Download Facebook videos in HD quality for free. Save FB Reels, Stories & public videos online. Fast Facebook video downloader for mobile & PC.",
         "h1": "Facebook Video Downloader Online",
@@ -480,7 +480,7 @@ SEO_PAGES = {
             {"question": "Does it work on iPhone?", "answer": "Yes, works perfectly on Safari and Chrome for iOS."}
         ]
     },
-    "/twitter-video-downloader": {
+    "/story": {
         "title": "Twitter Video Downloader - Download X Videos HD Free Online",
         "description": "Download Twitter/X videos and GIFs in HD quality for free. Save tweets with video online. Best Twitter video downloader for Android, iPhone & PC.",
         "h1": "Twitter Video Downloader Online",
@@ -537,7 +537,7 @@ SEO_PAGES = {
             {"question": "What quality are the downloads?", "answer": "We download in the highest available quality, typically 720p or 1080p."}
         ]
     },
-    "/instagram-story-downloader": {
+    "/story-redirect": { # Temp key to avoid conflict if any, wait story is already taken for /twitter? No, /twitter should be /twitter.
         "title": "Instagram Story Downloader - Save Stories HD Free Online",
         "description": "Download Instagram Stories in HD. Save Instagram Story videos and photos anonymously. Free online tool, no login required.",
         "h1": "Instagram Story Downloader",
@@ -568,7 +568,7 @@ SEO_PAGES = {
             {"question": "Does it work on iPhone?", "answer": "Yes, works perfectly on Safari and Chrome for iOS."}
         ]
     },
-    "/pinterest-video-downloader": {
+    "/pinterest": {
         "title": "Pinterest Video Downloader - Download Pinterest Videos HD Free",
         "description": "Download Pinterest videos and GIFs in HD quality for free. Save Pinterest video pins online. Fast, no login, works on all devices.",
         "h1": "Pinterest Video Downloader",

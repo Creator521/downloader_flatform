@@ -1,9 +1,9 @@
 # app/multilingual_data.py
 import copy
 try:
-    from app.seo_data import SEO_PAGES
+    from app.seo_data import SEO_PAGES # type: ignore
 except ImportError:
-    from seo_data import SEO_PAGES
+    from seo_data import SEO_PAGES # type: ignore
 
 SUPPORTED_LANGUAGES = [
     "en", "hi", "es", "fr", "de", "pt", "ar", "id", 
@@ -212,9 +212,14 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             if "title" in lang_data: title = lang_data["title"]
             if "description" in lang_data: desc = lang_data["description"]
             if "h1" in lang_data: h1 = lang_data["h1"]
-            if "subtitle" in lang_data: page_subtitle = lang_data["subtitle"]
-            elif "subtitle" in override and lang == "en": page_subtitle = override["subtitle"] # fallback for en
-            else: page_subtitle = f"{t['dw']} {content_word}s in HD"
+            
+            # Subtitle handling
+            if "subtitle" in lang_data: 
+                page_subtitle = lang_data["subtitle"]
+            elif isinstance(override, dict) and "subtitle" in override and lang == "en": 
+                page_subtitle = override["subtitle"] # fallback for en
+            else: 
+                page_subtitle = f"{t['dw']} {content_word}s in HD"
             
             # --- MERGE LOGIC (Phase 5) ---
             # Instead of just replacing, we ADD the custom content to the default
@@ -235,13 +240,16 @@ def make_page_data(path, platform, brand_name, content_key, lang):
     else:
         page_subtitle = f"{t['dw']} {content_word}s in HD"
 
+    final_title = str(title) if title else ""
+    final_desc = str(desc) if desc else ""
+    
     return {
-        "title": title[:65] if title else "",
-        "description": desc[:160] if desc else "",
-        "h1": h1,
-        "subtitle": page_subtitle,
-        "tool_name": tool_name,
-        "intro_text": intro,
+        "title": final_title[:65], # type: ignore
+        "description": final_desc[:160], # type: ignore
+        "h1": str(h1),
+        "subtitle": str(page_subtitle),
+        "tool_name": str(tool_name),
+        "intro_text": str(intro),
         "keyword": f"{brand_name} {content_word}".lower(),
         "platform": platform,
         "steps": steps,
