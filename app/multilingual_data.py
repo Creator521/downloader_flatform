@@ -1,5 +1,9 @@
 # app/multilingual_data.py
 import copy
+try:
+    from app.seo_data import SEO_PAGES
+except ImportError:
+    from seo_data import SEO_PAGES
 
 SUPPORTED_LANGUAGES = [
     "en", "hi", "es", "fr", "de", "pt", "ar", "id", 
@@ -192,11 +196,50 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         # ADD Rich UI sections to homepage as well
         extra_sections.extend(shared_extra)
 
+    # --- SEO DATA OVERRIDES (Phase 4) ---
+    # We check if there's custom content in seo_data.py for this path
+    if path in SEO_PAGES:
+        override = SEO_PAGES[path]
+        
+        # We look for language-specific data. 
+        # If it's English, it can be at the top level or inside an "en" key.
+        # For other languages, it must be inside a key like "hi", "es", etc.
+        lang_data = override.get(lang, {})
+        if not lang_data and lang == "en":
+            lang_data = override
+
+        if isinstance(lang_data, dict):
+            if "title" in lang_data: title = lang_data["title"]
+            if "description" in lang_data: desc = lang_data["description"]
+            if "h1" in lang_data: h1 = lang_data["h1"]
+            if "subtitle" in lang_data: page_subtitle = lang_data["subtitle"]
+            elif "subtitle" in override and lang == "en": page_subtitle = override["subtitle"] # fallback for en
+            else: page_subtitle = f"{t['dw']} {content_word}s in HD"
+            
+            # --- MERGE LOGIC (Phase 5) ---
+            # Instead of just replacing, we ADD the custom content to the default
+            # but keep the custom content at the top.
+            if "intro_text" in lang_data: 
+                intro = lang_data["intro_text"] + "<hr style='margin: 30px 0; border: 0; border-top: 1px dashed #cbd5e0;'> " + intro
+            
+            if "faqs" in lang_data: 
+                faqs = lang_data["faqs"] + faqs # Custom FAQs first
+            
+            if "features" in lang_data: 
+                features = lang_data["features"] + features
+            
+            if "extra_sections" in lang_data: 
+                extra_sections = lang_data["extra_sections"] + extra_sections
+            
+            if "tool_name" in lang_data: tool_name = lang_data["tool_name"]
+    else:
+        page_subtitle = f"{t['dw']} {content_word}s in HD"
+
     return {
-        "title": title[:60],
-        "description": desc[:160],
+        "title": title[:65] if title else "",
+        "description": desc[:160] if desc else "",
         "h1": h1,
-        "subtitle": f"{t['dw']} {content_word}s in HD",
+        "subtitle": page_subtitle,
         "tool_name": tool_name,
         "intro_text": intro,
         "keyword": f"{brand_name} {content_word}".lower(),
