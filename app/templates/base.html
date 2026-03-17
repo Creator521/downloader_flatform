@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Snap Reel Download{% endblock %}</title>
     <meta name="description" content="{% block description %}Free online video downloader.{% endblock %}">
-    <link rel="canonical" href="{{ (page.canonical | default(request.url)) if page is defined else request.url }}">
+    <link rel="canonical" href="{{ page.canonical if (page and page.canonical) else ('https://snapreeldownload.com' + request.url.path) }}">
     {% block hreflangs %}{% endblock %}
     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon.png">
