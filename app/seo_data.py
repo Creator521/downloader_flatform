@@ -141,7 +141,7 @@ SEO_PAGES = {
         "faqs": [
             {"question": "How to download Instagram Reels without watermark?", "answer": "Copy the Reel link, paste it into the downloader, and download the video without watermark in HD quality."},
             {"question": "Is Instagram Reel Downloader free to use?", "answer": "Yes, our Instagram Reel Downloader is completely free with unlimited downloads."},
-            {"question": "Can I download Instagram Reels in HD quality?", "answer": "Yes, you can download Reels in HD and even 4K quality depending on the original video."}
+            {"question": "Can I download Instagram Reels in HD quality?", "answer": "Yes, you can download Reels in HD and even 4K quality depending on the original video."},
             {"question": "Does Instagram notify when I download a Reel?", "answer": "No, Instagram does not notify users when you download their public Reels."},
             {"question": "Can I download Instagram Reels on mobile?", "answer": "Yes, it works perfectly on Android and iPhone devices using any browser."}
         ]
