@@ -2,8 +2,10 @@
 import copy
 try:
     from app.seo_data import SEO_PAGES # type: ignore
+    from app.programmatic_seo_data import PROGRAMMATIC_PAGES # type: ignore
 except ImportError:
     from seo_data import SEO_PAGES # type: ignore
+    from programmatic_seo_data import PROGRAMMATIC_PAGES # type: ignore
 
 SUPPORTED_LANGUAGES = [
     "en", "hi", "es", "fr", "de", "pt", "ar", "id", 
@@ -146,7 +148,7 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         },
         {
             "title": "Visual Download Guide",
-            "content": "<p><strong>Follow this simple step-by-step guide to download any online video:</strong></p><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-1-copy-link.png' alt='Step 1: Copy the video link from app or website' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 1: Copy the link from the source platform</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-2-paste.png' alt='Step 2: Paste the link into the download box' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 2: Paste the link in the input field above</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-3-download.png' alt='Step 3: Click Download to process' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 3: Click the Download button</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-4-format.png' alt='Step 4: Choose your preferred format' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 4: Select MP4 or MP3 format</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-5-save.png' alt='Step 5: File saves to your device' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 5: File is saved to your gallery or downloads</figcaption></figure>"
+            "content": "<p><strong>Follow this simple step-by-step guide to download any online video:</strong></p><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-1-copy-link.png' alt='Step 1: Copy the video link' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 1: Copy the link from the source platform</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-2-paste.png' alt='Step 2: Paste the link' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 2: Paste the link in the input field above</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-3-download.png' alt='Step 3: Click Download' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 3: Click the Download button</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-4-format.png' alt='Step 4: Choose format' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 4: Select MP4 or MP3 format</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-5-save.png' alt='Step 5: File saves' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 5: File is saved to your gallery or downloads</figcaption></figure>"
         }
     ]
 
@@ -266,6 +268,7 @@ def generate_multilingual_pages():
     pages = {}
     base_domain = "https://snapreeldownload.com"
     
+    # 1. Generate Core Multilingual Pages (from TOOLS)
     for path, platform, brand_name, content_key in TOOLS:
         for lang in SUPPORTED_LANGUAGES:
             prefix = f"/{lang}"
@@ -292,6 +295,42 @@ def generate_multilingual_pages():
             page_data["canonical"] = f"{base_domain}{full_path}"
             
             pages[full_path] = page_data
+    
+    # 2. Add Programmatic SEO Pages (Enriched with Hreflangs & Cannonical)
+    # PROGRAMMATIC_PAGES already has translations for path prefixes from its own generator
+    for path, page_data in PROGRAMMATIC_PAGES.items():
+        # Clean path for consistency (no trailing slash for tools)
+        clean_path = path.lower()
+        if clean_path.endswith("/") and len(clean_path) > 4: # /en/ stays /en/, but /en/tool/ -> /en/tool
+            clean_path = clean_path.rstrip("/")
+            
+        # Extract base path without lang prefix to build hreflangs
+        # /en/download-ig -> /download-ig
+        # /hi/download-ig -> /download-ig
+        parts = clean_path.strip("/").split("/")
+        if parts[0] in SUPPORTED_LANGUAGES:
+            base_tool_path = "/" + "/".join(parts[1:])
+        else:
+            base_tool_path = clean_path
+
+        hreflangs_map = {}
+        for l in SUPPORTED_LANGUAGES:
+            l_prefix = f"/{l}"
+            l_full = f"{l_prefix}{base_tool_path}"
+            if l_full.endswith("/") and len(l_full) > 4:
+                l_full = l_full.rstrip("/")
+            hreflangs_map[l] = f"{base_domain}{l_full}"
+            
+        page_data["hreflangs"] = hreflangs_map
+        page_data["canonical"] = f"{base_domain}{clean_path}"
+        
+        # Merge Shared Extra Sections if missing to ensure content depth
+        if not page_data.get("tool_name"):
+            page_data["tool_name"] = "Video Downloader"
+            
+        # Ensure the registered path matches the lang-prefixed version (especially for English)
+        actual_path = hreflangs_map[page_data["lang"]].replace(base_domain, "")
+        pages[actual_path] = page_data
             
     return pages
 

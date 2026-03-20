@@ -66,42 +66,8 @@ def create_route(path: str, data: dict):
     """Dynamically register GET routes for all SEO pages."""
     @router.get(path, response_class=HTMLResponse)
     async def page_route(request: Request):
-        # Generate FAQ Schema
-        faq_schema = {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": []
-        }
-        for faq in data.get("faqs", []):
-            faq_schema["mainEntity"].append({
-                "@type": "Question",
-                "name": faq["question"],
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": faq["answer"]
-                }
-            })
-
-        # Generate HowTo Schema
-        howto_schema = {
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            "name": f"How to download {data.get('keyword')} videos",
-            "step": []
-        }
-        for i, step in enumerate(data.get("steps", [])):
-            howto_schema["step"].append({
-                "@type": "HowToStep",
-                "position": i + 1,
-                "name": step["title"],
-                "text": step["desc"]
-            })
-
-        # Inject schema into page data
+        # Inject schema into page data (Schema now mostly handled via Jinja2 in templates)
         page_data = data.copy()
-        page_data["faq_schema"] = json.dumps(faq_schema)
-        page_data["howto_schema"] = json.dumps(howto_schema)
-        # Hreflangs array is already populated in data["hreflangs"] from MULTILINGUAL_PAGES
         
         # Get latest 6 blog posts for the footer area
         latest_posts = dict(list(BLOG_POSTS.items())[:6])
@@ -130,10 +96,6 @@ async def ads_txt():
 async def llms_txt():
     """Serve llms.txt for AI search engine discovery."""
     from fastapi.responses import FileResponse
-    path = Path(__file__).parent.parent / "templates" / "llms.txt"
-    # Wait, I put it in frontend, but routes usually use templates or static.
-    # Actually, I should put it in the template dir or use FileResponse with the absolute path.
-    # Let's use the path where I just wrote it.
     file_path = Path(__file__).parent.parent.parent / "frontend" / "llms.txt"
     return FileResponse(file_path)
 
@@ -149,48 +111,25 @@ async def favicon_ico():
 @router.get("/robots.txt")
 async def robots_txt():
     """Serve a production-ready robots.txt for search engine crawlers."""
-    import os
-    domain = os.getenv("DOMAIN_NAME", "https://snapreeldownload.com")
-    if not domain.startswith("http"):
-        domain = f"https://{domain}"
-
+    domain = "https://snapreeldownload.com"
     content = (
         "# robots.txt for snapreeldownload.com\n"
-        "# Last updated: 2026-03-16\n"
+        "# Optimized for Google Indexing & Crawl Budget\n"
         "\n"
-        "# ── Allow all search engines ────────────────────────\n"
         "User-agent: *\n"
-        "\n"
-        "# Allow: Public pages (homepage, tools, blog, legal)\n"
         "Allow: /\n"
         "Allow: /blog\n"
         "Allow: /sitemap.xml\n"
         "Allow: /ads.txt\n"
         "Allow: /robots.txt\n"
         "\n"
-        "# Allow: Multilingual SEO pages\n"
-        "Allow: /en/\n"
-        "Allow: /hi/\n"
-        "Allow: /es/\n"
-        "Allow: /fr/\n"
-        "Allow: /de/\n"
-        "Allow: /pt/\n"
-        "Allow: /ar/\n"
-        "Allow: /id/\n"
-        "Allow: /bn/\n"
-        "Allow: /tr/\n"
-        "Allow: /th/\n"
-        "Allow: /ko/\n"
-        "Allow: /ja/\n"
-        "Allow: /uk/\n"
-        "Allow: /pl/\n"
-        "\n"
-        "# Block: Internal API & backend endpoints\n"
+        "# Block: Internal API & non-indexable paths\n"
         "Disallow: /preview\n"
         "Disallow: /proxy-image\n"
         "Disallow: /api/\n"
+        "Disallow: /proxy/\n"
         "Disallow: /temp/\n"
-        "Disallow: /*?*\n"
+        "Disallow: /*?*  # Block parameters to prevent duplicate indexing\n"
         "\n"
         "# Block: Admin and development files\n"
         "Disallow: /admin\n"
@@ -198,10 +137,8 @@ async def robots_txt():
         "Disallow: /*.log$\n"
         "Disallow: /*.tmp$\n"
         "\n"
-        "# ── Crawl delay (be nice to our servers) ──────────\n"
         "Crawl-delay: 1\n"
         "\n"
-        "# ── Sitemap location ───────────────────────────────\n"
         f"Sitemap: {domain}/sitemap.xml\n"
     )
     from fastapi.responses import PlainTextResponse

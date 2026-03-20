@@ -27,41 +27,43 @@ LEGAL_PAGES = [
 async def sitemap():
     today = date.today().isoformat()
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    base = os.getenv("DOMAIN_NAME", "yourdomain.com")
-    if not base.startswith("http"):
-        base = f"https://{base}"
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+    
+    # We use MULTILINGUAL_PAGES which now includes 350+ programmatic pages 
+    # and already has 'canonical' and 'hreflangs' pre-computed.
+    
+    # 1. Homepage (Manual override for top priority)
+    base = "https://snapreeldownload.com"
+    xml += f'  <url>\n    <loc>{base}/</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n'
+    # Add hreflangs for homepage
+    for lang in ["en", "hi", "es", "fr", "de", "pt", "ar", "id", "bn", "tr", "th", "ko", "ja", "uk", "pl"]:
+        xml += f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{base}/{lang}/"/>\n'
+    xml += '  </url>\n'
 
-    # Homepage (highest priority)
-    xml += f'  <url><loc>{base}/</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>\n'
+    # 2. Multilingual & Programmatic Pages
+    for path, page in MULTILINGUAL_PAGES.items():
+        # Set priority based on tool type
+        priority = "0.7"
+        if any(keyword in path for keyword in ["reels", "video", "tiktok", "youtube", "mp3"]):
+            priority = "0.8"
+        
+        xml += f'  <url>\n    <loc>{page["canonical"]}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>{priority}</priority>\n'
+        
+        # Add xhtml:link hreflang entries
+        if "hreflangs" in page:
+            for lang, href in page["hreflangs"].items():
+                xml += f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{href}"/>\n'
+        
+        xml += '  </url>\n'
 
-    # Multilingual SEO landing pages
-    for path in MULTILINGUAL_PAGES:
-        if path == "/":
-            continue
-        # Set different priorities based on tool type
-        priority = "0.8"
-        changefreq = "daily"
-        if "/youtube-to-mp3" in path:
-            priority = "0.9"  # High priority for popular tool
-        elif any(tool in path for tool in ["/reels", "/video", "/tiktok", "/youtube"]):
-            priority = "0.8"  # Medium-high for popular platforms
-        else:
-            priority = "0.7"  # Medium for other tools
-            
-        xml += f'  <url><loc>{base}{path}</loc><lastmod>{today}</lastmod><changefreq>{changefreq}</changefreq><priority>{priority}</priority></url>\n'
-
-    # Blog list page
-    xml += f'  <url><loc>{base}/blog</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n'
-
-    # Individual blog posts
+    # 3. Blog Posts
     for slug, post in BLOG_POSTS.items():
         post_date = post.get("date", today)
-        xml += f'  <url><loc>{base}/blog/{slug}</loc><lastmod>{post_date}</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>\n'
+        xml += f'  <url>\n    <loc>{base}/blog/{slug}</loc>\n    <lastmod>{post_date}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>\n'
 
-    # Legal pages (low priority)
+    # 4. Legal Pages
     for path in LEGAL_PAGES:
-        xml += f'  <url><loc>{base}{path}</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>\n'
+        xml += f'  <url>\n    <loc>{base}{path}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>\n  </url>\n'
 
     xml += '</urlset>'
     return HTMLResponse(content=xml, media_type="application/xml")

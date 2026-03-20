@@ -59,6 +59,39 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent / "frontend"), name="static")
 
 @app.middleware("http")
+async def normalize_url_middleware(request, call_next):
+    """
+    SEO Middleware:
+    1. Force lowercase URLs.
+    2. Handle trailing slashes consistently.
+       - Language roots (e.g., /en/) KEEP the trailing slash.
+       - Specific tool paths (e.g., /en/video) REMOVE the trailing slash.
+    """
+    from fastapi.responses import RedirectResponse
+    
+    path = request.url.path
+    query = request.url.query
+    
+    # 1. Lowercase check
+    normalized_path = path.lower()
+    
+    # 2. Trailing slash check
+    # We want /en/ to stay /en/, but /en/video/ to become /en/video
+    is_lang_root = any(path == f"/{l}/" for l in ["en", "hi", "es", "fr", "de", "pt", "ar", "id", "bn", "tr", "th", "ko", "ja", "uk", "pl"])
+    
+    if path != "/" and not is_lang_root and normalized_path.endswith("/") and len(normalized_path) > 1:
+        normalized_path = normalized_path.rstrip("/")
+    
+    # Redirect if normalization changed the path
+    if normalized_path != path:
+        url = normalized_path
+        if query:
+            url += f"?{query}"
+        return RedirectResponse(url=url, status_code=301)
+
+    return await call_next(request)
+
+@app.middleware("http")
 async def add_cache_headers(request, call_next):
     response = await call_next(request)
 
