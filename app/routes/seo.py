@@ -21,8 +21,6 @@ OLD_REDIRECTS = {
     "/instagram-reel-downloader": "/reels",
     "/tiktok-video-downloader": "/tiktok",
     "/youtube-video-downloader": "/youtube",
-    "/tiktok-mp3-downloader": "/tiktok", 
-    "/youtube-shorts-downloader": "/youtube",
     "/x-video-downloader": "/twitter",
     "/snapchat-video-downloader": "/snapchat",
     "/instagram-photo-downloader": "/photo",
@@ -48,6 +46,8 @@ EN_REDIRECTS = {
     "/twitter": "/en/twitter",
     "/pinterest": "/en/pinterest",
     "/snapchat": "/en/snapchat",
+    "/youtubeshort": "/en/youtubeshort",
+    "/tiktok-mp3-downloader": "/en/tiktok-mp3-downloader",
     "/youtube-to-mp3": "/en/youtube-to-mp3"
 }
 

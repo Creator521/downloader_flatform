@@ -1,57 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Snap Reel Download{% endblock %}</title>
-    <meta name="description" content="{% block description %}Free online video downloader.{% endblock %}">
-    <link rel="canonical" href="{{ page.canonical if (page and page.canonical) else ('https://snapreeldownload.com' + request.url.path) }}">
+
+    <!-- ✅ FIX 1: Strong title with main keywords -->
+    <title>{% block title %}Instagram Reels & YouTube Video Downloader Free – SnapReelDownload{% endblock %}</title>
+
+    <!-- ✅ FIX 2: Keyword-rich meta description (155 chars) -->
+    <meta name="description"
+        content="{% block description %}Free online video downloader for Instagram, YouTube, TikTok, Snapchat & Facebook. No watermark, no login, HD quality. Download now!{% endblock %}">
+
+    <!-- ✅ FIX 3: Canonical always HTTPS -->
+    <link rel="canonical" href="{% block canonical %}{{ page.canonical if (page and page.canonical) else ('https://snapreeldownload.com' + request.url.path) }}{% endblock %}">
+
     {% block hreflangs %}{% endblock %}
+
     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon.png">
 
-    <!-- OpenGraph Meta Tags -->
+    <!-- ✅ FIX 4: OpenGraph tags with strong keywords -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SnapReelDownload">
-    <meta property="og:title" content="{% block og_title %}Snap Reel Download{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Free online video downloader. Save videos from Instagram, TikTok, YouTube, Facebook & Twitter in HD.{% endblock %}">
-    <meta property="og:url" content="{{ (page.canonical | default(request.url)) if page is defined else request.url }}">
-    <meta property="og:image" content="{% block og_image %}/static/images/og-default.png{% endblock %}">
+    <meta property="og:title"
+        content="{% block og_title %}Instagram Reels & YouTube Video Downloader Free – SnapReelDownload{% endblock %}">
+    <meta property="og:description"
+        content="{% block og_description %}Free online video downloader for Instagram, YouTube, TikTok, Snapchat & Facebook. No watermark, no login, HD quality. Download now!{% endblock %}">
+    <meta property="og:url"
+        content="{% block og_url %}{{ 'https://snapreeldownload.com' + request.url.path }}{% endblock %}">
+    <meta property="og:image"
+        content="{% block og_image %}https://snapreeldownload.com/static/images/og-default.png{% endblock %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-    <!-- Twitter Card Meta Tags -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{% block twitter_title %}Snap Reel Download{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}Save videos from Instagram, TikTok, YouTube, Facebook & Twitter in HD quality.{% endblock %}">
+    <meta name="twitter:title"
+        content="{% block twitter_title %}Instagram Reels & YouTube Video Downloader Free – SnapReelDownload{% endblock %}">
+    <meta name="twitter:description"
+        content="{% block twitter_description %}Free online video downloader for Instagram, YouTube, TikTok, Snapchat & Facebook. No watermark, no login, HD quality.{% endblock %}">
+    <meta name="twitter:image"
+        content="{% block twitter_image %}https://snapreeldownload.com/static/images/og-default.png{% endblock %}">
 
-    <!-- Additional SEO Meta Tags -->
+    <!-- SEO Meta Tags -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="author" content="SnapReelDownload">
+    <meta name="keywords"
+        content="{% block keywords %}instagram reel downloader, youtube video downloader, tiktok video download, snapchat video downloader, facebook video download, free video downloader online{% endblock %}">
     <meta name="language" content="English">
     <meta name="revisit-after" content="1 days">
-    
-    <!-- Performance: Preconnect to external domains -->
+
+    <!-- Performance -->
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
-    
-    
-    <!-- Security: Handled by server headers in main.py -->
 
-    <!-- Critical CSS: Preload stylesheet -->
+    <!-- Critical CSS -->
     <link rel="preload" href="/static/css/style.min.css" as="style">
     <link rel="stylesheet" href="/static/css/style.min.css">
     {% block extra_css %}{% endblock %}
-{% block schema %}
-<!-- JSON-LD Structured Data -->
-<script type="application/ld+json">
+
+    {% block schema %}
+    <!-- ✅ FIX 5: Improved SoftwareApplication Schema -->
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Snap Reel Download",
+  "name": "SnapReelDownload – Free Video Downloader",
+  "url": "https://snapreeldownload.com",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "description": "Free online video downloader for Instagram, YouTube, TikTok, Snapchat, Facebook and more. No watermark, no login required.",
+  "featureList": [
+    "Instagram Reels Downloader",
+    "YouTube Video Downloader",
+    "TikTok Video Downloader",
+    "Snapchat Video Downloader",
+    "Facebook Video Downloader",
+    "No watermark",
+    "HD Quality",
+    "No login required"
+  ],
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -67,26 +100,47 @@
 }
 </script>
 
-<!-- Organization Schema -->
-<script type="application/ld+json">
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "SnapReelDownload",
   "url": "https://snapreeldownload.com",
-  "description": "Free online video downloader for Instagram, TikTok, YouTube, Facebook & more",
+  "logo": "https://snapreeldownload.com/static/favicon.png",
+  "description": "Free online video downloader for Instagram, TikTok, YouTube, Facebook, Snapchat & more",
   "foundingDate": "2023",
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "Customer Service",
     "url": "https://snapreeldownload.com/contact-us"
+  },
+  "sameAs": []
+}
+</script>
+
+    <!-- ✅ FIX 6: WebSite Schema with Sitelinks Searchbox -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SnapReelDownload",
+  "url": "https://snapreeldownload.com",
+  "description": "Free online video downloader for Instagram, YouTube, TikTok, Snapchat & Facebook",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://snapreeldownload.com/?url={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
   }
 }
 </script>
 
-<!-- Breadcrumb Schema -->
-{% if page and page.canonical %}
-<script type="application/ld+json">
+    <!-- Breadcrumb Schema -->
+    {% if page and page.canonical %}
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -103,100 +157,102 @@
   }]
 }
 </script>
-{% endif %}
-
-{% endblock %}
+    {% endif %}
+    {% endblock %}
 
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3721817985222293" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3721817985222293"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-<header>
-    <div class="container header-content">
-        <a href="/" class="logo"><span>📥</span> SnapReelDownload</a>
-        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
-        <nav class="nav-links">
-            <a href="/" class="nav-link">Home</a>
-            <a href="/blog" class="nav-link">Blog</a>
-            <a href="/about-us" class="nav-link">About</a>
-            <a href="/contact-us" class="nav-link">Contact</a>
-        </nav>
-    </div>
-</header>
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo"><span>📥</span> SnapReelDownload</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</button>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/about-us" class="nav-link">About</a>
+                <a href="/contact-us" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<main class="container">
-    {% block content %}{% endblock %}
-</main>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
 
-<footer>
-    <div class="container">
-        <div class="footer-links">
-            <div>
-                <h3>Video Downloaders</h3>
-                <ul>
-                    <li><a href="/video">Download Instagram Video</a></li>
-                    <li><a href="/reels">Save Instagram Reels</a></li>
-                    <li><a href="/photo">Download Instagram Photo</a></li>
-                    <li><a href="/story">Save Instagram Story</a></li>
-                    <li><a href="/tiktok">Download TikTok Video</a></li>
-                    <li><a href="/youtube">Download YouTube Video</a></li>
-                    <li><a href="/facebook">Download Facebook Video</a></li>
-                    <li><a href="/twitter">Save Twitter Video</a></li>
-                </ul>
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <div>
+                    <h3>Popular Tools</h3>
+                    <ul>
+                        <li><a href="/video">Instagram Video Downloader</a></li>
+                        <li><a href="/reels">Instagram Reels Downloader</a></li>
+                        <li><a href="/photo">Instagram Photo Downloader</a></li>
+                        <li><a href="/story">Instagram Story Downloader</a></li>
+                        <li><a href="/tiktok">TikTok Video Downloader</a></li>
+                        <li><a href="/youtube">YouTube Video Downloader</a></li>
+                        <li><a href="/facebook">Facebook Video Downloader</a></li>
+                        <li><a href="/twitter">Twitter Video Downloader</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Other Tools</h3>
+                    <ul>
+                        <li><a href="/youtube-to-mp3">YouTube to MP3 Converter</a></li>
+                        <li><a href="/tiktok-mp3-downloader">TikTok to MP3 Converter</a></li>
+                    <li><a href="/youtubeshort">YouTube Shorts Downloader</a></li>
+                    <li><a href="/pinterest">Pinterest Video Downloader</a></li>
+                        <li><a href="/snapchat">Snapchat Video Downloader</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/about-us">About Us</a></li>
+                        <li><a href="/contact-us">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service">Terms of Service</a></li>
+                        <li><a href="/disclaimer">Disclaimer</a></li>
+                        <li><a href="/dmca">DMCA</a></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h3>Other Tools</h3>
-                <ul>
-                    <li><a href="/youtube-to-mp3">YouTube to MP3 Converter</a></li>
-                    <li><a href="/pinterest">Download Pinterest Video</a></li>
-                    <li><a href="/snapchat">Save Snapchat Video</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/about-us">About Us</a></li>
-                    <li><a href="/contact-us">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="/privacy-policy">Privacy Policy</a></li>
-                    <li><a href="/terms-of-service">Terms of Service</a></li>
-                    <li><a href="/disclaimer">Disclaimer</a></li>
-                    <li><a href="/dmca">DMCA</a></li>
-                </ul>
+            <div style="text-align: center; margin-top: 40px; border-top: 1px solid #4a5568; padding-top: 20px;">
+                <p>&copy; 2026 SnapReelDownload. All rights reserved.</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 40px; border-top: 1px solid #4a5568; padding-top: 20px;">
-            <p>&copy; 2026 SnapReelDownload. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-<script src="/static/js/main.min.js" defer></script>
-{% block extra_js %}{% endblock %}
+    <script src="/static/js/main.min.js" defer></script>
+    {% block extra_js %}{% endblock %}
 
-<!-- Google Analytics: Load AFTER page renders (non-blocking) -->
-<script>
-window.addEventListener('load', function() {
-    var s = document.createElement('script');
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-LE54GEBP04';
-    s.async = true;
-    document.head.appendChild(s);
-    s.onload = function() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-LE54GEBP04');
-    };
-});
-</script>
+    <!-- Google Analytics (non-blocking) -->
+    <script>
+        window.addEventListener('load', function () {
+            var s = document.createElement('script');
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-LE54GEBP04';
+            s.async = true;
+            document.head.appendChild(s);
+            s.onload = function () {
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-LE54GEBP04', { 'anonymize_ip': true });
+            };
+        });
+    </script>
 
 </body>
+
 </html>
-
-

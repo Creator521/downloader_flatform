@@ -42,6 +42,8 @@ TOOLS = [
     ("/twitter", "Twitter (X)", "Twitter", "vid"),
     ("/pinterest", "Pinterest", "Pinterest", "vid"),
     ("/snapchat", "Snapchat", "Snapchat", "vid"),
+    ("/tiktok-mp3-downloader", "TikTok", "TikTok to MP3", "vid"),
+    ("/youtubeshort", "YouTube", "YouTube Shorts", "vid"),
     ("/youtube-to-mp3", "YouTube", "YouTube to MP3", "vid")
 ]
 

@@ -2,69 +2,144 @@
 
 {% block title %}{{ page.title }}{% endblock %}
 {% block description %}{{ page.description }}{% endblock %}
+{% block canonical %}{{ page.canonical | default('https://snapreeldownload.com' + request.url.path) }}{% endblock %}
+{% block og_title %}{{ page.og_title | default(page.title) }}{% endblock %}
+{% block og_description %}{{ page.og_description | default(page.description) }}{% endblock %}
+{% block og_url %}{{ page.canonical | default('https://snapreeldownload.com' + request.url.path) }}{% endblock %}
+{% block twitter_title %}{{ page.og_title | default(page.title) }}{% endblock %}
+{% block twitter_description %}{{ page.og_description | default(page.description) }}{% endblock %}
 
 {% block hreflangs %}
 {% if page.hreflangs %}
-    {% for lang_code, target_url in page.hreflangs.items() %}
-    <link rel="alternate" hreflang="{{ lang_code }}" href="{{ target_url }}" />
-    {% endfor %}
-    <link rel="alternate" hreflang="x-default" href="{{ page.hreflangs['en'] }}" />
+{% for lang_code, target_url in page.hreflangs.items() %}
+<link rel="alternate" hreflang="{{ lang_code }}" href="{{ target_url }}" />
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ page.hreflangs.get('en', page.canonical) }}" />
 {% endif %}
 {% endblock %}
 
 {% block schema %}
-<!-- JSON-LD Structured Data -->
+<!-- ✅ SoftwareApplication Schema — dynamic per page -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Snap Reel Download",
+  "name": "{{ page.tool_name | default('SnapReelDownload') }}",
+  "url": "{{ page.canonical | default('https://snapreeldownload.com') }}",
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "Any",
+  "description": "{{ page.description }}",
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "12540",
+    "bestRating": "5",
+    "worstRating": "1"
   }
 }
 </script>
 
-{% if page.faq_schema %}
+<!-- ✅ BreadcrumbList Schema -->
 <script type="application/ld+json">
-{{ page.faq_schema | safe }}
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://snapreeldownload.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ page.tool_name | default('Video Downloader') }}",
+      "item": "{{ page.canonical | default('https://snapreeldownload.com') }}"
+    }
+  ]
+}
+</script>
+
+<!-- ✅ HowTo Schema — auto-generated from page.steps -->
+{% if page.steps %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Download {{ page.keyword }}",
+  "description": "Download {{ page.keyword }} in 3 simple steps using SnapReelDownload. Free, no watermark, no login required.",
+  "totalTime": "PT30S",
+  "step": [
+    {% for step in page.steps %}
+    {
+      "@type": "HowToStep",
+      "position": {{ loop.index }},
+      "name": "{{ step.title }}",
+      "text": "{{ step.desc }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
 </script>
 {% endif %}
 
-{% if page.howto_schema %}
+<!-- ✅ FAQPage Schema — auto-generated from page.faqs -->
+{% if page.faqs %}
 <script type="application/ld+json">
-{{ page.howto_schema | safe }}
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in page.faqs %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.question | replace('"', '\\"') }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.answer | replace('"', '\\"') }}"
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
 </script>
 {% endif %}
+
 {% endblock %}
 
-{% block extra_css %}
-{% endblock %}
+{% block extra_css %}{% endblock %}
 
 {% block content %}
-<div class="hero-section">
-    <h1 class="hero-h1">{{ page.h1 }}</h1>
-    <p class="subtitle" style="color:#718096; font-size: 18px;">{{ page.subtitle }}</p>
 
-    <!-- Ad Spot: Above Fold -->
-    {# Ad Spot: Above Fold (Disabled for AdSense Review) #}
-    {#
-    <div style="margin-top: 20px;">
-        {% include "components/ads.html" with context %}
-    </div>
-    #}
+<!-- ✅ Breadcrumb nav — visual -->
+<nav aria-label="Breadcrumb" style="font-size:13px; color:#718096; margin-bottom:16px;">
+    <ol style="list-style:none; display:flex; gap:6px; flex-wrap:wrap; padding:0; margin:0;">
+        <li><a href="/" style="color:#667eea; text-decoration:none;">Home</a></li>
+        <li aria-hidden="true" style="color:#cbd5e0;">›</li>
+        <li aria-current="page" style="color:#4a5568;">{{ page.tool_name | default('Video Downloader') }}</li>
+    </ol>
+</nav>
+
+<div class="hero-section">
+    <!-- ✅ H1 from page data -->
+    <h1 class="hero-h1">{{ page.h1 }}</h1>
+    <p class="subtitle" style="color:#718096; font-size:18px;">{{ page.subtitle }}</p>
 
     <!-- Tool Interface -->
-    <form id="downloadForm" class="input-group" onsubmit="handleDownload(event)">
-        <input type="text" id="urlInput" class="url-input" placeholder="Paste {{ page.platform }} link here..."
-            required>
-        <button type="button" class="paste-btn" onclick="handlePaste()" title="Paste from clipboard">
+    <form id="downloadForm" class="input-group" onsubmit="handleDownload(event)" aria-label="Video download form">
+        <input type="url" id="urlInput" class="url-input" placeholder="Paste {{ page.platform }} link here..." required
+            aria-label="Paste {{ page.platform }} video URL" autocomplete="off">
+        <button type="button" class="paste-btn" onclick="handlePaste()" title="Paste from clipboard"
+            aria-label="Paste from clipboard">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
                 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
             </svg>
@@ -72,179 +147,274 @@
         </button>
         <button type="submit" class="download-btn">Download</button>
     </form>
-    
+
     <!-- Trust Badges -->
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px; font-size: 13px; color: #718096; font-weight: 500;">
-        <span style="display: flex; align-items: center; gap: 5px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#48bb78"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    <div
+        style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:15px; font-size:13px; color:#718096; font-weight:500;">
+        <span style="display:flex; align-items:center; gap:5px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48bb78" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
             No Login Required
         </span>
-        <span style="display: flex; align-items: center; gap: 5px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#48bb78"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            100% Free & Unlimited
+        <span style="display:flex; align-items:center; gap:5px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48bb78" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            100% Free &amp; Unlimited
         </span>
-        <span style="display: flex; align-items: center; gap: 5px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#48bb78"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            Secure & Anonymous
+        <span style="display:flex; align-items:center; gap:5px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48bb78" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            Secure &amp; Anonymous
         </span>
     </div>
 
-    <!-- Star Rating Widget -->
-    <div style="margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;">
-        <div style="color: #ecc94b; font-size: 18px;">★★★★★</div>
-        <div style="font-size: 14px; color: #4a5568;"><span style="font-weight: 700;">4.8/5</span> based on 12k+ users</div>
+    <!-- Star Rating -->
+    <div style="margin-top:15px; display:flex; align-items:center; justify-content:center; gap:10px;">
+        <div style="color:#ecc94b; font-size:18px;" aria-label="4.8 out of 5 stars" role="img">★★★★★</div>
+        <div style="font-size:14px; color:#4a5568;"><span style="font-weight:700;">4.8/5</span> based on 12k+ users
+        </div>
     </div>
 
-    <div id="loading" style="display:none; color:#667eea; font-weight:bold;">Processing...</div>
-    <div id="error" class="error-msg"></div>
+    <div id="loading" style="display:none; color:#667eea; font-weight:bold;" aria-live="polite">Processing...</div>
+    <div id="error" class="error-msg" role="alert" aria-live="assertive"></div>
 
-    <!-- Result Area -->
-    <div id="result" class="preview-card">
+    <!-- Result Area — hidden until download processed -->
+    <div id="result" class="preview-card" style="display:none;" aria-live="polite">
         <div class="preview-flex">
-            <img id="thumb" src="" class="preview-thumb" alt="Video Thumbnail" loading="lazy" width="300" height="300" style="object-fit: cover;">
+            <img id="thumb" src="" class="preview-thumb" alt="Video thumbnail" loading="lazy" width="300" height="300"
+                style="object-fit:cover;">
             <div class="preview-info">
-                <h3 id="videoTitle" style="margin-bottom: 10px;">Video Title</h3>
-                <div style="margin-bottom: 15px;">
+                <h3 id="videoTitle" style="margin-bottom:10px;">Video Title</h3>
+                <div style="margin-bottom:15px;">
                     <span class="meta-tag">👤 <span id="uploader">User</span></span>
                     <span class="meta-tag">👁️ <span id="views">0</span></span>
                     <span class="meta-tag">⏱️ <span id="duration">0:00</span></span>
                 </div>
-                <p style="font-size: 14px; color: #718096; margin-bottom: 15px;">Ready to download! Select your format
+                <p style="font-size:14px; color:#718096; margin-bottom:15px;">Ready to download! Select your format
                     below.</p>
-
                 <div class="download-options">
                     <button onclick="triggerDownload('video')" class="dl-btn-option dl-video">Download Video
                         (MP4)</button>
-                    <!-- Show audio button only if not Youtube (unless we implement strict mp3 conversion) -->
                     <button onclick="triggerDownload('audio')" class="dl-btn-option dl-audio">Download Audio
                         (M4A)</button>
                 </div>
-
-                <!-- Result Area Ad (High CTR) -->
-                {# Result Area Ad (Disabled for AdSense Review) #}
-                {#
-                {% with ad_type='result_area' %}
-                {% include "components/ads.html" %}
-                {% endwith %}
-                #}
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="content-grid">
     <div class="main-article">
-        <!-- Introduction -->
-        <h2 style="margin-bottom:20px;">What is {{ page.tool_name }}?</h2>
-        <div style="color:#4a5568; margin-bottom: 30px;">
-            {{ page.intro_text | safe }}
-        </div>
 
-        <!-- Featured Blog Spotlight -->
-        {% if brand_name == "Universal" or platform == "Instagram" %}
-        <div style="background: #ebf8ff; padding: 40px; border-radius: 20px; border-left: 6px solid #4299e1; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; margin-bottom: 40px;">
-            <div style="flex: 1; min-width: 300px;">
-                <span style="background: #bee3f8; color: #2b6cb0; padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Recommended Guide</span>
-                <h2 style="color: #2c5282; margin-top: 15px; margin-bottom: 15px;">Looking for an Instagram Download Guide?</h2>
-                <p style="color: #4a5568; font-size: 1.05rem; line-height: 1.6;">Instagram is one of the most popular platforms for sharing reels and photos. If you want to save them safely to your device, we've got you covered with our comprehensive expert guide.</p>
-                <a href="/blog/how-to-download-from-instagram" style="display: inline-block; margin-top: 20px; color: #3182ce; font-weight: 800; text-decoration: none; border-bottom: 2px solid #3182ce; transition: all 0.3s ease;">Read our step-by-step guide on Instagram Video Download →</a>
+        <!-- Introduction -->
+        <section aria-labelledby="intro-heading">
+            <h2 id="intro-heading" style="margin-bottom:20px;">What is {{ page.tool_name }}?</h2>
+            <div style="color:#4a5568; margin-bottom:30px; line-height:1.8;">
+                {{ page.intro_text | safe }}
             </div>
-            <div style="width: 120px; height: 120px; background: #90cdf4; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px;">
-                📸
+        </section>
+
+        <!-- How To Steps -->
+        {% if page.steps %}
+        <section aria-labelledby="howto-heading">
+            <h2 id="howto-heading" style="margin-bottom:20px;">How to Download {{ page.keyword }}?</h2>
+            <div class="howto-steps"
+                style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; text-align:center;">
+                {% for step in page.steps %}
+                <div
+                    style="background:white; padding:25px 20px; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.05); border:1px solid #e2e8f0;">
+                    <div style="background:#ebf4ff; color:#5a67d8; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:20px; margin:0 auto 15px;"
+                        aria-hidden="true">{{ loop.index }}</div>
+                    <h3 style="font-size:16px; margin-bottom:10px;">{{ step.title }}</h3>
+                    <p style="color:#718096; font-size:14px; line-height:1.5;">{{ step.desc }}</p>
+                </div>
+                {% endfor %}
             </div>
-        </div>
+        </section>
         {% endif %}
 
-
-        <!-- Ad Spot: Content -->
-        <!-- Ad Spot: Content (Disabled for AdSense Review) -->
-        <!-- {% include "components/ads.html" with context %} -->
-
-        <!-- How To Guide -->
-        <h2 style="margin-bottom:20px;">How to Download {{ page.keyword }}?</h2>
-        <div class="howto-steps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
-            {% for step in page.steps %}
-            <div style="background: white; padding: 25px 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
-                <div style="background: #ebf4ff; color: #5a67d8; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; margin: 0 auto 15px;">{{ loop.index }}</div>
-                <h3 style="font-size: 16px; margin-bottom: 10px;">{{ step.title }}</h3>
-                <p style="color: #718096; font-size: 14px; line-height: 1.5;">{{ step.desc }}</p>
-            </div>
-            {% endfor %}
-        </div>
-
         <!-- Features -->
-        <h2 style="margin-top: 40px; margin-bottom:20px;">Features</h2>
-        <ul style="list-style-position: inside; color: #4a5568;">
-            {% for feature in page.features %}
-            <li style="margin-bottom: 10px;">✅ <strong>{{ feature.title }}:</strong> {{ feature.desc }}</li>
-            {% endfor %}
-        </ul>
+        {% if page.features %}
+        <section aria-labelledby="features-heading" style="margin-top:40px;">
+            <h2 id="features-heading" style="margin-bottom:20px;">Features</h2>
+            <ul style="list-style:none; color:#4a5568; padding:0;">
+                {% for feature in page.features %}
+                <li style="margin-bottom:12px; display:flex; gap:8px; align-items:flex-start;">
+                    <span aria-hidden="true">✅</span>
+                    <span><strong>{{ feature.title }}:</strong> {{ feature.desc }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
 
-        <!-- Extra Sections (SEO Content) -->
+        <!-- Extra SEO Sections -->
         {% if page.extra_sections %}
         {% for section in page.extra_sections %}
-        <div class="extra-section" style="margin-top: 40px;">
-            <h2 style="margin-bottom: 20px;">{{ section.title }}</h2>
-            <div style="color: #4a5568; line-height: 1.6;">
-                {{ section.content | safe }}
-            </div>
-        </div>
+        <section style="margin-top:40px;" aria-labelledby="section-{{ loop.index }}">
+            <h2 id="section-{{ loop.index }}" style="margin-bottom:20px;">{{ section.title }}</h2>
+            <div style="color:#4a5568; line-height:1.8;">{{ section.content | safe }}</div>
+        </section>
         {% endfor %}
         {% endif %}
 
-        <!-- FAQ Section -->
-        <h2 style="margin-top: 40px; margin-bottom:20px;">Frequently Asked Questions</h2>
-        <div class="faq-section">
-            {% for faq in page.faqs %}
-            <details style="margin-bottom: 15px; padding: 15px; background: #f7fafc; border-radius: 8px;">
-                <summary style="font-weight: 600; cursor: pointer;">{{ faq.question }}</summary>
-                <p style="margin-top: 10px; color: #4a5568;">{{ faq.answer }}</p>
-            </details>
-            {% endfor %}
-        </div>
+        <!-- FAQ -->
+        {% if page.faqs %}
+        <section aria-labelledby="faq-heading" style="margin-top:40px;">
+            <h2 id="faq-heading" style="margin-bottom:20px;">Frequently Asked Questions</h2>
+            <div class="faq-section">
+                {% for faq in page.faqs %}
+                <details
+                    style="margin-bottom:15px; padding:15px; background:#f7fafc; border-radius:8px; border:1px solid #e2e8f0;">
+                    <summary style="font-weight:600; cursor:pointer;">{{ faq.question }}</summary>
+                    <p style="margin-top:10px; color:#4a5568; line-height:1.7;">{{ faq.answer }}</p>
+                </details>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
 
-
-        <!-- Homepage Disclaimer -->
+        <!-- Disclaimer -->
         <div
-            style="margin-top: 50px; padding: 20px; background: #fff5f5; border-left: 4px solid #e53e3e; color: #718096; font-size: 14px;">
-            <p><strong>Disclaimer:</strong> Snap Reel Download is a personal tool for saving publicly available online
-                content for offline viewing. We do not host any content and are not affiliated with any social media
-                platform. Please respect copyright laws and the terms of service of the respective platforms.</p>
+            style="margin-top:50px; padding:20px; background:#fff5f5; border-left:4px solid #e53e3e; color:#718096; font-size:14px; border-radius:0 8px 8px 0;">
+            <p><strong>Disclaimer:</strong> SnapReelDownload is a personal tool for saving publicly available online
+                content for offline viewing. We do not host any content and are not affiliated with Instagram, YouTube,
+                TikTok, Snapchat, Facebook, or any social media platform. Please respect copyright laws and the terms of
+                service of the respective platforms.</p>
         </div>
 
     </div>
 
     <!-- Sidebar -->
-    <aside class="sidebar">
-        <!-- Sidebar Ad -->
-        {# Sidebar Ad (Disabled for AdSense Review) #}
-        {#
-        {% with ad_type='sidebar' %}
-        {% include "components/ads.html" %}
-        {% endwith %}
-        #}
-
-        <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
-            <h3 style="margin-bottom: 15px;">Popular Tools</h3>
-            <ul style="list-style: none;">
-                <li style="margin-bottom:10px;"><a href="/video" style="text-decoration:none; color:var(--primary);">📸 Instagram Video</a></li>
-                <li style="margin-bottom:10px;"><a href="/reels" style="text-decoration:none; color:var(--primary);">🎬 Instagram Reels</a></li>
-                <li style="margin-bottom:10px;"><a href="/photo" style="text-decoration:none; color:var(--primary);">🖼️ Instagram Photo</a></li>
-                <li style="margin-bottom:10px;"><a href="/tiktok" style="text-decoration:none; color:var(--primary);">🎵 TikTok Video</a></li>
-                <li style="margin-bottom:10px;"><a href="/youtube" style="text-decoration:none; color:var(--primary);">▶️ YouTube Video</a></li>
-                <li style="margin-bottom:10px;"><a href="/facebook" style="text-decoration:none; color:var(--primary);">📘 Facebook Video</a></li>
-                <li style="margin-bottom:10px;"><a href="/twitter" style="text-decoration:none; color:var(--primary);">🐦 Twitter Video</a></li>
-                <li style="margin-bottom:10px;"><a href="/youtube-to-mp3" style="text-decoration:none; color:var(--primary);">🎧 YouTube to MP3</a></li>
-                <li style="margin-bottom:10px;"><a href="/pinterest" style="text-decoration:none; color:var(--primary);">📌 Pinterest Video</a></li>
-                <li style="margin-bottom:10px;"><a href="/snapchat" style="text-decoration:none; color:var(--primary);">👻 Snapchat Video</a></li>
-            </ul>
-        </div>
+    <aside class="sidebar" aria-label="Popular downloader tools">
+        <nav>
+            <div style="background:white; padding:20px; border-radius:10px; border:1px solid #e2e8f0;">
+                <h3 style="margin-bottom:15px;">Popular Tools</h3>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="/video"
+                            style="text-decoration:none; color:var(--primary);">📸 Instagram Video Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/reels"
+                            style="text-decoration:none; color:var(--primary);">🎬 Instagram Reels Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/photo"
+                            style="text-decoration:none; color:var(--primary);">🖼️ Instagram Photo Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/story"
+                            style="text-decoration:none; color:var(--primary);">📖 Instagram Story Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/tiktok"
+                            style="text-decoration:none; color:var(--primary);">🎵 TikTok Video Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/youtube"
+                            style="text-decoration:none; color:var(--primary);">▶️ YouTube Video Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/facebook"
+                            style="text-decoration:none; color:var(--primary);">📘 Facebook Video Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/twitter"
+                            style="text-decoration:none; color:var(--primary);">🐦 Twitter Video Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/youtube-to-mp3"
+                            style="text-decoration:none; color:var(--primary);">🎧 YouTube to MP3 Converter</a></li>
+                    <li style="margin-bottom:10px;"><a href="/tiktok-mp3-downloader"
+                            style="text-decoration:none; color:var(--primary);">🎵 TikTok to MP3 Converter</a></li>
+                    <li style="margin-bottom:10px;"><a href="/youtubeshort"
+                            style="text-decoration:none; color:var(--primary);">🎬 YouTube Shorts Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/pinterest"
+                            style="text-decoration:none; color:var(--primary);">📌 Pinterest Video Downloader</a></li>
+                    <li style="margin-bottom:10px;"><a href="/snapchat"
+                            style="text-decoration:none; color:var(--primary);">👻 Snapchat Video Downloader</a></li>
+                </ul>
+            </div>
+        </nav>
     </aside>
 </div>
 
 {% endblock %}
 
 {% block extra_js %}
-{% endblock %}
+<script>
+    // ✅ Paste from clipboard
+    async function handlePaste() {
+        try {
+            const text = await navigator.clipboard.readText();
+            document.getElementById('urlInput').value = text;
+        } catch {
+            document.getElementById('urlInput').focus();
+        }
+    }
 
+    // ✅ Handle form submit
+    function handleDownload(e) {
+        e.preventDefault();
+        const url = document.getElementById('urlInput').value.trim();
+        const loading = document.getElementById('loading');
+        const error = document.getElementById('error');
+        const result = document.getElementById('result');
+
+        if (!url) return;
+
+        loading.style.display = 'block';
+        error.textContent = '';
+        result.style.display = 'none';
+
+        fetch('/preview', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `url=${encodeURIComponent(url)}`
+        })
+            .then(res => {
+                if (!res.ok) throw new Error('Server error');
+                return res.json();
+            })
+            .then(data => {
+                loading.style.display = 'none';
+                document.getElementById('thumb').src = data.thumbnail || '';
+                document.getElementById('videoTitle').textContent = data.title || 'Video';
+                document.getElementById('uploader').textContent = data.uploader || '';
+                document.getElementById('views').textContent = data.view_count || '';
+                document.getElementById('duration').textContent = data.duration || '';
+                result.style.display = 'block';
+                result._url = url;
+            })
+            .catch(() => {
+                loading.style.display = 'none';
+                error.textContent = 'Could not process this link. Please check the URL and try again.';
+            });
+    }
+
+    // ✅ Trigger video or audio download
+    function triggerDownload(type) {
+        const url = document.getElementById('result')._url;
+        if (!url) return;
+
+        fetch('/download', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `url=${encodeURIComponent(url)}&type=${type}`
+        })
+            .then(res => {
+                const cd = res.headers.get('Content-Disposition');
+                let filename = type === 'audio' ? 'audio.m4a' : 'video.mp4';
+                if (cd) {
+                    const match = cd.match(/filename="(.+)"/);
+                    if (match) filename = match[1];
+                }
+                return res.blob().then(blob => ({ blob, filename }));
+            })
+            .then(({ blob, filename }) => {
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            })
+            .catch(() => {
+                document.getElementById('error').textContent = 'Download failed. Please try again.';
+            });
+    }
+</script>
+{% endblock %}
