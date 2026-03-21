@@ -170,9 +170,7 @@
     {% endif %}
     {% endblock %}
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3721817985222293"
-        crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -264,6 +262,31 @@
         });
     </script>
 
+    <!-- AdSense Lazy Load (Interaction Based) -->
+    <script>
+        function loadDeferredScripts() {
+            if (window.scriptsLoaded) return;
+            window.scriptsLoaded = true;
+
+            // Load Google AdSense
+            var adsense = document.createElement('script');
+            adsense.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3721817985222293';
+            adsense.async = true;
+            adsense.crossOrigin = 'anonymous';
+            document.head.appendChild(adsense);
+
+            // Clean up event listeners
+            ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function (e) {
+                window.removeEventListener(e, loadDeferredScripts);
+            });
+        }
+
+        // Trigger on interaction or 3.5 seconds timeout (whichever comes first)
+        ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function (e) {
+            window.addEventListener(e, loadDeferredScripts, { passive: true });
+        });
+        setTimeout(loadDeferredScripts, 3500);
+    </script>
 </body>
 
 </html>
