@@ -47,7 +47,7 @@ async def sitemap():
         if any(keyword in path for keyword in ["reels", "video", "tiktok", "youtube", "mp3"]):
             priority = "0.8"
         
-        xml += f'  <url>\n    <loc>{page["canonical"]}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>{priority}</priority>\n'
+        xml += f'  <url>\n    <loc>{base}{path}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>{priority}</priority>\n'
         
         # Add xhtml:link hreflang entries
         if "hreflangs" in page:

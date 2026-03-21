@@ -563,7 +563,7 @@ BLOG_POSTS = {
         "tags": ["youtube shorts downloader", "download youtube shorts", "save youtube shorts", "youtube shorts download hd", "youtube shorts to mp4"],
         "content": """
             <h2>How to Download YouTube Shorts — Introduction</h2>
-            <p>YouTube Shorts are short, punchy vertical videos that are often entertaining, educational, or packed with useful tips. But there is no built-in download button for Shorts. Our <a href="/youtubeshort">YouTube Shorts Downloader</a> fills this gap — save any public Short in HD quality, free, no login.</p>
+            <p>YouTube Shorts are short, punchy vertical videos that are often entertaining, educational, or packed with useful tips. But there is no built-in download button for Shorts. Our <a href="/en/youtube-shorts-downloader">YouTube Shorts Downloader</a> fills this gap — save any public Short in HD quality, free, no login.</p>
 
             <h2>How to Download YouTube Shorts — Step by Step</h2>
 
@@ -571,7 +571,7 @@ BLOG_POSTS = {
             <p>Open YouTube, find the Short. Tap Share → Copy Link. The URL will look like youtube.com/shorts/VIDEOID.</p>
 
             <h3>Step 2: Paste into Our Downloader</h3>
-            <p>Visit <a href="/youtubeshort">SnapReelDownload YouTube Shorts Downloader</a> and paste the link.</p>
+            <p>Visit <a href="/en/youtube-shorts-downloader">SnapReelDownload YouTube Shorts Downloader</a> and paste the link.</p>
 
             <h3>Step 3: Download in HD</h3>
             <p>Click Download. The Short processes in seconds — click "Download Video (MP4)" to save it to your device in HD quality, no watermark.</p>
