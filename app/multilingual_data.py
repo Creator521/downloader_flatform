@@ -1,18 +1,18 @@
 # app/multilingual_data.py
 import copy
 try:
-    from app.seo_data import SEO_PAGES # type: ignore
-    from app.programmatic_seo_data import PROGRAMMATIC_PAGES # type: ignore
+    from app.seo_data import SEO_PAGES          # type: ignore
+    from app.programmatic_seo_data import PROGRAMMATIC_PAGES  # type: ignore
 except ImportError:
-    from seo_data import SEO_PAGES # type: ignore
-    from programmatic_seo_data import PROGRAMMATIC_PAGES # type: ignore
+    from seo_data import SEO_PAGES              # type: ignore
+    from programmatic_seo_data import PROGRAMMATIC_PAGES      # type: ignore
 
 SUPPORTED_LANGUAGES = [
-    "en", "hi", "es", "fr", "de", "pt", "ar", "id", 
+    "en", "hi", "es", "fr", "de", "pt", "ar", "id",
     "bn", "tr", "th", "ko", "ja", "uk", "pl"
 ]
 
-# Core translated keywords
+# Core translated keywords per language
 T = {
     "en": {"dw": "Download", "on": "Online", "fr": "Free", "dl": "Downloader", "vid": "Video", "ph": "Photo", "st": "Story", "rl": "Reels", "step1": "Step 1: Copy Link", "step2": "Step 2: Paste URL", "step3": "Step 3: Download", "title_suffix": "SnapReelDownload"},
     "hi": {"dw": "डाउनलोड", "on": "ऑनलाइन", "fr": "मुफ्त", "dl": "डाउनलोडर", "vid": "वीडियो", "ph": "फोटो", "st": "स्टोरी", "rl": "रील्स", "step1": "स्टेप 1: लिंक कॉपी करें", "step2": "स्टेप 2: URL पेस्ट करें", "step3": "स्टेप 3: डाउनलोड करें", "title_suffix": "SnapReelDownload"},
@@ -31,307 +31,264 @@ T = {
     "pl": {"dw": "Pobierz", "on": "Online", "fr": "Za darmo", "dl": "Pobieracz", "vid": "Wideo", "ph": "Zdjęcie", "st": "Relacja", "rl": "Reels", "step1": "Krok 1: Kopiuj link", "step2": "Krok 2: Wklej URL", "step3": "Krok 3: Pobierz", "title_suffix": "SnapReelDownload"},
 }
 
+# ✅ FIX 2: /youtubeshort replaced with /youtube-shorts-downloader
 TOOLS = [
     # (path, platform, subject, target_content)
-    ("/", "Any", "Universal", "vid"),
-    ("/reels", "Instagram", "Instagram", "rl"),
-    ("/video", "Instagram", "Instagram", "vid"),
-    ("/photo", "Instagram", "Instagram", "ph"),
-    ("/story", "Instagram", "Instagram", "st"),
-    ("/youtube", "YouTube", "YouTube", "vid"),
-    ("/tiktok", "TikTok", "TikTok", "vid"),
-    ("/facebook", "Facebook", "Facebook", "vid"),
-    ("/twitter", "Twitter (X)", "Twitter", "vid"),
-    ("/pinterest", "Pinterest", "Pinterest", "vid"),
-    ("/snapchat", "Snapchat", "Snapchat", "vid"),
-    ("/tiktok-mp3-downloader", "TikTok", "TikTok to MP3", "vid"),
-    ("/youtubeshort", "YouTube", "YouTube Shorts", "vid"),
-    ("/youtube-to-mp3", "YouTube", "YouTube to MP3", "vid")
+    ("/",                        "Any",         "Universal",        "vid"),
+    ("/reels",                   "Instagram",   "Instagram",        "rl"),
+    ("/video",                   "Instagram",   "Instagram",        "vid"),
+    ("/photo",                   "Instagram",   "Instagram",        "ph"),
+    ("/story",                   "Instagram",   "Instagram",        "st"),
+    ("/youtube",                 "YouTube",     "YouTube",          "vid"),
+    ("/tiktok",                  "TikTok",      "TikTok",           "vid"),
+    ("/facebook",                "Facebook",    "Facebook",         "vid"),
+    ("/twitter",                 "Twitter (X)", "Twitter",          "vid"),
+    ("/pinterest",               "Pinterest",   "Pinterest",        "vid"),
+    ("/snapchat",                "Snapchat",    "Snapchat",         "vid"),
+    ("/tiktok-mp3-downloader",   "TikTok",      "TikTok to MP3",    "vid"),
+    ("/youtube-shorts-downloader","YouTube",    "YouTube Shorts",   "vid"),   # ✅ Fixed URL
+    ("/youtube-to-mp3",          "YouTube",     "YouTube to MP3",   "vid"),
 ]
+
 
 def make_page_data(path, platform, brand_name, content_key, lang):
     t = T.get(lang, T["en"])
     content_word = t.get(content_key, t.get("vid", "Video"))
     suffix = t["title_suffix"]
-    
-    # Keyword Injection Logic (Phase 3)
-    misspellings = ""
-    if lang == "en":
-        if brand_name == "Instagram":
-            misspellings = "Instgram video download, download instgram video, instgram download video"
-        elif brand_name == "YouTube":
-            misspellings = "Yotube video download, download yotube videos, yotube download video"
-        elif brand_name == "TikTok":
-            misspellings = "Download tiktok video without watermark, tiktok video download without watermark"
-        elif brand_name == "Facebook":
-            misspellings = "Download facebook video online, facebook video download online"
 
     if path == "/youtube-to-mp3":
         if lang == "hi":
             title = f'यूट्यूब से MP3 कनवर्टर ऑनलाइन मुफ्त | उच्च गुणवत्ता | {suffix}'
-            desc = f'यूट्यूब वीडियो को ऑनलाइन मुफ्त में MP3 में बदलें। 320kbps उच्च गुणवत्ता वाली MP3 फाइलें तुरंत डाउनलोड करें।'
+            desc   = f'यूट्यूब वीडियो को ऑनलाइन मुफ्त में MP3 में बदलें। 320kbps उच्च गुणवत्ता वाली MP3 फाइलें तुरंत डाउनलोड करें।'
         elif lang == "es":
             title = f'Convertidor de YouTube a MP3 gratis | Alta calidad | {suffix}'
-            desc = f'Convierte videos de YouTube a MP3 gratis en línea. Descarga archivos MP3 de alta calidad al instante.'
+            desc   = f'Convierte videos de YouTube a MP3 gratis en línea. Descarga archivos MP3 de alta calidad al instante.'
         else:
             title = f'YouTube to MP3 Converter Online Free | High Quality 320kbps | {suffix}'
-            desc = f'Convert YouTube videos to MP3 audio online for free. Download high-quality 320kbps MP3 files instantly.'
-        
-        h1 = f'YouTube to MP3 {t["dl"]}'
+            desc   = f'Convert YouTube videos to MP3 audio online for free. Download high-quality 320kbps MP3 files instantly.'
+        h1        = f'YouTube to MP3 {t["dl"]}'
         tool_name = "YouTube to MP3"
+
     elif path == "/":
         if lang == "hi":
-            title = f'{suffix} - मुफ्त ऑनलाइन वीडियो डाउनलोडर | इंस्टाग्राम, टिकटोकर, यूट्यूब'
-            desc = f'इंस्टाग्राम, टिकटॉक, यूट्यूब, फेसबुक और अन्य से वीडियो मुफ्त में डाउनलोड करें। बिना वॉटरमार्क के एचडी वीडियो सेव करें।'
+            title = f'{suffix} - मुफ्त ऑनलाइन वीडियो डाउनलोडर | Instagram, TikTok, YouTube'
+            desc   = f'Instagram, TikTok, YouTube, Facebook और अन्य से वीडियो मुफ्त में डाउनलोड करें। बिना वॉटरमार्क के HD वीडियो सेव करें।'
         elif lang == "es":
             title = f'{suffix} - Descargador de videos en línea gratis | Instagram, TikTok'
-            desc = f'Descarga videos de Instagram, TikTok, YouTube y más gratis. Guarda videos HD sin marca de agua.'
+            desc   = f'Descarga videos de Instagram, TikTok, YouTube y más gratis. Guarda videos HD sin marca de agua.'
         else:
             title = f'{suffix} - Free Online Video Downloader | Instagram, TikTok, YouTube'
-            desc = f'Download videos and reels from Instagram, TikTok, YouTube, Facebook & more. Save HD quality contents online.'
-        
-        h1 = f'Universal {content_word} {t["dl"]}'
+            desc   = f'Download videos from Instagram, TikTok, YouTube, Facebook, Snapchat & more. Save HD quality videos online free.'
+        h1        = f'Free Online {content_word} {t["dl"]}'
         tool_name = f'Universal {content_word} {t["dl"]}'
+
     else:
         if lang == "en":
             if brand_name == "TikTok":
-                desc = f'Download TikTok videos without watermark in HD. Best free tiktok video downloader online. Fast, secure and unlimited.'
+                desc = f'Download TikTok videos without watermark in HD. Free TikTok video downloader online — fast, secure, unlimited.'
             elif brand_name == "Facebook":
-                desc = f'Download Facebook videos online in HD. Best tool for FB video download and reels saving. Free & Anonymous.'
+                desc = f'Download Facebook videos online in HD. Free Facebook video downloader for Reels and public videos. No login.'
+            elif brand_name == "YouTube Shorts":
+                desc = f'Download YouTube Shorts free in HD. Save YouTube Shorts to gallery — no watermark, no login. Works on Android & iPhone.'
             else:
-                desc = f'{t["dw"]} {brand_name} {content_word} in HD quality for {t["fr"]}. Save {content_word}s without watermark. Fast & secure.'
+                desc = f'{t["dw"]} {brand_name} {content_word} in HD quality for {t["fr"]}. No watermark, no login. Fast & secure.'
         else:
-            desc = f'{t["dw"]} {brand_name} {content_word} in HD quality for {t["fr"]}. Save {content_word}s without watermark. Fast & secure.'
-            
-        title = f'{t["dw"]} {brand_name} {content_word} HD {t["fr"]} {t["on"]} | {suffix}'
-        h1 = f'{t["dw"]} {brand_name} {content_word}'
+            desc = f'{t["dw"]} {brand_name} {content_word} in HD quality for {t["fr"]}. No watermark, no login. Fast & secure.'
+
+        title     = f'{t["dw"]} {brand_name} {content_word} HD {t["fr"]} {t["on"]} | {suffix}'
+        h1        = f'{t["dw"]} {brand_name} {content_word}'
         tool_name = f'{brand_name} {content_word} {t["dl"]}'
-        
-    intro = f"<p>{t['dw']} {brand_name} {content_word} {t['on']}. {t['fr']}, fast and secure.</p>"
-    
+
+    intro = f"<p><strong>{t['dw']} {brand_name} {content_word} {t['on']}</strong> — {t['fr']}, fast, no watermark, no login. Works on Android, iPhone & PC.</p>"
+
     steps = [
-        {"title": t["step1"], "desc": f"Copy the link from the app or website."},
-        {"title": t["step2"], "desc": f"Paste it into the input box above."},
-        {"title": t["step3"], "desc": f"Click the download button to start."}
-    ]
-    
-    features = [
-        {"title": "HD Quality", "desc": f"Save {content_word} in best quality."},
-        {"title": "Free", "desc": "100% Free forever."},
-        {"title": "Fast", "desc": "Lightning fast download speeds."}
-    ]
-    
-    faqs = [
-        {"question": "Is this tool completely free?", "answer": "Yes, absolutely free! No hidden charges, no premium features, no watermarks added. Download unlimited videos forever at no cost."},
-        {"question": "Do I need to create an account or sign up?", "answer": "No! Our tool works instantly without signup, registration, or login. Just paste the link and download."},
-        {"question": "Can creators see that I downloaded their content?", "answer": "No, your download is completely anonymous. The creator is never notified."},
-        {"question": "Is it legal to download videos?", "answer": "Yes, for personal use like offline viewing or archiving. Do not used for commercial purposes without permission."},
-        {"question": "What formats can I download in?", "answer": "We support MP4 for videos and M4A for audio. MP4 works on all devices and players."},
-        {"question": "Can I use this on my iPhone/iPad?", "answer": "Yes! Works perfectly on iOS through Safari or Chrome browser."},
-        {"question": "Does this work on Android phones?", "answer": "Absolutely. Works on all Android browsers (Chrome, Firefox, etc.)."},
-        {"question": "Is my data safe with your tool?", "answer": "Yes! We use SSL encryption and never store your personal data or search history."},
+        {"title": t["step1"], "desc": f"Open {platform} and find the content. Tap Share and select Copy Link."},
+        {"title": t["step2"], "desc": "Paste the copied link into the input box above."},
+        {"title": t["step3"], "desc": f"Click Download and save the {content_word.lower()} to your device in HD."}
     ]
 
-    # Shared sections for BOTH homepage and tool pages
+    features = [
+        {"title": "HD Quality",          "desc": f"Download {brand_name} {content_word.lower()} in original high-definition quality."},
+        {"title": "No Watermark",        "desc": "Get clean files without any platform logos or overlays."},
+        {"title": "100% Free",           "desc": "No hidden charges, no subscription, unlimited downloads forever."},
+        {"title": "No Login Required",   "desc": f"No {platform} account needed. Your account stays completely safe."},
+        {"title": "All Devices",         "desc": "Works on Android, iPhone, iPad, Windows, Mac — any browser."},
+    ]
+
+    faqs = [
+        {"question": f"Is this {tool_name} completely free?",     "answer": "Yes — 100% free with no hidden charges, no premium features. Download unlimited videos at no cost."},
+        {"question": "Do I need to sign up or create an account?","answer": "No — works instantly without any signup or login. Just paste the link and download."},
+        {"question": "Can creators see that I downloaded their content?", "answer": "No — your download is completely anonymous. The creator is never notified."},
+        {"question": "Is it legal to download videos?",           "answer": "Yes, for personal use like offline viewing. Do not use for commercial purposes without permission."},
+        {"question": "What formats can I download?",              "answer": "MP4 for videos and M4A for audio. Both formats work on all devices and players."},
+        {"question": "Does it work on iPhone?",                   "answer": "Yes — works on iPhone and iPad via Safari browser. No app installation needed."},
+        {"question": "Does it work on Android?",                  "answer": "Yes — works on all Android browsers including Chrome, Firefox, and Samsung Internet."},
+        {"question": "Is my data safe?",                          "answer": "Yes — SSL encrypted. We never store your personal data, search history, or downloaded files."},
+    ]
+
+    # Shared rich content sections
     shared_extra = [
         {
             "title": "Download Format & Quality Comparison",
-            "content": "<table style='width:100%; border-collapse: collapse; margin: 20px 0;'><thead style='background: #f0f4ff;'><tr style='border-bottom: 2px solid #667eea;'><th style='padding: 12px; text-align: left; font-weight: 600;'>Format</th><th style='padding: 12px; text-align: left; font-weight: 600;'>File Type</th><th style='padding: 12px; text-align: left; font-weight: 600;'>Quality</th><th style='padding: 12px; text-align: left; font-weight: 600;'>Best For</th></tr></thead><tbody><tr style='border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>MP4</strong></td><td style='padding: 12px;'>Video</td><td style='padding: 12px;'><span style='color: #48bb78;'>⭐⭐⭐⭐⭐ HD/4K</span></td><td style='padding: 12px;'>Video with audio, editing</td></tr><tr><td style='padding: 12px;'><strong>M4A</strong></td><td style='padding: 12px;'>Audio Only</td><td style='padding: 12px;'><span style='color: #48bb78;'>⭐⭐⭐⭐⭐ 320kbps</span></td><td style='padding: 12px;'>Music, podcasts, audio</td></tr></tbody></table>"
+            "content": "<table style='width:100%; border-collapse:collapse; margin:20px 0;'><thead style='background:#f0f4ff;'><tr style='border-bottom:2px solid #667eea;'><th style='padding:12px; text-align:left;'>Format</th><th style='padding:12px; text-align:left;'>Type</th><th style='padding:12px; text-align:left;'>Quality</th><th style='padding:12px; text-align:left;'>Best For</th></tr></thead><tbody><tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>MP4</strong></td><td style='padding:12px;'>Video</td><td style='padding:12px; color:#48bb78;'>HD / 4K</td><td style='padding:12px;'>Video with audio, editing</td></tr><tr><td style='padding:12px;'><strong>M4A</strong></td><td style='padding:12px;'>Audio Only</td><td style='padding:12px; color:#48bb78;'>320kbps</td><td style='padding:12px;'>Music, podcasts, audio</td></tr></tbody></table>"
         },
         {
             "title": "Device Compatibility Guide",
-            "content": "<table style='width:100%; border-collapse: collapse; margin: 20px 0;'><thead style='background: #f0f4ff;'><tr style='border-bottom: 2px solid #667eea;'><th style='padding: 12px; text-align: left; font-weight: 600;'>Device</th><th style='padding: 12px; text-align: left; font-weight: 600;'>Browsers Supported</th><th style='padding: 12px; text-align: left; font-weight: 600;'>Download Support</th><th style='padding: 12px; text-align: left; font-weight: 600;'>Speed</th></tr></thead><tbody><tr style='border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>iPhone/iPad</strong></td><td style='padding: 12px;'>Safari, Chrome</td><td style='padding: 12px;'><span style='color: #48bb78;'>✅ Full</span></td><td style='padding: 12px;'>⚡ Fast</td></tr><tr style='border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>Android</strong></td><td style='padding: 12px;'>Chrome, Firefox, Any</td><td style='padding: 12px;'><span style='color: #48bb78;'>✅ Full</span></td><td style='padding: 12px;'>⚡ Fast</td></tr><tr style='border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>Windows PC</strong></td><td style='padding: 12px;'>Chrome, Firefox, Edge</td><td style='padding: 12px;'><span style='color: #48bb78;'>✅ Full</span></td><td style='padding: 12px;'>⚡⚡ Fastest</td></tr><tr><td style='padding: 12px;'><strong>Mac</strong></td><td style='padding: 12px;'>Safari, Chrome, Firefox</td><td style='padding: 12px;'><span style='color: #48bb78;'>✅ Full</span></td><td style='padding: 12px;'>⚡⚡ Fastest</td></tr></tbody></table>"
+            "content": "<table style='width:100%; border-collapse:collapse; margin:20px 0;'><thead style='background:#f0f4ff;'><tr style='border-bottom:2px solid #667eea;'><th style='padding:12px;'>Device</th><th style='padding:12px;'>Browser</th><th style='padding:12px;'>Support</th><th style='padding:12px;'>Speed</th></tr></thead><tbody><tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>iPhone / iPad</strong></td><td style='padding:12px;'>Safari, Chrome</td><td style='padding:12px; color:#48bb78;'>✅ Full</td><td style='padding:12px;'>⚡ Fast</td></tr><tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>Android</strong></td><td style='padding:12px;'>Chrome, Firefox</td><td style='padding:12px; color:#48bb78;'>✅ Full</td><td style='padding:12px;'>⚡ Fast</td></tr><tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>Windows PC</strong></td><td style='padding:12px;'>Chrome, Firefox, Edge</td><td style='padding:12px; color:#48bb78;'>✅ Full</td><td style='padding:12px;'>⚡⚡ Fastest</td></tr><tr><td style='padding:12px;'><strong>Mac</strong></td><td style='padding:12px;'>Safari, Chrome</td><td style='padding:12px; color:#48bb78;'>✅ Full</td><td style='padding:12px;'>⚡⚡ Fastest</td></tr></tbody></table>"
         },
         {
-            "title": "Platform Feature Comparison Matrix",
-            "content": "<p><strong>Which platforms does our downloader support?</strong></p><table style='width:100%; border-collapse: collapse; margin: 20px 0; font-size: 13px;'><thead style='background: #667eea; color: white;'><tr><th style='padding: 12px; text-align: left; font-weight: 600;'>Platform</th><th style='padding: 12px; text-align: center; font-weight: 600;'>Video</th><th style='padding: 12px; text-align: center; font-weight: 600;'>Audio</th><th style='padding: 12px; text-align: center; font-weight: 600;'>HD Quality</th><th style='padding: 12px; text-align: center; font-weight: 600;'>Speed</th></tr></thead><tbody><tr style='background: #f8f9fa; border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>Instagram</strong></td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>⭐ 1080p</td><td style='padding: 12px; text-align: center;'>⚡</td></tr><tr style='border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>TikTok</strong></td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>⭐ 720p</td><td style='padding: 12px; text-align: center;'>⚡⚡</td></tr><tr style='background: #f8f9fa; border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>YouTube</strong></td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>⭐⭐ 4K</td><td style='padding: 12px; text-align: center;'>⚡</td></tr><tr style='border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>Facebook</strong></td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>⭐ 720p</td><td style='padding: 12px; text-align: center;'>⚡</td></tr><tr style='background: #f8f9fa; border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>Twitter (X)</strong></td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>⭐ 1080p</td><td style='padding: 12px; text-align: center;'>⚡⚡</td></tr><tr style='border-bottom: 1px solid #e2e8f0;'><td style='padding: 12px;'><strong>Pinterest</strong></td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>—</td><td style='padding: 12px; text-align: center;'>⭐ 720p</td><td style='padding: 12px; text-align: center;'>⚡</td></tr><tr style='background: #f8f9fa;'><td style='padding: 12px;'><strong>Snapchat</strong></td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>✅</td><td style='padding: 12px; text-align: center;'>⭐ 480p</td><td style='padding: 12px; text-align: center;'>⚡⚡</td></tr></tbody></table>"
+            "title": "All Supported Platforms",
+            "content": "<table style='width:100%; border-collapse:collapse; margin:20px 0; font-size:13px;'><thead style='background:#667eea; color:white;'><tr><th style='padding:12px;'>Platform</th><th style='padding:12px; text-align:center;'>Video</th><th style='padding:12px; text-align:center;'>Audio</th><th style='padding:12px; text-align:center;'>Max Quality</th></tr></thead><tbody><tr style='background:#f8f9fa; border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>Instagram</strong></td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>1080p</td></tr><tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>TikTok</strong></td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>1080p</td></tr><tr style='background:#f8f9fa; border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>YouTube</strong></td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>4K</td></tr><tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>Facebook</strong></td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>720p</td></tr><tr style='background:#f8f9fa; border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>Twitter / X</strong></td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>1080p</td></tr><tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'><strong>Pinterest</strong></td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>—</td><td style='padding:12px; text-align:center;'>720p</td></tr><tr style='background:#f8f9fa;'><td style='padding:12px;'><strong>Snapchat</strong></td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>✅</td><td style='padding:12px; text-align:center;'>480p</td></tr></tbody></table>"
         },
-        {
-            "title": "Visual Download Guide",
-            "content": "<p><strong>Follow this simple step-by-step guide to download any online video:</strong></p><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-1-copy-link.png' alt='Step 1: Copy the video link' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 1: Copy the link from the source platform</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-2-paste.png' alt='Step 2: Paste the link' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 2: Paste the link in the input field above</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-3-download.png' alt='Step 3: Click Download' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 3: Click the Download button</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-4-format.png' alt='Step 4: Choose format' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 4: Select MP4 or MP3 format</figcaption></figure><figure style='margin: 20px 0; text-align: center;'><img src='/static/images/guide-step-5-save.png' alt='Step 5: File saves' width='800' height='600' loading='lazy' style='max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #e2e8f0;' /><figcaption style='font-size: 14px; color: #666; margin-top: 10px;'>Step 5: File is saved to your gallery or downloads</figcaption></figure>"
-        }
     ]
 
-    extra_sections = []
-    
+    # Build extra_sections per page type
     if path != "/":
-        # Tool specific sections
         extra_sections = [
             {
                 "title": f"How to Download {brand_name} {content_word} on iPhone & Android",
-                "content": f"<p>Whether you're using an iPhone (Safari) or Android (Chrome), our tool works seamlessly. Just copy the {brand_name} link and visit <strong>SnapReelDownload</strong>. Our platform handles the rest, delivering the best HD content directly to your device.</p>"
+                "content": f"<p>On <strong>iPhone</strong>: Open Safari, paste the {brand_name} link, tap Download, and save to Photos app. On <strong>Android</strong>: Open Chrome, paste the link, tap Download — video saves to your Downloads folder automatically. No app installation needed on either device.</p>"
             },
             {
-                "title": "Other Download Tools We Offer",
-                "content": "<p>Try our other specialized downloaders: </p><ul style='columns: 2;'><li><a href='/video'>📸 Instagram Video</a></li><li><a href='/reels'>🎬 Instagram Reels</a></li><li><a href='/tiktok'>🎵 TikTok Downloader</a></li><li><a href='/youtube'>▶️ YouTube Video</a></li><li><a href='/facebook'>📘 Facebook Video</a></li><li><a href='/youtube-to-mp3'>🎵 MP3 Converter</a></li></ul>"
-            }
+                "title": "Other Downloader Tools",
+                "content": "<ul style='columns:2; list-style:none; padding:0;'><li style='margin-bottom:8px;'><a href='/en/video'>📸 Instagram Video</a></li><li style='margin-bottom:8px;'><a href='/en/reels'>🎬 Instagram Reels</a></li><li style='margin-bottom:8px;'><a href='/en/tiktok'>🎵 TikTok Downloader</a></li><li style='margin-bottom:8px;'><a href='/en/youtube'>▶️ YouTube Video</a></li><li style='margin-bottom:8px;'><a href='/en/facebook'>📘 Facebook Video</a></li><li style='margin-bottom:8px;'><a href='/en/youtube-to-mp3'>🎧 YouTube to MP3</a></li><li style='margin-bottom:8px;'><a href='/en/snapchat'>👻 Snapchat Video</a></li><li style='margin-bottom:8px;'><a href='/en/youtube-shorts-downloader'>▶️ YouTube Shorts</a></li></ul>"
+            },
         ]
-        
-        if misspellings:
-            extra_sections.append({
-                "title": "People also search for",
-                "content": f"<p style='opacity: 0.8; font-size: 14px;'>Users looking for specialized tools often search for: <strong>{misspellings}</strong>. Our tool supports all these variations.</p>"
-            })
-            
         extra_sections.extend(shared_extra)
     else:
-        # Homepage specific sections
+        # ✅ FIX 3: Removed "instgram" / "yotube" intentional typos — bad for credibility & AdSense
         extra_sections = [
             {
-                "title": "All-in-One Online Video Downloader",
+                "title": "All-in-One Free Video Downloader",
                 "content": (
-                    "<p>SnapReelDownload is a free tool to download videos from <strong>Instagram (instgram)</strong>, "
-                    "<strong>YouTube (yotube)</strong>, TikTok, and Facebook. It’s the easiest way to save your favorite "
-                    "online content safely in HD quality without any watermark.</p>"
+                    "<p>SnapReelDownload is a universal free tool to download videos from "
+                    "<strong>Instagram</strong>, <strong>YouTube</strong>, <strong>TikTok</strong>, "
+                    "<strong>Facebook</strong>, <strong>Twitter/X</strong>, <strong>Snapchat</strong>, "
+                    "and <strong>Pinterest</strong>. Save HD quality videos without any watermark — "
+                    "no login, no app, works on all devices.</p>"
                 )
             },
             {
-                "title": "Key Features of Universal Downloader",
+                "title": "Key Features",
                 "content": (
                     "<ul>"
-                    "<li>✅ 100% Free & Unlimited downloads (No signup).</li>"
-                    "<li>✅ High-Quality MP4 & MP3 (320kbps) Support.</li>"
-                    "<li>✅ Fast and secure - no tracking or login required.</li>"
+                    "<li>✅ 100% Free and unlimited downloads — no signup required.</li>"
+                    "<li>✅ High-quality MP4 video and MP3 audio (up to 320kbps) support.</li>"
+                    "<li>✅ No watermark — clean downloads from all platforms.</li>"
                     "<li>✅ Works on iPhone, Android, Windows, and Mac.</li>"
+                    "<li>✅ Fast, secure, SSL encrypted — your data is never stored.</li>"
                     "</ul>"
                 )
-            }
+            },
         ]
-        # ADD Rich UI sections to homepage as well
         extra_sections.extend(shared_extra)
 
-    # --- SEO DATA OVERRIDES (Phase 4) ---
-    # We check if there's custom content in seo_data.py for this path
+    # ── SEO_PAGES override (Phase 4 merge) ───────────────────────────────────
+    page_subtitle = f"{t['dw']} {content_word}s in HD"
+
     if path in SEO_PAGES:
-        override = SEO_PAGES[path]
-        
-        # We look for language-specific data. 
-        # If it's English, it can be at the top level or inside an "en" key.
-        # For other languages, it must be inside a key like "hi", "es", etc.
-        lang_data = override.get(lang, {})
+        override   = SEO_PAGES[path]
+        lang_data  = override.get(lang, {})
         if not lang_data:
-            # Fallback to top-level if specific lang key is missing
             lang_data = override
 
         if isinstance(lang_data, dict):
-            if "title" in lang_data: title = lang_data["title"]
-            if "description" in lang_data: desc = lang_data["description"]
-            if "h1" in lang_data: h1 = lang_data["h1"]
-            
-            # Subtitle handling
-            if "subtitle" in lang_data: 
+            if "title"       in lang_data: title     = lang_data["title"]
+            if "description" in lang_data: desc      = lang_data["description"]
+            if "h1"          in lang_data: h1        = lang_data["h1"]
+            if "subtitle"    in lang_data:
                 page_subtitle = lang_data["subtitle"]
-            elif isinstance(override, dict) and "subtitle" in override and lang == "en": 
-                page_subtitle = override["subtitle"] # fallback for en
-            else: 
-                page_subtitle = f"{t['dw']} {content_word}s in HD"
-            
-            # --- MERGE LOGIC (Phase 5) ---
-            # Instead of just replacing, we ADD the custom content to the default
-            # but keep the custom content at the top.
-            if "intro_text" in lang_data: 
-                intro = lang_data["intro_text"] + "<hr style='margin: 30px 0; border: 0; border-top: 1px dashed #cbd5e0;'> " + intro
-            
-            if "faqs" in lang_data: 
-                faqs = lang_data["faqs"] + faqs # Custom FAQs first
-            
-            if "features" in lang_data: 
-                features = lang_data["features"] + features
-            
-            if "extra_sections" in lang_data: 
-                extra_sections = lang_data["extra_sections"] + extra_sections
-            
-            if "tool_name" in lang_data: tool_name = lang_data["tool_name"]
-    else:
-        page_subtitle = f"{t['dw']} {content_word}s in HD"
+            elif "subtitle" in override and lang == "en":
+                page_subtitle = override["subtitle"]
 
-    final_title = str(title) if title else ""
-    final_desc = str(desc) if desc else ""
-    
+            # Merge — custom content first, generated content appended
+            if "intro_text"     in lang_data: intro          = lang_data["intro_text"] + "<hr style='margin:30px 0; border:0; border-top:1px dashed #cbd5e0;'>" + intro
+            if "faqs"           in lang_data: faqs           = lang_data["faqs"] + faqs
+            if "features"       in lang_data: features       = lang_data["features"] + features
+            if "extra_sections" in lang_data: extra_sections = lang_data["extra_sections"] + extra_sections
+            if "tool_name"      in lang_data: tool_name      = lang_data["tool_name"]
+
     return {
-        "title": final_title[:65], # type: ignore
-        "description": final_desc[:160], # type: ignore
-        "h1": str(h1),
-        "subtitle": str(page_subtitle),
-        "tool_name": str(tool_name),
-        "intro_text": str(intro),
-        "keyword": f"{brand_name} {content_word}".lower(),
-        "platform": platform,
-        "steps": steps,
-        "features": features,
-        "faqs": faqs,
+        "title":         str(title)[:65],
+        "description":   str(desc)[:160],
+        "h1":            str(h1),
+        "subtitle":      str(page_subtitle),
+        "tool_name":     str(tool_name),
+        "intro_text":    str(intro),
+        "keyword":       f"{brand_name} {content_word}".lower(),
+        "platform":      platform,
+        "steps":         steps,
+        "features":      features,
+        "faqs":          faqs,
         "extra_sections": extra_sections,
-        "lang": lang
+        "lang":          lang,
     }
+
 
 def generate_multilingual_pages():
     pages = {}
     base_domain = "https://snapreeldownload.com"
-    
-    # 1. Generate Core Multilingual Pages (from TOOLS)
+
+    # 1. Core multilingual pages (TOOLS × SUPPORTED_LANGUAGES)
     for path, platform, brand_name, content_key in TOOLS:
         for lang in SUPPORTED_LANGUAGES:
-            prefix = f"/{lang}"
+            prefix    = f"/{lang}"
             full_path = f"{prefix}{path}"
-            
             if full_path == f"/{lang}":
                 full_path = f"/{lang}/"
             elif full_path.endswith("/") and full_path != f"/{lang}/":
                 full_path = full_path.rstrip("/")
-            
+
             page_data = make_page_data(path, platform, brand_name, content_key, lang)
-            
+
+            # ✅ FIX 4: Canonical for non-English pages points to /en/ version
+            en_path = f"/en{path}" if path != "/" else "/en/"
+            page_data["canonical"] = f"{base_domain}{en_path}"
+
+            # Build complete hreflang map
             hreflangs_map = {}
             for l in SUPPORTED_LANGUAGES:
-                l_prefix = f"/{l}"
-                l_full = f"{l_prefix}{path}"
-                if l_full == f"/{l}": 
-                    l_full = f"/{l}/"
-                elif l_full.endswith("/") and l_full != f"/{l}/":
+                l_full = f"/{l}{path}" if path != "/" else f"/{l}/"
+                if l_full.endswith("/") and l_full != f"/{l}/":
                     l_full = l_full.rstrip("/")
                 hreflangs_map[l] = f"{base_domain}{l_full}"
-                
             page_data["hreflangs"] = hreflangs_map
-            page_data["canonical"] = f"{base_domain}{full_path}"
-            
+
             pages[full_path] = page_data
-    
-    # 2. Add Programmatic SEO Pages (Enriched with Hreflangs & Cannonical)
-    # PROGRAMMATIC_PAGES already has translations for path prefixes from its own generator
+
+    # 2. Programmatic SEO pages (already have canonical + hreflang from their generator)
     for path, page_data in PROGRAMMATIC_PAGES.items():
-        # Clean path for consistency (no trailing slash for tools)
         clean_path = path.lower()
-        if clean_path.endswith("/") and len(clean_path) > 4: # /en/ stays /en/, but /en/tool/ -> /en/tool
+        if clean_path.endswith("/") and len(clean_path) > 4:
             clean_path = clean_path.rstrip("/")
-            
-        # Extract base path without lang prefix to build hreflangs
-        # /en/download-ig -> /download-ig
-        # /hi/download-ig -> /download-ig
+
         parts = clean_path.strip("/").split("/")
         if parts[0] in SUPPORTED_LANGUAGES:
             base_tool_path = "/" + "/".join(parts[1:])
+            page_lang      = parts[0]
         else:
             base_tool_path = clean_path
+            page_lang      = "en"
+
+        # ✅ FIX 4: Non-English programmatic pages canonical → English version
+        if page_lang != "en":
+            page_data["canonical"] = f"{base_domain}/en{base_tool_path}"
 
         hreflangs_map = {}
         for l in SUPPORTED_LANGUAGES:
-            l_prefix = f"/{l}"
-            l_full = f"{l_prefix}{base_tool_path}"
+            l_full = f"/{l}{base_tool_path}"
             if l_full.endswith("/") and len(l_full) > 4:
                 l_full = l_full.rstrip("/")
             hreflangs_map[l] = f"{base_domain}{l_full}"
-            
         page_data["hreflangs"] = hreflangs_map
-        page_data["canonical"] = f"{base_domain}{clean_path}"
-        
-        # Merge Shared Extra Sections if missing to ensure content depth
+
         if not page_data.get("tool_name"):
             page_data["tool_name"] = "Video Downloader"
-            
-        # Ensure the registered path matches the lang-prefixed version (especially for English)
-        actual_path = hreflangs_map[page_data["lang"]].replace(base_domain, "")
+
+        actual_path = hreflangs_map[page_data.get("lang", "en")].replace(base_domain, "")
         pages[actual_path] = page_data
-            
+
     return pages
+
 
 MULTILINGUAL_PAGES = generate_multilingual_pages()
