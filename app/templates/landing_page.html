@@ -321,7 +321,7 @@
                             style="text-decoration:none; color:var(--primary);">🎧 YouTube to MP3 Converter</a></li>
                     <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/tiktok-mp3-downloader"
                             style="text-decoration:none; color:var(--primary);">🎵 TikTok to MP3 Converter</a></li>
-                    <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/youtubeshort"
+                    <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/youtube-shorts-downloader"
                             style="text-decoration:none; color:var(--primary);">🎬 YouTube Shorts Downloader</a></li>
                     <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/pinterest"
                             style="text-decoration:none; color:var(--primary);">📌 Pinterest Video Downloader</a></li>
@@ -394,7 +394,7 @@
         fetch('/download', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `url=${encodeURIComponent(url)}&type=${type}`
+            body: `url=${encodeURIComponent(url)}&format=${type}`
         })
             .then(res => {
                 const cd = res.headers.get('Content-Disposition');

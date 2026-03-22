@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang if (page and page.lang) else 'en' }}">
 
 <head>
     <meta charset="UTF-8">
@@ -58,7 +58,7 @@
     <meta name="keywords"
         content="{% block keywords %}{{ page.keywords if (page and page.keywords) else 'instagram reel downloader, youtube video downloader, tiktok video download, snapchat video downloader, facebook video download, free video downloader online' }}{% endblock %}">
     <meta name="language" content="{% block page_lang %}{{ page.lang if (page and page.lang) else 'en' }}{% endblock %}">
-    <meta name="revisit-after" content="1 days">
+
 
     <!-- Performance -->
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
