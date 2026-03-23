@@ -37,7 +37,8 @@ async def sitemap():
     xml += f'  <url>\n    <loc>{base}/</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n'
     # Add hreflangs for homepage
     for lang in ["en", "hi", "es", "fr", "de", "pt", "ar", "id", "bn", "tr", "th", "ko", "ja", "uk", "pl"]:
-        xml += f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{base}/{lang}/"/>\n'
+        prefix = f"/{lang}/" if lang != "en" else "/"
+        xml += f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{base}{prefix}"/>\n'
     xml += '  </url>\n'
 
     # 2. Multilingual & Programmatic Pages

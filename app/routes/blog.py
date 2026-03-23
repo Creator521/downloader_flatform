@@ -28,9 +28,12 @@ async def blog_post(request: Request, slug: str):
     if not post:
         raise HTTPException(status_code=404, detail="Blog post not found")
 
-    domain_name = os.getenv("DOMAIN_NAME", "yourdomain.com")
-    if not domain_name.startswith("http"):
-        domain_name = f"http://{domain_name}"
+    domain_name = os.getenv("DOMAIN_NAME", "https://snapreeldownload.com")
+    # Ensure always https://
+    if domain_name.startswith("http://"):
+        domain_name = domain_name.replace("http://", "https://", 1)
+    elif not domain_name.startswith("https://"):
+        domain_name = f"https://{domain_name}"
 
     return templates.TemplateResponse("blog_post.html", {
         "request": request,

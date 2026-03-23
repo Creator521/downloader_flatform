@@ -14,45 +14,64 @@ router = APIRouter()
 templates = Jinja2Templates(directory=Path(__file__).parent.parent / "templates")
 
 
-# ── ✅ FIX 1: All redirects in one unified dict — no closure bug ──────────────
 # Both old-path redirects and EN redirects merged cleanly
 ALL_REDIRECTS = {
-    # Old named URLs → short canonical URLs
-    "/instagram-video-downloader":   "/en/video",
-    "/instagram-reel-downloader":    "/en/reels",
-    "/tiktok-video-downloader":      "/en/tiktok",
-    "/youtube-video-downloader":     "/en/youtube",
-    "/x-video-downloader":           "/en/twitter",
-    "/snapchat-video-downloader":    "/en/snapchat",
-    "/instagram-photo-downloader":   "/en/photo",
-    "/facebook-video-downloader":    "/en/facebook",
-    "/instagram-story-downloader":   "/en/story",
-    "/story-saver":                  "/en/story",
-    "/story-saver/":                 "/en/story",
-    "/igtv":                         "/en/video",
-    "/igtv/":                        "/en/video",
-    "/pinterest-video-downloader":   "/en/pinterest",
+    # ── OLD PATHS → NEW CANONICAL PATHS ────────────────────────────────────
+    "/instagram-video-downloader":   "/video",
+    "/instagram-reel-downloader":    "/reels",
+    "/tiktok-video-downloader":      "/tiktok",
+    "/youtube-video-downloader":     "/youtube",
+    "/x-video-downloader":           "/twitter",
+    "/snapchat-video-downloader":    "/snapchat",
+    "/instagram-photo-downloader":   "/photo",
+    "/facebook-video-downloader":    "/facebook",
+    "/instagram-story-downloader":   "/story",
+    "/story-saver":                  "/story",
+    "/story-saver/":                 "/story",
+    "/igtv":                         "/video",
+    "/igtv/":                        "/video",
+    "/pinterest-video-downloader":   "/pinterest",
+    "/youtubeshort":                 "/youtube-shorts-downloader",
+    "/youtubeshort/":                "/youtube-shorts-downloader",
+    "/youtube-shorts":               "/youtube-shorts-downloader",
 
-    # ✅ FIX 2: /youtubeshort → correct URL /en/youtube-shorts-downloader
-    "/youtubeshort":                 "/en/youtube-shorts-downloader",
-    "/youtubeshort/":                "/en/youtube-shorts-downloader",
-    "/youtube-shorts":               "/en/youtube-shorts-downloader",
+    # ── Language-prefixed old youtubeshort paths ─────────────────────────────
+    "/hi/youtubeshort":              "/hi/youtube-shorts-downloader",
+    "/es/youtubeshort":              "/es/youtube-shorts-downloader",
+    "/fr/youtubeshort":              "/fr/youtube-shorts-downloader",
+    "/de/youtubeshort":              "/de/youtube-shorts-downloader",
+    "/pt/youtubeshort":              "/pt/youtube-shorts-downloader",
+    "/ar/youtubeshort":              "/ar/youtube-shorts-downloader",
+    "/id/youtubeshort":              "/id/youtube-shorts-downloader",
+    "/bn/youtubeshort":              "/bn/youtube-shorts-downloader",
+    "/tr/youtubeshort":              "/tr/youtube-shorts-downloader",
+    "/th/youtubeshort":              "/th/youtube-shorts-downloader",
+    "/ko/youtubeshort":              "/ko/youtube-shorts-downloader",
+    "/ja/youtubeshort":              "/ja/youtube-shorts-downloader",
+    "/uk/youtubeshort":              "/uk/youtube-shorts-downloader",
+    "/pl/youtubeshort":              "/pl/youtube-shorts-downloader",
 
-    # Root English paths → /en/ prefixed canonical URLs
-    "/":                             "/en/",
-    "/reels":                        "/en/reels",
-    "/video":                        "/en/video",
-    "/photo":                        "/en/photo",
-    "/story":                        "/en/story",
-    "/youtube":                      "/en/youtube",
-    "/tiktok":                       "/en/tiktok",
-    "/facebook":                     "/en/facebook",
-    "/twitter":                      "/en/twitter",
-    "/pinterest":                    "/en/pinterest",
-    "/snapchat":                     "/en/snapchat",
-    "/youtube-shorts-downloader":    "/en/youtube-shorts-downloader",
-    "/tiktok-mp3-downloader":        "/en/tiktok-mp3-downloader",
-    "/youtube-to-mp3":               "/en/youtube-to-mp3",
+    # ── REDIRECTS FROM OLD /en/ PREFIXED PATHS ──────────────────────────────
+    "/en/":                          "/",
+    "/en/reels":                     "/reels",
+    "/en/video":                     "/video",
+    "/en/photo":                     "/photo",
+    "/en/story":                     "/story",
+    "/en/youtube":                   "/youtube",
+    "/en/tiktok":                    "/tiktok",
+    "/en/facebook":                  "/facebook",
+    "/en/twitter":                   "/twitter",
+    "/en/pinterest":                 "/pinterest",
+    "/en/snapchat":                  "/snapchat",
+    "/en/youtube-shorts-downloader": "/youtube-shorts-downloader",
+    "/en/tiktok-mp3-downloader":     "/tiktok-mp3-downloader",
+    "/en/youtube-to-mp3":            "/youtube-to-mp3",
+
+    # ── TOP-LEVEL CLEAN PATHS (Self-referencing or already served via dynamic routes) ──
+    # Note: These are no longer redirects; they will be served by create_route()
+    # But we keep them here if we want to ensure any legacy links redirect correctly.
+    "/reels/":                       "/reels",
+    "/video/":                       "/video",
 }
 
 
@@ -135,6 +154,7 @@ async def robots_txt():
         "Allow: /robots.txt\n"
         "\n"
         "# Block internal API and non-indexable paths\n"
+        "Disallow: /download\n"
         "Disallow: /preview\n"
         "Disallow: /proxy-image\n"
         "Disallow: /api/\n"

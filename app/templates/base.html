@@ -20,7 +20,7 @@
         {% for lang, href in page.hreflangs.items() %}
         <link rel="alternate" hreflang="{{ lang }}" href="{{ href }}">
         {% endfor %}
-        <link rel="alternate" hreflang="x-default" href="https://snapreeldownload.com/en/">
+        <link rel="alternate" hreflang="x-default" href="https://snapreeldownload.com/">
     {% endif %}
     {% endblock %}
 
@@ -158,7 +158,7 @@
     "@type": "ListItem",
     "position": 1,
     "name": "Home",
-    "item": "https://snapreeldownload.com/{{ page.lang if (page and page.lang) else 'en' }}/"
+    "item": "https://snapreeldownload.com/{{ (page.lang + '/') if (page and page.lang and page.lang != 'en') else '' }}"
   }, {
     "@type": "ListItem",
     "position": 2,
@@ -197,7 +197,7 @@
             <div class="footer-links">
                 <div>
                     <h3>Popular Tools</h3>
-                    {% set lang_prefix = '/' + page.lang if (page and page.lang and page.lang != 'en') else '/en' %}
+                    {% set lang_prefix = '/' + page.lang if (page and page.lang and page.lang != 'en') else '' %}
                     <ul>
                         <li><a href="{{ lang_prefix }}/video">Instagram Video Downloader</a></li>
                         <li><a href="{{ lang_prefix }}/reels">Instagram Reels Downloader</a></li>

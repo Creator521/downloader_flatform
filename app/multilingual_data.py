@@ -232,26 +232,49 @@ def generate_multilingual_pages():
     # 1. Core multilingual pages (TOOLS × SUPPORTED_LANGUAGES)
     for path, platform, brand_name, content_key in TOOLS:
         for lang in SUPPORTED_LANGUAGES:
-            prefix    = f"/{lang}"
+            prefix    = f"/{lang}" if lang != "en" else ""
             full_path = f"{prefix}{path}"
-            if full_path == f"/{lang}":
-                full_path = f"/{lang}/"
-            elif full_path.endswith("/") and full_path != f"/{lang}/":
+            
+            # Handle trailing slash for roots (e.g., /, /de/)
+            if path == "/":
+                if lang == "en":
+                    full_path = "/"
+                else:
+                    full_path = f"/{lang}/"
+            elif full_path.endswith("/") and full_path != "/":
                 full_path = full_path.rstrip("/")
 
             page_data = make_page_data(path, platform, brand_name, content_key, lang)
 
-            # ✅ FIX 4: Canonical for non-English pages points to /en/ version
-            en_path = f"/en{path}" if path != "/" else "/en/"
-            page_data["canonical"] = f"{base_domain}{en_path}"
+            # ✅ FIX 4: Self-referencing canonical for all pages
+            page_data["canonical"] = f"{base_domain}{full_path}"
 
             # Build complete hreflang map
             hreflangs_map = {}
             for l in SUPPORTED_LANGUAGES:
-                l_full = f"/{l}{path}" if path != "/" else f"/{l}/"
-                if l_full.endswith("/") and l_full != f"/{l}/":
-                    l_full = l_full.rstrip("/")
-                hreflangs_map[l] = f"{base_domain}{l_full}"
+                if l == "en":
+                    l_full = path if path != "/" else "/"
+                else:
+                    l_full = f"/{l}{path}" if path != "/" else f"/{l}/"
+                
+                if l_full.endswith("/") and len(l_full) > 1 and l != "en" and path != "/":
+                    pass  # Handled below by l_final logic
+
+                # Hreflang path logic: matches full_path generation
+                if path == "/":
+                    if l == "en":
+                        l_final = "/"
+                    else:
+                        l_final = f"/{l}/"
+                else:
+                    if l == "en":
+                        l_final = path
+                    else:
+                        l_final = f"/{l}{path}"
+                    if l_final.endswith("/"):
+                        l_final = l_final.rstrip("/")
+
+                hreflangs_map[l] = f"{base_domain}{l_final}"
             page_data["hreflangs"] = hreflangs_map
 
             pages[full_path] = page_data
@@ -270,14 +293,17 @@ def generate_multilingual_pages():
             base_tool_path = clean_path
             page_lang      = "en"
 
-        # ✅ FIX 4: Non-English programmatic pages canonical → English version
-        if page_lang != "en":
-            page_data["canonical"] = f"{base_domain}/en{base_tool_path}"
+        # ✅ FIX 4: Self-referencing canonical for programmatic pages
+        page_data["canonical"] = f"{base_domain}{clean_path}"
 
         hreflangs_map = {}
         for l in SUPPORTED_LANGUAGES:
-            l_full = f"/{l}{base_tool_path}"
-            if l_full.endswith("/") and len(l_full) > 4:
+            if l == "en":
+                l_full = base_tool_path if base_tool_path != "" else "/"
+            else:
+                l_full = f"/{l}{base_tool_path}"
+                
+            if l_full.endswith("/") and len(l_full) > 1:
                 l_full = l_full.rstrip("/")
             hreflangs_map[l] = f"{base_domain}{l_full}"
         page_data["hreflangs"] = hreflangs_map

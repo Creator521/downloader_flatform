@@ -76,10 +76,11 @@ async def normalize_url_middleware(request, call_next):
     normalized_path = path.lower()
     
     # 2. Trailing slash check
-    # We want /en/ to stay /en/, but /en/video/ to become /en/video
-    is_lang_root = any(path == f"/{l}/" for l in ["en", "hi", "es", "fr", "de", "pt", "ar", "id", "bn", "tr", "th", "ko", "ja", "uk", "pl"])
+    # Language roots should keep trailing slash: /, /hi/, /es/, etc.
+    # Other paths should not have it: /story, /hi/story
+    is_lang_root = (path == "/") or any(path == f"/{l}/" for l in ["hi", "es", "fr", "de", "pt", "ar", "id", "bn", "tr", "th", "ko", "ja", "uk", "pl"])
     
-    if path != "/" and not is_lang_root and normalized_path.endswith("/") and len(normalized_path) > 1:
+    if not is_lang_root and normalized_path.endswith("/") and len(normalized_path) > 1:
         normalized_path = normalized_path.rstrip("/")
     
     # Redirect if normalization changed the path
@@ -108,7 +109,8 @@ async def add_cache_headers(request, call_next):
             response.headers["Cache-Control"] = "public, max-age=2592000"  # 30 days
 
     # Dynamic content caching for SEO pages (5 minutes)
-    elif request.url.path.startswith(("/en/", "/hi/", "/es/", "/fr/", "/de/", "/pt/", "/ar/", "/id/", "/bn/", "/tr/", "/th/", "/ko/", "/ja/", "/uk/", "/pl/")):
+    # Includes root and all language paths
+    elif request.url.path == "/" or request.url.path.startswith(("/hi/", "/es/", "/fr/", "/de/", "/pt/", "/ar/", "/id/", "/bn/", "/tr/", "/th/", "/ko/", "/ja/", "/uk/", "/pl/")):
         response.headers["Cache-Control"] = "public, max-age=300"  # 5 minutes for SEO pages
 
     # Add security headers
