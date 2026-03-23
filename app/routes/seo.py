@@ -53,6 +53,7 @@ ALL_REDIRECTS = {
 
     # ── REDIRECTS FROM OLD /en/ PREFIXED PATHS ──────────────────────────────
     "/en/":                          "/",
+    "/en":                           "/",   # middleware strips trailing slash → /en has no route without this
     "/en/reels":                     "/reels",
     "/en/video":                     "/video",
     "/en/photo":                     "/photo",
