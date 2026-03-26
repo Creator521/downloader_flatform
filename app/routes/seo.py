@@ -154,6 +154,13 @@ async def favicon_ico():
     file_path = Path(__file__).parent.parent.parent / "frontend" / "favicon.png"
     return FileResponse(file_path)
 
+@router.get("/apple-touch-icon.png", include_in_schema=False)
+@router.get("/apple-touch-icon-precomposed.png", include_in_schema=False)
+async def apple_touch_icon():
+    """✅ FIX 5: Prevent automatic 404s from iOS devices searching for default icons."""
+    file_path = Path(__file__).parent.parent.parent / "frontend" / "favicon.png"
+    return FileResponse(file_path)
+
 
 @router.get("/robots.txt")
 async def robots_txt():
