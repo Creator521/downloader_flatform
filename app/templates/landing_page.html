@@ -113,7 +113,268 @@
 
 {% endblock %}
 
-{% block extra_css %}{% endblock %}
+{% block extra_css %}
+<style>
+/* Stitch Modernization for Landing Page */
+.hero-section {
+    position: relative;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+    border-radius: 32px !important;
+    padding: 80px 20px 100px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+    margin-bottom: 60px !important;
+    text-align: center;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at center, rgba(102,126,234,0.1) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+.hero-h1, .subtitle, .input-group, .trust-badges, .star-rating, #loading, #error, #result {
+    position: relative;
+    z-index: 1;
+}
+.hero-h1 {
+    font-size: clamp(32px, 5vw, 48px) !important;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px !important;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+.subtitle {
+    font-size: 18px !important;
+    color: var(--text-muted) !important;
+    max-width: 600px;
+    margin: 0 auto 40px !important;
+}
+.input-group {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px;
+    border-radius: 64px;
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(255,255,255,1);
+    backdrop-filter: blur(12px);
+    max-width: 740px !important;
+    margin: 0 auto 30px !important;
+    display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.input-group:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(102, 126, 234, 0.15);
+}
+.url-input {
+    border: none !important;
+    background: transparent !important;
+    flex: 1;
+    padding: 16px 24px !important;
+    font-size: 17px !important;
+    color: var(--text-main);
+    width: 100%;
+    outline: none !important;
+}
+.url-input::placeholder {
+    color: #94a3b8;
+}
+.paste-btn {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-muted) !important;
+    padding: 0 16px !important;
+    font-weight: 600 !important;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+.paste-btn:hover {
+    color: var(--primary) !important;
+    background: transparent !important;
+    transform: none !important;
+    border: none !important;
+}
+.download-btn {
+    padding: 16px 40px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 64px !important;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3) !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.download-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 14px 28px rgba(102, 126, 234, 0.4) !important;
+}
+/* Features / Steps Modernization */
+.howto-steps > div {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 20px !important;
+    padding: 30px 24px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
+}
+.howto-steps > div:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06) !important;
+    border-color: #cbd5e1 !important;
+}
+.main-article {
+    background: #ffffff !important;
+    border-radius: 24px !important;
+    padding: 48px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
+    border: 1px solid #f1f5f9 !important;
+}
+.sidebar > nav > div {
+    background: #ffffff !important;
+    border-radius: 24px !important;
+    padding: 32px 24px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
+    border: 1px solid #f1f5f9 !important;
+}
+.sidebar li a {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 12px;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+}
+.sidebar li a:hover {
+    background: #f8fafc;
+    color: var(--secondary) !important;
+}
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        position: relative;
+    }
+    .url-input {
+        background: #ffffff !important;
+        border-radius: 16px !important;
+        border: 1px solid #cbd5e1 !important;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+        padding-right: 90px !important; /* Space for paste btn */
+    }
+    .paste-btn {
+        position: absolute;
+        right: 12px;
+        top: 26px;
+        transform: translateY(-50%);
+        background: #f1f5f9 !important;
+        border-radius: 8px !important;
+        padding: 6px 10px !important;
+        font-size: 13px !important;
+    }
+    .download-btn {
+        border-radius: 16px !important;
+        width: 100%;
+    }
+    .hero-section {
+        padding: 40px 16px 60px !important;
+        border-radius: 20px !important;
+    }
+    .main-article {
+        padding: 24px !important;
+        border-radius: 20px !important;
+    }
+}
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-section {
+    animation: fadeInUp 0.6s ease-out;
+}
+.content-grid {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* --- Phase 2: Performance UI & Components --- */
+.loading-spinner {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; padding: 30px; color: var(--primary); font-weight: 600; font-size: 16px;
+}
+.spinner-circle {
+    width: 44px; height: 44px;
+    border: 4px solid rgba(102, 126, 234, 0.15); border-top: 4px solid var(--primary);
+    border-radius: 50%; animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.preview-card {
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 24px; padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); margin-top: 30px; text-align: left;
+    transition: all 0.3s ease; animation: fadeInUp 0.5s ease-out;
+}
+.preview-flex { display: flex; gap: 30px; align-items: center; }
+.preview-thumb { border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.12); width: 240px; flex-shrink: 0; }
+.preview-info { flex: 1; }
+.meta-tag {
+    display: inline-flex; align-items: center; gap: 6px; background: #f1f5f9; padding: 6px 14px;
+    border-radius: 40px; font-size: 13px; font-weight: 600; color: #475569; margin-right: 8px; margin-bottom: 12px;
+}
+.dl-btn-option {
+    padding: 14px 28px; border-radius: 40px; font-weight: 700; border: none; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s; font-size: 15px; display: inline-flex;
+    align-items: center; justify-content: center; gap: 8px; margin-right: 12px; margin-bottom: 12px;
+}
+.dl-video { background: linear-gradient(135deg, #10b981, #059669); color: white; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2); }
+.dl-video:hover { box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3); transform: translateY(-2px); }
+.dl-audio { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2); }
+.dl-audio:hover { box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3); transform: translateY(-2px); }
+
+.text-body { color: #4a5568; line-height: 1.8; margin-bottom: 30px; }
+.section-title { margin-bottom: 24px; font-weight: 700; color: #1e293b; font-size: 28px; }
+.section-spacing { margin-top: 50px; }
+.trust-badges-container { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 24px; font-size: 14px; color: #64748b; font-weight: 500; }
+.trust-badge { display: flex; align-items: center; gap: 6px; }
+
+.faq-card {
+    margin-bottom: 16px; background: #ffffff; border-radius: 16px;
+    border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s;
+}
+.faq-card:hover { border-color: #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+.faq-card summary {
+    font-weight: 600; font-size: 16.5px; cursor: pointer; padding: 20px 24px;
+    list-style: none; display: flex; justify-content: space-between; align-items: center; color: #334155;
+}
+.faq-card summary::-webkit-details-marker,
+.faq-card summary::marker { display: none; content: ""; }
+.faq-card summary::after { content: '+'; font-size: 26px; font-weight: 300; color: #94a3b8; transition: transform 0.3s ease; line-height: 1; }
+.faq-card[open] summary::after { transform: rotate(45deg); color: var(--primary); }
+.faq-content { padding: 0 24px 24px; color: #475569; line-height: 1.7; animation: slideDown 0.3s ease-out; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 640px) {
+    .preview-flex { flex-direction: column; text-align: center; gap: 20px; }
+    .preview-thumb { width: 100%; max-width: 320px; margin: 0 auto; }
+    .dl-btn-option { width: 100%; margin-right: 0; }
+}
+</style>
+{% endblock %}
 
 {% block content %}
 
@@ -149,16 +410,15 @@
     </form>
 
     <!-- Trust Badges -->
-    <div
-        style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:15px; font-size:13px; color:#718096; font-weight:500;">
-        <span style="display:flex; align-items:center; gap:5px;">
+    <div class="trust-badges-container">
+        <span class="trust-badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48bb78" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
             No Login Required
         </span>
-        <span style="display:flex; align-items:center; gap:5px;">
+        <span class="trust-badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48bb78" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -167,7 +427,7 @@
             </svg>
             100% Free &amp; Unlimited
         </span>
-        <span style="display:flex; align-items:center; gap:5px;">
+        <span class="trust-badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48bb78" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -178,34 +438,32 @@
     </div>
 
     <!-- Star Rating -->
-    <div style="margin-top:15px; display:flex; align-items:center; justify-content:center; gap:10px;">
-        <div style="color:#ecc94b; font-size:18px;" aria-label="4.8 out of 5 stars" role="img">★★★★★</div>
-        <div style="font-size:14px; color:#4a5568;"><span style="font-weight:700;">4.8/5</span> based on 12k+ users
-        </div>
+    <div class="star-rating-container">
+        <div class="stars" aria-label="4.8 out of 5 stars" role="img">★★★★★</div>
+        <div class="rating-text"><span style="font-weight:700;">4.8/5</span> based on 12k+ users</div>
     </div>
 
-    <div id="loading" style="display:none; color:#667eea; font-weight:bold;" aria-live="polite">Processing...</div>
+    <div id="loading" class="loading-spinner" style="display:none;" aria-live="polite">
+        <div class="spinner-circle"></div>
+        <span>Processing...</span>
+    </div>
     <div id="error" class="error-msg" role="alert" aria-live="assertive"></div>
 
     <!-- Result Area — hidden until download processed -->
     <div id="result" class="preview-card" style="display:none;" aria-live="polite">
         <div class="preview-flex">
-            <img id="thumb" src="" class="preview-thumb" alt="Video thumbnail" loading="lazy" width="300" height="300"
-                style="object-fit:cover;">
+            <img id="thumb" src="" class="preview-thumb" alt="Video thumbnail" width="300" height="300" style="object-fit:cover;">
             <div class="preview-info">
-                <h3 id="videoTitle" style="margin-bottom:10px;">Video Title</h3>
-                <div style="margin-bottom:15px;">
+                <h3 id="videoTitle" style="margin-bottom:15px; font-size:20px;">Video Title</h3>
+                <div style="margin-bottom:20px; display:flex; flex-wrap:wrap;">
                     <span class="meta-tag">👤 <span id="uploader">User</span></span>
                     <span class="meta-tag">👁️ <span id="views">0</span></span>
                     <span class="meta-tag">⏱️ <span id="duration">0:00</span></span>
                 </div>
-                <p style="font-size:14px; color:#718096; margin-bottom:15px;">Ready to download! Select your format
-                    below.</p>
+                <p style="font-size:14px; color:#718096; margin-bottom:20px;">Ready to download! Select your format below.</p>
                 <div class="download-options">
-                    <button onclick="triggerDownload('video')" class="dl-btn-option dl-video">Download Video
-                        (MP4)</button>
-                    <button onclick="triggerDownload('audio')" class="dl-btn-option dl-audio">Download Audio
-                        (M4A)</button>
+                    <button onclick="triggerDownload('video')" class="dl-btn-option dl-video">📥 Download Video (MP4)</button>
+                    <button onclick="triggerDownload('audio')" class="dl-btn-option dl-audio">🎵 Download Audio (M4A)</button>
                 </div>
             </div>
         </div>
@@ -217,8 +475,8 @@
 
         <!-- Introduction -->
         <section aria-labelledby="intro-heading">
-            <h2 id="intro-heading" style="margin-bottom:20px;">What is {{ page.tool_name }}?</h2>
-            <div style="color:#4a5568; margin-bottom:30px; line-height:1.8;">
+            <h2 id="intro-heading" class="section-title">What is {{ page.tool_name }}?</h2>
+            <div class="text-body">
                 {{ page.intro_text | safe }}
             </div>
         </section>
@@ -260,23 +518,22 @@
         <!-- Extra SEO Sections -->
         {% if page.extra_sections %}
         {% for section in page.extra_sections %}
-        <section style="margin-top:40px;" aria-labelledby="section-{{ loop.index }}">
-            <h2 id="section-{{ loop.index }}" style="margin-bottom:20px;">{{ section.title }}</h2>
-            <div style="color:#4a5568; line-height:1.8;">{{ section.content | safe }}</div>
+        <section class="section-spacing" aria-labelledby="section-{{ loop.index }}">
+            <h2 id="section-{{ loop.index }}" class="section-title">{{ section.title }}</h2>
+            <div class="text-body">{{ section.content | safe }}</div>
         </section>
         {% endfor %}
         {% endif %}
 
         <!-- FAQ -->
         {% if page.faqs %}
-        <section aria-labelledby="faq-heading" style="margin-top:40px;">
-            <h2 id="faq-heading" style="margin-bottom:20px;">Frequently Asked Questions</h2>
+        <section aria-labelledby="faq-heading" class="section-spacing">
+            <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
             <div class="faq-section">
                 {% for faq in page.faqs %}
-                <details
-                    style="margin-bottom:15px; padding:15px; background:#f7fafc; border-radius:8px; border:1px solid #e2e8f0;">
-                    <summary style="font-weight:600; cursor:pointer;">{{ faq.question }}</summary>
-                    <p style="margin-top:10px; color:#4a5568; line-height:1.7;">{{ faq.answer }}</p>
+                <details class="faq-card">
+                    <summary>{{ faq.question }}</summary>
+                    <div class="faq-content">{{ faq.answer }}</div>
                 </details>
                 {% endfor %}
             </div>

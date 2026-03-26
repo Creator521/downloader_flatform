@@ -76,8 +76,9 @@ async def normalize_url_middleware(request, call_next):
     path   = request.url.path
     query  = request.url.query
 
-    # 1. Force HTTPS
-    if scheme == "http":
+    # 1. Force HTTPS (Skip for local development)
+    is_localhost = host in ("localhost", "127.0.0.1", "0.0.0.0")
+    if scheme == "http" and not is_localhost:
         url = f"https://{host}{path}"
         if query:
             url += f"?{query}"
