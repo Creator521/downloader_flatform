@@ -54,7 +54,7 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://snapreeldownload.com/{{ page.lang if (page and page.lang) else 'en' }}/"
+      "item": "https://snapreeldownload.com{{ ('/' + page.lang + '/') if (page and page.lang and page.lang != 'en') else '/' }}"
     },
     {
       "@type": "ListItem",
@@ -120,7 +120,7 @@
 <!-- ✅ Breadcrumb nav — visual -->
 <nav aria-label="Breadcrumb" style="font-size:13px; color:#718096; margin-bottom:16px;">
     <ol style="list-style:none; display:flex; gap:6px; flex-wrap:wrap; padding:0; margin:0;">
-        <li><a href="/{{ page.lang if (page and page.lang) else 'en' }}/" style="color:#667eea; text-decoration:none;">Home</a></li>
+        <li><a href="{{ ('/' + page.lang + '/') if (page and page.lang and page.lang != 'en') else '/' }}" style="color:#667eea; text-decoration:none;">Home</a></li>
         <li aria-hidden="true" style="color:#cbd5e0;">›</li>
         <li aria-current="page" style="color:#4a5568;">{{ page.tool_name | default('Video Downloader') }}</li>
     </ol>
@@ -299,7 +299,7 @@
         <nav>
             <div style="background:white; padding:20px; border-radius:10px; border:1px solid #e2e8f0;">
                 <h3 style="margin-bottom:15px;">Popular Tools</h3>
-                {% set lang_prefix = '/' + page.lang if (page and page.lang and page.lang != 'en') else '/en' %}
+                {% set lang_prefix = '/' + page.lang if (page and page.lang and page.lang != 'en') else '' %}
                 <ul style="list-style:none; padding:0; margin:0;">
                     <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/video"
                             style="text-decoration:none; color:var(--primary);">📸 Instagram Video Downloader</a></li>

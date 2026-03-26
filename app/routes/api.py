@@ -246,7 +246,8 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         # 4. Return Streaming Response
         media_type = "audio/mp4" if format == "audio" else "video/mp4"
         headers = {
-            "Content-Disposition": f'attachment; filename="{filename}"'
+            "Content-Disposition": f'attachment; filename="{filename}"',
+            "X-Robots-Tag": "noindex, nofollow",
         }
 
         return StreamingResponse(

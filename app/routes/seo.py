@@ -68,6 +68,22 @@ ALL_REDIRECTS = {
     "/en/tiktok-mp3-downloader":     "/tiktok-mp3-downloader",
     "/en/youtube-to-mp3":            "/youtube-to-mp3",
 
+    # ── LANGUAGE ROOT PATHS WITHOUT TRAILING SLASH → canonical with slash ───
+    "/hi":  "/hi/",
+    "/es":  "/es/",
+    "/fr":  "/fr/",
+    "/de":  "/de/",
+    "/pt":  "/pt/",
+    "/ar":  "/ar/",
+    "/id":  "/id/",
+    "/bn":  "/bn/",
+    "/tr":  "/tr/",
+    "/th":  "/th/",
+    "/ko":  "/ko/",
+    "/ja":  "/ja/",
+    "/uk":  "/uk/",
+    "/pl":  "/pl/",
+
     # ── TOP-LEVEL CLEAN PATHS (Self-referencing or already served via dynamic routes) ──
     # Note: These are no longer redirects; they will be served by create_route()
     # But we keep them here if we want to ensure any legacy links redirect correctly.
@@ -155,8 +171,6 @@ async def robots_txt():
         "Allow: /robots.txt\n"
         "\n"
         "# Block internal API and non-indexable paths\n"
-        "Disallow: /download\n"
-        "Disallow: /preview\n"
         "Disallow: /proxy-image\n"
         "Disallow: /api/\n"
         "Disallow: /proxy/\n"

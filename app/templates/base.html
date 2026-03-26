@@ -20,7 +20,7 @@
         {% for lang, href in page.hreflangs.items() %}
         <link rel="alternate" hreflang="{{ lang }}" href="{{ href }}">
         {% endfor %}
-        <link rel="alternate" hreflang="x-default" href="https://snapreeldownload.com/">
+        <link rel="alternate" hreflang="x-default" href="{{ page.hreflangs.get('en', page.canonical) }}">
     {% endif %}
     {% endblock %}
 

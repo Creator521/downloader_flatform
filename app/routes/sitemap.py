@@ -7,6 +7,7 @@ from fastapi.responses import HTMLResponse
 
 from app.multilingual_data import MULTILINGUAL_PAGES
 from app.blog_data import BLOG_POSTS
+from app.routes.seo import ALL_REDIRECTS
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +22,9 @@ LEGAL_PAGES = [
     "/disclaimer",
     "/dmca",
 ]
+
+# Build a set of all redirect source paths for fast lookup
+REDIRECT_PATHS = set(ALL_REDIRECTS.keys())
 
 
 @router.get("/sitemap.xml")
@@ -43,6 +47,10 @@ async def sitemap():
 
     # 2. Multilingual & Programmatic Pages
     for path, page in MULTILINGUAL_PAGES.items():
+        # ✅ Skip any path that is a redirect source — these cause "Page with redirect" in GSC
+        if path in REDIRECT_PATHS:
+            continue
+
         # Set priority based on tool type
         priority = "0.7"
         if any(keyword in path for keyword in ["reels", "video", "tiktok", "youtube", "mp3"]):

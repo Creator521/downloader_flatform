@@ -62,27 +62,46 @@ app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent / "front
 async def normalize_url_middleware(request, call_next):
     """
     SEO Middleware:
-    1. Force lowercase URLs.
-    2. Handle trailing slashes consistently.
-       - Language roots (e.g., /en/) KEEP the trailing slash.
-       - Specific tool paths (e.g., /en/video) REMOVE the trailing slash.
+    1. Force HTTP → HTTPS.
+    2. Force www → non-www.
+    3. Force lowercase URLs.
+    4. Handle trailing slashes consistently.
+       - Language roots (e.g., /hi/) KEEP the trailing slash.
+       - Specific tool paths (e.g., /hi/video) REMOVE the trailing slash.
     """
     from fastapi.responses import RedirectResponse
-    
-    path = request.url.path
-    query = request.url.query
-    
-    # 1. Lowercase check
+
+    scheme = request.headers.get("x-forwarded-proto", request.url.scheme)
+    host   = request.headers.get("x-forwarded-host", request.url.hostname) or request.url.hostname
+    path   = request.url.path
+    query  = request.url.query
+
+    # 1. Force HTTPS
+    if scheme == "http":
+        url = f"https://{host}{path}"
+        if query:
+            url += f"?{query}"
+        return RedirectResponse(url=url, status_code=301)
+
+    # 2. Force non-www
+    if host and host.startswith("www."):
+        non_www_host = host[4:]
+        url = f"https://{non_www_host}{path}"
+        if query:
+            url += f"?{query}"
+        return RedirectResponse(url=url, status_code=301)
+
+    # 3. Lowercase check
     normalized_path = path.lower()
-    
-    # 2. Trailing slash check
+
+    # 4. Trailing slash check
     # Language roots should keep trailing slash: /, /hi/, /es/, etc.
     # Other paths should not have it: /story, /hi/story
     is_lang_root = (path == "/") or any(path == f"/{l}/" for l in ["hi", "es", "fr", "de", "pt", "ar", "id", "bn", "tr", "th", "ko", "ja", "uk", "pl"])
-    
+
     if not is_lang_root and normalized_path.endswith("/") and len(normalized_path) > 1:
         normalized_path = normalized_path.rstrip("/")
-    
+
     # Redirect if normalization changed the path
     if normalized_path != path:
         url = normalized_path
@@ -91,6 +110,7 @@ async def normalize_url_middleware(request, call_next):
         return RedirectResponse(url=url, status_code=301)
 
     return await call_next(request)
+
 
 @app.middleware("http")
 async def add_cache_headers(request, call_next):

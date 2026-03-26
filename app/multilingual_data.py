@@ -151,7 +151,7 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             },
             {
                 "title": "Other Downloader Tools",
-                "content": "<ul style='columns:2; list-style:none; padding:0;'><li style='margin-bottom:8px;'><a href='/en/video'>📸 Instagram Video</a></li><li style='margin-bottom:8px;'><a href='/en/reels'>🎬 Instagram Reels</a></li><li style='margin-bottom:8px;'><a href='/en/tiktok'>🎵 TikTok Downloader</a></li><li style='margin-bottom:8px;'><a href='/en/youtube'>▶️ YouTube Video</a></li><li style='margin-bottom:8px;'><a href='/en/facebook'>📘 Facebook Video</a></li><li style='margin-bottom:8px;'><a href='/en/youtube-to-mp3'>🎧 YouTube to MP3</a></li><li style='margin-bottom:8px;'><a href='/en/snapchat'>👻 Snapchat Video</a></li><li style='margin-bottom:8px;'><a href='/en/youtube-shorts-downloader'>▶️ YouTube Shorts</a></li></ul>"
+                "content": "<ul style='columns:2; list-style:none; padding:0;'><li style='margin-bottom:8px;'><a href='/video'>📸 Instagram Video</a></li><li style='margin-bottom:8px;'><a href='/reels'>🎬 Instagram Reels</a></li><li style='margin-bottom:8px;'><a href='/tiktok'>🎵 TikTok Downloader</a></li><li style='margin-bottom:8px;'><a href='/youtube'>▶️ YouTube Video</a></li><li style='margin-bottom:8px;'><a href='/facebook'>📘 Facebook Video</a></li><li style='margin-bottom:8px;'><a href='/youtube-to-mp3'>🎧 YouTube to MP3</a></li><li style='margin-bottom:8px;'><a href='/snapchat'>👻 Snapchat Video</a></li><li style='margin-bottom:8px;'><a href='/youtube-shorts-downloader'>▶️ YouTube Shorts</a></li></ul>"
             },
         ]
         extra_sections.extend(shared_extra)
