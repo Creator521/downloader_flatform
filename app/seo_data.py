@@ -444,7 +444,7 @@ SEO_PAGES = {
         ]
     },
 
-    "/youtubeshort": {
+    "/youtube-shorts-downloader": {
         "title": "YouTube Shorts Downloader – Download YouTube Shorts Free HD",
         "description": "Download YouTube Shorts videos in HD quality free online. Save YouTube Shorts to your phone or PC — no watermark, no login. Works on Android, iPhone & PC instantly.",
         "h1": "YouTube Shorts Downloader – Save YouTube Shorts Free & HD",
