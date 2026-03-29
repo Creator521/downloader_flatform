@@ -67,6 +67,7 @@ ALL_REDIRECTS = {
     "/en/youtube-shorts-downloader": "/youtube-shorts-downloader",
     "/en/tiktok-mp3-downloader":     "/tiktok-mp3-downloader",
     "/en/youtube-to-mp3":            "/youtube-to-mp3",
+    "/en/youtubeshort":              "/youtube-shorts-downloader",
 
     # ── LANGUAGE ROOT PATHS WITHOUT TRAILING SLASH → canonical with slash ───
     "/hi":  "/hi/",
