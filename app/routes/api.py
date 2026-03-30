@@ -5,6 +5,8 @@ import sys
 import os
 import logging
 import ipaddress
+import time
+import random
 from fastapi import APIRouter, Form, HTTPException, Request
 from fastapi.responses import StreamingResponse
 from urllib.parse import quote, urlparse
@@ -91,6 +93,48 @@ def cache_set(key: str, value: dict, ttl: int = CACHE_DURATION):
         logger.warning(f"Redis write error: {e}")
 
 
+def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
+    """Attempts to extract video info using yt-dlp, retrying with different proxies on failure."""
+    last_error = None
+    for attempt in range(max_retries):
+        ydl_opts = {
+            "quiet": True,
+            "skip_download": True,
+        }
+
+        cookie_file = proxy_manager.get_cookie_file()
+        if cookie_file:
+            ydl_opts["cookiefile"] = cookie_file
+
+        proxy = proxy_manager.get_proxy()
+        if proxy:
+            ydl_opts["proxy"] = proxy
+
+        try:
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                info = ydl.extract_info(url, download=False)
+                if attempt > 0:
+                    logger.info(f"Extraction succeeded on attempt {attempt + 1} for {url} using proxy {proxy}")
+                return {"info": info, "proxy": proxy}
+        except Exception as e:
+            last_error = e
+            logger.warning(f"yt-dlp extract error (attempt {attempt + 1}/{max_retries}) for {url}: {e}")
+            if attempt < max_retries - 1:
+                # Add a small delay before retrying with a new proxy
+                time.sleep(random.uniform(1.0, 3.0))
+            
+    # All retries failed
+    error_msg = str(last_error).lower()
+    logger.error(f"Failed to extract info for {url} after {max_retries} attempts. Last error: {last_error}")
+    
+    if "sign in" in error_msg or "login" in error_msg or "requested format is not available" in error_msg:
+        raise HTTPException(
+            status_code=400,
+            detail="Instagram/Platform requires login. We are experiencing high traffic from this platform. Please try again in a few moments."
+        )
+    raise HTTPException(status_code=400, detail="Failed to process the video URL. Please check and try again.")
+
+
 @router.post("/preview")
 @limiter.limit("10/minute")
 def preview(request: Request, url: str = Form(...)):
@@ -100,22 +144,10 @@ def preview(request: Request, url: str = Form(...)):
     if cached_data:
         return cached_data
 
-    ydl_opts = {
-        "quiet": True,
-        "skip_download": True,
-    }
-
-    cookie_file = proxy_manager.get_cookie_file()
-    if cookie_file:
-        ydl_opts["cookiefile"] = cookie_file
-
-    proxy = proxy_manager.get_proxy()
-    if proxy:
-        ydl_opts["proxy"] = proxy
-
+    # Use the retry mechanism for metadata extraction
     try:
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(url, download=False)
+        extracted = extract_info_with_retry(url)
+        info = extracted["info"]
 
         # PROXY THUMBNAIL IF NEEDED
         thumb = info.get("thumbnail")
@@ -135,15 +167,8 @@ def preview(request: Request, url: str = Form(...)):
         cache_set(url, data)
 
         return data
-    except yt_dlp.utils.DownloadError as e:
-        error_msg = str(e).lower()
-        logger.error(f"yt-dlp download error for {url}: {e}")
-        if "sign in" in error_msg or "login" in error_msg:
-            raise HTTPException(
-                status_code=400,
-                detail="This platform requires login/cookies to download video. Please provide valid cookies."
-            )
-        raise HTTPException(status_code=400, detail="Failed to process the video URL. Please check and try again.")
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Preview server error for {url}: {e}")
         raise HTTPException(status_code=500, detail="An internal server error occurred. Please try again later.")
@@ -156,38 +181,17 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
     # 1. Get Metadata — Point 9: Try Redis cache first to avoid double yt-dlp extraction
     cached_data = cache_get(url)
 
+    successful_proxy = None
     if cached_data and cached_data.get("title"):
         # Use cached metadata
         title = cached_data["title"]
         logger.info(f"Using cached metadata for download: {url}")
     else:
-        # Fetch fresh metadata
-        ydl_opts_meta = {
-            "quiet": True,
-            "skip_download": True,
-        }
-
-        cookie_file = proxy_manager.get_cookie_file()
-        if cookie_file:
-            ydl_opts_meta["cookiefile"] = cookie_file
-
-        proxy = proxy_manager.get_proxy()
-        if proxy:
-            ydl_opts_meta["proxy"] = proxy
-
-        try:
-            with yt_dlp.YoutubeDL(ydl_opts_meta) as ydl:
-                info = ydl.extract_info(url, download=False)
-                title = info.get("title", "video")
-        except Exception as e:
-            error_msg = str(e).lower()
-            logger.error(f"Download metadata error for {url}: {e}")
-            if "sign in" in error_msg or "login" in error_msg or "requested format is not available" in error_msg:
-                raise HTTPException(
-                    status_code=400,
-                    detail="This platform requires login/cookies to download video. Please provide valid cookies."
-                )
-            raise HTTPException(status_code=400, detail="Could not fetch video metadata. Please check the URL and try again.")
+        # Fetch fresh metadata with retries
+        extracted = extract_info_with_retry(url)
+        info = extracted["info"]
+        title = info.get("title", "video")
+        successful_proxy = extracted["proxy"]
 
     # Determine format code and extension
     if format == "audio":
@@ -216,9 +220,12 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         cmd.extend(["--cookies", cookie_file])
 
     # Add Proxy
-    proxy = proxy_manager.get_proxy()
-    if proxy:
-        cmd.extend(["--proxy", proxy])
+    if successful_proxy:
+        cmd.extend(["--proxy", successful_proxy])
+    else:
+        proxy = proxy_manager.get_proxy()
+        if proxy:
+            cmd.extend(["--proxy", proxy])
 
     cmd.append(url)
 
