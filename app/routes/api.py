@@ -20,40 +20,166 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
+# ─────────────────────────────────────────────
+# INSTALOADER HELPER  (Primary for Instagram)
+# ─────────────────────────────────────────────
+def is_instagram_url(url: str) -> bool:
+    """Check karo ke URL Instagram ka hai ya nahi."""
+    return "instagram.com" in urlparse(url).hostname.lower()
+
+
+def extract_info_with_instaloader(url: str) -> dict | None:
+    """
+    Instaloader se Instagram Reel/Post ka info extract karo.
+    Success pe dict return karta hai, failure pe None.
+    Koi login, proxy, ya cookies ki zaroorat nahi!
+    """
+    try:
+        import instaloader
+    except ImportError:
+        logger.warning("Instaloader not installed. Run: pip install instaloader")
+        return None
+
+    try:
+        # Shortcode URL se nikalo
+        # Supported formats:
+        #   https://www.instagram.com/reel/ABC123/
+        #   https://www.instagram.com/p/ABC123/
+        path_parts = [p for p in urlparse(url).path.split("/") if p]
+        shortcode = None
+        for i, part in enumerate(path_parts):
+            if part in ("reel", "reels", "p", "tv") and i + 1 < len(path_parts):
+                shortcode = path_parts[i + 1]
+                break
+
+        if not shortcode:
+            logger.warning(f"Instaloader: Could not parse shortcode from URL: {url}")
+            return None
+
+        L = instaloader.Instaloader(
+            download_pictures=False,
+            download_videos=False,      # Hum sirf info chahte hain
+            download_video_thumbnails=False,
+            download_geotags=False,
+            download_comments=False,
+            save_metadata=False,
+            quiet=True,
+        )
+
+        post = instaloader.Post.from_shortcode(L.context, shortcode)
+
+        # Video URL — public reels ke liye bina login ke milti hai
+        video_url = post.video_url if post.is_video else None
+        if not video_url:
+            logger.info("Instaloader: Post is not a video/reel.")
+            return None
+
+        thumbnail = post.url  # Cover image
+        title = post.caption[:100] if post.caption else f"Instagram Reel {shortcode}"
+        uploader = post.owner_username
+        duration = int(post.video_duration) if post.video_duration else None
+
+        logger.info(f"Instaloader: Successfully extracted info for {shortcode}")
+
+        return {
+            "title": title,
+            "thumbnail": thumbnail,
+            "video_url": video_url,
+            "uploader": uploader,
+            "view_count": post.video_view_count,
+            "duration": duration,
+            "_shortcode": shortcode,      # Download ke liye
+        }
+
+    except Exception as e:
+        logger.warning(f"Instaloader extraction failed for {url}: {e}")
+        return None
+
+
+def stream_with_instaloader(url: str, fmt: str):
+    """
+    Instaloader se video URL nikalo, phir usse stream karo.
+    Returns: (generator, filename) ya (None, None) on failure.
+    """
+    info = extract_info_with_instaloader(url)
+    if not info or not info.get("video_url"):
+        return None, None
+
+    video_url = info["video_url"]
+    title = info.get("title", "instagram_video")
+
+    # Clean filename
+    ext = "mp4" if fmt != "audio" else "m4a"
+    filename = f"{title}.{ext}"
+    filename = "".join(c for c in filename if c.isalnum() or c in (' ', '.', '_', '-')).strip()
+
+    # Direct URL se stream karo using requests
+    try:
+        import requests
+
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            ),
+            "Referer": "https://www.instagram.com/",
+        }
+
+        resp = requests.get(video_url, headers=headers, stream=True, timeout=30)
+        resp.raise_for_status()
+
+        def iterfile():
+            try:
+                for chunk in resp.iter_content(chunk_size=64 * 1024):
+                    if chunk:
+                        yield chunk
+            except Exception as ex:
+                logger.error(f"Instaloader stream error: {ex}")
+
+        logger.info(f"Instaloader: Streaming video for {url}")
+        return iterfile(), filename
+
+    except Exception as e:
+        logger.warning(f"Instaloader stream request failed: {e}")
+        return None, None
+
+
+# ─────────────────────────────────────────────
+# URL VALIDATION
+# ─────────────────────────────────────────────
 def validate_url(url: str) -> str:
     """Validate and sanitize URL to prevent SSRF attacks."""
     if not url or not url.strip():
         raise HTTPException(status_code=400, detail="URL is required.")
-    
+
     url = url.strip()
     parsed = urlparse(url)
-    
-    # Only allow http and https schemes
+
     if parsed.scheme not in ("http", "https"):
         raise HTTPException(status_code=400, detail="Only HTTP and HTTPS URLs are allowed.")
-    
+
     if not parsed.hostname:
         raise HTTPException(status_code=400, detail="Invalid URL: no hostname found.")
-    
-    # Block internal/private IPs
+
     try:
         ip = ipaddress.ip_address(parsed.hostname)
         if ip.is_private or ip.is_loopback or ip.is_reserved:
             raise HTTPException(status_code=400, detail="Internal URLs are not allowed.")
     except ValueError:
-        # Not an IP address, it's a hostname — that's fine
         pass
-    
-    # Block common internal hostnames
+
     blocked_hosts = ["localhost", "0.0.0.0", "metadata.google.internal"]
     if parsed.hostname.lower() in blocked_hosts:
         raise HTTPException(status_code=400, detail="This URL is not allowed.")
-    
+
     return url
 
 
+# ─────────────────────────────────────────────
+# REDIS HELPERS
+# ─────────────────────────────────────────────
 def get_redis_client():
-    """Get Redis client — returns None if Redis is unavailable (Point 7: fail-safe)."""
     try:
         import redis
         REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
@@ -65,13 +191,11 @@ def get_redis_client():
         return None
 
 
-# Initialize Redis (fail-safe)
 redis_client = get_redis_client()
-CACHE_DURATION = 3600  # 1 Hour
+CACHE_DURATION = 3600  # 1 hour
 
 
 def cache_get(key: str):
-    """Safely get from Redis cache (Point 7: fail-safe)."""
     if redis_client is None:
         return None
     try:
@@ -84,7 +208,6 @@ def cache_get(key: str):
 
 
 def cache_set(key: str, value: dict, ttl: int = CACHE_DURATION):
-    """Safely set to Redis cache (Point 7: fail-safe)."""
     if redis_client is None:
         return
     try:
@@ -93,8 +216,11 @@ def cache_set(key: str, value: dict, ttl: int = CACHE_DURATION):
         logger.warning(f"Redis write error: {e}")
 
 
+# ─────────────────────────────────────────────
+# YT-DLP FALLBACK  (Non-Instagram + fallback)
+# ─────────────────────────────────────────────
 def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
-    """Attempts to extract video info using yt-dlp, retrying with different proxies on failure."""
+    """yt-dlp se info extract karo with proxy retry logic."""
     last_error = None
     for attempt in range(max_retries):
         ydl_opts = {
@@ -114,19 +240,17 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(url, download=False)
                 if attempt > 0:
-                    logger.info(f"Extraction succeeded on attempt {attempt + 1} for {url} using proxy {proxy}")
+                    logger.info(f"yt-dlp succeeded on attempt {attempt + 1} for {url}")
                 return {"info": info, "proxy": proxy}
         except Exception as e:
             last_error = e
-            logger.warning(f"yt-dlp extract error (attempt {attempt + 1}/{max_retries}) for {url}: {e}")
+            logger.warning(f"yt-dlp extract error (attempt {attempt + 1}/{max_retries}): {e}")
             if attempt < max_retries - 1:
-                # Add a small delay before retrying with a new proxy
                 time.sleep(random.uniform(1.0, 3.0))
-            
-    # All retries failed
+
     error_msg = str(last_error).lower()
-    logger.error(f"Failed to extract info for {url} after {max_retries} attempts. Last error: {last_error}")
-    
+    logger.error(f"yt-dlp failed after {max_retries} attempts for {url}. Error: {last_error}")
+
     if "sign in" in error_msg or "login" in error_msg or "requested format is not available" in error_msg:
         raise HTTPException(
             status_code=400,
@@ -135,21 +259,49 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
     raise HTTPException(status_code=400, detail="Failed to process the video URL. Please check and try again.")
 
 
+# ─────────────────────────────────────────────
+# ROUTES
+# ─────────────────────────────────────────────
 @router.post("/preview")
 @limiter.limit("10/minute")
 def preview(request: Request, url: str = Form(...)):
     url = validate_url(url)
-    # Check Cache (Redis) — Point 7: fail-safe
+
+    # Redis cache check
     cached_data = cache_get(url)
     if cached_data:
         return cached_data
 
-    # Use the retry mechanism for metadata extraction
     try:
+        # ── PRIMARY: Instaloader (Instagram URLs ke liye) ──
+        if is_instagram_url(url):
+            logger.info(f"Using Instaloader (primary) for: {url}")
+            insta_info = extract_info_with_instaloader(url)
+
+            if insta_info:
+                # Thumbnail proxy (agar Instagram CDN link hai)
+                thumb = insta_info.get("thumbnail")
+                if thumb and ("instagram.com" in thumb or "fbcdn" in thumb):
+                    thumb = f"/proxy-image?url={quote(thumb)}"
+
+                data = {
+                    "title": insta_info["title"],
+                    "thumbnail": thumb,
+                    "video_url": insta_info["video_url"],
+                    "uploader": insta_info.get("uploader"),
+                    "view_count": insta_info.get("view_count"),
+                    "duration": insta_info.get("duration"),
+                }
+                cache_set(url, data)
+                return data
+
+            # Instaloader fail hua → yt-dlp fallback
+            logger.info(f"Instaloader failed, falling back to yt-dlp for: {url}")
+
+        # ── FALLBACK / NON-INSTAGRAM: yt-dlp ──
         extracted = extract_info_with_retry(url)
         info = extracted["info"]
 
-        # PROXY THUMBNAIL IF NEEDED
         thumb = info.get("thumbnail")
         if thumb and ("instagram.com" in thumb or "fbcdn" in thumb):
             thumb = f"/proxy-image?url={quote(thumb)}"
@@ -160,13 +312,11 @@ def preview(request: Request, url: str = Form(...)):
             "video_url": info.get("url"),
             "uploader": info.get("uploader"),
             "view_count": info.get("view_count"),
-            "duration": info.get("duration")
+            "duration": info.get("duration"),
         }
-
-        # Save to Cache (Redis)
         cache_set(url, data)
-
         return data
+
     except HTTPException:
         raise
     except Exception as e:
@@ -178,22 +328,34 @@ def preview(request: Request, url: str = Form(...)):
 @limiter.limit("5/minute")
 def download(request: Request, url: str = Form(...), format: str = Form("video")):
     url = validate_url(url)
-    # 1. Get Metadata — Point 9: Try Redis cache first to avoid double yt-dlp extraction
-    cached_data = cache_get(url)
 
+    # ── PRIMARY: Instaloader stream (Instagram URLs ke liye) ──
+    if is_instagram_url(url):
+        logger.info(f"Trying Instaloader stream for: {url}")
+        stream_gen, filename = stream_with_instaloader(url, format)
+
+        if stream_gen:
+            media_type = "audio/mp4" if format == "audio" else "video/mp4"
+            headers = {
+                "Content-Disposition": f'attachment; filename="{filename}"',
+                "X-Robots-Tag": "noindex, nofollow",
+            }
+            return StreamingResponse(stream_gen, media_type=media_type, headers=headers)
+
+        logger.info(f"Instaloader stream failed, falling back to yt-dlp for: {url}")
+
+    # ── FALLBACK / NON-INSTAGRAM: yt-dlp subprocess stream ──
+    cached_data = cache_get(url)
     successful_proxy = None
+
     if cached_data and cached_data.get("title"):
-        # Use cached metadata
         title = cached_data["title"]
-        logger.info(f"Using cached metadata for download: {url}")
     else:
-        # Fetch fresh metadata with retries
         extracted = extract_info_with_retry(url)
         info = extracted["info"]
         title = info.get("title", "video")
         successful_proxy = extracted["proxy"]
 
-    # Determine format code and extension
     if format == "audio":
         format_code = "bestaudio/best"
         ext = "m4a"
@@ -201,11 +363,9 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         format_code = "best[ext=mp4]/best"
         ext = "mp4"
 
-    # Clean filename
     filename = f"{title}.{ext}"
     filename = "".join(c for c in filename if c.isalnum() or c in (' ', '.', '_', '-')).strip()
 
-    # 2. Start Streaming Subprocess
     cmd = [
         sys.executable, "-m", "yt_dlp",
         "--no-part",
@@ -214,12 +374,10 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         "--quiet",
     ]
 
-    # Add Cookie File
     cookie_file = proxy_manager.get_cookie_file()
     if cookie_file:
         cmd.extend(["--cookies", cookie_file])
 
-    # Add Proxy
     if successful_proxy:
         cmd.extend(["--proxy", successful_proxy])
     else:
@@ -234,14 +392,13 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             cmd,
             stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
-            bufsize=10**7  # 10MB buffer
+            bufsize=10**7,
         )
 
-        # 3. Create Generator
         def iterfile():
             try:
                 while True:
-                    data = proc.stdout.read(64 * 1024)  # Read 64KB chunks
+                    data = proc.stdout.read(64 * 1024)
                     if not data:
                         break
                     yield data
@@ -250,18 +407,12 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             finally:
                 proc.wait()
 
-        # 4. Return Streaming Response
         media_type = "audio/mp4" if format == "audio" else "video/mp4"
         headers = {
             "Content-Disposition": f'attachment; filename="{filename}"',
             "X-Robots-Tag": "noindex, nofollow",
         }
-
-        return StreamingResponse(
-            iterfile(),
-            media_type=media_type,
-            headers=headers
-        )
+        return StreamingResponse(iterfile(), media_type=media_type, headers=headers)
 
     except Exception as e:
         logger.error(f"Streaming failed for {url}: {e}")
