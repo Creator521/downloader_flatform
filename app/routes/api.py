@@ -8,7 +8,7 @@ import ipaddress
 import time
 import random
 from fastapi import APIRouter, Form, HTTPException, Request
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, RedirectResponse
 from urllib.parse import quote, urlparse
 import yt_dlp
 
@@ -262,6 +262,16 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
 # ─────────────────────────────────────────────
 # ROUTES
 # ─────────────────────────────────────────────
+
+@router.get("/preview")
+@router.get("/download")
+def redirect_api_gets(request: Request):
+    """
+    SEO FIX: Prevent 405 Method Not Allowed errors when Googlebot
+    crawls these POST-only API endpoints via GET requests.
+    Returns a 301 Permanent Redirect to the home page instead.
+    """
+    return RedirectResponse(url="/", status_code=301)
 @router.post("/preview")
 @limiter.limit("10/minute")
 def preview(request: Request, url: str = Form(...)):

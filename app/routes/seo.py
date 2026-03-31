@@ -35,6 +35,26 @@ ALL_REDIRECTS = {
     "/youtubeshort/":                "/youtube-shorts-downloader",
     "/youtube-shorts":               "/youtube-shorts-downloader",
 
+    # ── Language-prefixed /igtv paths ───────────────────────────────────────
+    "/hi/igtv":                      "/hi/video",
+    "/es/igtv":                      "/es/video",
+    "/fr/igtv":                      "/fr/video",
+    "/de/igtv":                      "/de/video",
+    "/pt/igtv":                      "/pt/video",
+    "/ar/igtv":                      "/ar/video",
+    "/id/igtv":                      "/id/video",
+    "/bn/igtv":                      "/bn/video",
+    "/tr/igtv":                      "/tr/video",
+    "/th/igtv":                      "/th/video",
+    "/ko/igtv":                      "/ko/video",
+    "/ja/igtv":                      "/ja/video",
+    "/uk/igtv":                      "/uk/video",
+    "/pl/igtv":                      "/pl/video",
+    "/en/igtv":                      "/video",
+
+    # ── Cloudflare email protection path (prevents 404 in GSC) ──────────────
+    "/cdn-cgi/l/email-protection":   "/",
+
     # ── Language-prefixed old youtubeshort paths ─────────────────────────────
     "/hi/youtubeshort":              "/hi/youtube-shorts-downloader",
     "/es/youtubeshort":              "/es/youtube-shorts-downloader",
@@ -183,6 +203,8 @@ async def robots_txt():
         "Disallow: /api/\n"
         "Disallow: /proxy/\n"
         "Disallow: /temp/\n"
+        "Disallow: /download\n"
+        "Disallow: /preview\n"
         "Disallow: /*?\n"
         "\n"
         "# Block admin and development files\n"

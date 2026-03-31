@@ -189,7 +189,8 @@ def make_page_data(path, platform, brand_name, content_key, lang):
     if path in SEO_PAGES:
         override   = SEO_PAGES[path]
         lang_data  = override.get(lang, {})
-        if not lang_data:
+        # Only fallback to the base English override if the requested language is actually english!
+        if not lang_data and lang == "en":
             lang_data = override
 
         if isinstance(lang_data, dict):
