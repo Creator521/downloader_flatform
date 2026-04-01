@@ -614,6 +614,13 @@
 
         if (!url) return;
 
+        // GA4 Event: Tool Used
+        if (typeof gtag === 'function') {
+            gtag('event', 'tool_used', {
+                'method': 'handle_download'
+            });
+        }
+
         loading.style.display = 'block';
         error.textContent = '';
         result.style.display = 'none';
@@ -647,6 +654,14 @@
     function triggerDownload(type) {
         const url = document.getElementById('result')._url;
         if (!url) return;
+
+        // GA4 Event: Download Click
+        if (typeof gtag === 'function') {
+            gtag('event', 'download_button_click', {
+                'event_category': 'engagement',
+                'event_label': type === 'audio' ? 'Download Audio' : 'Download Video'
+            });
+        }
 
         fetch('/download', {
             method: 'POST',
