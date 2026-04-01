@@ -183,7 +183,7 @@ async def apple_touch_icon():
     return FileResponse(file_path)
 
 
-@router.get("/BingSiteAuth.xml", include_in_schema=False)
+@router.get("/bingsiteauth.xml", include_in_schema=False)
 async def bing_site_auth():
     """Verify Bing Webmaster Tools."""
     file_path = Path(__file__).parent.parent.parent / "BingSiteAuth.xml"
