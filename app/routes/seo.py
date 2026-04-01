@@ -183,6 +183,19 @@ async def apple_touch_icon():
     return FileResponse(file_path)
 
 
+@router.get("/BingSiteAuth.xml", include_in_schema=False)
+async def bing_site_auth():
+    """Verify Bing Webmaster Tools."""
+    file_path = Path(__file__).parent.parent.parent / "BingSiteAuth.xml"
+    if file_path.exists():
+        return FileResponse(file_path, media_type="application/xml")
+    
+    # Fallback to direct content if file doesn't exist
+    content = '<?xml version="1.0"?>\n<users>\n\t<user>FF6947C28B7E462D892C2816116DDC46</user>\n</users>'
+    from fastapi.responses import Response
+    return Response(content=content, media_type="application/xml")
+
+
 @router.get("/robots.txt")
 async def robots_txt():
     """✅ FIX 4: Corrected robots.txt syntax — /*? not /*?*"""
