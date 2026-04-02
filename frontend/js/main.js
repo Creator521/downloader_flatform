@@ -116,6 +116,17 @@ async function triggerDownload(format) {
         document.body.appendChild(a);
         a.click();
         a.remove();
+        
+        // Track the download event in Google Analytics
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'video_download', {
+                'event_category': 'Engagement',
+                'event_label': format,
+                'file_name': filename,
+                'url_downloaded': document.getElementById('urlInput') ? document.getElementById('urlInput').value : 'unknown'
+            });
+        }
+        
         status.innerText = "Download Complete!";
         setTimeout(() => { status.style.display = 'none'; status.innerText = "Processing..."; }, 3000);
     } catch (err) {

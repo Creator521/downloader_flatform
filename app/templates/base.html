@@ -69,9 +69,16 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap">
     </noscript>
     
-    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+    <!-- Google Analytics - Load early for accurate tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE54GEBP04"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-LE54GEBP04', { 'anonymize_ip': true });
+    </script>
 
     <!-- Critical CSS Inlined for Performance -->
     <style>
@@ -439,23 +446,11 @@
     </script>
     {% block extra_js %}{% endblock %}
 
-    <!-- Deferred Third-Party Scripts (AdSense & Analytics) -->
+    <!-- Deferred Third-Party Scripts (AdSense) -->
     <script>
         function loadDeferredScripts() {
             if (window.scriptsLoaded) return;
             window.scriptsLoaded = true;
-
-            // Load Google Analytics
-            var ga = document.createElement('script');
-            ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-LE54GEBP04';
-            ga.async = true;
-            document.head.appendChild(ga);
-            ga.onload = function () {
-                window.dataLayer = window.dataLayer || [];
-                function gtag() { dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'G-LE54GEBP04', { 'anonymize_ip': true });
-            };
 
             // Load Google AdSense
             var adsense = document.createElement('script');

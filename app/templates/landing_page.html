@@ -684,6 +684,16 @@
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
+                
+                // Track successful download
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'video_download', {
+                        'event_category': 'Engagement',
+                        'event_label': type,
+                        'file_name': filename,
+                        'url_downloaded': url
+                    });
+                }
             })
             .catch(() => {
                 document.getElementById('error').textContent = 'Download failed. Please try again.';
