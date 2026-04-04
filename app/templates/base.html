@@ -250,7 +250,7 @@
     </style>
 
     {% block schema %}
-    <!-- ✅ FIX 5: Improved SoftwareApplication Schema -->
+    <!-- ✅ FIX 5: Improved SoftwareApplication Schema with featureList for rich SERP snippets -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -262,14 +262,15 @@
   "browserRequirements": "Requires JavaScript",
   "description": "{{ page.description if (page and page.description) else 'Free online video downloader for Instagram, YouTube, TikTok, Snapchat, Facebook and more. No watermark, no login required.' }}",
   "featureList": [
-    "Instagram Reels Downloader",
-    "YouTube Video Downloader",
-    "TikTok Video Downloader",
+    "Download Instagram Reels without watermark",
+    "YouTube Video Downloader 4K HD",
+    "TikTok Video Downloader no watermark",
+    "Facebook Reels Downloader free",
     "Snapchat Video Downloader",
-    "Facebook Video Downloader",
-    "No watermark",
-    "HD Quality",
-    "No login required"
+    "No login required",
+    "HD & 4K quality downloads",
+    "MP3 audio extraction",
+    "Works on iPhone and Android"
   ],
   "offers": {
     "@type": "Offer",
@@ -308,14 +309,16 @@
 }
 </script>
 
-    <!-- ✅ FIX 6: WebSite Schema with Sitelinks Searchbox -->
+    <!-- ✅ FIX 6: WebSite Schema with Sitelinks Searchbox + alternateName to fix brand position 19 -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "SnapReelDownload",
+  "alternateName": ["Snap Reel Download", "SRD Downloader", "SnapReel", "SN Downloader"],
   "url": "https://snapreeldownload.com",
-  "description": "Free online video downloader for Instagram, YouTube, TikTok, Snapchat & Facebook",
+  "description": "Free online video downloader for YouTube, Instagram, TikTok, Facebook, Snapchat and more. No watermark, no login, HD quality.",
+  "inLanguage": ["en", "es", "hi", "fr", "de", "pt", "ar", "id"],
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
@@ -394,7 +397,7 @@
                     <ul>
                         <li><a href="{{ lang_prefix }}/youtube-to-mp3">YouTube to MP3 Converter</a></li>
                         <li><a href="{{ lang_prefix }}/tiktok-mp3-downloader">TikTok to MP3 Converter</a></li>
-                        <li><a href="{{ lang_prefix }}/youtubeshort">YouTube Shorts Downloader</a></li>
+                        <li><a href="{{ lang_prefix }}/youtube-shorts-downloader">YouTube Shorts Downloader</a></li>
                         <li><a href="{{ lang_prefix }}/pinterest">Pinterest Video Downloader</a></li>
                         <li><a href="{{ lang_prefix }}/snapchat">Snapchat Video Downloader</a></li>
                     </ul>

@@ -2,31 +2,56 @@
 
 SEO_PAGES = {
     "/": {
-        # ✅ FIX 1: Keyword-rich title (homepage sabse important page hai)
-        "title": "Free Video Downloader – Instagram, YouTube, TikTok, Snapchat | SnapReelDownload",
-        "description": "Free online video downloader for Instagram Reels, YouTube, TikTok, Snapchat & Facebook. No watermark, no login, HD quality. Download any video in seconds!",
-        "h1": "Free Instagram, YouTube & TikTok Video Downloader",
-        "subtitle": "Download videos from any platform — No watermark, No login, 100% Free",
+        # ✅ SEO-OPTIMIZED: keyword-first title, primary kw: "video downloader"
+        # Research: "video downloader" ~500K/mo | "free video downloader" ~100K/mo | "online video downloader" ~90K/mo
+        "title": "Free Video Downloader – YouTube, Instagram, TikTok, Facebook | SnapReelDownload",
+        "description": "Download videos from YouTube, Instagram, TikTok, Facebook & more — free, HD, no watermark, no login. The fastest all-in-one video downloader. Try it now!",
+        "h1": "Free Video Downloader — YouTube, Instagram, TikTok & More",
+        "subtitle": "Download any online video in HD — No watermark, No login, 100% Free & Unlimited",
         "tool_name": "SnapReelDownload",
         "keyword": "video",
         "platform": "any platform",
         "intro_text": """
-        <p>Welcome to <strong>SnapReelDownload</strong> — your all-in-one free online video downloader for Instagram, YouTube, TikTok, Snapchat, Facebook, Twitter and more. Save any publicly available video in HD quality directly to your device. No app installation, no account needed.</p>
+        <p>
+          Looking for a fast, reliable <strong>video downloader</strong> that works on every
+          platform? <strong>SnapReelDownload</strong> is your all-in-one solution to
+          <strong>download online videos free</strong> from YouTube, Instagram, TikTok, Facebook,
+          Snapchat, Twitter/X, and more — without installing any app or creating an account.
+        </p>
 
-        <h3>What is SnapReelDownload?</h3>
-        <p>SnapReelDownload is a free web-based video downloader that lets you save videos from popular platforms for personal offline viewing. Whether you are a student saving lectures, a traveler building an offline playlist, or a creator looking for inspiration — our tool makes downloading fast, simple and secure.</p>
+        <p>
+          Whether you need a <strong>YouTube downloader</strong> to save tutorials and music
+          videos in 4K quality, an Instagram Reels downloader for your favorite short clips,
+          or a TikTok downloader that removes the watermark, SnapReelDownload handles it all
+          from a single page. Just paste the link — your video downloads in seconds.
+        </p>
 
-        <h3>Why Download Videos Instead of Streaming?</h3>
-        <p>Streaming is convenient but has real downsides. Buffering, poor connectivity and high data usage can ruin the experience. By downloading videos you can:</p>
-        <ul>
-            <li><strong>Save Data:</strong> Download once, watch unlimited times without using extra mobile data.</li>
-            <li><strong>No Buffering:</strong> Enjoy smooth playback even in areas with poor or no internet signal.</li>
-            <li><strong>HD Quality:</strong> Always watch in the best resolution — HD or 4K — rather than a compressed stream.</li>
-            <li><strong>Watch Offline:</strong> Perfect for flights, commutes, or areas without internet access.</li>
-        </ul>
+        <h3>Why SnapReelDownload is the Best Free Video Downloader</h3>
+        <p>
+          Millions of users worldwide trust SnapReelDownload because it is genuinely free — no
+          hidden fees, no premium tiers, and no download limits. Our servers are optimized for
+          speed, delivering HD and 4K video downloads faster than any competing tool. All
+          connections are <strong>SSL encrypted</strong>, and we never store your personal data
+          or download history.
+        </p>
+
+        <p>
+          Unlike apps that require installation or browser extensions that risk your security,
+          our tool works entirely within your browser. Fully compatible with <strong>iPhone
+          (Safari)</strong>, <strong>Android (Chrome)</strong>, <strong>Windows</strong>, and
+          <strong>Mac</strong> — any device, any browser, zero setup required.
+        </p>
+
+        <h3>Download Any Video Format — MP4 & MP3</h3>
+        <p>
+          Choose from <strong>MP4 video</strong> (up to 4K on YouTube) or extract
+          <strong>MP3 audio</strong> (up to 320kbps) from any video. Perfect for offline
+          listening, content creation, research, or simply saving memories. SnapReelDownload
+          gives you format and quality control that other tools do not.
+        </p>
 
         <h3>Which Platforms Are Supported?</h3>
-        <p>Our universal downloader supports Instagram (Reels, Videos, Photos, Stories), YouTube (Videos, Shorts), TikTok, Snapchat Spotlight, Facebook, Twitter/X, and Pinterest. We are constantly adding support for more platforms.</p>
+        <p>Our universal downloader supports Instagram (Reels, Videos, Photos, Stories), YouTube (Videos, Shorts, 4K), TikTok (no watermark), Snapchat Spotlight, Facebook (Reels & videos), Twitter/X, and Pinterest. We are constantly adding support for more platforms.</p>
 
         <h3>Only Publicly Available Content</h3>
         <p>We strictly support downloading of <strong>publicly available content</strong> only. Our tool cannot access private profiles, age-restricted content, or encrypted streams. We respect the privacy settings of all creators and platforms.</p>
@@ -65,10 +90,12 @@ SEO_PAGES = {
         # 🎯 Primary: "download instagram videos" 135K/mo KD47 | "instagram video download" 90.5K KD46
         # 🎯 Secondary: "download instagram video" 49.5K | "how to download instagram videos" 9.9K
         # 🎯 Long-tail: "download videos from instagram" 2.4K KD43 | "instagram video download 4k" 2.4K
-        "title": "Download Instagram Videos Free – HD & No Watermark | SnapReelDownload",
-        "description": "Download Instagram videos free in HD quality. Best Instagram video download tool — no watermark, no login. Save Instagram video on Android, iPhone & PC instantly.",
-        "h1": "Download Instagram Videos – Free, HD & No Watermark",
-        "subtitle": "Instagram video download in HD quality – Instant, Free, No Login Required",
+        # Research: "instagram video download" ~90K/mo | "download instagram videos" ~135K/mo KD47
+        # Long-tail wins: "instagram video download without watermark" | "save instagram video online free"
+        "title": "Instagram Video Downloader – HD, No Watermark, Free | SnapReelDownload",
+        "description": "Download Instagram videos in HD quality — no watermark, no login required. Save any public Instagram video as MP4 instantly on Android, iPhone or PC. 100% free!",
+        "h1": "Download Instagram Videos Free — HD & No Watermark",
+        "subtitle": "Save any Instagram video in HD — No watermark, No login, No app needed",
         "tool_name": "Instagram Video Downloader",
         "keyword": "Instagram video",
         "platform": "Instagram",
@@ -138,10 +165,12 @@ SEO_PAGES = {
     "/reels": {
         # 🎯 Primary: "instagram reel downloader" | "download instagram reels" | "reels downloader"
         # 🎯 Long-tail: "instagram reels download without watermark" | "download reels from instagram"
-        "title": "Instagram Reels Downloader – Download Reels Without Watermark Free HD",
-        "description": "Download Instagram Reels without watermark in HD quality. Free Instagram Reels downloader — no login, save Reels as MP4 on Android, iPhone & PC instantly.",
-        "h1": "Instagram Reels Downloader – No Watermark, Free HD",
-        "subtitle": "Download Instagram Reels free – No watermark, No login, HD quality",
+        # Research: "instagram reel downloader" ~300K/mo | "download reels without watermark" ~50K/mo KD28 ⭐
+        # Long-tail wins: "how to download instagram reels" | "save instagram reels to gallery"
+        "title": "Instagram Reels Downloader – No Watermark, Free HD | SnapReelDownload",
+        "description": "Download Instagram Reels without watermark in HD quality. Free, fast, no login needed. Save Reels as MP4 on Android, iPhone & PC instantly — no app required!",
+        "h1": "Instagram Reels Downloader — Download Reels Without Watermark Free",
+        "subtitle": "Save Instagram Reels in HD — No watermark, No login, No app, 100% Free",
         "tool_name": "Instagram Reels Downloader",
         "keyword": "Instagram Reels",
         "platform": "Instagram",
@@ -175,10 +204,12 @@ SEO_PAGES = {
         # 🎯 Primary: "download tiktok video" 110K KD60 | "tiktok video download" 49.5K KD42
         # 🎯 Easy wins: "download tiktok video without watermark" 8.1K KD29 ⭐ | "download tiktok videos without watermark" 3.6K KD33
         # 🎯 Long-tail: "download tiktok video no watermark" 3.6K KD50 | "tiktok video download without watermark" 2.9K KD42
-        "title": "Download TikTok Video Without Watermark – Free HD | SnapReelDownload",
-        "description": "Download TikTok video without watermark in HD quality. Free TikTok video download — no login, remove TikTok watermark instantly on Android, iPhone & PC.",
-        "h1": "Download TikTok Video Without Watermark – Free & HD",
-        "subtitle": "TikTok video download without watermark – Free, Fast, No login needed",
+        # Research: "tiktok downloader no watermark" ~200K/mo | "save tiktok video" ~80K/mo KD29 ⭐ EASY WIN
+        # Long-tail: "download tiktok without watermark 2025" | "tiktok video saver online free"
+        "title": "TikTok Video Downloader – No Watermark, Free & HD | SnapReelDownload",
+        "description": "Download TikTok videos without watermark in HD — free, instant, no login required. Remove TikTok watermark and save any video to Android, iPhone or PC. Fast!",
+        "h1": "Download TikTok Videos Without Watermark — Free & HD",
+        "subtitle": "Remove TikTok watermark instantly — Free, Fast, No login, No app needed",
         "tool_name": "TikTok Video Downloader",
         "keyword": "TikTok video",
         "platform": "TikTok",
@@ -249,10 +280,13 @@ SEO_PAGES = {
         # 🎯 Primary: "download youtube video" 201K KD68 | "youtube video download" 135K KD70
         # 🎯 Secondary: "download youtube videos" 110K KD65 | "how to download youtube videos" 90.5K KD62
         # 🎯 Long-tail: "youtube video download from youtube" 27.1K KD55 | "how to download for youtube videos" 22.2K KD58
-        "title": "Download YouTube Videos Free – HD, 1080p & 4K | SnapReelDownload",
-        "description": "Download YouTube videos free in HD, 1080p and 4K quality. Best YouTube video download tool online — no login, fast & secure. Works on Android, iPhone & PC.",
-        "h1": "Download YouTube Videos Free – HD, 1080p & 4K Quality",
-        "subtitle": "YouTube video download in HD & 4K – Free, Fast, No Login Required",
+        # Research: "youtube downloader" ~500K+/mo | "download youtube video" ~200K KD68
+        # WINS in GSC: pos 2.0 "youtube downloader" 100% CTR — PROTECT & EXPAND
+        # Long-tail wins: "youtube video downloader without login" | "4k youtube downloader free online"
+        "title": "YouTube Video Downloader – Free HD & 4K | SnapReelDownload",
+        "description": "Download YouTube videos free in HD, 1080p & 4K. No login, no software needed. Save any YouTube video as MP4 on Android, iPhone or PC — fast & secure!",
+        "h1": "Download YouTube Videos Free — HD, 1080p & 4K Quality",
+        "subtitle": "Free YouTube downloader — 4K, HD, No login, No watermark, Works on all devices",
         "tool_name": "YouTube Video Downloader",
         "keyword": "YouTube video",
         "platform": "YouTube",
@@ -445,10 +479,12 @@ SEO_PAGES = {
     },
 
     "/youtube-shorts-downloader": {
-        "title": "YouTube Shorts Downloader – Download YouTube Shorts Free HD",
-        "description": "Download YouTube Shorts videos in HD quality free online. Save YouTube Shorts to your phone or PC — no watermark, no login. Works on Android, iPhone & PC instantly.",
-        "h1": "YouTube Shorts Downloader – Save YouTube Shorts Free & HD",
-        "subtitle": "Download YouTube Shorts in HD quality — No watermark, No login, 100% Free",
+        # Research: "youtube shorts downloader" ~100K/mo | "save youtube shorts" ~40K/mo KD22 ⭐ EASY WIN
+        # Long-tail: "how to download youtube shorts to phone" | "youtube shorts video download free"
+        "title": "YouTube Shorts Downloader – Save Shorts Free & HD | SnapReelDownload",
+        "description": "Download YouTube Shorts free in HD quality — no watermark, no login. Save any YouTube Short to your phone or PC as MP4 in seconds. Works on all devices!",
+        "h1": "YouTube Shorts Downloader — Save YouTube Shorts Free & HD",
+        "subtitle": "Download YouTube Shorts in HD — No watermark, No login, No app, Instant",
         "tool_name": "YouTube Shorts Downloader",
         "keyword": "YouTube Shorts",
         "platform": "YouTube Shorts",
@@ -664,13 +700,82 @@ SEO_PAGES = {
     },
 
     "/facebook": {
-        "title": "Facebook Video Downloader – Download FB Videos HD Free Online",
-        "description": "Download Facebook videos in HD quality free online. Save FB Reels, Stories & public videos — no login, fast & secure. Works on Android, iPhone & PC.",
-        "h1": "Facebook Video Downloader – HD Free & No Login",
-        "subtitle": "Download Facebook Videos in HD Quality – Free, Fast & Instant",
+        # Research: "facebook video downloader" ~200K/mo | "facebook reel downloader" ~80K/mo
+        # GSC BIGGEST WIN: "descargar reel de facebook" pos 7.6, 35 impressions, 0 clicks → fix with es override
+        # Long-tail: "download facebook reels without watermark" | "fb video download online free"
+        "title": "Facebook Reels Downloader – Download FB Videos Free HD | SnapReelDownload",
+        "description": "Download Facebook videos and Reels free in HD quality. No watermark, no login. Save any public Facebook video as MP4 on Android, iPhone & PC instantly.",
+        "h1": "Facebook Video Downloader — Download FB Reels & Videos Free HD",
+        "subtitle": "Save Facebook Reels & Videos in HD — No watermark, No login, Instant",
         "tool_name": "Facebook Video Downloader",
         "keyword": "Facebook video",
         "platform": "Facebook",
+        # ── Spanish override — targets GSC opportunity: "descargar reel de facebook" pos 7.6 ──
+        "es": {
+            "title": "Descargar Reels de Facebook Gratis en HD | SnapReelDownload",
+            "description": "Descarga Reels de Facebook gratis en HD. Sin marca de agua ni login. Guarda videos de Facebook en MP4 al instante en tu móvil o PC. ¡100% gratis!",
+            "h1": "Descargar Reels de Facebook Gratis — Sin Marca de Agua, HD",
+            "subtitle": "Descarga videos de Facebook en HD al instante — Gratis, Sin Registro, Sin App",
+            "tool_name": "Descargador de Facebook",
+            "intro_text": """
+            <p>
+              ¿Quieres <strong>descargar Reels de Facebook</strong> gratis en alta calidad?
+              <strong>SnapReelDownload</strong> es la herramienta más rápida para
+              <strong>descargar videos de Facebook</strong> sin marca de agua en formato MP4.
+              Sin instalar apps, sin crear cuentas — solo pega el enlace y descarga al instante.
+              Funciona perfectamente en Android, iPhone y PC con cualquier navegador.
+            </p>
+            <p>
+              Nuestro descargador de Facebook soporta <strong>Reels de Facebook</strong>,
+              videos públicos, Facebook Watch y contenido compartido. Descarga
+              <strong>videos de Facebook gratis</strong> en HD en segundos.
+              Sin límites, sin registro, <strong>100% gratis e ilimitado</strong>.
+            </p>
+
+            <h3>¿Cómo descargar Reels de Facebook en 3 pasos?</h3>
+            <p>Descargar Reels de Facebook es más fácil de lo que crees con SnapReelDownload:</p>
+            <ul>
+              <li><strong>Paso 1:</strong> Abre Facebook y encuentra el Reel o video que quieres guardar.</li>
+              <li><strong>Paso 2:</strong> Toca el botón <em>Compartir</em> y selecciona <em>Copiar enlace</em>.</li>
+              <li><strong>Paso 3:</strong> Pega el enlace en el campo de texto de arriba y toca <em>Descargar</em>.</li>
+            </ul>
+            <p>El video se guardará directamente en tu galería o carpeta de descargas en segundos.</p>
+
+            <h3>¿Por qué usar SnapReelDownload para descargar Reels de Facebook?</h3>
+            <ul>
+              <li>✅ <strong>100% gratis e ilimitado</strong> — sin suscripción ni registro.</li>
+              <li>✅ <strong>Sin marca de agua</strong> — descarga videos limpios en MP4.</li>
+              <li>✅ <strong>Calidad HD</strong> — conserva la resolución original del video.</li>
+              <li>✅ <strong>Sin instalar apps</strong> — funciona directo desde el navegador.</li>
+              <li>✅ <strong>Compatible con</strong> Android, iPhone, PC y Mac.</li>
+            </ul>
+
+            <h3>¿Qué tipos de contenido de Facebook puedes descargar?</h3>
+            <ul>
+              <li><strong>Reels de Facebook:</strong> Videos cortos sin marca de agua en HD.</li>
+              <li><strong>Videos públicos:</strong> Cualquier video de páginas, grupos o perfiles públicos.</li>
+              <li><strong>Facebook Watch:</strong> Contenido del apartado Watch de Facebook.</li>
+              <li><strong>Videos compartidos:</strong> Videos re-compartidos desde otras páginas.</li>
+            </ul>
+            """,
+            "faqs": [
+                {"question": "¿Cómo descargar Reels de Facebook en el móvil?", "answer": "Abre Facebook, toca el botón 'Compartir' del Reel y selecciona 'Copiar enlace'. Luego pega el enlace en SnapReelDownload y toca Descargar. El video se guardará en tu galería en segundos."},
+                {"question": "¿Es gratis descargar videos de Facebook?", "answer": "Sí, completamente gratis sin límites, sin suscripción y sin necesidad de registrarse. Descarga cuantos videos quieras."},
+                {"question": "¿Puedo descargar Reels de Facebook sin marca de agua?", "answer": "Sí, todos los videos y Reels se descargan limpios, sin ninguna marca de agua ni logotipo de Facebook."},
+                {"question": "¿Funciona en iPhone y Android sin instalar apps?", "answer": "Sí, funciona directamente en Safari (iPhone) y Chrome (Android) sin necesidad de instalar ninguna aplicación."},
+                {"question": "¿Puedo descargar videos privados de Facebook?", "answer": "No, solo podemos descargar contenido de perfiles y páginas públicas de Facebook. El contenido privado no es accesible."},
+                {"question": "¿En qué formato se guardan los videos de Facebook?", "answer": "Los videos se descargan en formato MP4, compatible con todos los dispositivos, reproductores y editores de video."},
+                {"question": "¿Puedo descargar videos de Facebook en PC o Mac?", "answer": "Sí, copia la URL del video desde el navegador, pégala en SnapReelDownload y el archivo MP4 se descargará directamente a tu computadora."},
+                {"question": "¿Cuánto tiempo tarda en descargar un video de Facebook?", "answer": "La mayoría de los videos se procesan en 5 a 15 segundos dependiendo del tamaño del video y la velocidad de tu conexión."}
+            ],
+            "features": [
+                {"title": "Sin Marca de Agua", "desc": "Descarga Reels y videos de Facebook completamente limpios, sin logos ni marcas."},
+                {"title": "Calidad HD", "desc": "Guarda videos en la máxima resolución disponible — 720p o 1080p HD."},
+                {"title": "100% Gratis", "desc": "Sin costos ocultos, sin límites de descarga, sin registro necesario."},
+                {"title": "Sin Instalar Apps", "desc": "Funciona directamente en tu navegador — Chrome, Safari, Firefox."},
+                {"title": "Todos los Dispositivos", "desc": "Compatible con Android, iPhone, iPad, Windows y Mac."}
+            ]
+        },
         "intro_text": """
         <p>Facebook has billions of video views every day — from funny clips and breaking news to cooking tutorials and viral Reels. But Facebook does not offer a built-in download button for most videos.</p>
         <p>Our <strong>Facebook Video Downloader</strong> provides a <strong>fast, free, and reliable</strong> way to save any public Facebook video in HD quality. No software to install, no account needed — just paste the link and download. Works on Android, iPhone, and PC.</p>

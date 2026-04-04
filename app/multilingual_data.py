@@ -190,8 +190,10 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         override   = SEO_PAGES[path]
         lang_data  = override.get(lang, {})
         # Only fallback to the base English override if the requested language is actually english!
+        # Filter to only use top-level string/list fields (skip nested lang dicts like 'es', 'hi')
         if not lang_data and lang == "en":
-            lang_data = override
+            LANG_CODES = {"en","hi","es","fr","de","pt","ar","id","bn","tr","th","ko","ja","uk","pl"}
+            lang_data = {k: v for k, v in override.items() if k not in LANG_CODES}
 
         if isinstance(lang_data, dict):
             if "title"       in lang_data: title     = lang_data["title"]
