@@ -954,3 +954,163 @@ SEO_PAGES = {
         ]
     }
 }
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 🚀 MASTER SEO KEYWORD LIST  (80 keywords across 8 categories)
+#    Source: Curated high-traffic + AI-friendly keywords — April 2026
+#    Usage : meta keywords, internal-link anchor text, sitemap priority,
+#            keyword-density checker, blog topic generator, etc.
+# ──────────────────────────────────────────────────────────────────────────────
+
+SEO_KEYWORDS = {
+
+    # ─── 1. CORE — main money keywords (high volume) ──────────────────────────
+    "core": [
+        "video downloader",
+        "free video downloader",
+        "online video downloader",
+        "youtube downloader",
+        "instagram video downloader",
+        "tiktok downloader",
+        "facebook video downloader",
+        "twitter video downloader",
+        "reels downloader",
+        "youtube to mp3",
+    ],
+
+    # ─── 2. HIGH INTENT — users ready to download right now ──────────────────
+    "high_intent": [
+        "download youtube video",
+        "download instagram video",
+        "download tiktok video",
+        "download facebook video",
+        "save video online",
+        "download reels video",
+        "download video without watermark",
+        "download video free online",
+        "mp4 video downloader",
+        "hd video downloader",
+    ],
+
+    # ─── 3. LONG-TAIL GOLD — easy rank + ChatGPT picks ────────────────────────
+    "long_tail": [
+        "download youtube video without login",
+        "download instagram video without watermark",
+        "download tiktok video without watermark",
+        "how to download instagram reels",
+        "how to download youtube video in hd",
+        "save reels to gallery",
+        "download facebook reels without watermark",
+        "youtube video downloader 4k free",
+        "download video from link",
+        "online video downloader free no login",
+    ],
+
+    # ─── 4. DEVICE BASED — mobile traffic ─────────────────────────────────────
+    "device_based": [
+        "download youtube video on android",
+        "download youtube video on iphone",
+        "instagram video download ios",
+        "tiktok video download android",
+        "save reels on iphone",
+        "video downloader for pc",
+        "video downloader for mobile",
+        "download video on windows",
+        "mac video downloader",
+        "chrome video downloader",
+    ],
+
+    # ─── 5. QUESTION BASED — ChatGPT / AI favourite format ───────────────────
+    "question_based": [
+        "how to download youtube videos",
+        "how to download instagram videos",
+        "how to save reels without watermark",
+        "how to download tiktok videos",
+        "how to download facebook videos",
+        "is it legal to download youtube videos",
+        "best video downloader online",
+        "fastest video downloader",
+        "how to convert youtube to mp3",
+        "how to save video from link",
+    ],
+
+    # ─── 6. PLATFORM-SPECIFIC: YouTube ───────────────────────────────────────
+    "youtube": [
+        "youtube video download free",
+        "youtube downloader online",
+        "youtube video saver",
+        "youtube video download 1080p",
+        "youtube shorts downloader",
+        "save youtube video offline",
+        "youtube to mp3 converter free",
+        "youtube audio downloader",
+        "download youtube shorts",
+        "youtube video downloader no watermark",
+    ],
+
+    # ─── 7. PLATFORM-SPECIFIC: Instagram ─────────────────────────────────────
+    "instagram": [
+        "instagram reels downloader",
+        "instagram video saver",
+        "download instagram reels hd",
+        "save instagram video",
+        "instagram downloader online",
+        "reels video download",
+        "instagram photo downloader",
+        "instagram story downloader",
+        "download instagram reels without watermark",
+        "instagram video download free",
+    ],
+
+    # ─── 8. PLATFORM-SPECIFIC: TikTok ────────────────────────────────────────
+    "tiktok": [
+        "tiktok video downloader no watermark",
+        "save tiktok video",
+        "tiktok video saver",
+        "tiktok downloader online",
+        "download tiktok audio",
+        "tiktok to mp3 converter",
+        "save tiktok video hd",
+        "download tiktok without watermark",
+        "tiktok video download free",
+        "remove tiktok watermark",
+    ],
+
+    # ─── 9. PLATFORM-SPECIFIC: Facebook ──────────────────────────────────────
+    "facebook": [
+        "facebook video download",
+        "facebook reels downloader",
+        "save facebook video",
+        "fb video downloader",
+        "download facebook reels",
+        "facebook video saver online",
+        "download fb video hd",
+        "facebook video download free",
+        "fb reels download without watermark",
+        "facebook video to mp4",
+    ],
+}
+
+# Convenience helper — flat list of ALL keywords (useful for meta tags etc.)
+ALL_SEO_KEYWORDS: list[str] = [
+    kw for group in SEO_KEYWORDS.values() for kw in group
+]
+
+# Per-page keyword mapping — maps route → most relevant keyword groups
+PAGE_KEYWORD_MAP: dict[str, list[str]] = {
+    "/":                        ["core", "high_intent", "question_based"],
+    "/youtube":                 ["youtube", "high_intent", "device_based"],
+    "/youtube-to-mp3":          ["youtube"],
+    "/youtube-shorts-downloader": ["youtube"],
+    "/reels":                   ["instagram", "high_intent", "long_tail"],
+    "/video":                   ["instagram", "device_based"],
+    "/tiktok":                  ["tiktok", "high_intent", "long_tail"],
+    "/tiktok-mp3-downloader":   ["tiktok"],
+    "/facebook":                ["facebook", "high_intent"],
+    "/twitter":                 ["core"],
+    "/snapchat":                ["core"],
+    "/photo":                   ["instagram"],
+    "/story":                   ["instagram"],
+    "/pinterest":               ["core"],
+}

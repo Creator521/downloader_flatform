@@ -7,6 +7,7 @@ from fastapi.templating import Jinja2Templates
 
 from app.multilingual_data import MULTILINGUAL_PAGES
 from app.blog_data import BLOG_POSTS
+from app.seo_data import SEO_KEYWORDS, PAGE_KEYWORD_MAP
 
 logger = logging.getLogger(__name__)
 
@@ -136,6 +137,22 @@ def create_route(path: str, data: dict):
     async def page_route(request: Request):
         page_data = data.copy()
         latest_posts = dict(list(BLOG_POSTS.items())[:6])
+
+        # ── Inject page-specific keywords where Google reads them ──────────
+        groups = PAGE_KEYWORD_MAP.get(path, ["core"])
+        page_keywords: list[str] = []
+        for g in groups:
+            page_keywords.extend(SEO_KEYWORDS.get(g, []))
+        # Deduplicate while preserving order
+        seen: set[str] = set()
+        unique_keywords: list[str] = []
+        for kw in page_keywords:
+            if kw not in seen:
+                seen.add(kw)
+                unique_keywords.append(kw)
+        page_data["keywords"] = unique_keywords          # list  → for loops
+        page_data["keywords_str"] = ", ".join(unique_keywords)  # string → meta tag
+
         return templates.TemplateResponse("landing_page.html", {
             "request": request,
             "page": page_data,

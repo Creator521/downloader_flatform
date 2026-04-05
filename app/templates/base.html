@@ -56,7 +56,7 @@
     <meta name="googlebot" content="index, follow">
     <meta name="author" content="SnapReelDownload">
     <meta name="keywords"
-        content="{% block keywords %}{{ page.keywords if (page and page.keywords) else 'instagram reel downloader, youtube video downloader, tiktok video download, snapchat video downloader, facebook video download, free video downloader online' }}{% endblock %}">
+        content="{% block keywords %}{{ page.keywords_str if (page and page.keywords_str) else 'instagram reel downloader, youtube video downloader, tiktok video download, snapchat video downloader, facebook video download, free video downloader online' }}{% endblock %}">
     <meta name="language" content="{% block page_lang %}{{ page.lang if (page and page.lang) else 'en' }}{% endblock %}">
 
 
@@ -262,15 +262,21 @@
   "browserRequirements": "Requires JavaScript",
   "description": "{{ page.description if (page and page.description) else 'Free online video downloader for Instagram, YouTube, TikTok, Snapchat, Facebook and more. No watermark, no login required.' }}",
   "featureList": [
+    {% if page and page.features %}
+      {% for f in page.features %}"{{ f.title }}: {{ f.desc }}"{% if not loop.last %},{% endif %}
+      {% endfor %}
+    {% else %}
     "Download Instagram Reels without watermark",
-    "YouTube Video Downloader 4K HD",
+    "YouTube Video Downloader 4K HD free",
     "TikTok Video Downloader no watermark",
-    "Facebook Reels Downloader free",
-    "Snapchat Video Downloader",
-    "No login required",
-    "HD & 4K quality downloads",
-    "MP3 audio extraction",
-    "Works on iPhone and Android"
+    "Facebook Reels Downloader free HD",
+    "Download TikTok video without watermark",
+    "Download YouTube video without login",
+    "HD & 4K quality video downloads",
+    "YouTube to MP3 converter free",
+    "Works on iPhone Android PC Mac",
+    "No login required, 100% free"
+    {% endif %}
   ],
   "offers": {
     "@type": "Offer",
@@ -425,6 +431,25 @@
             </div>
         </div>
     </footer>
+
+    <!-- ✅ SEO: Related Searches — keyword-rich internal links Google reads -->
+    {% if page and page.keywords %}
+    <section aria-label="Related searches" style="background:#f1f5f9;padding:18px 0;border-top:1px solid #e2e8f0;">
+        <div class="container">
+            <p style="font-size:12px;color:#94a3b8;margin-bottom:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;">People Also Search For</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                {% for kw in page.keywords %}
+                <a href="{{ request.url.path }}" rel="nofollow"
+                   style="display:inline-block;background:white;border:1px solid #e2e8f0;border-radius:20px;padding:5px 14px;font-size:13px;color:#475569;text-decoration:none;transition:all .2s;"
+                   onmouseover="this.style.borderColor='#667eea';this.style.color='#667eea'"
+                   onmouseout="this.style.borderColor='#e2e8f0';this.style.color='#475569'">
+                    {{ kw }}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
 
     <!-- Defer main JS -->
     <script src="/static/js/main.min.js" defer></script>
