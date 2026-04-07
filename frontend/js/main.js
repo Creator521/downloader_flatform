@@ -54,7 +54,13 @@ async function handleDownload(e) {
             body: formData
         });
 
-        const data = await res.json();
+        const rawText = await res.text();
+        let data;
+        try {
+            data = JSON.parse(rawText);
+        } catch (_) {
+            throw new Error('Server error. Please try again later.');
+        }
 
         if (!res.ok) throw new Error(data.detail || 'Failed to fetch video');
 
@@ -90,8 +96,16 @@ async function triggerDownload(format) {
         });
 
         if (!res.ok) {
-            const err = await res.json();
-            throw new Error(err.detail || "Download failed");
+            const rawText = await res.text();
+            let errDetail = "Download failed. Please try again.";
+            try {
+                const errJson = JSON.parse(rawText);
+                errDetail = errJson.detail || errDetail;
+            } catch (_) {
+                // Server ne JSON nahi diya (e.g. 500 Internal Server Error plain text)
+                if (rawText && rawText.length < 200) errDetail = rawText;
+            }
+            throw new Error(errDetail);
         }
 
         const blob = await res.blob();
