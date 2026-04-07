@@ -631,8 +631,19 @@
             body: `url=${encodeURIComponent(url)}`
         })
             .then(res => {
-                if (!res.ok) throw new Error('Server error');
-                return res.json();
+                return res.text().then(text => {
+                    let data = null;
+                    try { data = JSON.parse(text); } catch { /* non-JSON */ }
+                    return { ok: res.ok, data };
+                });
+            })
+            .then(({ ok, data }) => {
+                if (!ok || !data) {
+                    loading.style.display = 'none';
+                    error.textContent = (data && data.detail) || 'Could not process this link. Please check the URL and try again.';
+                    return Promise.reject('handled');
+                }
+                return data;
             })
             .then(data => {
                 loading.style.display = 'none';
@@ -669,6 +680,13 @@
             body: `url=${encodeURIComponent(url)}&format=${type}`
         })
             .then(res => {
+                if (!res.ok) {
+                    return res.text().then(text => {
+                        let msg = 'Download failed. Please try again.';
+                        try { const j = JSON.parse(text); if (j.detail) msg = j.detail; } catch { /* plain text */ }
+                        throw new Error(msg);
+                    });
+                }
                 const cd = res.headers.get('Content-Disposition');
                 let filename = type === 'audio' ? 'audio.m4a' : 'video.mp4';
                 if (cd) {
@@ -695,8 +713,8 @@
                     });
                 }
             })
-            .catch(() => {
-                document.getElementById('error').textContent = 'Download failed. Please try again.';
+            .catch(err => {
+                if (err !== 'handled') document.getElementById('error').textContent = (err && err.message) || 'Download failed. Please try again.';
             });
     }
 </script>
