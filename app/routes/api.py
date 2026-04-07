@@ -339,65 +339,67 @@ def preview(request: Request, url: str = Form(...)):
 def download(request: Request, url: str = Form(...), format: str = Form("video")):
     url = validate_url(url)
 
-    # ── PRIMARY: Instaloader stream (Instagram URLs ke liye) ──
-    if is_instagram_url(url):
-        logger.info(f"Trying Instaloader stream for: {url}")
-        stream_gen, filename = stream_with_instaloader(url, format)
-
-        if stream_gen:
-            media_type = "audio/mp4" if format == "audio" else "video/mp4"
-            headers = {
-                "Content-Disposition": f'attachment; filename="{filename}"',
-                "X-Robots-Tag": "noindex, nofollow",
-            }
-            return StreamingResponse(stream_gen, media_type=media_type, headers=headers)
-
-        logger.info(f"Instaloader stream failed, falling back to yt-dlp for: {url}")
-
-    # ── FALLBACK / NON-INSTAGRAM: yt-dlp subprocess stream ──
-    cached_data = cache_get(url)
-    successful_proxy = None
-
-    if cached_data and cached_data.get("title"):
-        title = cached_data["title"]
-    else:
-        extracted = extract_info_with_retry(url)
-        info = extracted["info"]
-        title = info.get("title", "video")
-        successful_proxy = extracted["proxy"]
-
-    if format == "audio":
-        format_code = "bestaudio/best"
-        ext = "m4a"
-    else:
-        format_code = "best[ext=mp4]/best"
-        ext = "mp4"
-
-    filename = f"{title}.{ext}"
-    filename = "".join(c for c in filename if c.isalnum() or c in (' ', '.', '_', '-')).strip()
-
-    cmd = [
-        sys.executable, "-m", "yt_dlp",
-        "--no-part",
-        "--output", "-",
-        "--format", format_code,
-        "--quiet",
-    ]
-
-    cookie_file = proxy_manager.get_cookie_file()
-    if cookie_file:
-        cmd.extend(["--cookies", cookie_file])
-
-    if successful_proxy:
-        cmd.extend(["--proxy", successful_proxy])
-    else:
-        proxy = proxy_manager.get_proxy()
-        if proxy:
-            cmd.extend(["--proxy", proxy])
-
-    cmd.append(url)
-
     try:
+        # ── PRIMARY: Instaloader stream (Instagram URLs ke liye) ──
+        if is_instagram_url(url):
+            logger.info(f"Trying Instaloader stream for: {url}")
+            stream_gen, filename = stream_with_instaloader(url, format)
+    
+            if stream_gen:
+                media_type = "audio/mp4" if format == "audio" else "video/mp4"
+                headers = {
+                    "Content-Disposition": f'attachment; filename="{filename}"',
+                    "X-Robots-Tag": "noindex, nofollow",
+                }
+                return StreamingResponse(stream_gen, media_type=media_type, headers=headers)
+    
+            logger.info(f"Instaloader stream failed, falling back to yt-dlp for: {url}")
+    
+        # ── FALLBACK / NON-INSTAGRAM: yt-dlp subprocess stream ──
+        cached_data = cache_get(url)
+        successful_proxy = None
+    
+        if cached_data and cached_data.get("title"):
+            title = cached_data["title"]
+        else:
+            extracted = extract_info_with_retry(url)
+            info = extracted.get("info") if extracted else None
+            title = info.get("title", "video") if info else "video"
+            successful_proxy = extracted.get("proxy") if extracted else None
+    
+        if format == "audio":
+            format_code = "bestaudio/best"
+            ext = "m4a"
+        else:
+            format_code = "best[ext=mp4]/best"
+            ext = "mp4"
+    
+        filename = f"{title}.{ext}"
+        filename = "".join(c for c in filename if c.isalnum() or c in (' ', '.', '_', '-')).strip()
+        if not filename:
+            filename = f"video.{ext}"
+    
+        cmd = [
+            sys.executable, "-m", "yt_dlp",
+            "--no-part",
+            "--output", "-",
+            "--format", format_code,
+            "--quiet",
+        ]
+    
+        cookie_file = proxy_manager.get_cookie_file()
+        if cookie_file:
+            cmd.extend(["--cookies", cookie_file])
+    
+        if successful_proxy:
+            cmd.extend(["--proxy", successful_proxy])
+        else:
+            proxy = proxy_manager.get_proxy()
+            if proxy:
+                cmd.extend(["--proxy", proxy])
+    
+        cmd.append(url)
+
         proc = subprocess.Popen(
             cmd,
             stdout=subprocess.PIPE,
@@ -424,6 +426,8 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         }
         return StreamingResponse(iterfile(), media_type=media_type, headers=headers)
 
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Streaming failed for {url}: {e}")
         raise HTTPException(status_code=500, detail="Download streaming failed. Please try again later.")
