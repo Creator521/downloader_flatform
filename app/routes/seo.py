@@ -90,6 +90,12 @@ ALL_REDIRECTS = {
     "/en/youtube-to-mp3":            "/youtube-to-mp3",
     "/en/youtubeshort":              "/youtube-shorts-downloader",
 
+    # ── TOP-LEVEL CLEAN PATHS (Self-referencing or already served via dynamic routes) ──
+    # Note: These are no longer redirects; they will be served by create_route()
+    # But we keep them here if we want to ensure any legacy links redirect correctly.
+    "/reels/":                       "/reels",
+    "/video/":                       "/video",
+
     # ── LANGUAGE ROOT PATHS WITHOUT TRAILING SLASH → canonical with slash ───
     "/hi":  "/hi/",
     "/es":  "/es/",
@@ -106,11 +112,6 @@ ALL_REDIRECTS = {
     "/uk":  "/uk/",
     "/pl":  "/pl/",
 
-    # ── TOP-LEVEL CLEAN PATHS (Self-referencing or already served via dynamic routes) ──
-    # Note: These are no longer redirects; they will be served by create_route()
-    # But we keep them here if we want to ensure any legacy links redirect correctly.
-    "/reels/":                       "/reels",
-    "/video/":                       "/video",
 }
 
 

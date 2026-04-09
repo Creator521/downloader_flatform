@@ -31,23 +31,23 @@ T = {
     "pl": {"dw": "Pobierz", "on": "Online", "fr": "Za darmo", "dl": "Pobieracz", "vid": "Wideo", "ph": "Zdjęcie", "st": "Relacja", "rl": "Reels", "step1": "Krok 1: Kopiuj link", "step2": "Krok 2: Wklej URL", "step3": "Krok 3: Pobierz", "title_suffix": "SnapReelDownload"},
 }
 
-# ✅ FIX 2: /youtubeshort replaced with /youtube-shorts-downloader
+# ✅ Reverted to original short URLs to prevent keyword stuffing
 TOOLS = [
     # (path, platform, subject, target_content)
-    ("/",                        "Any",         "Universal",        "vid"),
-    ("/reels",                   "Instagram",   "Instagram",        "rl"),
-    ("/video",                   "Instagram",   "Instagram",        "vid"),
-    ("/photo",                   "Instagram",   "Instagram",        "ph"),
-    ("/story",                   "Instagram",   "Instagram",        "st"),
-    ("/youtube",                 "YouTube",     "YouTube",          "vid"),
-    ("/tiktok",                  "TikTok",      "TikTok",           "vid"),
-    ("/facebook",                "Facebook",    "Facebook",         "vid"),
-    ("/twitter",                 "Twitter (X)", "Twitter",          "vid"),
-    ("/pinterest",               "Pinterest",   "Pinterest",        "vid"),
-    ("/snapchat",                "Snapchat",    "Snapchat",         "vid"),
-    ("/tiktok-mp3-downloader",   "TikTok",      "TikTok to MP3",    "vid"),
-    ("/youtube-shorts-downloader","YouTube",    "YouTube Shorts",   "vid"),   # ✅ Fixed URL
-    ("/youtube-to-mp3",          "YouTube",     "YouTube to MP3",   "vid"),
+    ("/",                              "Any",         "Universal",        "vid"),
+    ("/reels",                         "Instagram",   "Instagram",        "rl"),
+    ("/video",                         "Instagram",   "Instagram",        "vid"),
+    ("/photo",                         "Instagram",   "Instagram",        "ph"),
+    ("/story",                         "Instagram",   "Instagram",        "st"),
+    ("/youtube",                       "YouTube",     "YouTube",          "vid"),
+    ("/tiktok",                        "TikTok",      "TikTok",           "vid"),
+    ("/facebook",                      "Facebook",    "Facebook",         "vid"),
+    ("/twitter",                       "Twitter (X)", "Twitter",          "vid"),
+    ("/pinterest",                     "Pinterest",   "Pinterest",        "vid"),
+    ("/snapchat",                      "Snapchat",    "Snapchat",         "vid"),
+    ("/tiktok-mp3-downloader",         "TikTok",      "TikTok to MP3",    "vid"),
+    ("/youtube-shorts-downloader",     "YouTube",     "YouTube Shorts",   "vid"),
+    ("/youtube-to-mp3",                "YouTube",     "YouTube to MP3",   "vid"),
 ]
 
 
