@@ -116,14 +116,16 @@ def make_page_data(path, platform, brand_name, content_key, lang):
     ]
 
     faqs = [
-        {"question": f"Is this {tool_name} completely free?",     "answer": "Yes — 100% free with no hidden charges, no premium features. Download unlimited videos at no cost."},
-        {"question": "Do I need to sign up or create an account?","answer": "No — works instantly without any signup or login. Just paste the link and download."},
-        {"question": "Can creators see that I downloaded their content?", "answer": "No — your download is completely anonymous. The creator is never notified."},
-        {"question": "Is it legal to download videos?",           "answer": "Yes, for personal use like offline viewing. Do not use for commercial purposes without permission."},
-        {"question": "What formats can I download?",              "answer": "MP4 for videos and M4A for audio. Both formats work on all devices and players."},
-        {"question": "Does it work on iPhone?",                   "answer": "Yes — works on iPhone and iPad via Safari browser. No app installation needed."},
-        {"question": "Does it work on Android?",                  "answer": "Yes — works on all Android browsers including Chrome, Firefox, and Samsung Internet."},
-        {"question": "Is my data safe?",                          "answer": "Yes — SSL encrypted. We never store your personal data, search history, or downloaded files."},
+        {"question": f"Is this {tool_name} completely free to use?", "answer": "Yes, it is 100% free. There are no hidden fees, no subscriptions required, and no premium gates. You can download as many videos as you want at zero cost."},
+        {"question": "Do I need to sign up or create an account?", "answer": "No — our platform works instantly. We do not require any signup, email registration, or login to any social media account, ensuring your data remains absolutely private."},
+        {"question": "Can creators see that I downloaded their content?", "answer": "No. Your download activity is completely anonymous. The original creator is never notified when you fetch or save their public videos using our application."},
+        {"question": "Is it legal to download social media videos?", "answer": "Yes, downloading videos for personal, offline viewing is generally acceptable. However, you should not use downloaded content for commercial purposes or upload it as your own without explicit permission from the creator."},
+        {"question": "What video and audio formats can I download?", "answer": "Our tool primarily downloads videos in the universally compatible MP4 format. For audio extraction (like TikTok sounds or YouTube music), we provide secure M4A or MP3 files. These formats play flawlessly on virtually any modern device."},
+        {"question": "Does this downloader work on an iPhone or iPad?", "answer": "Yes, absolutely. For Apple devices running iOS, simply use the Safari web browser. Paste your link, tap download, and use the native iOS file manager to save the video directly to your Photos app."},
+        {"question": "How do I download videos on my Android phone?", "answer": "On any Android device, open your preferred browser (like Google Chrome, Firefox, or Samsung Internet), enter the video link, and tap download. The video will automatically save to your local 'Downloads' folder or gallery app."},
+        {"question": "Is downloading safe for my device? Will I get a virus?", "answer": "Our service is completely safe and SSL encrypted. We provide direct media files (.mp4 or .m4a) without forcing you to download sketchy executable files (.exe) or applications. Your security is our top priority."},
+        {"question": "Where are the downloaded videos saved on my PC or Mac?", "answer": "On desktop computers, downloaded files are typically saved to your system's default 'Downloads' folder. You can easily drag and drop these MP4 files into your preferred media player or video editor."},
+        {"question": "Do you keep a copy of my downloaded files?", "answer": "No. We process the extraction links on the fly. We do not store, host, or archive the media files you download, nor do we track your download history."},
     ]
 
     # Shared rich content sections
@@ -146,8 +148,20 @@ def make_page_data(path, platform, brand_name, content_key, lang):
     if path != "/":
         extra_sections = [
             {
-                "title": f"How to Download {brand_name} {content_word} on iPhone & Android",
-                "content": f"<p>On <strong>iPhone</strong>: Open Safari, paste the {brand_name} link, tap Download, and save to Photos app. On <strong>Android</strong>: Open Chrome, paste the link, tap Download — video saves to your Downloads folder automatically. No app installation needed on either device.</p>"
+                "title": f"Why Use SnapReelDownload for {brand_name}?",
+                "content": "<p>When you want to save a video, you need a solution that is fast, reliable, and secure. Our downloader operates entirely in the cloud, meaning it won't slow down your device. <strong>Zero watermarks</strong> ensure that the video remains exactly as the creator uploaded it, providing the best possible viewing experience. Furthermore, we support the extraction of high-fidelity audio tracks (MP3/M4A), offering complete versatility for your media library.</p>"
+            },
+            {
+                "title": f"How to Download {brand_name} {content_word} on iPhone / iOS Devices",
+                "content": f"<p>Downloading to an Apple device requires no third-party apps from the App Store. Simply open the <strong>Safari browser</strong> on your iPhone or iPad. Paste the {brand_name} link into our input field and tap 'Download.' Safari's native download manager will fetch the file. Once it finishes, tap the downward arrow near the address bar, select the video, and tap <strong>'Save Video'</strong> to move it securely into your Photos app camera roll.</p>"
+            },
+            {
+                "title": f"How to Save {brand_name} {content_word} on Android Phones",
+                "content": f"<p>For Android users (Samsung, Google Pixel, Xiaomi, etc.), the process is incredibly straightforward. Launch <strong>Google Chrome</strong> or your default browser. Paste the copied {brand_name} link and press the download button. The original MP4 video or audio file will automatically save to your device's <strong>'Downloads'</strong> folder, meaning it will instantly appear in your system's gallery app, ready to be viewed completely offline or shared on WhatsApp.</p>"
+            },
+            {
+                "title": "Downloading to PC or Mac Desktop",
+                "content": f"<p>Whether you're running Windows 11, Windows 10, macOS, or Linux, our web-tool functions perfectly. Open the {brand_name} website in a separate tab, copy the video link from the address bar, and paste it into our {tool_name}. Right-click the generated download button and select <strong>'Save link as...'</strong> (or simply click it). It's the ideal method for collecting high-quality HD media for video editing projects or personal archives.</p>"
             },
             {
                 "title": "Other Downloader Tools",

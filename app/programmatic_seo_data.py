@@ -43,34 +43,67 @@ def _smart_truncate(text, max_len):
 # ── ✅ FIX 1: Platform-specific unique intro templates ────────────────────────
 PLATFORM_INTROS = {
     "Instagram": """
-    <p>Instagram is packed with creative videos, stunning Reels, inspiring stories, and beautiful photos — but the app doesn't offer a built-in way to save most of this content to your device. Whether you want to watch your favorite creator's Reel offline, save a recipe before it disappears, or keep a funny clip to share on WhatsApp, you need a reliable <strong>{tool_name}</strong>.</p>
-    <p>Our free online tool lets you <strong>{action_lower} {keyword_lower}</strong> directly to your phone or computer in HD quality. No app installation, no login to Instagram required, no watermark on the downloaded file. {extra_desc}</p>
-    <p>Works on Android, iPhone, iPad, Windows PC, and Mac — any browser, any device.</p>
+    <p>Instagram is packed with creative videos, stunning Reels, inspiring stories, and beautiful photos — but the app doesn't offer a built-in way to save most of this content directly to your device. Whether you want to watch your favorite creator's Reel offline, save a recipe before it disappears, or keep a funny clip to share on WhatsApp without sending a link, you need a reliable <strong>{tool_name}</strong>.</p>
+    
+    <h3>What are Instagram Reels and Why Download Them?</h3>
+    <p>Instagram Reels are short, entertaining videos that have become the core of Instagram's platform. They feature everything from educational tutorials to trending dances and comedy sketches. Since the Instagram algorithm keeps refreshing your feed, finding a specific video later can be very difficult. That's why users prefer to <strong>{action_lower} {keyword_lower}</strong> straight to their phone memory.</p>
+
+    <h3>How Our Tool Helps You</h3>
+    <p>Our free online tool lets you <strong>{action_lower} {keyword_lower}</strong> directly to your phone or computer in HD quality. Unlike screen recording, which lowers quality and captures UI elements, our service fetches the original MP4 file. No app installation, no login to Instagram required, and absolutely no watermark on the downloaded file. {extra_desc}</p>
+    
+    <p>Compatible with all operating systems: Android, iPhone (iOS), iPad, Windows PC, and Mac — any browser, any device. Just copy, paste, and save.</p>
     """,
     "TikTok": """
-    <p>TikTok videos are some of the most creative, entertaining, and shareable content on the internet — but the platform's built-in download option adds an unavoidable watermark with the creator's username. For personal archives, video editing projects, or simply a clean viewing experience, that watermark is a problem.</p>
-    <p>Our <strong>{tool_name}</strong> removes the TikTok watermark automatically and lets you <strong>{action_lower} {keyword_lower}</strong> in original HD quality. Completely free, no login, works in any browser. {extra_desc}</p>
-    <p>Compatible with all Android phones, iPhones, iPads, Windows, and Mac — no app needed.</p>
+    <p>TikTok videos are some of the most creative, entertaining, and shareable content on the internet — but the platform's built-in download option adds an unavoidable, bouncing watermark with the creator's username. For personal archives, video editing projects, or simply a clean viewing experience, that watermark is a significant problem.</p>
+    
+    <h3>Why Use a TikTok Downloader Without Watermark?</h3>
+    <p>When you download directly from the app, the quality is often compressed, and the logo covers important parts of the video. Our <strong>{tool_name}</strong> removes the TikTok watermark automatically and fetches the highest available resolution from the TikTok servers. Whether it's a makeup tutorial, a dance trend, or a cooking lifehack, you'll get it in pristine condition.</p>
+
+    <h3>Fast, Free, and Secure</h3>
+    <p>With our service, you can <strong>{action_lower} {keyword_lower}</strong> in original HD quality instantly. It is completely free, does not require you to log into your TikTok account, and works natively in any web browser. {extra_desc} We prioritize your privacy and do not keep logs of your downloads.</p>
+    
+    <p>Compatible with all Android phones, iPhones, iPads, Windows, and Mac — no extra apps or software needed. Experience the fastest download speeds today.</p>
     """,
     "YouTube": """
-    <p>YouTube has over 800 million videos — tutorials, music, documentaries, courses, and more. But streaming requires an internet connection and burns through mobile data. Saving YouTube videos for offline use makes perfect sense for travelers, students, and anyone on a limited data plan.</p>
-    <p>Our free <strong>{tool_name}</strong> lets you <strong>{action_lower} {keyword_lower}</strong> in HD, 1080p, or even 4K quality where available. No software to install, no Google account needed, no daily limits. {extra_desc}</p>
-    <p>Works on Android, iPhone, Windows, Mac, and any modern browser.</p>
+    <p>YouTube hosts over billions of videos covering every topic imaginable — detailed tutorials, music videos, documentaries, educational courses, and podcasts. But streaming these videos requires a constant, fast internet connection and burns through your mobile data plan. Saving YouTube videos for offline viewing makes perfect sense for daily commuters, travelers, students, and anyone on a limited data plan.</p>
+    
+    <h3>The Ultimate Solution for Offline Viewing</h3>
+    <p>Our free <strong>{tool_name}</strong> lets you safely and quickly <strong>{action_lower} {keyword_lower}</strong> in HD 720p, 1080p, or even 4K quality where available. You can also extract audio-only formats if you just want to listen to music or a podcast. There is no software to install on your computer, no Google account signup needed, and absolutely no daily limitations.</p>
+    
+    <h3>Why We Stand Out</h3>
+    <p>We provide original, uncompressed files at blazing fast speeds. {extra_desc} Whether you want to back up a fragile video that might get deleted or prepare a playlist for a flight, we have you covered.</p>
+    
+    <p>Works seamlessly on Android smartphones, iPhone (via Safari), Windows laptops, Mac computers, and any modern internet browser.</p>
     """,
     "Facebook": """
-    <p>Facebook hosts billions of videos — news clips, cooking tutorials, funny moments, sports highlights, and Facebook Reels. But unlike YouTube, Facebook provides almost no native download option for most content types, leaving users unable to save videos they want to keep.</p>
-    <p>Our <strong>{tool_name}</strong> solves this — <strong>{action_lower} {keyword_lower}</strong> in HD quality, completely free. No Facebook login required, no software to install, works instantly in your browser. {extra_desc}</p>
-    <p>Supports Android, iPhone, iPad, Windows PC, and Mac.</p>
+    <p>Facebook hosts billions of videos on its platform — from breaking news clips and cooking tutorials to funny moments, sports highlights, and the newly popular Facebook Reels. But unlike some platforms, Facebook provides almost no native download option for most video types, leaving users frustrated when they want to save a memory or an interesting post.</p>
+    
+    <h3>Download Facebook Videos and Reels Instantly</h3>
+    <p>Our <strong>{tool_name}</strong> is built to solve this exact problem. With just a copied link, you can <strong>{action_lower} {keyword_lower}</strong> in the highest available HD quality, completely free of charge. Whether it's from an open page, a public group, or a trending Reel, our extractor gets the direct video file for you.</p>
+
+    <p>No Facebook login is required, ensuring your account remains 100% secure. There's no shady software to install — everything works instantly inside your web browser. {extra_desc} It's fast, anonymous, and incredibly easy to use.</p>
+    
+    <p>Fully supports Android, iPhone, iPad, Windows PC, and Mac operating systems.</p>
     """,
     "Twitter (X)": """
-    <p>X (formerly Twitter) is the home of breaking news, viral sports moments, trending memes, and real-time event coverage — all in short video clips. But X provides no built-in download button for videos, and links shared outside the platform often lose context or stop working.</p>
-    <p>Our <strong>{tool_name}</strong> lets you <strong>{action_lower} {keyword_lower}</strong> directly to your device in HD quality. No X account needed, no login, completely free and anonymous. {extra_desc}</p>
-    <p>Works on all devices: Android, iPhone, PC, and Mac.</p>
+    <p>X (formerly known as Twitter) is the global hub for breaking news, viral sports moments, trending memes, and real-time event coverage — all usually shared in short, impactful video clips. But X provides no built-in download button for its media. Furthermore, links shared outside the platform often lose context, require logins to view, or simply stop working over time.</p>
+    
+    <h3>How to Save Videos from X (Twitter)?</h3>
+    <p>Our <strong>{tool_name}</strong> lets you effortlessly <strong>{action_lower} {keyword_lower}</strong> directly to your device's local storage in crisp HD quality. You don't need an X account, you don't have to log in, and the entire process is completely free and anonymous. We fetch the pure MP4 file so you can share it natively on WhatsApp, Telegram, or keep it in your gallery.</p>
+    
+    <p>Our tool parses the tweet URL instantly and extracts the highest resolution available. {extra_desc}</p>
+    
+    <p>Works powerfully on all devices: Android phones, iPhones, tablets, desktop PCs, and Mac systems.</p>
     """,
     "Multiple": """
-    <p>In today's social media landscape, great video content is spread across dozens of platforms — Instagram, TikTok, YouTube, Facebook, Twitter, Pinterest, and more. Switching between multiple apps and tools to download from each platform is slow and frustrating.</p>
-    <p>Our <strong>{tool_name}</strong> is a universal solution — <strong>{action_lower} {keyword_lower}</strong> from multiple platforms with one simple tool. Free, no login, works in any browser. {extra_desc}</p>
-    <p>Compatible with all devices and operating systems.</p>
+    <p>In today's fast-paced social media landscape, great video content is spread across dozens of different platforms — Instagram, TikTok, YouTube, Facebook, Twitter (X), Pinterest, and Snapchat. Switching between multiple downloading apps or visiting five different websites to save videos from each platform is slow, clunky, and frustrating.</p>
+    
+    <h3>Your All-In-One Universal Video Saver</h3>
+    <p>Our <strong>{tool_name}</strong> is a universal, all-in-one solution. You can seamlessly <strong>{action_lower} {keyword_lower}</strong> from virtually any major platform using one single, simple website. We provide clean, watermark-free files in the highest HD quality available.</p>
+    
+    <p>It is 100% free, requires no user registration, and works flawlessly in any web browser. We respect your privacy by processing links instantaneously without storing your download history. {extra_desc}</p>
+    
+    <p>Compatible with all mobile devices (Android/iOS) and desktop operating systems.</p>
     """,
 }
 
@@ -84,6 +117,11 @@ PLATFORM_FAQS = {
         {"question": "What Instagram content types can I download?", "answer": "You can download Instagram Reels, feed videos, Stories, IGTV videos, and photos from any public account."},
         {"question": "Is there a limit on how many Instagram videos I can download?", "answer": "No — you can download as many videos as you want. Our service is completely free with no daily limits."},
         {"question": "What format are downloaded Instagram videos in?", "answer": "Videos download as MP4 files. Photos download as JPG files. Both formats are compatible with all devices and players."},
+        {"question": "Can I save Instagram Stories before they disappear?", "answer": "Absolutely. Just copy the link of the active story while it is still visible, paste it here, and you can download it as an MP4 directly to your device."},
+        {"question": "What should I do if the video link doesn't work?", "answer": "First, ensure the profile is public. If it is, double-check that you copied the complete URL. Sometimes, Instagram temporarily blocks our servers; if so, try again in a few minutes."},
+        {"question": "Is the downloaded video quality the same as the original?", "answer": "Yes. We do not compress or alter the video. You will receive the exact HD or original quality file that the creator uploaded to Instagram."},
+        {"question": "Can I save videos directly to my iPhone camera roll?", "answer": "Yes. If you use Safari on iOS, tap 'Download', and it will go to your Safari Downloads manager. From there, you can click 'Save Video' to push it to your Camera Roll."},
+        {"question": "Do you store any of my downloaded videos?", "answer": "No. We process the files strictly on the fly. We do not store, host, or keep a history of the videos you download, ensuring your absolute privacy."},
     ],
     "TikTok": [
         {"question": "Does the downloaded TikTok video have a watermark?", "answer": "No — our tool automatically removes the TikTok watermark and username overlay. You get a clean, professional-looking HD video file."},
@@ -93,6 +131,11 @@ PLATFORM_FAQS = {
         {"question": "Does TikTok notify the creator when I download their video?", "answer": "No — downloading via our tool is completely anonymous. The creator will not receive any notification."},
         {"question": "What quality are downloaded TikTok videos?", "answer": "Videos are downloaded in the original HD quality from TikTok's servers — typically 720p or 1080p depending on the original upload."},
         {"question": "Is there a daily limit on TikTok downloads?", "answer": "No — completely free and unlimited. Download as many TikTok videos as you want."},
+        {"question": "Why does TikTok put watermarks on videos natively?", "answer": "TikTok adds watermarks to promote its platform and identify the original creator when videos are shared elsewhere. However, for personal editing, this can be intrusive."},
+        {"question": "How do I find the TikTok link to copy?", "answer": "On the TikTok app, tap the 'Share' arrow icon on the right side of the video, then tap 'Copy Link'. Paste that link into our input box above."},
+        {"question": "Can I save videos straight to my iPhone Photos app?", "answer": "Yes. Use Safari on your iPhone, hit download, and then use the Safari download manager to 'Save Video' directly to your Photos app."},
+        {"question": "Do I need to install a standalone app?", "answer": "No app installation is required. SnapReelDownload runs entirely in your web browser, making it safer and saving your device's storage space."},
+        {"question": "Does downloading work on my Windows PC or Mac?", "answer": "Yes, it works perfectly on desktop. Just open TikTok in your web browser, copy the URL from the address bar, and paste it here."},
     ],
     "YouTube": [
         {"question": "Can I download YouTube videos in 4K quality?", "answer": "Yes — when the creator uploads in 4K, our tool will offer 4K download options. Most videos are available in HD (720p/1080p)."},
@@ -102,6 +145,11 @@ PLATFORM_FAQS = {
         {"question": "Do I need a Google or YouTube account?", "answer": "No — our tool works completely without any account or login on YouTube or our site."},
         {"question": "What format are YouTube downloads?", "answer": "Videos download as MP4 files compatible with all devices. Audio extracts as M4A/AAC format."},
         {"question": "Is there a video length limit?", "answer": "We support videos up to 2 hours in length for most content types."},
+        {"question": "Can I download entire YouTube playlists at once?", "answer": "Currently, we process one video at a time to ensure the highest quality and fastest speed. You'll need to insert individual video links."},
+        {"question": "Are YouTube Live streams supported?", "answer": "You can download live streams only after they have securely ended and YouTube has processed them into regular VOD (Video on Demand) posts."},
+        {"question": "Why is my 4K video downloading slowly?", "answer": "4K files are massive (often gigabytes in size). While our servers are fast, the download time will largely depend on your own internet connection speed."},
+        {"question": "Is it safe to use this downloader on my computer?", "answer": "100% safe. We don't require you to download any sketchy executable software. You just receive a clean `.mp4` media file."},
+        {"question": "Does it work on Android phones natively?", "answer": "Yes. Using Chrome on Android, simply tap download, and the MP4 video will be permanently saved to your 'Downloads' folder or gallery."},
     ],
     "Facebook": [
         {"question": "Do I need to log in to Facebook to download videos?", "answer": "No — our tool downloads public Facebook videos without requiring any Facebook account or login."},
@@ -111,6 +159,11 @@ PLATFORM_FAQS = {
         {"question": "What quality are Facebook video downloads?", "answer": "Facebook videos typically download in HD (720p) or SD (480p) depending on the original upload quality. We always offer the highest available quality."},
         {"question": "Does Facebook notify when I download a video?", "answer": "No — Facebook does not notify content owners when their public videos are downloaded via third-party tools."},
         {"question": "Are Facebook video downloads free?", "answer": "Yes — completely free with no daily limits, no signup, and no hidden charges."},
+        {"question": "How do I get the correct link for a Facebook video?", "answer": "On a computer, click the video's timestamp or right-click to 'Copy link address'. On mobile, tap the 'Share' button and select 'Copy Link'."},
+        {"question": "Can I download Facebook Stories?", "answer": "Yes, as long as the story is from a public profile or page, you can copy its link and download the short video or image."},
+        {"question": "Why am I getting a 'Private Video' error?", "answer": "Unlike other tools, we do not bypass Facebook's privacy settings. If a user sets their video to 'Friends Only', our servers cannot access it."},
+        {"question": "Will the downloaded MP4 video play on my phone?", "answer": "Absolutely. MP4 is the universal standard for digital video and will play natively on Android, iOS, Windows, and Mac players."},
+        {"question": "Do you keep a copy of the downloaded Facebook videos?", "answer": "Never. Files are passed directly from Facebook's servers to your device. We do not store any media files on our infrastructure."},
     ],
     "Twitter (X)": [
         {"question": "Does this work for X.com links as well as Twitter links?", "answer": "Yes — both twitter.com and x.com links work identically with our downloader."},
@@ -120,6 +173,11 @@ PLATFORM_FAQS = {
         {"question": "Is it free to download X (Twitter) videos?", "answer": "Yes — completely free with no limits and no login required."},
         {"question": "Does the creator know I downloaded their X video?", "answer": "No — X does not notify creators when their public videos are downloaded via third-party tools."},
         {"question": "Can I download Twitter Spaces recordings?", "answer": "We support video tweets and GIFs. Twitter Spaces audio recordings are a different format and may not be supported."},
+        {"question": "How do I copy a X/Twitter URL effectively?", "answer": "Tap the 'Share' icon (arrow or nodes) right below the tweet and select 'Copy Link'. If on desktop, you can also copy the URL directly from the address browser bar."},
+        {"question": "What happens to the video quality when I download?", "answer": "We grab the exact master file that X hosts on its CDN. It won't lose quality during the download process."},
+        {"question": "Can I download videos from a protected tweet?", "answer": "No. If a user's account has a padlock icon (protected tweets), their content is hidden from our servers."},
+        {"question": "Do I need to pay for multiple downloads?", "answer": "No, whether you download 1 video or 100 videos, our service remains entirely free indefinitely."},
+        {"question": "Does downloading X videos require a browser extension?", "answer": "Not at all. The entire system works purely on the web. Paste the link and click download."},
     ],
     "Multiple": [
         {"question": "Which platforms does this multi-platform downloader support?", "answer": "It supports Instagram, TikTok, YouTube, Facebook, Twitter/X, Pinterest, Snapchat, and more."},
@@ -129,6 +187,11 @@ PLATFORM_FAQS = {
         {"question": "Do downloaded videos have watermarks?", "answer": "No — our tool delivers clean watermark-free video files from all supported platforms."},
         {"question": "What video quality can I expect?", "answer": "We always fetch the highest available quality from the platform — typically HD (720p or 1080p). YouTube supports up to 4K."},
         {"question": "Can I download from private accounts on any platform?", "answer": "No — only publicly accessible content is supported across all platforms. Private content is protected."},
+        {"question": "What is the difference between MP4 and MP3 options?", "answer": "MP4 files include both the video visuals and the audio, making it perfect for watching. MP3 files strip away the video, giving you an audio-only file, which is great for music or podcast listening."},
+        {"question": "Why choose SnapReelDownload over other tools?", "answer": "SnapReelDownload combines speed, privacy, and an ad-light experience. While other sites force pop-ups or require sign-ups, we offer a fast, clean, and universally compatible tool for free."},
+        {"question": "Is downloading videos safe for my device?", "answer": "Yes! Because you only download a `.mp4` or `.m4a` media file (and no `.exe` or `.apk` apps), your device remains safe from viruses and malware."},
+        {"question": "Can I use this downloader on an iPad?", "answer": "Absolutely. Just open Safari on your iPad, paste the link, and save it directly to your iPad's file manager or Photos app."},
+        {"question": "Do I need to clear cookies or cache to fix download errors?", "answer": "Usually, no. If a download fails, it's typically because the source video was deleted or set to private. Simply hard refreshing the page is often enough."},
     ],
 }
 
