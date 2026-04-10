@@ -116,10 +116,16 @@ async function triggerDownload(format) {
         const disposition = res.headers.get('Content-Disposition');
         let filename = 'video.mp4';
         if (disposition && disposition.indexOf('attachment') !== -1) {
-            var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
-            var matches = filenameRegex.exec(disposition);
-            if (matches != null && matches[1]) {
-                filename = matches[1].replace(/['"]/g, '');
+            const utf8Regex = /filename\*=UTF-8''([^;\n]*)/i;
+            const utf8Matches = utf8Regex.exec(disposition);
+            if (utf8Matches && utf8Matches[1]) {
+                filename = decodeURIComponent(utf8Matches[1].replace(/['"]/g, ''));
+            } else {
+                var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                var matches = filenameRegex.exec(disposition);
+                if (matches != null && matches[1]) {
+                    filename = matches[1].replace(/['"]/g, '');
+                }
             }
         }
         if (format === 'audio' && !filename.endsWith('.m4a') && !filename.endsWith('.mp3')) {

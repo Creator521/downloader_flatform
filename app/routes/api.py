@@ -346,9 +346,10 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             stream_gen, filename = stream_with_instaloader(url, format)
     
             if stream_gen:
+                encoded_filename = quote(filename)
                 media_type = "audio/mp4" if format == "audio" else "video/mp4"
                 headers = {
-                    "Content-Disposition": f'attachment; filename="{filename}"',
+                    "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{encoded_filename}',
                     "X-Robots-Tag": "noindex, nofollow",
                 }
                 return StreamingResponse(stream_gen, media_type=media_type, headers=headers)
@@ -419,9 +420,10 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             finally:
                 proc.wait()
 
+        encoded_filename = quote(filename)
         media_type = "audio/mp4" if format == "audio" else "video/mp4"
         headers = {
-            "Content-Disposition": f'attachment; filename="{filename}"',
+            "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{encoded_filename}',
             "X-Robots-Tag": "noindex, nofollow",
         }
         return StreamingResponse(iterfile(), media_type=media_type, headers=headers)
