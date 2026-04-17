@@ -229,6 +229,7 @@ async def robots_txt():
         "Disallow: /api/\n"
         "Disallow: /proxy/\n"
         "Disallow: /temp/\n"
+        "Disallow: /cdn-cgi/\n"
         "Disallow: /*?\n"
         "\n"
         "# Block admin and development files\n"

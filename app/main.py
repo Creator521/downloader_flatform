@@ -95,6 +95,14 @@ async def normalize_url_middleware(request, call_next):
     # 3. Lowercase check
     normalized_path = path.lower()
 
+    # 404 Fixes for legacy paths and Cloudflare routes reported by GSC
+    if normalized_path == "/twitter-video-downloader":
+        url = "/twitter" + (f"?{query}" if query else "")
+        return RedirectResponse(url=url, status_code=301)
+        
+    if normalized_path == "/api" or normalized_path.startswith("/cdn-cgi/"):
+        return RedirectResponse(url="/", status_code=301)
+
     # 4. Trailing slash check
     # Language roots should keep trailing slash: /, /hi/, /es/, etc.
     # Other paths should not have it: /story, /hi/story
