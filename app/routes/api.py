@@ -233,7 +233,7 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
             ydl_opts["cookiefile"] = cookie_file
 
         proxy = proxy_manager.get_proxy()
-        if proxy:
+        if proxy and "pinterest.com" not in url.lower() and "pinimg.com" not in url.lower():
             ydl_opts["proxy"] = proxy
 
         try:
@@ -372,7 +372,7 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             format_code = "bestaudio/best"
             ext = "m4a"
         else:
-            format_code = "best[ext=mp4]/best"
+            format_code = "best[protocol^=http][ext=mp4]/best[ext=mp4]/best"
             ext = "mp4"
     
         filename = f"{title}.{ext}"
@@ -392,7 +392,9 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         if cookie_file:
             cmd.extend(["--cookies", cookie_file])
     
-        if successful_proxy:
+        if "pinterest.com" in url.lower() or "pinimg.com" in url.lower():
+            pass  # Bypass proxy for Pinterest to prevent 0 KB download issues
+        elif successful_proxy:
             cmd.extend(["--proxy", successful_proxy])
         else:
             proxy = proxy_manager.get_proxy()
