@@ -253,6 +253,17 @@ def _make_page(path, platform, keyword, action, modifier, tool_name, extra_desc=
         else:
             hreflang_map[supported_lang] = f"{base_domain}/{supported_lang}{english_path}"
 
+    # ✅ FIX 5: Prevent Duplicate Content mapping by Google
+    if lang != "en":
+        faqs = []
+        intro_text = f"<p><strong>{t_action} {keyword} {t_modifier}</strong> — {t_action} {keyword.lower()} {t_modifier}.</p>"
+        steps = [
+            {"title": "1", "desc": f"Copy {platform} URL."},
+            {"title": "2", "desc": "Paste URL."},
+            {"title": "3", "desc": "Download."}
+        ]
+        features = features[:2]
+
     return {
         "title": title,
         "description": description,

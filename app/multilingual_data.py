@@ -225,6 +225,24 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             if "extra_sections" in lang_data: extra_sections = lang_data["extra_sections"] + extra_sections
             if "tool_name"      in lang_data: tool_name      = lang_data["tool_name"]
 
+    # ✅ FIX 5: Prevent "Duplicate, Google chose different canonical" indexing errors
+    # Remove bulky English boilerplate on translated pages unless explicitly translated
+    if lang != "en":
+        _is_translated = False
+        if path in SEO_PAGES and lang in SEO_PAGES[path] and "faqs" in SEO_PAGES[path][lang]:
+            _is_translated = True
+            
+        if not _is_translated:
+            faqs = []
+            extra_sections = []
+            intro = f"<p><strong>{t['dw']} {brand_name} {content_word} {t['on']}</strong> — {t['fr']}.</p>"
+            steps = [
+                {"title": t["step1"], "desc": f"Copy {brand_name} link."},
+                {"title": t["step2"], "desc": "Paste the URL."},
+                {"title": t["step3"], "desc": "Download file."}
+            ]
+            features = features[:2]
+
     return {
         "title":         str(title)[:65],
         "description":   str(desc)[:160],
