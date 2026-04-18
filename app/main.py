@@ -48,6 +48,40 @@ ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "http://127.0.0.1:8000",
 ]
+
+CORE_SEO_PATHS = {
+    "/",
+    "/reels",
+    "/video",
+    "/photo",
+    "/story",
+    "/youtube",
+    "/tiktok",
+    "/facebook",
+    "/twitter",
+    "/pinterest",
+    "/snapchat",
+    "/tiktok-mp3-downloader",
+    "/youtube-shorts-downloader",
+    "/youtube-to-mp3",
+}
+
+LANGUAGE_PREFIXES = (
+    "/hi/",
+    "/es/",
+    "/fr/",
+    "/de/",
+    "/pt/",
+    "/ar/",
+    "/id/",
+    "/bn/",
+    "/tr/",
+    "/th/",
+    "/ko/",
+    "/ja/",
+    "/uk/",
+    "/pl/",
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
@@ -139,7 +173,7 @@ async def add_cache_headers(request, call_next):
 
     # Dynamic content caching for SEO pages (5 minutes)
     # Includes root and all language paths
-    elif request.url.path == "/" or request.url.path.startswith(("/hi/", "/es/", "/fr/", "/de/", "/pt/", "/ar/", "/id/", "/bn/", "/tr/", "/th/", "/ko/", "/ja/", "/uk/", "/pl/")):
+    elif request.url.path in CORE_SEO_PATHS or request.url.path.startswith(LANGUAGE_PREFIXES):
         response.headers["Cache-Control"] = "public, max-age=300"  # 5 minutes for SEO pages
 
     # Add security headers

@@ -305,6 +305,126 @@ def _make_device_page(path, platform, keyword, action, modifier, device_tip, lan
     return page
 
 
+def _make_alternative_page(path, competitor, platform, keyword, positioning, lang="en", title=None, description=None, subtitle=None):
+    """Generate competitor-alternative SEO pages with neutral comparison content."""
+    base_domain = "https://snapreeldownload.com"
+    english_path = path.replace(f"/{lang}/", "/") if lang != "en" else path
+    canonical = f"{base_domain}{english_path}"
+
+    hreflang_map = {}
+    for supported_lang in SUPPORTED_LANGUAGES:
+        if supported_lang == "en":
+            hreflang_map[supported_lang] = f"{base_domain}{english_path}"
+        else:
+            hreflang_map[supported_lang] = f"{base_domain}/{supported_lang}{english_path}"
+
+    title = _smart_truncate(title or f"{competitor} Alternative - Free Online Video Downloader", 60)
+    description = _smart_truncate(
+        description or
+        f"Looking for a {competitor} alternative? Save public {platform} videos online in HD. No app, no login, mobile-friendly downloader.",
+        160,
+    )
+    h1 = f"{competitor} Alternative"
+    subtitle = subtitle or f"A browser-based {keyword} option with HD downloads, no login, and no app install."
+    tool_name = f"{competitor} Alternative"
+
+    intro_text = f"""
+    <p>If you are searching for a reliable <strong>{competitor} alternative</strong>, SnapReelDownload gives you a fast browser-based way to save public {platform} videos for personal offline use. You do not need to install an APK, browser extension, or desktop program. Just paste a public link and download the available media in a clean MP4 or audio format where supported.</p>
+    <p>{positioning}</p>
+    <p>This page is not affiliated with {competitor}. It is a practical comparison-style guide for users who want a simple, no-login online downloader that works on Android, iPhone, Windows, Mac, Chrome, Safari, and other modern browsers.</p>
+    """
+
+    steps = [
+        {"title": "Copy the public video link", "desc": f"Open {platform} and copy the URL of the public video, Reel, Short, Story, or post you want to save."},
+        {"title": "Paste it into SnapReelDownload", "desc": "Use the downloader box above. No account signup or app installation is required."},
+        {"title": "Save the file", "desc": "Choose the available MP4 or audio option and save the file to your phone, tablet, or computer."},
+    ]
+
+    features = [
+        {"title": "No App Required", "desc": "Works directly in your browser, so you avoid risky APKs, extensions, and unnecessary device permissions."},
+        {"title": "No Login", "desc": f"You do not need to sign in to {platform} or create a SnapReelDownload account."},
+        {"title": "HD MP4 Downloads", "desc": "Save the best quality file made available by the source platform."},
+        {"title": "Mobile Friendly", "desc": "Works on iPhone, Android, iPad, Windows, Mac, Chrome, Safari, Firefox, and Edge."},
+        {"title": "Privacy Focused", "desc": "We process public links without asking for passwords or private account access."},
+    ]
+
+    extra_sections = [
+        {
+            "title": f"Why Look for a {competitor} Alternative?",
+            "content": f"""
+            <p>Users usually look for a <strong>{competitor} alternative</strong> when they want a cleaner workflow, better mobile compatibility, fewer installation steps, or a downloader that focuses on no-login browser access. SnapReelDownload is built for that use case: paste a public link, process it online, and save the file.</p>
+            <p>For competitive keywords, this page helps users compare common downloader needs such as HD quality, MP4 support, watermark-free downloads where available, and safe use on mobile browsers.</p>
+            """,
+        },
+        {
+            "title": f"{competitor} Alternative Feature Checklist",
+            "content": """
+            <table style='width:100%; border-collapse:collapse; margin:20px 0;'>
+                <thead style='background:#f0f4ff;'>
+                    <tr>
+                        <th style='padding:12px; text-align:left;'>Feature</th>
+                        <th style='padding:12px; text-align:left;'>SnapReelDownload</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'>Browser-based downloader</td><td style='padding:12px;'>Yes, no installation needed</td></tr>
+                    <tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'>No login required</td><td style='padding:12px;'>Yes</td></tr>
+                    <tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'>Mobile and desktop support</td><td style='padding:12px;'>Android, iPhone, Windows, Mac</td></tr>
+                    <tr style='border-bottom:1px solid #e2e8f0;'><td style='padding:12px;'>Video format</td><td style='padding:12px;'>MP4 where available</td></tr>
+                    <tr><td style='padding:12px;'>Audio extraction</td><td style='padding:12px;'>Available for supported platforms</td></tr>
+                </tbody>
+            </table>
+            """,
+        },
+        {
+            "title": "Related Downloader Tools",
+            "content": """
+            <ul style='columns:2; list-style:none; padding:0;'>
+                <li style='margin-bottom:8px;'><a href='/reels'>Instagram Reels Downloader</a></li>
+                <li style='margin-bottom:8px;'><a href='/tiktok'>TikTok Video Downloader</a></li>
+                <li style='margin-bottom:8px;'><a href='/youtube-shorts-downloader'>YouTube Shorts Downloader</a></li>
+                <li style='margin-bottom:8px;'><a href='/story'>Instagram Story Downloader</a></li>
+                <li style='margin-bottom:8px;'><a href='/photo'>Instagram Photo Downloader</a></li>
+                <li style='margin-bottom:8px;'><a href='/youtube-to-mp3'>YouTube to MP3 Converter</a></li>
+            </ul>
+            """,
+        },
+    ]
+
+    faqs = [
+        {"question": f"Is SnapReelDownload affiliated with {competitor}?", "answer": f"No. SnapReelDownload is an independent online downloader and is not affiliated with {competitor} or any social media platform."},
+        {"question": f"Why use this {competitor} alternative?", "answer": "Use it when you want a simple browser-based downloader with no login, no app install, HD MP4 support, and mobile-friendly access."},
+        {"question": "Do I need to install an APK or browser extension?", "answer": "No. SnapReelDownload works directly in your web browser on mobile and desktop devices."},
+        {"question": "Can I download private videos?", "answer": "No. We only support publicly accessible content and do not bypass privacy settings."},
+        {"question": "Is it free to use?", "answer": "Yes. The downloader is free to use with no account signup required."},
+        {"question": "Can I use downloaded videos commercially?", "answer": "Downloaded content should be used for personal offline viewing unless you have permission from the original rights holder."},
+    ]
+
+    if lang != "en":
+        intro_text = f"<p><strong>{competitor} Alternative</strong> - a browser-based downloader for public {platform} videos.</p>"
+        extra_sections = []
+        faqs = []
+        features = features[:2]
+
+    return {
+        "title": title,
+        "description": description,
+        "h1": h1,
+        "subtitle": subtitle,
+        "tool_name": tool_name,
+        "intro_text": intro_text,
+        "keyword": keyword.lower(),
+        "platform": platform,
+        "steps": steps,
+        "features": features,
+        "faqs": faqs,
+        "extra_sections": extra_sections,
+        "lang": lang,
+        "canonical": canonical,
+        "hreflang": hreflang_map,
+    }
+
+
 # ── Keyword Variation Pages ──────────────────────────────────────────────────
 KEYWORD_PAGES_CONFIG = [
     # Instagram Reels variations
@@ -354,6 +474,60 @@ KEYWORD_PAGES_CONFIG = [
 ]
 
 # ── Device-Specific Pages ────────────────────────────────────────────────────
+ALTERNATIVE_PAGES_CONFIG = [
+    (
+        "/savefrom-alternative",
+        "SaveFrom",
+        "social media",
+        "online video downloader",
+        "It is useful when you want a SaveFrom-style downloader experience focused on public social media links, mobile browsers, and no app installation.",
+        "SaveFrom Alternative - Free Online Video Downloader, No App",
+        "Try a SaveFrom alternative for public social media videos. Download HD MP4 online with no app install, no login, and mobile-friendly access.",
+        "Download public videos online without installing an app or signing in.",
+    ),
+    (
+        "/snaptik-alternative",
+        "SnapTik",
+        "TikTok",
+        "TikTok video downloader",
+        "It is designed for users searching for a SnapTik alternative to download public TikTok videos without installing an app or signing in.",
+        "SnapTik Alternative - TikTok Downloader Without Watermark",
+        "Use this SnapTik alternative to download public TikTok videos in HD. No watermark where available, no app, no login, works on phone and PC.",
+        "Save public TikTok videos in your browser with no app install.",
+    ),
+    (
+        "/ssstiktok-alternative",
+        "SSSTikTok",
+        "TikTok",
+        "TikTok downloader without watermark",
+        "It is a practical SSSTikTok alternative for people who want TikTok MP4 downloads, audio options where available, and a simple no-login workflow.",
+        "SSSTikTok Alternative - Save TikTok Videos in HD, No Login",
+        "Looking for an SSSTikTok alternative? Download public TikTok videos online in HD MP4. No login, no app install, mobile and desktop friendly.",
+        "A simple no-login TikTok downloader for mobile and desktop browsers.",
+    ),
+    (
+        "/best-instagram-reels-downloader-alternatives",
+        "Instagram Reels Downloader",
+        "Instagram",
+        "Instagram Reels downloader",
+        "It helps users compare Instagram Reels downloader alternatives and choose a browser-based tool for saving public Reels in HD.",
+        "Best Instagram Reels Downloader Alternatives - Free HD",
+        "Compare Instagram Reels downloader alternatives. Save public Reels in HD MP4 with no login, no app install, and mobile-friendly browser access.",
+        "A clean browser-based option for saving public Instagram Reels in HD.",
+    ),
+    (
+        "/best-tiktok-downloader-without-watermark",
+        "TikTok Downloader Without Watermark",
+        "TikTok",
+        "TikTok downloader without watermark",
+        "It targets users who specifically need a free TikTok downloader without watermark, no account login, and support for phone and desktop browsers.",
+        "Best TikTok Downloader Without Watermark - Free HD",
+        "Download public TikTok videos without watermark where available. Free HD TikTok downloader with no login, no app install, Android and iPhone support.",
+        "Save public TikTok videos in HD without login or app installation.",
+    ),
+]
+
+
 DEVICE_PAGES_CONFIG = [
     ("/download-instagram-reels-iphone",    "Instagram",   "Instagram Reels on iPhone",        "Download", "", "Use Safari to paste the link and save Reels directly to your Photos app."),
     ("/download-instagram-reels-android",   "Instagram",   "Instagram Reels on Android",       "Download", "", "Use Chrome — the video saves straight to your Downloads folder."),
@@ -389,6 +563,21 @@ def generate_all_programmatic_pages():
             path, platform, keyword, action, modifier, tool_name, extra = config
             full_path = f"{lang_prefix}{path}"
             pages[full_path] = _make_page(full_path, platform, keyword, action, modifier, tool_name, extra, lang=lang)
+
+        for config in ALTERNATIVE_PAGES_CONFIG:
+            path, competitor, platform, keyword, positioning, title, description, subtitle = config
+            full_path = f"{lang_prefix}{path}"
+            pages[full_path] = _make_alternative_page(
+                full_path,
+                competitor,
+                platform,
+                keyword,
+                positioning,
+                lang=lang,
+                title=title,
+                description=description,
+                subtitle=subtitle,
+            )
 
         for config in DEVICE_PAGES_CONFIG:
             path, platform, keyword, action, modifier, device_tip = config

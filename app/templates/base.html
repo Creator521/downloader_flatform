@@ -31,6 +31,7 @@
     <!-- ✅ FIX 4: OpenGraph tags with strong keywords -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="SnapReelDownload">
+    <meta property="og:locale" content="{% block og_locale %}{{ (page.lang if (page and page.lang) else 'en') | replace('-', '_') }}{% endblock %}">
     <meta property="og:title"
         content="{% block og_title %}{{ page.title if (page and page.title) else 'Instagram Reels & YouTube Video Downloader Free – SnapReelDownload' }}{% endblock %}">
     <meta property="og:description"
@@ -44,6 +45,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@SnapReelDownload">
     <meta name="twitter:title"
         content="{% block twitter_title %}{{ page.title if (page and page.title) else 'Instagram Reels & YouTube Video Downloader Free – SnapReelDownload' }}{% endblock %}">
     <meta name="twitter:description"
@@ -55,6 +57,8 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="author" content="SnapReelDownload">
+    <meta name="theme-color" content="#667eea">
+    <meta name="format-detection" content="telephone=no">
     <meta name="keywords"
         content="{% block keywords %}{{ page.keywords_str if (page and page.keywords_str) else 'instagram reel downloader, youtube video downloader, tiktok video download, snapchat video downloader, facebook video download, free video downloader online' }}{% endblock %}">
     <meta name="language" content="{% block page_lang %}{{ page.lang if (page and page.lang) else 'en' }}{% endblock %}">
@@ -406,6 +410,16 @@
                         <li><a href="{{ lang_prefix }}/youtube-shorts-downloader">YouTube Shorts Downloader</a></li>
                         <li><a href="{{ lang_prefix }}/pinterest">Pinterest Video Downloader</a></li>
                         <li><a href="{{ lang_prefix }}/snapchat">Snapchat Video Downloader</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Alternatives</h3>
+                    <ul>
+                        <li><a href="{{ lang_prefix }}/savefrom-alternative">SaveFrom Alternative</a></li>
+                        <li><a href="{{ lang_prefix }}/snaptik-alternative">SnapTik Alternative</a></li>
+                        <li><a href="{{ lang_prefix }}/ssstiktok-alternative">SSSTikTok Alternative</a></li>
+                        <li><a href="{{ lang_prefix }}/best-instagram-reels-downloader-alternatives">Reels Downloader Alternatives</a></li>
+                        <li><a href="{{ lang_prefix }}/best-tiktok-downloader-without-watermark">TikTok Downloader No Watermark</a></li>
                     </ul>
                 </div>
                 <div>

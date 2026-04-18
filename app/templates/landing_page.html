@@ -24,11 +24,22 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "{{ page.tool_name | default('SnapReelDownload') }}",
-  "url": "{{ page.canonical | default('https://snapreeldownload.com') }}",
+  "name": {{ page.tool_name | default('SnapReelDownload') | tojson }},
+  "url": {{ page.canonical | default('https://snapreeldownload.com') | tojson }},
   "applicationCategory": "MultimediaApplication",
   "operatingSystem": "Any",
-  "description": "{{ page.description }}",
+  "description": {{ page.description | tojson }},
+  "featureList": [
+    "Download public videos in MP4 format",
+    "Extract audio where supported",
+    "No account login required",
+    "Works on mobile and desktop browsers"
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "SnapReelDownload",
+    "url": "https://snapreeldownload.com"
+  },
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -40,6 +51,47 @@
     "ratingCount": "12540",
     "bestRating": "5",
     "worstRating": "1"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SnapReelDownload",
+  "url": "https://snapreeldownload.com",
+  "logo": "https://snapreeldownload.com/static/favicon.png"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SnapReelDownload",
+  "url": "https://snapreeldownload.com",
+  "inLanguage": {{ page.lang | default('en') | tojson }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://snapreeldownload.com/?url={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": {{ page.title | tojson }},
+  "description": {{ page.description | tojson }},
+  "url": {{ page.canonical | default('https://snapreeldownload.com' + request.url.path) | tojson }},
+  "inLanguage": {{ page.lang | default('en') | tojson }},
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "SnapReelDownload",
+    "url": "https://snapreeldownload.com"
   }
 }
 </script>
@@ -59,8 +111,8 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "{{ page.tool_name | default('Video Downloader') }}",
-      "item": "{{ page.canonical | default('https://snapreeldownload.com') }}"
+      "name": {{ page.tool_name | default('Video Downloader') | tojson }},
+      "item": {{ page.canonical | default('https://snapreeldownload.com') | tojson }}
     }
   ]
 }
@@ -72,16 +124,16 @@
 {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "How to Download {{ page.keyword }}",
-  "description": "Download {{ page.keyword }} in 3 simple steps using SnapReelDownload. Free, no watermark, no login required.",
+  "name": {{ ('How to Download ' ~ page.keyword) | tojson }},
+  "description": {{ ('Download ' ~ page.keyword ~ ' in 3 simple steps using SnapReelDownload. Free, no watermark, no login required.') | tojson }},
   "totalTime": "PT30S",
   "step": [
     {% for step in page.steps %}
     {
       "@type": "HowToStep",
       "position": {{ loop.index }},
-      "name": "{{ step.title }}",
-      "text": "{{ step.desc }}"
+      "name": {{ step.title | tojson }},
+      "text": {{ step.desc | tojson }}
     }{% if not loop.last %},{% endif %}
     {% endfor %}
   ]
@@ -99,10 +151,10 @@
     {% for faq in page.faqs %}
     {
       "@type": "Question",
-      "name": "{{ faq.question | replace('"', '\\"') }}",
+      "name": {{ faq.question | tojson }},
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "{{ faq.answer | replace('"', '\\"') }}"
+        "text": {{ faq.answer | tojson }}
       }
     }{% if not loop.last %},{% endif %}
     {% endfor %}
@@ -584,6 +636,21 @@
                             style="text-decoration:none; color:var(--primary);">📌 Pinterest Video Downloader</a></li>
                     <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/snapchat"
                             style="text-decoration:none; color:var(--primary);">👻 Snapchat Video Downloader</a></li>
+                </ul>
+            </div>
+            <div style="background:white; padding:20px; border-radius:10px; border:1px solid #e2e8f0; margin-top:20px;">
+                <h3 style="margin-bottom:15px;">Downloader Alternatives</h3>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/savefrom-alternative"
+                            style="text-decoration:none; color:var(--primary);">SaveFrom Alternative</a></li>
+                    <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/snaptik-alternative"
+                            style="text-decoration:none; color:var(--primary);">SnapTik Alternative</a></li>
+                    <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/ssstiktok-alternative"
+                            style="text-decoration:none; color:var(--primary);">SSSTikTok Alternative</a></li>
+                    <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/best-instagram-reels-downloader-alternatives"
+                            style="text-decoration:none; color:var(--primary);">Reels Downloader Alternatives</a></li>
+                    <li style="margin-bottom:10px;"><a href="{{ lang_prefix }}/best-tiktok-downloader-without-watermark"
+                            style="text-decoration:none; color:var(--primary);">TikTok Downloader No Watermark</a></li>
                 </ul>
             </div>
         </nav>

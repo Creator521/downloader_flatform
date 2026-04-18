@@ -1,5 +1,6 @@
 """SEO landing page routes."""
 import logging
+import os
 from pathlib import Path
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse, RedirectResponse, PlainTextResponse, FileResponse
@@ -13,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter()
 templates = Jinja2Templates(directory=Path(__file__).parent.parent / "templates")
+INDEXNOW_KEY = os.getenv("INDEXNOW_KEY", "d5f3c3d8b8f64b3fa0e1f84b7d8a9216")
 
 
 # Both old-path redirects and EN redirects merged cleanly
@@ -140,7 +142,16 @@ def create_route(path: str, data: dict):
         latest_posts = dict(list(BLOG_POSTS.items())[:6])
 
         # ── Inject page-specific keywords where Google reads them ──────────
-        groups = PAGE_KEYWORD_MAP.get(path, ["core"])
+        keyword_path = path
+        lang = page_data.get("lang")
+        if lang and lang != "en":
+            prefix = f"/{lang}"
+            if keyword_path == f"{prefix}/":
+                keyword_path = "/"
+            elif keyword_path.startswith(f"{prefix}/"):
+                keyword_path = keyword_path[len(prefix):]
+
+        groups = PAGE_KEYWORD_MAP.get(keyword_path, ["core"])
         page_keywords: list[str] = []
         for g in groups:
             page_keywords.extend(SEO_KEYWORDS.get(g, []))
@@ -186,6 +197,12 @@ async def ads_txt():
 async def llms_txt():
     file_path = Path(__file__).parent.parent.parent / "frontend" / "llms.txt"
     return FileResponse(file_path)
+
+
+@router.get(f"/{INDEXNOW_KEY}.txt", include_in_schema=False)
+async def indexnow_key_file():
+    """Expose the IndexNow key file required by Bing and IndexNow partners."""
+    return PlainTextResponse(content=INDEXNOW_KEY, media_type="text/plain")
 
 
 @router.get("/favicon.ico", include_in_schema=False)
