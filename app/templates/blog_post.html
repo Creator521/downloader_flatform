@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}{{ post.title }} - Snap Reel Download Blog{% endblock %}
+{% block title %}{{ post.title }} - SnapReelDownload Blog{% endblock %}
 {% block description %}{{ post.description }}{% endblock %}
+{% block canonical %}https://snapreeldownload.com/blog/{{ slug }}{% endblock %}
+{% block og_url %}https://snapreeldownload.com/blog/{{ slug }}{% endblock %}
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_description %}{{ post.description }}{% endblock %}
+{% block twitter_title %}{{ post.title }}{% endblock %}
+{% block twitter_description %}{{ post.description }}{% endblock %}
 
 {% block schema %}
 <script type="application/ld+json">
@@ -9,21 +15,54 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "{{ post.title }}",
-  "image": "{{ domain_name }}/static/images/blog-placeholder.jpg",  
+  "image": "{{ domain_name }}/static/images/og-default.png",
   "author": {
-    "@type": "Person",
-    "name": "{{ post.author }}"
+    "@type": "Organization",
+    "name": "SnapReelDownload Team",
+    "url": "{{ domain_name }}/about-us"
   },
   "publisher": {
     "@type": "Organization",
     "name": "SnapReelDownload",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ domain_name }}/static/logo.png"
+      "url": "{{ domain_name }}/static/favicon.png"
     }
   },
   "datePublished": "{{ post.date }}",
-  "description": "{{ post.description }}"
+  "dateModified": "{{ post.date }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ domain_name }}/blog/{{ slug }}"
+  },
+  "description": "{{ post.description }}",
+  "keywords": "{{ post.tags | join(', ') }}"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ domain_name }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "{{ domain_name }}/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ post.title }}",
+      "item": "{{ domain_name }}/blog/{{ slug }}"
+    }
+  ]
 }
 </script>
 {% endblock %}
@@ -47,13 +86,21 @@
         {{ post.content | safe }}
     </div>
 
+    <!-- Author Bio — E-E-A-T Signal -->
+    <div class="author-bio">
+        <div class="author-bio-avatar" aria-hidden="true">SR</div>
+        <div class="author-bio-info">
+            <p class="author-bio-name">SnapReelDownload Team</p>
+            <p class="author-bio-desc">Our team specialises in video downloading tools, browser compatibility, and social media platform behaviour. We test every guide on real devices before publishing — Android, iPhone, and desktop — so you get steps that actually work.</p>
+            <a href="/about-us" class="author-bio-link">About us →</a>
+        </div>
+    </div>
+
     <div class="post-footer">
         <h3>Share this article</h3>
-        <!-- Simple Share Links -->
-        <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{ request.url }}" target="_blank"
-            class="share-btn twitter-btn">Share on Twitter</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}" target="_blank"
-            class="share-btn fb-btn">Share on Facebook</a>
+        <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url=https://snapreeldownload.com/blog/{{ slug }}" target="_blank" rel="noopener" class="share-btn twitter-btn">Share on X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://snapreeldownload.com/blog/{{ slug }}" target="_blank" rel="noopener" class="share-btn fb-btn">Share on Facebook</a>
+        <a href="https://api.whatsapp.com/send?text={{ post.title }}%20https://snapreeldownload.com/blog/{{ slug }}" target="_blank" rel="noopener" class="share-btn wa-btn">Share on WhatsApp</a>
     </div>
 
     <div class="back-link">
@@ -158,12 +205,59 @@
         font-weight: 600;
         transition: transform 0.2s;
     }
-    .share-btn:hover {
-        transform: translateY(-2px);
-    }
-    .twitter-btn { background: #1DA1F2; }
+    .share-btn:hover { transform: translateY(-2px); }
+    .twitter-btn { background: #000; }
     .fb-btn { background: #4267B2; }
-    
+    .wa-btn { background: #25D366; }
+
+    /* Author Bio Box */
+    .author-bio {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        margin-top: 56px;
+        padding: 28px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+    }
+    .author-bio-avatar {
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.5px;
+    }
+    .author-bio-info {
+        flex: 1;
+    }
+    .author-bio-name {
+        font-weight: 700;
+        font-size: 16px;
+        color: #0f172a;
+        margin: 0 0 8px;
+    }
+    .author-bio-desc {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #64748b;
+        margin: 0 0 10px;
+    }
+    .author-bio-link {
+        font-size: 14px;
+        font-weight: 600;
+        color: #6366f1;
+        text-decoration: none;
+    }
+    .author-bio-link:hover { text-decoration: underline; }
+
     .back-link {
         text-align: center; 
         margin-top: 40px;
@@ -173,9 +267,7 @@
         text-decoration: none; 
         font-weight: 600;
     }
-    .back-link a:hover {
-        text-decoration: underline;
-    }
+    .back-link a:hover { text-decoration: underline; }
 
     @media (max-width: 768px) {
         .blog-post-container {

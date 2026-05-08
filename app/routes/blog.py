@@ -38,5 +38,6 @@ async def blog_post(request: Request, slug: str):
     return templates.TemplateResponse("blog_post.html", {
         "request": request,
         "post": post,
+        "slug": slug,
         "domain_name": domain_name
     })

@@ -19,26 +19,48 @@
 {% endblock %}
 
 {% block schema %}
-<!-- ✅ SoftwareApplication Schema — dynamic per page -->
+
+{# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   1. WebApplication Schema — upgraded from SoftwareApplication
+      Adds: @type WebApplication, full featureList, screenshot, creator
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "WebApplication",
   "name": {{ page.tool_name | default('SnapReelDownload') | tojson }},
   "url": {{ page.canonical | default('https://snapreeldownload.com') | tojson }},
   "applicationCategory": "MultimediaApplication",
-  "operatingSystem": "Any",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Works on Chrome, Firefox, Safari, Edge.",
   "description": {{ page.description | tojson }},
   "featureList": [
-    "Download public videos in MP4 format",
-    "Extract audio where supported",
-    "No account login required",
-    "Works on mobile and desktop browsers"
+    "Download Instagram Reels, Videos, Stories and Photos without watermark",
+    "Download YouTube videos in HD and 4K quality",
+    "Download TikTok videos without watermark",
+    "Download Facebook Reels and Watch videos",
+    "Download Twitter/X videos and GIFs",
+    "Download Pinterest videos",
+    "Download Snapchat Spotlight videos",
+    "Extract MP3 audio from YouTube and TikTok",
+    "No login or signup required",
+    "Works on Android, iPhone, Windows, Mac — any browser"
   ],
-  "publisher": {
+  "screenshot": "https://snapreeldownload.com/static/images/og-default.png",
+  "softwareVersion": "2.0",
+  "creator": {
     "@type": "Organization",
     "name": "SnapReelDownload",
     "url": "https://snapreeldownload.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SnapReelDownload",
+    "url": "https://snapreeldownload.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://snapreeldownload.com/static/favicon.png"
+    }
   },
   "offers": {
     "@type": "Offer",
@@ -48,23 +70,38 @@
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",
-    "ratingCount": "12540",
+    "ratingCount": "12000",
     "bestRating": "5",
     "worstRating": "1"
   }
 }
 </script>
 
+{# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   2. Organization Schema
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "SnapReelDownload",
   "url": "https://snapreeldownload.com",
-  "logo": "https://snapreeldownload.com/static/favicon.png"
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://snapreeldownload.com/static/favicon.png",
+    "width": 512,
+    "height": 512
+  },
+  "sameAs": [
+    "https://snapreeldownload.com"
+  ]
 }
 </script>
 
+{# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   3. WebSite + SiteLinksSearchBox Schema
+      Fixed: target is now an EntryPoint object (Google's current spec)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -74,12 +111,18 @@
   "inLanguage": {{ page.lang | default('en') | tojson }},
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://snapreeldownload.com/?url={search_term_string}",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://snapreeldownload.com/?url={search_term_string}"
+    },
     "query-input": "required name=search_term_string"
   }
 }
 </script>
 
+{# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   4. WebPage Schema
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,7 +139,11 @@
 }
 </script>
 
-<!-- ✅ BreadcrumbList Schema -->
+{# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   5. BreadcrumbList Schema
+      Fixed: homepage shows only 1 item (Home).
+      Inner pages get 2 items: Home → Tool name.
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -106,19 +153,21 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://snapreeldownload.com{{ ('/' + page.lang + '/') if (page and page.lang and page.lang != 'en') else '/' }}"
-    },
+      "item": "https://snapreeldownload.com/"
+    }{% if request.url.path != '/' and request.url.path != ('/' + page.lang + '/') %},
     {
       "@type": "ListItem",
       "position": 2,
       "name": {{ page.tool_name | default('Video Downloader') | tojson }},
-      "item": {{ page.canonical | default('https://snapreeldownload.com') | tojson }}
-    }
+      "item": {{ page.canonical | default('https://snapreeldownload.com' + request.url.path) | tojson }}
+    }{% endif %}
   ]
 }
 </script>
 
-<!-- ✅ HowTo Schema — auto-generated from page.steps -->
+{# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   6. HowTo Schema — auto-generated from page.steps
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
 {% if page.steps %}
 <script type="application/ld+json">
 {
@@ -141,13 +190,60 @@
 </script>
 {% endif %}
 
-<!-- ✅ FAQPage Schema — auto-generated from page.faqs -->
-{% if page.faqs %}
+{# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   7. FAQPage Schema
+      Homepage (request.url.path == '/'): uses 5 fixed high-value Q&As
+      + any additional dynamic FAQs from page.faqs
+      All other pages: dynamic from page.faqs only
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
+{% if page.faqs or request.url.path == '/' %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {% if request.url.path == '/' or request.url.path == ('/' + page.lang + '/') %}
+    {
+      "@type": "Question",
+      "name": "Is SnapReelDownload free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, SnapReelDownload is 100% free. There are no hidden charges, no subscription plans, and no daily download limits. You can download as many videos as you want at absolutely zero cost — forever."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to log in or create an account to download videos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No login or account is required. SnapReelDownload works instantly — just paste your video link and click Download. We never ask for your email, password, or any social media credentials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which platforms does SnapReelDownload support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SnapReelDownload supports downloading videos from Instagram (Reels, Videos, Stories, Photos), YouTube (including Shorts and 4K), TikTok, Facebook (Reels and Watch videos), Twitter/X (videos and GIFs), Pinterest, and Snapchat Spotlight — all from one tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download TikTok and Instagram videos without a watermark?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. SnapReelDownload downloads videos directly from the platform's original source, giving you a clean MP4 file without any TikTok watermark, Instagram overlay, or username stamp on the video."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SnapReelDownload safe to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it is completely safe. Our site uses SSL encryption, we do not require any account credentials, we never store your downloaded files, and we do not track your download history. No executable files or apps are required — everything runs securely in your browser."
+      }
+    }{% if page.faqs %},{% endif %}
+    {% endif %}
     {% for faq in page.faqs %}
     {
       "@type": "Question",
@@ -164,6 +260,7 @@
 {% endif %}
 
 {% endblock %}
+
 
 {% block extra_css %}
 <style>

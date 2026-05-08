@@ -114,6 +114,9 @@ ALL_REDIRECTS = {
     "/uk":  "/uk/",
     "/pl":  "/pl/",
 
+    # ── DUPLICATE BLOG POST REDIRECT ─────────────────────────────────────────
+    "/blog/instagram-video-not-downloading-old": "/blog/instagram-video-not-downloading-fixes",
+
 }
 
 
@@ -233,7 +236,7 @@ async def bing_site_auth():
 
 @router.get("/robots.txt")
 async def robots_txt():
-    """✅ FIX 4: Corrected robots.txt syntax — /*? not /*?*"""
+    """Robots.txt — optimized for search engines and AI crawlers."""
     domain = "https://snapreeldownload.com"
     content = (
         "# robots.txt for snapreeldownload.com\n"
@@ -259,7 +262,8 @@ async def robots_txt():
         "Disallow: /proxy/\n"
         "Disallow: /temp/\n"
         "Disallow: /cdn-cgi/\n"
-        "Disallow: /*?\n"
+        "Disallow: /api/*?\n"
+        "Disallow: /proxy/*?\n"
         "\n"
         "# Block admin and development files\n"
         "Disallow: /admin\n"

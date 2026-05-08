@@ -182,18 +182,6 @@ def make_page_data(path, platform, brand_name, content_key, lang):
                     "no login, no app, works on all devices.</p>"
                 )
             },
-            {
-                "title": "Key Features",
-                "content": (
-                    "<ul>"
-                    "<li>✅ 100% Free and unlimited downloads — no signup required.</li>"
-                    "<li>✅ High-quality MP4 video and MP3 audio (up to 320kbps) support.</li>"
-                    "<li>✅ No watermark — clean downloads from all platforms.</li>"
-                    "<li>✅ Works on iPhone, Android, Windows, and Mac.</li>"
-                    "<li>✅ Fast, secure, SSL encrypted — your data is never stored.</li>"
-                    "</ul>"
-                )
-            },
         ]
         extra_sections.extend(shared_extra)
 
@@ -244,7 +232,7 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             features = features[:2]
 
     return {
-        "title":         str(title)[:65],
+        "title":         str(title)[:70],
         "description":   str(desc)[:160],
         "h1":            str(h1),
         "subtitle":      str(page_subtitle),
