@@ -188,6 +188,14 @@ TEMP_DIR = "temp"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
 # --- Register All Route Modules (Point 11: APIRouter split) ---
+from fastapi.responses import PlainTextResponse
+
+@app.get("/ads.txt", include_in_schema=False)
+async def ads_txt():
+    """Serve Google AdSense ads.txt for publisher verification."""
+    content = "google.com, pub-3721817985222293, DIRECT, f08c47fec0942fa0\n"
+    return PlainTextResponse(content=content, media_type="text/plain")
+
 from app.routes.seo import router as seo_router
 from app.routes.blog import router as blog_router
 from app.routes.legal import router as legal_router
