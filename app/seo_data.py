@@ -3,7 +3,7 @@
 SEO_PAGES = {
     "/": {
         # ✅ SEO-OPTIMIZED: keyword-first title, primary kw: "video download" & "video downloader"
-        "title": "Free Video Downloader – Download from YouTube, Instagram, TikTok & More | SnapReelDownload",
+        "title": "Free Video Downloader – YouTube, TikTok & Instagram",
         "description": "Looking for a fast video download? Our free online video downloader saves HD videos from YouTube, Instagram, TikTok, Reddit & more without watermarks.",
         "h1": "Free Video Download — The Ultimate Video Downloader",
         "subtitle": "Execute a fast video download in HD — No watermark, No login, 100% Free & Unlimited",
