@@ -82,73 +82,52 @@ async function handleDownload(e) {
 
 async function triggerDownload(format) {
     const status = document.getElementById('loading'); // Reuse loading div
-    status.innerText = "Downloading...";
+    status.innerText = "Starting download...";
     status.style.display = 'block';
 
+    const url = document.getElementById('urlInput').value;
+    if (!url) {
+        status.style.display = 'none';
+        return;
+    }
+
     try {
-        const formData = new FormData();
-        formData.append('url', document.getElementById('urlInput').value);
-        formData.append('format', format); // Pass format
-
-        const res = await fetch('/download', {
-            method: 'POST',
-            body: formData
-        });
-
-        if (!res.ok) {
-            const rawText = await res.text();
-            let errDetail = "Download failed. Please try again.";
-            try {
-                const errJson = JSON.parse(rawText);
-                errDetail = errJson.detail || errDetail;
-            } catch (_) {
-                // Server ne JSON nahi diya (e.g. 500 Internal Server Error plain text)
-                if (rawText && rawText.length < 200) errDetail = rawText;
-            }
-            throw new Error(errDetail);
-        }
-
-        const blob = await res.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        // Try to get filename from header or fallback
-        const disposition = res.headers.get('Content-Disposition');
-        let filename = 'video.mp4';
-        if (disposition && disposition.indexOf('attachment') !== -1) {
-            const utf8Regex = /filename\*=UTF-8''([^;\n]*)/i;
-            const utf8Matches = utf8Regex.exec(disposition);
-            if (utf8Matches && utf8Matches[1]) {
-                filename = decodeURIComponent(utf8Matches[1].replace(/['"]/g, ''));
-            } else {
-                var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
-                var matches = filenameRegex.exec(disposition);
-                if (matches != null && matches[1]) {
-                    filename = matches[1].replace(/['"]/g, '');
-                }
-            }
-        }
-        if (format === 'audio' && !filename.endsWith('.m4a') && !filename.endsWith('.mp3')) {
-            filename = filename.replace(/\.[^/.]+$/, ".m4a");
-        }
-
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        
         // Track the download event in Google Analytics
         if (typeof window.gtag === 'function') {
             window.gtag('event', 'video_download', {
                 'event_category': 'Engagement',
                 'event_label': format,
-                'file_name': filename,
-                'url_downloaded': document.getElementById('urlInput') ? document.getElementById('urlInput').value : 'unknown'
+                'url_downloaded': url
             });
         }
+
+        // Native browser download via Form POST
+        // This is 100x faster than fetch+blob because it streams straight to disk
+        // and doesn't store the video in RAM first.
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '/download';
         
-        status.innerText = "Download Complete!";
-        setTimeout(() => { status.style.display = 'none'; status.innerText = "Processing..."; }, 3000);
+        const inputUrl = document.createElement('input');
+        inputUrl.type = 'hidden';
+        inputUrl.name = 'url';
+        inputUrl.value = url;
+        form.appendChild(inputUrl);
+
+        const inputFormat = document.createElement('input');
+        inputFormat.type = 'hidden';
+        inputFormat.name = 'format';
+        inputFormat.value = format;
+        form.appendChild(inputFormat);
+
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+        
+        setTimeout(() => { 
+            status.style.display = 'none'; 
+            status.innerText = "Processing..."; 
+        }, 3000);
     } catch (err) {
         alert("Error: " + err.message);
         status.style.display = 'none';

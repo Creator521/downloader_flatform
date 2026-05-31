@@ -1,8 +1,11 @@
 FROM python:3.11-slim
 
-# Install system dependencies (ffmpeg is required for yt-dlp audio conversion if needed, though we stream raw mostly)
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     ffmpeg \
+    curl \
+    unzip \
+    && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr/local sh \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
