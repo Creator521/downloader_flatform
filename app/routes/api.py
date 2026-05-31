@@ -373,8 +373,10 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             successful_proxy = extracted.get("proxy") if extracted else None
 
         if format == "audio":
+            format_code = "bestaudio/best"
             ext = "m4a"
         else:
+            format_code = "best[ext=mp4]/best"
             ext = "mp4"
     
         filename = f"{title}.{ext}"
@@ -382,86 +384,7 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         if not filename:
             filename = f"video.{ext}"
 
-        # ── YOUTUBE: Download to temp file (merge video+audio for HD) ──
-        if is_yt:
-            import uuid
-            temp_id = uuid.uuid4().hex[:12]
-            temp_path = os.path.join("temp", f"{temp_id}.{ext}")
-
-            if format == "audio":
-                fmt = "bestaudio[ext=m4a]/bestaudio/best"
-            else:
-                fmt = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best[ext=mp4]/best"
-
-            cmd = [
-                sys.executable, "-m", "yt_dlp",
-                "--no-part",
-                "--output", temp_path,
-                "--format", fmt,
-                "--quiet",
-                "--no-playlist",
-                "--merge-output-format", ext,
-            ]
-
-            cookie_file = proxy_manager.get_cookie_file()
-            if cookie_file:
-                cmd.extend(["--cookies", cookie_file])
-
-            if successful_proxy:
-                cmd.extend(["--proxy", successful_proxy])
-            else:
-                proxy = proxy_manager.get_proxy()
-                if proxy:
-                    cmd.extend(["--proxy", proxy])
-
-            cmd.append(url)
-
-            logger.info(f"YouTube download to temp: {temp_path}")
-            result = subprocess.run(cmd, capture_output=True, timeout=300)
-
-            if result.returncode != 0:
-                stderr_msg = result.stderr.decode(errors="replace")[:500] if result.stderr else ""
-                logger.error(f"yt-dlp download failed: {stderr_msg}")
-                # Cleanup
-                if os.path.exists(temp_path):
-                    os.remove(temp_path)
-                raise HTTPException(status_code=500, detail="YouTube download failed. Please try again.")
-
-            if not os.path.exists(temp_path) or os.path.getsize(temp_path) < 1000:
-                if os.path.exists(temp_path):
-                    os.remove(temp_path)
-                raise HTTPException(status_code=500, detail="Download produced empty file. Please try again.")
-
-            def stream_and_cleanup():
-                try:
-                    with open(temp_path, "rb") as f:
-                        while True:
-                            chunk = f.read(65536)
-                            if not chunk:
-                                break
-                            yield chunk
-                finally:
-                    try:
-                        os.remove(temp_path)
-                    except OSError:
-                        pass
-
-            encoded_filename = quote(filename)
-            media_type = "audio/mp4" if format == "audio" else "video/mp4"
-            file_size = os.path.getsize(temp_path)
-            headers = {
-                "Content-Disposition": f'attachment; filename="video.{ext}"; filename*=UTF-8\'\'{encoded_filename}',
-                "Content-Length": str(file_size),
-                "X-Robots-Tag": "noindex, nofollow",
-            }
-            return StreamingResponse(stream_and_cleanup(), media_type=media_type, headers=headers)
-
-        # ── NON-YOUTUBE: Pipe stream (existing approach) ──
-        if format == "audio":
-            format_code = "bestaudio/best"
-        else:
-            format_code = "best[ext=mp4]/best"
-    
+        # ── PIPE STREAMING (For ALL platforms including YouTube) ──
         cmd = [
             sys.executable, "-m", "yt_dlp",
             "--no-part",
