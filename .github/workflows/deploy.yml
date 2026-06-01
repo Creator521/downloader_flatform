@@ -10,22 +10,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Deploy to server
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        script: |
-          set -e
-          cd /opt/downloader
-          git pull origin main
-          # Copy latest nginx config and reload
-          sudo cp nginx/snapreeldownload.conf /etc/nginx/sites-available/snapreeldownload.conf
-          sudo nginx -t && sudo systemctl reload nginx
-          # Rebuild and recreate the service to ensure latest code is used
-          docker compose up -d --build --force-recreate
-          docker image prune -f
+      - name: Deploy to server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            set -euo pipefail
+
+            # ── Docker compatibility pre-flight ──────────────────────────
+            echo "=== Docker Version Info ==="
+            docker version
+            echo ""
+            echo "=== Docker Compose Version ==="
+            docker compose version
+            echo ""
+
+            # Guard: ensure Docker client API >= 1.44
+            CLIENT_API=$(docker version --format '{{.Client.APIVersion}}')
+            python3 -c "
+            import sys
+            required = (1, 44)
+            parts = tuple(int(x) for x in '${CLIENT_API}'.split('.'))
+            if parts < required:
+                print(f'ERROR: Docker client API ${CLIENT_API} is too old (need >= 1.44). Please upgrade Docker on the server.')
+                sys.exit(1)
+            print(f'OK: Docker API ${CLIENT_API} is compatible (>= 1.44).')
+            "
+
+            # ── Run the server-side deployment script ────────────────────
+            cd /opt/downloader
+            bash deploy.sh
