@@ -13,7 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to server via SSH
+      # ── Step 1: Auto-upgrade Docker if API version is outdated ──────────
+      - name: Ensure Docker is up-to-date on server
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -22,26 +23,62 @@ jobs:
           script: |
             set -euo pipefail
 
-            # ── Docker compatibility pre-flight ──────────────────────────
-            echo "=== Docker Version Info ==="
+            echo "=== Checking Docker API version ==="
+            CLIENT_API=$(docker version --format '{{.Client.APIVersion}}' 2>/dev/null || echo "0.0")
+            echo "Current Docker client API: $CLIENT_API"
+
+            # Check if upgrade is needed (compare against 1.44)
+            NEEDS_UPGRADE=$(python3 -c "
+            parts = tuple(int(x) for x in '${CLIENT_API}'.split('.'))
+            print('yes' if parts < (1, 44) else 'no')
+            ")
+
+            if [ "$NEEDS_UPGRADE" = "yes" ]; then
+              echo "⚠️  Docker is outdated (API $CLIENT_API < 1.44). Upgrading automatically..."
+
+              # Add Docker's official repository (idempotent — safe to re-run)
+              sudo apt-get update -y -q
+              sudo apt-get install -y -q ca-certificates curl gnupg lsb-release
+
+              sudo install -m 0755 -d /etc/apt/keyrings
+              curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+                sudo gpg --dearmor --yes -o /etc/apt/keyrings/docker.gpg
+              sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+              echo \
+                "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+                https://download.docker.com/linux/ubuntu \
+                $(lsb_release -cs) stable" | \
+                sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+              sudo apt-get update -y -q
+              sudo apt-get install -y -q \
+                docker-ce \
+                docker-ce-cli \
+                containerd.io \
+                docker-buildx-plugin \
+                docker-compose-plugin
+
+              echo "✅ Docker upgraded successfully!"
+            else
+              echo "✅ Docker API $CLIENT_API is already compatible (>= 1.44). No upgrade needed."
+            fi
+
+            echo ""
+            echo "=== Final Docker Version ==="
             docker version
             echo ""
             echo "=== Docker Compose Version ==="
             docker compose version
-            echo ""
 
-            # Guard: ensure Docker client API >= 1.44
-            CLIENT_API=$(docker version --format '{{.Client.APIVersion}}')
-            python3 -c "
-            import sys
-            required = (1, 44)
-            parts = tuple(int(x) for x in '${CLIENT_API}'.split('.'))
-            if parts < required:
-                print(f'ERROR: Docker client API ${CLIENT_API} is too old (need >= 1.44). Please upgrade Docker on the server.')
-                sys.exit(1)
-            print(f'OK: Docker API ${CLIENT_API} is compatible (>= 1.44).')
-            "
-
-            # ── Run the server-side deployment script ────────────────────
+      # ── Step 2: Deploy the application ──────────────────────────────────
+      - name: Deploy application
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            set -euo pipefail
             cd /opt/downloader
             bash deploy.sh
