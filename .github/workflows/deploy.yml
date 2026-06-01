@@ -27,7 +27,6 @@ jobs:
             CLIENT_API=$(docker version --format '{{.Client.APIVersion}}' 2>/dev/null || echo "0.0")
             echo "Current Docker client API: $CLIENT_API"
 
-            # Check if upgrade is needed (compare against 1.44)
             NEEDS_UPGRADE=$(python3 -c "
             parts = tuple(int(x) for x in '${CLIENT_API}'.split('.'))
             print('yes' if parts < (1, 44) else 'no')
@@ -36,7 +35,6 @@ jobs:
             if [ "$NEEDS_UPGRADE" = "yes" ]; then
               echo "⚠️  Docker is outdated (API $CLIENT_API < 1.44). Upgrading automatically..."
 
-              # Add Docker's official repository (idempotent — safe to re-run)
               sudo apt-get update -y -q
               sudo apt-get install -y -q ca-certificates curl gnupg lsb-release
 
@@ -65,13 +63,11 @@ jobs:
             fi
 
             echo ""
-            echo "=== Final Docker Version ==="
             docker version
             echo ""
-            echo "=== Docker Compose Version ==="
             docker compose version
 
-      # ── Step 2: Deploy the application ──────────────────────────────────
+      # ── Step 2: Pull latest code (includes deploy.sh), then deploy ──────
       - name: Deploy application
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -80,5 +76,16 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             set -euo pipefail
+
             cd /opt/downloader
+
+            # Pull latest code first (this brings deploy.sh to the server)
+            echo "=== Pulling latest code ==="
+            git pull origin main
+
+            # Make deploy.sh executable (in case it's a first-time pull)
+            chmod +x deploy.sh
+
+            # Now run the deploy script
+            echo "=== Running deployment ==="
             bash deploy.sh

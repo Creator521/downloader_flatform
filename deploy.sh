@@ -70,11 +70,6 @@ if [ "$COMPOSE_MAJOR" -lt "$REQUIRED_COMPOSE_MAJOR" ]; then
 fi
 log "  Docker Compose    : v$COMPOSE_VERSION (OK)"
 
-# ── Pull latest code ──────────────────────────────────────────────────────
-log "Pulling latest code from origin/main..."
-cd "$APP_DIR"
-git pull origin main
-
 # ── Nginx config ──────────────────────────────────────────────────────────
 log "Updating nginx configuration..."
 sudo cp nginx/snapreeldownload.conf /etc/nginx/sites-available/snapreeldownload.conf
