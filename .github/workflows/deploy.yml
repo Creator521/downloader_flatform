@@ -63,8 +63,12 @@ jobs:
               docker-compose-plugin
 
             echo "=== Restarting Docker daemon ==="
-            sudo systemctl restart docker
-            sleep 3
+            # Stop socket first to avoid conflict from old docker.io socket
+            sudo systemctl stop docker.socket || true
+            sudo systemctl stop docker || true
+            sudo systemctl daemon-reload
+            sudo systemctl start docker
+            sleep 5
 
             echo "=== Verifying — only ONE docker binary should exist ==="
             which docker
