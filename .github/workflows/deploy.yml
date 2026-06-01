@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ── Step 1: Auto-upgrade Docker if API version is outdated ──────────
-      - name: Ensure Docker is up-to-date on server
+      # ── Step 1: Clean Docker reinstall (removes ALL old versions) ────────
+      - name: Fix Docker installation on server
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -23,51 +23,54 @@ jobs:
           script: |
             set -euo pipefail
 
-            echo "=== Checking Docker API version ==="
-            CLIENT_API=$(docker version --format '{{.Client.APIVersion}}' 2>/dev/null || echo "0.0")
-            echo "Current Docker client API: $CLIENT_API"
+            echo "=== Removing old/conflicting Docker packages ==="
+            sudo apt-get remove -y \
+              docker \
+              docker-engine \
+              docker.io \
+              docker-compose \
+              docker-doc \
+              podman-docker \
+              containerd \
+              runc 2>/dev/null || true
 
-            NEEDS_UPGRADE=$(python3 -c "
-            parts = tuple(int(x) for x in '${CLIENT_API}'.split('.'))
-            print('yes' if parts < (1, 44) else 'no')
-            ")
+            # Remove any standalone legacy docker-compose binary
+            sudo rm -f /usr/local/bin/docker-compose
 
-            if [ "$NEEDS_UPGRADE" = "yes" ]; then
-              echo "⚠️  Docker is outdated (API $CLIENT_API < 1.44). Upgrading automatically..."
+            echo "=== Installing Docker CE from official repo ==="
+            sudo apt-get update -y -q
+            sudo apt-get install -y -q ca-certificates curl gnupg lsb-release
 
-              sudo apt-get update -y -q
-              sudo apt-get install -y -q ca-certificates curl gnupg lsb-release
+            sudo install -m 0755 -d /etc/apt/keyrings
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+              sudo gpg --dearmor --yes -o /etc/apt/keyrings/docker.gpg
+            sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-              sudo install -m 0755 -d /etc/apt/keyrings
-              curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
-                sudo gpg --dearmor --yes -o /etc/apt/keyrings/docker.gpg
-              sudo chmod a+r /etc/apt/keyrings/docker.gpg
+            echo \
+              "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+              https://download.docker.com/linux/ubuntu \
+              $(lsb_release -cs) stable" | \
+              sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-              echo \
-                "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
-                https://download.docker.com/linux/ubuntu \
-                $(lsb_release -cs) stable" | \
-                sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+            sudo apt-get update -y -q
+            sudo apt-get install -y -q \
+              docker-ce \
+              docker-ce-cli \
+              containerd.io \
+              docker-buildx-plugin \
+              docker-compose-plugin
 
-              sudo apt-get update -y -q
-              sudo apt-get install -y -q \
-                docker-ce \
-                docker-ce-cli \
-                containerd.io \
-                docker-buildx-plugin \
-                docker-compose-plugin
+            echo "=== Restarting Docker daemon ==="
+            sudo systemctl restart docker
+            sleep 3
 
-              echo "✅ Docker upgraded successfully!"
-            else
-              echo "✅ Docker API $CLIENT_API is already compatible (>= 1.44). No upgrade needed."
-            fi
-
-            echo ""
+            echo "=== Verifying — only ONE docker binary should exist ==="
+            which docker
             docker version
             echo ""
             docker compose version
 
-      # ── Step 2: Pull latest code (includes deploy.sh), then deploy ──────
+      # ── Step 2: Deploy ────────────────────────────────────────────────────
       - name: Deploy application
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -76,16 +79,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             set -euo pipefail
-
             cd /opt/downloader
-
-            # Pull latest code first (this brings deploy.sh to the server)
-            echo "=== Pulling latest code ==="
             git pull origin main
-
-            # Make deploy.sh executable (in case it's a first-time pull)
             chmod +x deploy.sh
-
-            # Now run the deploy script
-            echo "=== Running deployment ==="
             bash deploy.sh
