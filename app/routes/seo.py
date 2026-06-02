@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter()
 templates = Jinja2Templates(directory=Path(__file__).parent.parent / "templates")
-INDEXNOW_KEY = os.getenv("INDEXNOW_KEY", "d5f3c3d8b8f64b3fa0e1f84b7d8a9216")
+INDEXNOW_KEY = os.getenv("INDEXNOW_KEY", "0b102804d0d44e2993313a2fb9b662cc")
 
 
 # Both old-path redirects and EN redirects merged cleanly
