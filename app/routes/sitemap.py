@@ -46,7 +46,7 @@ async def sitemap():
     # 2. Multilingual & Programmatic Pages
     for path, page in MULTILINGUAL_PAGES.items():
         # ✅ Skip any path that is a redirect source — these cause "Page with redirect" in GSC
-        if path in REDIRECT_PATHS:
+        if path in REDIRECT_PATHS or path == "/":
             continue
 
         # Set priority based on tool type
