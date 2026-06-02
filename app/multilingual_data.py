@@ -2,10 +2,8 @@
 import copy
 try:
     from app.seo_data import SEO_PAGES          # type: ignore
-    from app.programmatic_seo_data import PROGRAMMATIC_PAGES  # type: ignore
 except ImportError:
     from seo_data import SEO_PAGES              # type: ignore
-    from programmatic_seo_data import PROGRAMMATIC_PAGES      # type: ignore
 
 SUPPORTED_LANGUAGES = [
     "en"
@@ -300,41 +298,6 @@ def generate_multilingual_pages():
             page_data["hreflangs"] = hreflangs_map
 
             pages[full_path] = page_data
-
-    # 2. Programmatic SEO pages (already have canonical + hreflang from their generator)
-    for path, page_data in PROGRAMMATIC_PAGES.items():
-        clean_path = path.lower()
-        if clean_path.endswith("/") and len(clean_path) > 4:
-            clean_path = clean_path.rstrip("/")
-
-        parts = clean_path.strip("/").split("/")
-        if parts[0] in SUPPORTED_LANGUAGES:
-            base_tool_path = "/" + "/".join(parts[1:])
-            page_lang      = parts[0]
-        else:
-            base_tool_path = clean_path
-            page_lang      = "en"
-
-        # ✅ FIX 4: Self-referencing canonical for programmatic pages
-        page_data["canonical"] = f"{base_domain}{clean_path}"
-
-        hreflangs_map = {}
-        for l in SUPPORTED_LANGUAGES:
-            if l == "en":
-                l_full = base_tool_path if base_tool_path != "" else "/"
-            else:
-                l_full = f"/{l}{base_tool_path}"
-                
-            if l_full.endswith("/") and len(l_full) > 1:
-                l_full = l_full.rstrip("/")
-            hreflangs_map[l] = f"{base_domain}{l_full}"
-        page_data["hreflangs"] = hreflangs_map
-
-        if not page_data.get("tool_name"):
-            page_data["tool_name"] = "Video Downloader"
-
-        actual_path = hreflangs_map[page_data.get("lang", "en")].replace(base_domain, "")
-        pages[actual_path] = page_data
 
     return pages
 
