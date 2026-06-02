@@ -10,20 +10,6 @@ FIXES APPLIED:
 # ── Translations ─────────────────────────────────────────────────────────────
 TRANSLATIONS = {
     "en": {"Download": "Download", "Save": "Save", "Online": "Online", "Free": "Free", "in HD": "in HD", "to MP4": "to MP4"},
-    "es": {"Download": "Descargar", "Save": "Guardar", "Online": "En línea", "Free": "Gratis", "in HD": "en HD", "to MP4": "a MP4"},
-    "hi": {"Download": "डाउनलोड", "Save": "सेव", "Online": "ऑनलाइन", "Free": "मुफ्त", "in HD": "HD में", "to MP4": "MP4 में"},
-    "ar": {"Download": "تحميل", "Save": "حفظ", "Online": "عبر الانترنت", "Free": "مجاني", "in HD": "بجودة HD", "to MP4": "إلى MP4"},
-    "id": {"Download": "Unduh", "Save": "Simpan", "Online": "Online", "Free": "Gratis", "in HD": "dalam HD", "to MP4": "ke MP4"},
-    "pt": {"Download": "Baixar", "Save": "Salvar", "Online": "Online", "Free": "Grátis", "in HD": "em HD", "to MP4": "para MP4"},
-    "fr": {"Download": "Télécharger", "Save": "Sauvegarder", "Online": "En ligne", "Free": "Gratuit", "in HD": "en HD", "to MP4": "vers MP4"},
-    "de": {"Download": "Herunterladen", "Save": "Speichern", "Online": "Online", "Free": "Kostenlos", "in HD": "in HD", "to MP4": "zu MP4"},
-    "pl": {"Download": "Pobierz", "Save": "Zapisz", "Online": "Online", "Free": "Za Darmo", "in HD": "w HD", "to MP4": "do MP4"},
-    "uk": {"Download": "Завантажити", "Save": "Зберегти", "Online": "Онлайн", "Free": "Безкоштовно", "in HD": "в HD", "to MP4": "до MP4"},
-    "bn": {"Download": "ডাউনলোড", "Save": "সেভ", "Online": "অনলাইন", "Free": "বিনামূল্যে", "in HD": "HD তে", "to MP4": "MP4 তে"},
-    "tr": {"Download": "İndir", "Save": "Kaydet", "Online": "Çevrimiçi", "Free": "Ücretsiz", "in HD": "HD'de", "to MP4": "MP4'e"},
-    "th": {"Download": "ดาวน์โหลด", "Save": "บันทึก", "Online": "ออนไลน์", "Free": "ฟรี", "in HD": "ใน HD", "to MP4": "เป็น MP4"},
-    "ko": {"Download": "다운로드", "Save": "저장", "Online": "온라인", "Free": "무료", "in HD": "HD로", "to MP4": "MP4로"},
-    "ja": {"Download": "ダウンロード", "Save": "保存", "Online": "オンライン", "Free": "無料", "in HD": "HDで", "to MP4": "MP4へ"},
 }
 
 SUPPORTED_LANGUAGES = list(TRANSLATIONS.keys())

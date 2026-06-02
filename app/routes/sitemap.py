@@ -39,10 +39,8 @@ async def sitemap():
     # 1. Homepage (Manual override for top priority)
     base = "https://snapreeldownload.com"
     xml += f'  <url>\n    <loc>{base}/</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n'
-    # Add hreflangs for homepage
-    for lang in ["en", "hi", "es", "fr", "de", "pt", "ar", "id", "bn", "tr", "th", "ko", "ja", "uk", "pl"]:
-        prefix = f"/{lang}/" if lang != "en" else "/"
-        xml += f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{base}{prefix}"/>\n'
+    # Add hreflangs for homepage (English only now)
+    xml += f'    <xhtml:link rel="alternate" hreflang="en" href="{base}/"/>\n'
     xml += '  </url>\n'
 
     # 2. Multilingual & Programmatic Pages

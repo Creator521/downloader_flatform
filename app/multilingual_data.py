@@ -8,8 +8,7 @@ except ImportError:
     from programmatic_seo_data import PROGRAMMATIC_PAGES      # type: ignore
 
 SUPPORTED_LANGUAGES = [
-    "en", "hi", "es", "fr", "de", "pt", "ar", "id",
-    "bn", "tr", "th", "ko", "ja", "uk", "pl"
+    "en"
 ]
 
 # Core translated keywords per language

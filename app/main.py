@@ -66,22 +66,7 @@ CORE_SEO_PATHS = {
     "/youtube-to-mp3",
 }
 
-LANGUAGE_PREFIXES = (
-    "/hi/",
-    "/es/",
-    "/fr/",
-    "/de/",
-    "/pt/",
-    "/ar/",
-    "/id/",
-    "/bn/",
-    "/tr/",
-    "/th/",
-    "/ko/",
-    "/ja/",
-    "/uk/",
-    "/pl/",
-)
+LANGUAGE_PREFIXES = ()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
@@ -140,7 +125,7 @@ async def normalize_url_middleware(request, call_next):
     # 4. Trailing slash check
     # Language roots should keep trailing slash: /, /hi/, /es/, etc.
     # Other paths should not have it: /story, /hi/story
-    is_lang_root = (path == "/") or any(path == f"/{l}/" for l in ["hi", "es", "fr", "de", "pt", "ar", "id", "bn", "tr", "th", "ko", "ja", "uk", "pl"])
+    is_lang_root = (path == "/")
 
     if not is_lang_root and normalized_path.endswith("/") and len(normalized_path) > 1:
         normalized_path = normalized_path.rstrip("/")
