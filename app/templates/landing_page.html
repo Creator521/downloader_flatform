@@ -122,31 +122,7 @@
 
 {# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    4. WebPage Schema
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": {{ page.title | tojson }},
-  "description": {{ page.description | tojson }},
-  "url": {{ page.canonical | default('https://snapreeldownload.com' + request.url.path) | tojson }},
-  "inLanguage": {{ page.lang | default('en') | tojson }},
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "SnapReelDownload",
-    "url": "https://snapreeldownload.com"
-  }
-}
-</script>
-
-{# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   5. BreadcrumbList Schema
-      Fixed: homepage shows only 1 item (Home).
-      Inner pages get 2 items: Home → Tool name.
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
+   ━━━━━━━━━━━━━━━━━━━━━━    "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {
@@ -261,114 +237,227 @@
 
 {% endblock %}
 
-
 {% block extra_css %}
 <style>
-/* Stitch Modernization for Landing Page */
+/* ──────────────────────────────────────────────────────────
+   PLATFORM SPECIFIC THEMING
+   ────────────────────────────────────────────────────────── */
+:root {
+    --page-primary: {{ page.page_color_primary | default('#667eea') }};
+    --page-secondary: {{ page.page_color_secondary | default('#764ba2') }};
+}
+
 .hero-section {
     position: relative;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
     border-radius: 32px !important;
-    padding: 80px 20px 100px !important;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 0 !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     overflow: hidden;
     margin-bottom: 60px !important;
-    text-align: center;
+    background: #1a1a2e; /* Dark fallback */
+    display: flex;
+    min-height: 500px;
 }
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle at center, rgba(102,126,234,0.1) 0%, transparent 40%);
-    pointer-events: none;
-    z-index: 0;
-}
-.hero-h1, .subtitle, .input-group, .trust-badges, .star-rating, #loading, #error, #result {
+
+/* ── Split Layout ── */
+.hero-content-col {
+    flex: 1;
+    padding: 70px 60px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+    backdrop-filter: blur(20px);
+}
+.hero-image-col {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--page-primary), var(--page-secondary));
+}
+.hero-image-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: overlay;
+    opacity: 0.8;
+    transition: transform 0.5s ease;
+}
+.hero-section:hover .hero-image-col img {
+    transform: scale(1.05);
+}
+
+/* ── Typographic updates ── */
+.platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    border: 1px solid rgba(var(--page-primary), 0.2);
+    color: var(--page-primary);
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 .hero-h1 {
-    font-size: clamp(32px, 5vw, 48px) !important;
+    font-size: clamp(32px, 4vw, 46px) !important;
     font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 16px !important;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    line-height: 1.15;
+    margin-bottom: 20px !important;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+}
+.hero-h1 span {
+    background: linear-gradient(135deg, var(--page-primary), var(--page-secondary));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: -0.02em;
 }
 .subtitle {
     font-size: 18px !important;
-    color: var(--text-muted) !important;
-    max-width: 600px;
-    margin: 0 auto 40px !important;
+    color: #475569 !important;
+    max-width: 500px;
+    margin-bottom: 40px !important;
+    line-height: 1.6;
 }
+
+/* ── Input Box Updates ── */
 .input-group {
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
     padding: 8px;
-    border-radius: 64px;
-    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
-    border: 1px solid rgba(255,255,255,1);
-    backdrop-filter: blur(12px);
-    max-width: 740px !important;
-    margin: 0 auto 30px !important;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
     display: flex;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+    margin-bottom: 30px !important;
+    max-width: 100% !important;
 }
 .input-group:focus-within {
-    transform: translateY(-2px);
-    box-shadow: 0 25px 50px rgba(102, 126, 234, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(var(--page-primary), 0.15);
+    border-color: var(--page-primary);
 }
 .url-input {
     border: none !important;
     background: transparent !important;
     flex: 1;
-    padding: 16px 24px !important;
-    font-size: 17px !important;
-    color: var(--text-main);
+    padding: 16px 20px !important;
+    font-size: 16px !important;
+    color: #0f172a;
     width: 100%;
     outline: none !important;
 }
-.url-input::placeholder {
-    color: #94a3b8;
-}
+.url-input::placeholder { color: #94a3b8; }
 .paste-btn {
-    background: transparent !important;
+    background: #f1f5f9 !important;
     border: none !important;
-    color: var(--text-muted) !important;
+    color: #475569 !important;
     padding: 0 16px !important;
+    border-radius: 12px;
     font-weight: 600 !important;
-    transition: color 0.2s;
+    font-size: 14px;
+    transition: color 0.2s, background 0.2s;
     display: flex;
     align-items: center;
     gap: 6px;
     cursor: pointer;
+    margin: 4px 8px 4px 0;
 }
 .paste-btn:hover {
-    color: var(--primary) !important;
-    background: transparent !important;
-    transform: none !important;
-    border: none !important;
+    color: var(--page-primary) !important;
+    background: #e2e8f0 !important;
 }
 .download-btn {
-    padding: 16px 40px !important;
+    padding: 16px 36px !important;
     font-size: 16px !important;
     font-weight: 700 !important;
-    background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+    background: linear-gradient(135deg, var(--page-primary), var(--page-secondary)) !important;
     color: white !important;
     border: none !important;
-    border-radius: 64px !important;
+    border-radius: 14px !important;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
     transition: transform 0.2s, box-shadow 0.2s !important;
 }
 .download-btn:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 14px 28px rgba(102, 126, 234, 0.4) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2) !important;
 }
-/* Features / Steps Modernization */
+
+/* ── Badges ── */
+.trust-badges-container { 
+    display: flex; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    font-size: 14px; 
+    color: #64748b; 
+    font-weight: 600; 
+}
+.trust-badge { 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+}
+.trust-badge svg {
+    stroke: var(--page-primary);
+}
+
+/* ── Responsiveness ── */
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column;
+        border-radius: 24px !important;
+    }
+    .hero-image-col {
+        height: 200px;
+        flex: none;
+    }
+    .hero-content-col {
+        padding: 40px 30px;
+    }
+}
+@media (max-width: 600px) {
+    .hero-content-col {
+        padding: 30px 20px;
+    }
+    .hero-h1 { font-size: 28px !important; }
+    .input-group {
+        flex-direction: column;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+    .url-input {
+        background: #ffffff !important;
+        border-radius: 16px !important;
+        border: 1px solid #cbd5e1 !important;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+        padding-right: 90px !important;
+    }
+    .paste-btn {
+        position: absolute;
+        right: 12px;
+        top: 26px;
+        transform: translateY(-50%);
+        margin: 0;
+    }
+    .download-btn {
+        width: 100%;
+    }
+}
+
+/* ──────────────────────────────────────────────────────────
+   CONTENT & PREVIEW UI
+   ────────────────────────────────────────────────────────── */
 .howto-steps > div {
     background: #ffffff !important;
     border: 1px solid #e2e8f0 !important;
@@ -380,7 +469,7 @@
 .howto-steps > div:hover {
     transform: translateY(-6px) !important;
     box-shadow: 0 20px 40px rgba(0,0,0,0.06) !important;
-    border-color: #cbd5e1 !important;
+    border-color: var(--page-primary) !important;
 }
 .main-article {
     background: #ffffff !important;
@@ -389,96 +478,33 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
     border: 1px solid #f1f5f9 !important;
 }
-.sidebar > nav > div {
-    background: #ffffff !important;
-    border-radius: 24px !important;
-    padding: 32px 24px !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
-    border: 1px solid #f1f5f9 !important;
-}
-.sidebar li a {
-    display: block;
-    padding: 10px 16px;
-    border-radius: 12px;
-    transition: background 0.2s, color 0.2s;
-    font-weight: 500;
-}
-.sidebar li a:hover {
-    background: #f8fafc;
-    color: var(--secondary) !important;
-}
-@media (max-width: 768px) {
-    .input-group {
-        flex-direction: column;
-        background: transparent !important;
-        box-shadow: none !important;
-        border: none !important;
-        padding: 0 !important;
-        position: relative;
-    }
-    .url-input {
-        background: #ffffff !important;
-        border-radius: 16px !important;
-        border: 1px solid #cbd5e1 !important;
-        margin-bottom: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
-        padding-right: 90px !important; /* Space for paste btn */
-    }
-    .paste-btn {
-        position: absolute;
-        right: 12px;
-        top: 26px;
-        transform: translateY(-50%);
-        background: #f1f5f9 !important;
-        border-radius: 8px !important;
-        padding: 6px 10px !important;
-        font-size: 13px !important;
-    }
-    .download-btn {
-        border-radius: 16px !important;
-        width: 100%;
-    }
-    .hero-section {
-        padding: 40px 16px 60px !important;
-        border-radius: 20px !important;
-    }
-    .main-article {
-        padding: 24px !important;
-        border-radius: 20px !important;
-    }
-}
-/* Animations */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.hero-section {
-    animation: fadeInUp 0.6s ease-out;
-}
-.content-grid {
-    animation: fadeInUp 0.8s ease-out;
-}
 
-/* --- Phase 2: Performance UI & Components --- */
+/* Loading & Results */
 .loading-spinner {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 12px; padding: 30px; color: var(--primary); font-weight: 600; font-size: 16px;
+    gap: 12px; padding: 30px; color: var(--page-primary); font-weight: 600; font-size: 16px;
 }
 .spinner-circle {
     width: 44px; height: 44px;
-    border: 4px solid rgba(102, 126, 234, 0.15); border-top: 4px solid var(--primary);
+    border: 4px solid rgba(0, 0, 0, 0.1); border-top: 4px solid var(--page-primary);
     border-radius: 50%; animation: spin 1s linear infinite;
 }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
 .preview-card {
-    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 24px; padding: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); margin-top: 30px; text-align: left;
-    transition: all 0.3s ease; animation: fadeInUp 0.5s ease-out;
+    background: #ffffff;
+    border: 1px solid #e2e8f0; 
+    border-radius: 20px; 
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); 
+    margin-top: -20px; 
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
+    animation: fadeInUp 0.5s ease-out;
 }
 .preview-flex { display: flex; gap: 30px; align-items: center; }
-.preview-thumb { border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.12); width: 240px; flex-shrink: 0; }
+.preview-thumb { border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.12); width: 240px; flex-shrink: 0; }
 .preview-info { flex: 1; }
 .meta-tag {
     display: inline-flex; align-items: center; gap: 6px; background: #f1f5f9; padding: 6px 14px;
@@ -494,18 +520,18 @@
 .dl-audio { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2); }
 .dl-audio:hover { box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3); transform: translateY(-2px); }
 
+/* Text & Headings */
 .text-body { color: #4a5568; line-height: 1.8; margin-bottom: 30px; }
 .section-title { margin-bottom: 24px; font-weight: 700; color: #1e293b; font-size: 28px; }
 .section-spacing { margin-top: 50px; }
-.trust-badges-container { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 24px; font-size: 14px; color: #64748b; font-weight: 500; }
-.trust-badge { display: flex; align-items: center; gap: 6px; }
 
+/* FAQs */
 .faq-card {
     margin-bottom: 16px; background: #ffffff; border-radius: 16px;
     border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     overflow: hidden; transition: border-color 0.3s, box-shadow 0.3s;
 }
-.faq-card:hover { border-color: #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+.faq-card:hover { border-color: var(--page-primary); box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
 .faq-card summary {
     font-weight: 600; font-size: 16.5px; cursor: pointer; padding: 20px 24px;
     list-style: none; display: flex; justify-content: space-between; align-items: center; color: #334155;
@@ -513,86 +539,120 @@
 .faq-card summary::-webkit-details-marker,
 .faq-card summary::marker { display: none; content: ""; }
 .faq-card summary::after { content: '+'; font-size: 26px; font-weight: 300; color: #94a3b8; transition: transform 0.3s ease; line-height: 1; }
-.faq-card[open] summary::after { transform: rotate(45deg); color: var(--primary); }
+.faq-card[open] summary::after { transform: rotate(45deg); color: var(--page-primary); }
 .faq-content { padding: 0 24px 24px; color: #475569; line-height: 1.7; animation: slideDown 0.3s ease-out; }
+
 @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 640px) {
     .preview-flex { flex-direction: column; text-align: center; gap: 20px; }
     .preview-thumb { width: 100%; max-width: 320px; margin: 0 auto; }
     .dl-btn-option { width: 100%; margin-right: 0; }
+    .main-article { padding: 24px !important; }
 }
 </style>
 {% endblock %}
 
 {% block content %}
 
-<!-- ✅ Breadcrumb nav — visual -->
+<!-- ✅ Breadcrumb nav -->
 <nav aria-label="Breadcrumb" style="font-size:13px; color:#718096; margin-bottom:16px;">
     <ol style="list-style:none; display:flex; gap:6px; flex-wrap:wrap; padding:0; margin:0;">
-        <li><a href="{{ ('/' + page.lang + '/') if (page and page.lang and page.lang != 'en') else '/' }}" style="color:#667eea; text-decoration:none;">Home</a></li>
+        <li><a href="{{ ('/' + page.lang + '/') if (page and page.lang and page.lang != 'en') else '/' }}" style="color:var(--page-primary); text-decoration:none;">Home</a></li>
         <li aria-hidden="true" style="color:#cbd5e0;">›</li>
         <li aria-current="page" style="color:#4a5568;">{{ page.tool_name | default('Video Downloader') }}</li>
     </ol>
 </nav>
 
+<!-- ✅ Dynamic Split Hero Section -->
 <div class="hero-section">
-    <!-- ✅ H1 from page data -->
-    <h1 class="hero-h1">{{ page.h1 }}</h1>
-    <p class="subtitle" style="color:#718096; font-size:18px;">{{ page.subtitle }}</p>
+    <!-- Left Column: Content -->
+    <div class="hero-content-col">
+        <div class="platform-badge">
+            <span style="font-size:18px;">{{ page.page_icon | default('📥') }}</span>
+            {{ page.tool_name | default('Free Video Downloader') }}
+        </div>
+        
+        <h1 class="hero-h1">{{ page.h1 }}</h1>
+        <p class="subtitle">{{ page.subtitle }}</p>
 
-    <!-- Tool Interface -->
-    <form id="downloadForm" class="input-group" onsubmit="handleDownload(event)" aria-label="Video download form">
-        <input type="url" id="urlInput" class="url-input" placeholder="Paste {{ page.platform }} link here..." required
-            aria-label="Paste {{ page.platform }} video URL" autocomplete="off">
-        <button type="button" class="paste-btn" onclick="handlePaste()" title="Paste from clipboard"
-            aria-label="Paste from clipboard">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                aria-hidden="true">
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-            </svg>
-            Paste
-        </button>
-        <button type="submit" class="download-btn">Download</button>
-    </form>
+        <!-- Tool Interface -->
+        <form id="downloadForm" class="input-group" onsubmit="handleDownload(event)" aria-label="Video download form">
+            <input type="url" id="urlInput" class="url-input" placeholder="Paste {{ page.platform | default('video') }} link here..." required
+                aria-label="Paste {{ page.platform | default('video') }} URL" autocomplete="off">
+            <button type="button" class="paste-btn" onclick="handlePaste()" title="Paste from clipboard"
+                aria-label="Paste from clipboard">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                </svg>
+                Paste
+            </button>
+            <button type="submit" class="download-btn">Download</button>
+        </form>
 
-    <!-- Trust Badges -->
-    <div class="trust-badges-container">
-        <span class="trust-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48bb78" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-            No Login Required
-        </span>
-        <span class="trust-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48bb78" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>
-            100% Free &amp; Unlimited
-        </span>
-        <span class="trust-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#48bb78" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
-            Secure &amp; Anonymous
-        </span>
+        <!-- Trust Badges -->
+        <div class="trust-badges-container">
+            <span class="trust-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                Secure & Fast
+            </span>
+            <span class="trust-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                100% Free
+            </span>
+            <span class="trust-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                No Login
+            </span>
+        </div>
     </div>
 
-    <!-- Star Rating -->
-    <div class="star-rating-container">
-        <div class="stars" aria-label="4.8 out of 5 stars" role="img">★★★★★</div>
-        <div class="rating-text"><span style="font-weight:700;">4.8/5</span> based on 12k+ users</div>
+    <!-- Right Column: Hero Image -->
+    <div class="hero-image-col">
+        <img src="{{ page.page_hero_image | default('/static/images/hero_social.png') }}" 
+             alt="{{ page.page_hero_alt | default('Free online video downloader') }}" 
+             width="600" height="600" loading="eager">
     </div>
+</div>
 
-    <div id="loading" class="loading-spinner" style="display:none;" aria-live="polite">
+<div id="loading" class="loading-spinner" style="display:none;" aria-live="polite">
+    <div class="spinner-circle"></div>
+    <span>Extracting video details...</span>
+</div>
+<div id="error" class="error-msg" role="alert" aria-live="assertive" style="display:none; text-align:center; padding: 20px; color: #e53e3e; background: #fff5f5; border-radius: 12px; border: 1px solid #feb2b2; margin-bottom: 30px;"></div>
+
+<!-- Result Area — hidden until download processed -->
+<div id="result" class="preview-card" style="display:none;" aria-live="polite">
+    <div class="preview-flex">
+        <img id="thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="preview-thumb" alt="Video thumbnail" width="300" height="300" style="object-fit:cover;">
+        <div class="preview-info">
+            <h3 id="videoTitle" style="margin-bottom:15px; font-size:20px;">Video Title</h3>
+            <div style="margin-bottom:20px; display:flex; flex-wrap:wrap;">
+                <span class="meta-tag">👤 <span id="uploader">User</span></span>
+                <span class="meta-tag">👁️ <span id="views">0</span></span>
+                <span class="meta-tag">⏱️ <span id="duration">0:00</span></span>
+            </div>
+            <p style="font-size:14px; color:#718096; margin-bottom:20px;">Ready to download! Select your format below.</p>
+            <div class="download-options">
+                <button onclick="triggerDownload('video')" class="dl-btn-option dl-video">📥 Download MP4</button>
+                <button onclick="triggerDownload('audio')" class="dl-btn-option dl-audio">🎵 Download Audio</button>
+            </div>
+        </div>
+    </div>
+</div>
+">
         <div class="spinner-circle"></div>
         <span>Processing...</span>
     </div>
