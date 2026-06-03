@@ -18,11 +18,6 @@
 {% endif %}
 {% endblock %}
 
-{% block extra_css %}
-<!-- Preload LCP Hero Image -->
-<link rel="preload" as="image" href="{{ page.page_hero_image | default('/static/images/hero_main_v2.webp') }}" fetchpriority="high">
-{% endblock %}
-
 {% block schema %}
 
 {# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -243,6 +238,8 @@
 {% endblock %}
 
 {% block extra_css %}
+<!-- Preload LCP Hero Image -->
+<link rel="preload" as="image" href="{{ page.page_hero_image | default('/static/images/hero_main_v2.webp') }}" fetchpriority="high">
 <style>
 /* ──────────────────────────────────────────────────────────
    PLATFORM SPECIFIC THEMING
