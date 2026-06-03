@@ -14,7 +14,7 @@ SEO_PAGES = {
         "page_theme": "default",
         "page_color_primary": "#667eea",
         "page_color_secondary": "#764ba2",
-        "page_hero_image": "/static/images/hero_main_v2.png",
+        "page_hero_image": "/static/images/og-default.png",
         "page_hero_alt": "Universal video downloader for all social media platforms",
         "intro_text": """
         <p>
