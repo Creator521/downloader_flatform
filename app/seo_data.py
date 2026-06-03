@@ -14,7 +14,7 @@ SEO_PAGES = {
         "page_theme": "default",
         "page_color_primary": "#667eea",
         "page_color_secondary": "#764ba2",
-        "page_hero_image": "/static/images/hero_social.png",
+        "page_hero_image": "/static/images/hero_main_v2.png",
         "page_hero_alt": "Universal video downloader for all social media platforms",
         "intro_text": """
         <p>
@@ -108,7 +108,7 @@ SEO_PAGES = {
         "page_theme": "instagram",
         "page_color_primary": "#e1306c",
         "page_color_secondary": "#f77737",
-        "page_hero_image": "/static/images/hero_instagram.png",
+        "page_hero_image": "/static/images/hero_insta_v2.png",
         "page_hero_alt": "Instagram video downloader - save Instagram videos without watermark",
         "intro_text": """
         <p>Instagram videos are everywhere — cooking demos, travel diaries, fitness routines, comedy skits, and heartfelt moments shared by people you follow. But Instagram gives you no native way to save them. You can bookmark a post, sure, but the moment you lose internet or that creator deletes it, it's gone. That's a genuinely frustrating limitation for a platform built around visual content.</p>
@@ -187,7 +187,7 @@ SEO_PAGES = {
         "page_theme": "instagram",
         "page_color_primary": "#e1306c",
         "page_color_secondary": "#c13584",
-        "page_hero_image": "/static/images/hero_instagram.png",
+        "page_hero_image": "/static/images/hero_insta_v2.png",
         "page_hero_alt": "Instagram Reels downloader - save reels without watermark",
         "intro_text": """
         <p>Instagram Reels are short-form videos — usually 15 to 90 seconds — that Instagram introduced to compete with TikTok. But unlike TikTok, Reels are deeply woven into Instagram's existing social graph, which means a Reel from a fitness creator you follow might show up right between photos from your friends. That combination of discovery and community is what makes Reels genuinely hard to ignore.</p>
@@ -253,7 +253,7 @@ SEO_PAGES = {
         "page_theme": "tiktok",
         "page_color_primary": "#010101",
         "page_color_secondary": "#69c9d0",
-        "page_hero_image": "/static/images/hero_tiktok.png",
+        "page_hero_image": "/static/images/hero_tiktok_v2.png",
         "page_hero_alt": "TikTok video downloader without watermark",
         "intro_text": """
         <p>TikTok videos are built around a specific tension: the platform actively wants you to share content to other apps, but it embeds a watermark — your username and the TikTok logo — directly into the video file when you use the in-app download button. That watermark serves TikTok's marketing interests, not yours. When you share a TikTok to WhatsApp or Instagram, that spinning logo goes with it.</p>
@@ -344,7 +344,7 @@ SEO_PAGES = {
         "page_theme": "youtube",
         "page_color_primary": "#ff0000",
         "page_color_secondary": "#cc0000",
-        "page_hero_image": "/static/images/hero_youtube.png",
+        "page_hero_image": "/static/images/hero_yt_v2.png",
         "page_hero_alt": "YouTube video downloader for 1080p and 4K videos",
         "intro_text": """
         <p>YouTube hosts over 800 million videos — tutorials, documentaries, music, podcasts, live streams, lectures, and almost everything in between. It's the second-largest search engine in the world and the go-to place for learning almost any skill. But YouTube's offline feature (YouTube Premium) costs money, locks files inside the app, and disappears if you cancel your subscription. A downloaded MP4 file is yours permanently, plays in any media player, and doesn't require an internet connection.</p>
@@ -657,7 +657,7 @@ SEO_PAGES = {
         "page_theme": "twitter",
         "page_color_primary": "#1da1f2",
         "page_color_secondary": "#000000",
-        "page_hero_image": "/static/images/hero_social.png",
+        "page_hero_image": "/static/images/hero_main_v2.png",
         "page_hero_alt": "Twitter X video and GIF downloader",
         "intro_text": """
         <p>X (formerly Twitter) is home to breaking news, viral clips, sports highlights, and trending memes — but there is no built-in download button for videos. Our <strong>Twitter (X) Video Downloader</strong> lets you save any public X video or GIF in HD quality, directly to your device.</p>
@@ -696,7 +696,7 @@ SEO_PAGES = {
         "page_theme": "snapchat",
         "page_color_primary": "#fffc00",
         "page_color_secondary": "#000000",
-        "page_hero_image": "/static/images/hero_social.png",
+        "page_hero_image": "/static/images/hero_main_v2.png",
         "page_hero_alt": "Snapchat spotlight and story downloader",
         "intro_text": """
         <p>Found an amazing Snapchat Spotlight video or a Story you want to keep? Our <strong>Snapchat Video Downloader</strong> lets you save public Snapchat videos before they disappear — in HD quality, anonymously, and completely free.</p>
@@ -735,7 +735,7 @@ SEO_PAGES = {
         "page_theme": "instagram",
         "page_color_primary": "#e1306c",
         "page_color_secondary": "#c13584",
-        "page_hero_image": "/static/images/hero_instagram.png",
+        "page_hero_image": "/static/images/hero_insta_v2.png",
         "page_hero_alt": "Instagram photo downloader in full HD",
         "intro_text": """
         <p>Instagram is home to millions of breathtaking photographs — from professional photography and travel shots to food art and fashion inspiration. But saving these images in their <strong>original full resolution</strong> is not straightforward within the app. Screenshots lose quality, and the built-in save feature only bookmarks posts.</p>
