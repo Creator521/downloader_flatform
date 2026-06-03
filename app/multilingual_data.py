@@ -210,6 +210,14 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             if "extra_sections" in lang_data: extra_sections = lang_data["extra_sections"] + extra_sections
             if "tool_name"      in lang_data: tool_name      = lang_data["tool_name"]
 
+    # ✅ FIX 6: Extract missing design and hero properties
+    page_hero_image = override.get("page_hero_image", "") if path in SEO_PAGES else ""
+    page_hero_alt = override.get("page_hero_alt", "") if path in SEO_PAGES else ""
+    page_theme = override.get("page_theme", "default") if path in SEO_PAGES else "default"
+    page_color_primary = override.get("page_color_primary", "#667eea") if path in SEO_PAGES else "#667eea"
+    page_color_secondary = override.get("page_color_secondary", "#764ba2") if path in SEO_PAGES else "#764ba2"
+    page_icon = override.get("page_icon", "✨") if path in SEO_PAGES else "✨"
+
     # ✅ FIX 5: Prevent "Duplicate, Google chose different canonical" indexing errors
     # Remove bulky English boilerplate on translated pages unless explicitly translated
     if lang != "en":
@@ -242,6 +250,12 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         "faqs":          faqs,
         "extra_sections": extra_sections,
         "lang":          lang,
+        "page_hero_image": page_hero_image,
+        "page_hero_alt": page_hero_alt,
+        "page_theme":    page_theme,
+        "page_color_primary": page_color_primary,
+        "page_color_secondary": page_color_secondary,
+        "page_icon":     page_icon,
     }
 
 
