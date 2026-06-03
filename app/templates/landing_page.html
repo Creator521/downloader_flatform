@@ -257,37 +257,38 @@
     margin-bottom: 60px !important;
     background: #1a1a2e; /* Dark fallback */
     display: flex;
-    min-height: 500px;
+    flex-direction: column;
 }
 
-/* ── Split Layout ── */
+/* ── Stacked Layout ── */
 .hero-content-col {
-    flex: 1;
-    padding: 70px 60px;
+    padding: 60px 40px 40px;
     position: relative;
     z-index: 2;
     background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
     backdrop-filter: blur(20px);
+    text-align: center;
 }
 .hero-image-col {
-    flex: 1;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--page-primary), var(--page-secondary));
+    padding: 0;
+    max-height: 400px;
 }
 .hero-image-col img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     mix-blend-mode: overlay;
     opacity: 0.8;
     transition: transform 0.5s ease;
 }
 .hero-section:hover .hero-image-col img {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 /* ── Typographic updates ── */
@@ -322,8 +323,8 @@
 .subtitle {
     font-size: 18px !important;
     color: #475569 !important;
-    max-width: 500px;
-    margin-bottom: 40px !important;
+    max-width: 600px;
+    margin: 0 auto 40px !important;
     line-height: 1.6;
 }
 
@@ -336,8 +337,8 @@
     border: 1px solid #e2e8f0;
     display: flex;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
-    margin-bottom: 30px !important;
-    max-width: 100% !important;
+    margin: 0 auto 30px !important;
+    max-width: 700px !important;
 }
 .input-group:focus-within {
     transform: translateY(-3px);
@@ -395,6 +396,7 @@
 .trust-badges-container { 
     display: flex; 
     gap: 20px; 
+    justify-content: center;
     flex-wrap: wrap; 
     font-size: 14px; 
     color: #64748b; 
@@ -412,15 +414,14 @@
 /* ── Responsiveness ── */
 @media (max-width: 900px) {
     .hero-section {
-        flex-direction: column;
         border-radius: 24px !important;
     }
     .hero-image-col {
-        height: 200px;
-        flex: none;
+        height: auto;
+        max-height: 300px;
     }
     .hero-content-col {
-        padding: 40px 30px;
+        padding: 40px 20px;
     }
 }
 @media (max-width: 600px) {
@@ -618,13 +619,6 @@
             </span>
         </div>
     </div>
-
-    <!-- Right Column: Hero Image -->
-    <div class="hero-image-col">
-        <img src="{{ page.page_hero_image | default('/static/images/hero_social.png') }}" 
-             alt="{{ page.page_hero_alt | default('Free online video downloader') }}" 
-             width="600" height="600" loading="eager">
-    </div>
 </div>
 
 <div id="loading" class="loading-spinner" style="display:none;" aria-live="polite">
@@ -652,32 +646,6 @@
         </div>
     </div>
 </div>
-">
-        <div class="spinner-circle"></div>
-        <span>Processing...</span>
-    </div>
-    <div id="error" class="error-msg" role="alert" aria-live="assertive"></div>
-
-    <!-- Result Area — hidden until download processed -->
-    <div id="result" class="preview-card" style="display:none;" aria-live="polite">
-        <div class="preview-flex">
-            <img id="thumb" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="preview-thumb" alt="Video thumbnail" width="300" height="300" style="object-fit:cover;">
-            <div class="preview-info">
-                <h3 id="videoTitle" style="margin-bottom:15px; font-size:20px;">Video Title</h3>
-                <div style="margin-bottom:20px; display:flex; flex-wrap:wrap;">
-                    <span class="meta-tag">👤 <span id="uploader">User</span></span>
-                    <span class="meta-tag">👁️ <span id="views">0</span></span>
-                    <span class="meta-tag">⏱️ <span id="duration">0:00</span></span>
-                </div>
-                <p style="font-size:14px; color:#718096; margin-bottom:20px;">Ready to download! Select your format below.</p>
-                <div class="download-options">
-                    <button onclick="triggerDownload('video')" class="dl-btn-option dl-video">📥 Download Video (MP4)</button>
-                    <button onclick="triggerDownload('audio')" class="dl-btn-option dl-audio">🎵 Download Audio (M4A)</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="content-grid">
     <div class="main-article">
@@ -689,6 +657,14 @@
                 {{ page.intro_text | safe }}
             </div>
         </section>
+
+        <!-- Platform Hero Image -->
+        <div style="text-align: center; margin: 50px 0; border-radius: 24px; overflow: hidden; background: linear-gradient(135deg, var(--page-primary), var(--page-secondary)); padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+            <img src="{{ page.page_hero_image | default('/static/images/hero_social.png') }}" 
+                 alt="{{ page.page_hero_alt | default('Free online video downloader') }}" 
+                 style="max-width: 100%; height: auto; max-height: 400px; mix-blend-mode: overlay; opacity: 0.9; transition: transform 0.5s ease; border-radius: 12px;" 
+                 onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+        </div>
 
         <!-- How To Steps -->
         {% if page.steps %}
