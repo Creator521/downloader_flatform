@@ -274,37 +274,39 @@ SEO_PAGES = {
             {
                 "title": "How to download TikTok videos on Android and iPhone",
                 "content": """
-                <p>Because our exceptionally optimized online downloader operates completely independent of hardware and fundamentally relies on web browser mechanics, it organically works on virtually any interactive device without generating the necessity for any app installation.</p>
-                <h3>Downloading Directly On Android Smartphone Devices</h3>
-                <p>Open the Google Chrome application or essentially any browser functionally installed on your smartphone device. Aggressively paste the previously copied TikTok link accurately into our central utility tool and enthusiastically tap Download. Our backend algorithm quickly scrubs the identifier watermark and fundamentally delivers a clean video directly into your standard localized 'Downloads' folder natively built into your Samsung Galaxy or Google Pixel phone storage.</p>
-                <h3>Executing Clean Downloads On iPhone (Apple iOS)</h3>
-                <p>It is emphatically recommended to natively open Safari and rapidly navigate to our dedicated site parameters. Deliberately paste the TikTok link safely requested and explicitly tap Download. You will visually ascertain your securely saved video via Safari's interactive downloads icon specifically situated physically near the top address navigation bar. Once visibly verified, firmly tap the file and decisively save it strictly to your primary Photos app ecosystem.</p>
-                <h3>Operating Effectively On Desktop PC (Windows & Apple Mac)</h3>
-                <p>Accurately copy the precise TikTok video URL distinctly extracted from the top browser address navigation bar while currently observing a TikTok web instance. Confidently paste it functionally into our primary massive downloader element, and subsequently, the deeply clean extracted MP4 file automatically downloads consistently utilizing maximum broadband throughput directly strictly to your computer’s permanent hard drive array.</p>
+                <p>Our tool runs entirely in your browser, so it works on any device — Android, iPhone, Windows, or Mac — without installing anything.</p>
+                <h3>On Android</h3>
+                <p>Open TikTok and find the video you want to save. Tap the <strong>Share</strong> button (the arrow icon on the right side), then tap <strong>Copy Link</strong>. Open Chrome or any browser on your phone, come to this page, paste the link into the input box, and tap Download. The MP4 file will save to your Downloads folder. Open your Gallery app and look under Videos or Downloads to find it.</p>
+                <h3>On iPhone (iOS)</h3>
+                <p>In TikTok, tap Share and then Copy Link. Open <strong>Safari</strong> on your iPhone — Safari works better than Chrome on iOS for saving videos. Come to this page, paste the TikTok link, and tap Download. Once it finishes, tap the download arrow icon near Safari's address bar, then tap the file and choose <strong>Save Video</strong> to put it in your Photos app.</p>
+                <h3>On Desktop (Windows & Mac)</h3>
+                <p>Open TikTok in your browser. Copy the video URL from the address bar (it looks like tiktok.com/@username/video/...). Paste it into the input box above and click Download. The clean MP4 file — without any watermark — will download straight to your computer's default downloads folder.</p>
                 """
             },
             {
-                "title": "Extensive Categories of TikTok Videos Supported for Extraction",
+                "title": "What types of TikTok videos can I download?",
                 "content": """
-                <p>Our sophisticated backend parsing architecture uniquely permits downloading of practically any video topology currently hosted actively on the platform network:</p>
+                <p>Our tool handles the most common types of TikTok content from public accounts:</p>
                 <ul>
-                    <li><strong>Universal Public Videos:</strong> Any generalized standard video comprehensively uploaded by a public TikTok account universally downloads dependably and practically instantly without failure.</li>
-                    <li><strong>Highly Viral Trending Music & Dance Media:</strong> Quickly save highly relevant dance choreography covers and fundamentally viral cinematic music clips predominantly completely free of distracting embedded usernames.</li>
-                    <li><strong>Critical Educational Information Clips:</strong> Reliably keep essential tutorials, crucial life hacks, detailed cooking methodology videos, and DIY methodology functionally available for critical offline referencing.</li>
-                    <li><strong>Comedic Funny Memes and Reactionary Topologies:</strong> Actively build your personal, vastly expansive localized library encompassing the absolute most entertaining, extremely funny TikTok video memes entirely cleanly.</li>
-                    <li><strong>TikTok Live Replays:</strong> If a creator has explicitly processed their live feed dynamically into an active public timeline video post, our extractor pulls it seamlessly.</li>
+                    <li><strong>Regular feed videos:</strong> Any standard TikTok from a public account downloads instantly. Just paste the link and you're done.</li>
+                    <li><strong>Dance and music videos:</strong> Save trending dance clips and music videos without the TikTok watermark, so you can share them anywhere cleanly.</li>
+                    <li><strong>Tutorials and how-tos:</strong> Cooking guides, fitness routines, DIY projects, life hacks — download these once and access them offline anytime, even without internet.</li>
+                    <li><strong>Funny clips and memes:</strong> Build your personal collection of the funniest TikToks without having to bookmark them in-app.</li>
+                    <li><strong>Live replays:</strong> If a creator saved their live stream as a regular video post, you can download it the same way as any other TikTok.</li>
                 </ul>
+                <p>One thing that doesn't work: private account videos. If an account is set to private, the video isn't publicly accessible, and no web-based tool can reach it.</p>
                 """
             },
             {
-                "title": "Navigating The Fundamental Legality Associated With Downloading TikTok Videos",
+                "title": "Is it legal to download TikTok videos?",
                 "content": """
-                <p>Significantly downloading TikTok videos implicitly for strictly <strong>personal use environments</strong> is generally universally culturally acceptable and functionally commonplace globally. However, one must always respect the complex inherent copyright rights fundamentally assigned to the absolute original content creators:</p>
+                <p>Downloading TikTok videos for <strong>personal use</strong> — watching offline, archiving content you enjoy, or studying editing styles — is widely accepted and falls within fair use in most countries. That said, there are a few important guidelines to keep in mind:</p>
                 <ul>
-                    <li>Universally do not illegally re-upload downloaded clean videos maliciously masquerading them as your personal, independently created original content.</li>
-                    <li>Strictly avoid aggressively utilizing structurally modified TikTok content directly specifically to power highly commercialized retail purposes or mass financial monetization campaigns fundamentally without explicitly previously receiving explicit documented permission.</li>
-                    <li>It remains highly recommended etiquette to always gracefully credit the distinct original core creator fundamentally if you willfully share specifically across fundamentally competitive parallel networking platforms (e.g. YouTube Shorts, Facebook Reels).</li>
+                    <li>Don't re-upload someone else's TikTok as your own content. That's copyright infringement and against TikTok's terms of service.</li>
+                    <li>Don't use downloaded TikTok videos for commercial purposes (ads, promotions, monetized content) without getting explicit permission from the original creator.</li>
+                    <li>If you share a TikTok on another platform, credit the original creator — it's good etiquette and keeps the creator community healthy.</li>
                 </ul>
+                <p>In short: download for yourself, don't steal someone else's work, and you'll be fine.</p>
                 """
             }
         ],
