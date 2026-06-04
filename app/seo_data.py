@@ -24,7 +24,7 @@ SEO_PAGES = {
         "page_theme": "default",
         "page_color_primary": "#667eea",
         "page_color_secondary": "#764ba2",
-        "page_hero_image": "/static/images/How-to-Download-any-Video.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-any-video.webp?v=2",
         "page_hero_alt": "Free online video downloader tool for YouTube TikTok Instagram and more social media platforms",
         
         # ✅ COMPREHENSIVE INTRO: Not thin, rich with details, structured, scannable, keyword-optimized
@@ -374,7 +374,7 @@ SEO_PAGES = {
         
         "page_color_secondary": "#f77737",
         
-        "page_hero_image": "/static/images/How-to-Download-Instagram-Video.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-instagram-video.webp?v=2",
         
         "page_hero_alt": "Instagram video downloader - save Instagram videos without watermark",
         
@@ -1068,7 +1068,7 @@ SEO_PAGES = {
         
         "page_color_secondary": "#c13584",
         
-        "page_hero_image": "/static/images/How-to-Download-Instagram-Reel.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-instagram-reel.webp?v=2",
         
         "page_hero_alt": "Instagram Reels downloader - save reels without watermark in HD",
         
@@ -1844,7 +1844,7 @@ SEO_PAGES = {
     "page_theme": "tiktok",
     "page_color_primary": "#010101",
     "page_color_secondary": "#69c9d0",
-    "page_hero_image": "/static/images/How-to-Download-Tiktok-Video.webp?v=2",
+    "page_hero_image": "/static/images/how-to-download-tiktok-video.webp?v=2",
     "page_hero_alt": "TikTok video downloader tool - download videos without watermark in HD",
     
     # ═══════════════════════════════════════════════════════
@@ -2526,7 +2526,7 @@ SEO_PAGES = {
     "page_theme": "youtube",
     "page_color_primary": "#ff0000",
     "page_color_secondary": "#cc0000",
-    "page_hero_image": "/static/images/How-to-Download-Youtube-Video.webp?v=2",
+    "page_hero_image": "/static/images/how-to-download-youtube-video.webp?v=2",
     "page_hero_alt": "YouTube video downloader - download videos in 1080p and 4K quality without watermark",
     
     # ═══════════════════════════════════════════════════════
@@ -3377,7 +3377,7 @@ SEO_PAGES = {
 "h1": "YouTube to MP3 Converter - Download High Quality Audio Online",
 
 "h2_subtitle": "Convert YouTube Videos into MP3 Audio Files in Seconds",
-"page_hero_image": "/static/images/How-to-Download-Youtube-Video.webp?v=2",
+"page_hero_image": "/static/images/how-to-download-youtube-video.webp?v=2",
 "page_hero_alt": "YouTube to MP3 converter tool",
 
 "keyword_focus": """
@@ -3732,7 +3732,7 @@ download youtube music
         "page_theme": "tiktok",
         "page_color_primary": "#010101",
         "page_color_secondary": "#69c9d0",
-        "page_hero_image": "/static/images/How-to-Download-Tiktok-Video.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-tiktok-video.webp?v=2",
         "page_hero_alt": "TikTok to MP3 converter",
         "intro_text": """
         <p>TikTok is packed with trending sounds, viral music, original audio clips, and creative voiceovers that you simply cannot find anywhere else. But what do you do when you hear a track on TikTok and want to save just the audio — as an MP3 — without the video? The TikTok app offers no built-in way to do this.</p>
@@ -3829,7 +3829,7 @@ download youtube music
         "page_theme": "youtube",
         "page_color_primary": "#ff0000",
         "page_color_secondary": "#cc0000",
-        "page_hero_image": "/static/images/How-to-Download-Youtube-Video.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-youtube-video.webp?v=2",
         "page_hero_alt": "YouTube Shorts video downloader",
         "intro_text": """
         <p>YouTube Shorts have exploded in popularity — they are the platform's answer to TikTok, delivering short, punchy, entertaining videos in a vertical format. From viral comedy clips and quick tutorials to life hacks and trending challenges, Shorts are everywhere. But unlike regular YouTube videos, there is no easy built-in option to save them to your device for offline watching.</p>
@@ -4008,7 +4008,7 @@ download youtube music
         "page_theme": "instagram",
         "page_color_primary": "#e1306c",
         "page_color_secondary": "#c13584",
-        "page_hero_image": "/static/images/How-to-Download-Instagram-Photos.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-instagram-photos.webp?v=2",
         "page_hero_alt": "Instagram photo downloader in full HD",
         "intro_text": """
         <p>Instagram is home to millions of breathtaking photographs — from professional photography and travel shots to food art and fashion inspiration. But saving these images in their <strong>original full resolution</strong> is not straightforward within the app. Screenshots lose quality, and the built-in save feature only bookmarks posts.</p>
@@ -4068,7 +4068,7 @@ download youtube music
         "tool_name": "Facebook Video Downloader",
         "keyword": "Facebook video",
         "platform": "Facebook",
-        "page_hero_image": "/static/images/How-to-download-facebook-video.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-facebook-video.webp?v=2",
         "page_hero_alt": "Facebook video downloader",
         # ── Spanish override — targets GSC opportunity: "descargar reel de facebook" pos 7.6 ──
         "es": {
@@ -4211,7 +4211,7 @@ download youtube music
         "tool_name": "Instagram Story Downloader",
         "keyword": "Instagram Stories",
         "platform": "Instagram",
-        "page_hero_image": "/static/images/how-to-download-Instagram-Story.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-instagram-story.webp?v=2",
         "page_hero_alt": "Instagram story downloader",
         "intro_text": """
         <p>Instagram Stories are one of the most popular features on the platform — short, expressive moments that disappear after just 24 hours. Whether it is a funny clip from a friend, a product announcement from your favorite brand, or a travel moment you want to remember forever, Stories vanish before you get a chance to save them properly.</p>
@@ -4307,7 +4307,7 @@ download youtube music
         "tool_name": "Pinterest Video Downloader",
         "keyword": "Pinterest video",
         "platform": "Pinterest",
-        "page_hero_image": "/static/images/How-to-Download-any-Video.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-any-video.webp?v=2",
         "page_hero_alt": "Pinterest video downloader",
         "intro_text": """
         <p>Pinterest is filled with inspiring video content — from DIY tutorials and recipe videos to fashion lookbooks and home decor ideas. But Pinterest does not offer a native download button for video pins.</p>
@@ -4342,7 +4342,7 @@ download youtube music
         "tool_name": "Reddit Video Downloader",
         "keyword": "Reddit video",
         "platform": "Reddit",
-        "page_hero_image": "/static/images/How-to-Download-any-Video.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-any-video.webp?v=2",
         "page_hero_alt": "Reddit video downloader",
         "intro_text": """
         <p>Reddit is the front page of the internet, featuring incredibly unique viral clips, breaking news footage, and hilarious memes shared across thousands of subreddits. However, Reddit’s native media player notoriously splits audio and video tracks, making it extremely difficult to execute a clean <strong>reddit video download</strong> that actually plays sound when saved to your local device.</p>

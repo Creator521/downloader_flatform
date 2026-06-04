@@ -90,9 +90,14 @@ async def normalize_url_middleware(request, call_next):
     """
     from fastapi.responses import RedirectResponse
 
+    path   = request.url.path
+
+    # Skip normalization for static files — preserve original case for filesystem lookups
+    if path.startswith("/static/"):
+        return await call_next(request)
+
     scheme = request.headers.get("x-forwarded-proto", request.url.scheme)
     host   = request.headers.get("x-forwarded-host", request.url.hostname) or request.url.hostname
-    path   = request.url.path
     query  = request.url.query
 
     # 1. Force HTTPS (Skip for local development)
