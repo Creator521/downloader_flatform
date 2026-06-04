@@ -45,6 +45,7 @@ TOOLS = [
     ("/tiktok-mp3-downloader",         "TikTok",      "TikTok to MP3",    "vid"),
     ("/youtube-shorts-downloader",     "YouTube",     "YouTube Shorts",   "vid"),
     ("/youtube-to-mp3",                "YouTube",     "YouTube to MP3",   "vid"),
+    ("/reddit",                        "Reddit",      "Reddit",           "vid"),
 ]
 
 
@@ -196,19 +197,57 @@ def make_page_data(path, platform, brand_name, content_key, lang):
 
         if isinstance(lang_data, dict):
             if "title"       in lang_data: title     = lang_data["title"]
-            if "description" in lang_data: desc      = lang_data["description"]
+            # Support both 'description' and 'meta_description' key names
+            if "description" in lang_data:
+                desc = lang_data["description"]
+            elif "meta_description" in lang_data:
+                desc = lang_data["meta_description"]
             if "h1"          in lang_data: h1        = lang_data["h1"]
+            # Support both 'subtitle' and 'h2_subtitle' key names
             if "subtitle"    in lang_data:
                 page_subtitle = lang_data["subtitle"]
+            elif "h2_subtitle" in lang_data:
+                page_subtitle = lang_data["h2_subtitle"]
             elif "subtitle" in override and lang == "en":
                 page_subtitle = override["subtitle"]
 
             # Merge — custom content first, generated content appended
-            if "intro_text"     in lang_data: intro          = lang_data["intro_text"] + "<hr style='margin:30px 0; border:0; border-top:1px dashed #cbd5e0;'>" + intro
+            # Support both 'intro_text' and 'content' key names
+            if "intro_text"     in lang_data:
+                intro = lang_data["intro_text"] + "<hr style='margin:30px 0; border:0; border-top:1px dashed #cbd5e0;'>" + intro
+            elif "content"      in lang_data:
+                intro = lang_data["content"] + "<hr style='margin:30px 0; border:0; border-top:1px dashed #cbd5e0;'>" + intro
             if "faqs"           in lang_data: faqs           = lang_data["faqs"] + faqs
             if "features"       in lang_data: features       = lang_data["features"] + features
             if "extra_sections" in lang_data: extra_sections = lang_data["extra_sections"] + extra_sections
+
+            # Auto-convert any custom *_section keys into extra_sections format
+            # This handles keys like quality_section, safety_section, troubleshooting_section, etc.
+            _section_suffix = "_section"
+            _skip_section_keys = {"extra_sections", "device_specific_section"}
+            _custom_extra = []
+            for _k, _v in lang_data.items():
+                if _k.endswith(_section_suffix) and _k not in _skip_section_keys and isinstance(_v, str) and _v.strip():
+                    # Convert key name to readable title: "quality_section" -> "Quality"
+                    _section_title = _k.replace(_section_suffix, "").replace("_", " ").strip().title()
+                    _custom_extra.append({"title": _section_title, "content": _v})
+            # Also handle keys like 'device_guides', 'content_types', 'troubleshooting',
+            # 'eeat_section', 'related_searches' etc. that contain HTML content
+            _html_content_keys = {
+                "device_guides", "content_types", "troubleshooting",
+                "related_searches", "audio_quality_section",
+            }
+            for _k in _html_content_keys:
+                if _k in lang_data and isinstance(lang_data[_k], str) and lang_data[_k].strip():
+                    _section_title = _k.replace("_section", "").replace("_", " ").strip().title()
+                    _custom_extra.append({"title": _section_title, "content": lang_data[_k]})
+            if _custom_extra:
+                extra_sections = _custom_extra + extra_sections
+
             if "tool_name"      in lang_data: tool_name      = lang_data["tool_name"]
+            if "keyword"        in lang_data:
+                pass  # Will be set below from lang_data if present
+            if "platform"       in lang_data: platform        = lang_data["platform"]
 
     # ✅ FIX 6: Extract missing design and hero properties
     page_hero_image = override.get("page_hero_image", "") if path in SEO_PAGES else ""
