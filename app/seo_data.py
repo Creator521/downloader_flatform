@@ -24,7 +24,7 @@ SEO_PAGES = {
         "page_theme": "default",
         "page_color_primary": "#667eea",
         "page_color_secondary": "#764ba2",
-        "page_hero_image": "/frontend/images/How-to-Download-any-Video.webp",
+        "page_hero_image": "/static/images/How-to-Download-any-Video.webp",
         "page_hero_alt": "Free online video downloader tool for YouTube TikTok Instagram and more social media platforms",
         
         # ✅ COMPREHENSIVE INTRO: Not thin, rich with details, structured, scannable, keyword-optimized
