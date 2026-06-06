@@ -3375,7 +3375,7 @@ SEO_PAGES = {
 "h1": "YouTube to MP3 Converter - Download High Quality Audio Online",
 
 "h2_subtitle": "Convert YouTube Videos into MP3 Audio Files in Seconds",
-"page_hero_image": "/static/images/how-to-download-youtube-video.webp?v=2",
+"page_hero_image": "/static/images/how-to-download-youtube-to-convertervideo.webp?v=2",
 "page_hero_alt": "YouTube to MP3 converter tool",
 
 "keyword_focus": """
@@ -3741,7 +3741,7 @@ download youtube music
         
         "page_color_secondary": "#69c9d0",
         
-        "page_hero_image": "/static/images/hero_tiktok_mp3.webp",
+        "page_hero_image": "/static/images/how-to-download-tiktokmp.webp?v=2",
         
         "page_hero_alt": "TikTok to MP3 converter - download TikTok audio free",
         
@@ -4377,7 +4377,7 @@ download youtube music
         
         "page_color_secondary": "#cc0000",
         
-        "page_hero_image": "/static/images/hero_youtube_shorts.webp",
+        "page_hero_image": "/static/images/how-to-download-youtube-shorts.webp?v=2",
         
         "page_hero_alt": "YouTube Shorts downloader - save shorts in HD free",
         
@@ -5053,7 +5053,7 @@ download youtube music
         
         "page_color_secondary": "#000000",
         
-        "page_hero_image": "/static/images/hero_twitter.webp",
+        "page_hero_image": "/static/images/how-to-download-twitter-video.webp?v=2",
         
         "page_hero_alt": "Twitter X video and GIF downloader - save videos free",
         
@@ -5778,7 +5778,7 @@ download youtube music
         
         "page_color_secondary": "#000000",
         
-        "page_hero_image": "/static/images/hero_snapchat.webp",
+        "page_hero_image": "/static/images/how-to-download-snapchat-video.webp?v=2",
         
         "page_hero_alt": "Snapchat spotlight and story downloader - save videos free",
         
@@ -6958,7 +6958,7 @@ Click Download Photo and the full-resolution image downloads instantly to your d
         
         "page_color_secondary": "#e7f3ff",
         
-        "page_hero_image": "/static/images/hero_facebook.webp",
+        "page_hero_image": "/static/images/how-to-download-facebook-video.webp?v=2",
         
         "page_hero_alt": "Facebook video downloader - download FB videos and Reels free",
         
@@ -7649,7 +7649,7 @@ Click Download Photo and the full-resolution image downloads instantly to your d
         
         "page_color_secondary": "#feda75",
         
-        "page_hero_image": "/static/images/hero_instagram_story.webp",
+        "page_hero_image": "/static/images/how-to-download-instagram-story.webp?v=2",
         
         "page_hero_alt": "Instagram story downloader - download stories anonymously free",
         
@@ -8288,7 +8288,7 @@ Click Download Photo and the full-resolution image downloads instantly to your d
         "page_theme": "pinterest",
         "page_color_primary": "#e60023",
         "page_color_secondary": "#ad081b",
-        "page_hero_image": "/static/images/how-to-download-pinterest-videos.webp?v=2",
+        "page_hero_image": "/static/images/how-to-download-pinterest-video.webp?v=2",
         "page_hero_alt": "Pinterest video downloader - download pinterest videos in HD quality without watermark",
         
         "intro_text": """
@@ -8778,7 +8778,7 @@ Choose your preferred format and click download. Video downloads instantly to yo
         
         "page_color_secondary": "#030303",
         
-        "page_hero_image": "/static/images/hero_reddit.webp",
+        "page_hero_image": "/static/images/how-to-download-reddit-video.webp",
         
         "page_hero_alt": "Reddit video downloader - download videos with audio free",
         
