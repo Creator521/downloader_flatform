@@ -1,397 +1,533 @@
 {% extends "base.html" %}
 
 {% block title %}About Us – SnapReelDownload | Our Story & Mission{% endblock %}
-{% block description %}Learn about SnapReelDownload – a free video downloader tool built by developers who believe in open internet. Our story, our mission, and who we are.{% endblock %}
+{% block description %}Learn about SnapReelDownload – a free video downloader tool built by developers who believe in
+open internet. Our story, our mission, and who we are.{% endblock %}
 
 {% block extra_css %}
 <style>
-/* ============================================
+    /* ============================================
    ABOUT US — Completely unique design
    ============================================ */
 
-.about-page {
-    padding: 0 0 80px;
-}
+    .about-page {
+        padding: 0 0 80px;
+    }
 
-/* ── Hero Banner ── */
-.about-hero {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-    border-radius: 28px;
-    padding: 80px 48px;
-    margin: 32px 0 60px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-.about-hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(102,126,234,0.3) 0%, transparent 70%);
-    border-radius: 50%;
-}
-.about-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -40px; left: 30%;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(118,75,162,0.25) 0%, transparent 70%);
-    border-radius: 50%;
-}
-.about-hero-text { position: relative; z-index: 1; }
-.about-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(102,126,234,0.2);
-    border: 1px solid rgba(102,126,234,0.4);
-    color: #a5b4fc;
-    padding: 6px 16px;
-    border-radius: 40px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 24px;
-    text-transform: uppercase;
-}
-.about-hero h1 {
-    font-size: clamp(28px, 4vw, 48px);
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-.about-hero h1 span {
-    background: linear-gradient(135deg, #667eea, #a78bfa);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.about-hero p {
-    color: #94a3b8;
-    font-size: 17px;
-    line-height: 1.8;
-}
-.about-hero-image {
-    position: relative; z-index: 1;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.1);
-}
-.about-hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
+    /* ── Hero Banner ── */
+    .about-hero {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+        border-radius: 28px;
+        padding: 80px 48px;
+        margin: 32px 0 60px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
 
-/* ── Stats Row ── */
-.stats-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 60px;
-}
-.stat-card {
-    background: white;
-    border-radius: 20px;
-    padding: 32px 24px;
-    text-align: center;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.stat-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.08);
-}
-.stat-icon {
-    font-size: 36px;
-    margin-bottom: 12px;
-    display: block;
-}
-.stat-number {
-    font-size: 32px;
-    font-weight: 800;
-    color: #0f172a;
-    font-family: 'Poppins', sans-serif;
-    line-height: 1;
-    margin-bottom: 8px;
-}
-.stat-number span {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.stat-label {
-    color: #64748b;
-    font-size: 14px;
-    font-weight: 500;
-}
+    .about-hero::before {
+        content: '';
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%);
+        border-radius: 50%;
+    }
 
-/* ── Story Section ── */
-.about-two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: start;
-    margin-bottom: 60px;
-}
-.story-card {
-    background: white;
-    border-radius: 24px;
-    padding: 48px;
-    border: 1px solid #f1f5f9;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    height: 100%;
-}
-.section-label {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #667eea;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.section-label::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 2px;
-    background: #667eea;
-}
-.story-card h2 {
-    font-size: 26px;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 20px;
-    line-height: 1.3;
-}
-.story-card p {
-    color: #475569;
-    line-height: 1.8;
-    margin-bottom: 16px;
-    font-size: 16px;
-}
+    .about-hero::after {
+        content: '';
+        position: absolute;
+        bottom: -40px;
+        left: 30%;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(118, 75, 162, 0.25) 0%, transparent 70%);
+        border-radius: 50%;
+    }
 
-/* ── Values Grid ── */
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-top: 8px;
-}
-.value-item {
-    background: #f8fafc;
-    border-radius: 14px;
-    padding: 20px;
-    border: 1px solid #e2e8f0;
-    transition: border-color 0.2s;
-}
-.value-item:hover {
-    border-color: #667eea;
-}
-.value-icon { font-size: 24px; margin-bottom: 10px; }
-.value-title {
-    font-weight: 700;
-    color: #0f172a;
-    font-size: 15px;
-    margin-bottom: 6px;
-}
-.value-desc {
-    color: #64748b;
-    font-size: 13px;
-    line-height: 1.5;
-}
+    .about-hero-text {
+        position: relative;
+        z-index: 1;
+    }
 
-/* ── Team Section ── */
-.team-section {
-    margin-bottom: 60px;
-}
-.section-heading {
-    text-align: center;
-    margin-bottom: 40px;
-}
-.section-heading h2 {
-    font-size: 32px;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 12px;
-}
-.section-heading p {
-    color: #64748b;
-    font-size: 16px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-.team-photo-container {
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    border: 1px solid #e2e8f0;
-    margin-bottom: 32px;
-    max-height: 420px;
-}
-.team-photo-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-.team-bios {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-.bio-card {
-    background: white;
-    border-radius: 20px;
-    padding: 28px 24px;
-    border: 1px solid #e2e8f0;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    transition: transform 0.3s;
-}
-.bio-card:hover {
-    transform: translateY(-4px);
-}
-.bio-avatar {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    margin: 0 auto 16px;
-}
-.bio-avatar.purple { background: linear-gradient(135deg, #667eea, #764ba2); }
-.bio-avatar.teal   { background: linear-gradient(135deg, #0694a2, #047481); }
-.bio-avatar.orange { background: linear-gradient(135deg, #f97316, #ea580c); }
-.bio-name { font-weight: 700; color: #0f172a; font-size: 17px; margin-bottom: 6px; }
-.bio-role { color: #667eea; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
-.bio-desc { color: #64748b; font-size: 14px; line-height: 1.6; }
+    .about-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(102, 126, 234, 0.2);
+        border: 1px solid rgba(102, 126, 234, 0.4);
+        color: #a5b4fc;
+        padding: 6px 16px;
+        border-radius: 40px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-bottom: 24px;
+        text-transform: uppercase;
+    }
 
-/* ── Why We Built This ── */
-.why-section {
-    background: linear-gradient(135deg, #667eea08, #764ba208);
-    border-radius: 24px;
-    padding: 56px 48px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 60px;
-}
-.why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 32px;
-    margin-top: 40px;
-}
-.why-item {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.why-number {
-    width: 48px; height: 48px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 18px;
-    flex-shrink: 0;
-}
-.why-title { font-weight: 700; color: #0f172a; font-size: 17px; }
-.why-desc { color: #475569; font-size: 15px; line-height: 1.7; }
+    .about-hero h1 {
+        font-size: clamp(28px, 4vw, 48px);
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
 
-/* ── CTA Strip ── */
-.about-cta {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 24px;
-    padding: 56px 48px;
-    text-align: center;
-    color: white;
-}
-.about-cta h2 {
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 16px;
-}
-.about-cta p {
-    font-size: 17px;
-    opacity: 0.85;
-    margin-bottom: 32px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.cta-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.cta-btn-primary {
-    background: white;
-    color: #667eea;
-    font-weight: 700;
-    padding: 16px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 16px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-.cta-btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.2);
-}
-.cta-btn-secondary {
-    background: transparent;
-    color: white;
-    font-weight: 600;
-    padding: 16px 36px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 16px;
-    border: 2px solid rgba(255,255,255,0.5);
-    transition: border-color 0.2s, background 0.2s;
-}
-.cta-btn-secondary:hover {
-    border-color: white;
-    background: rgba(255,255,255,0.1);
-}
+    .about-hero h1 span {
+        background: linear-gradient(135deg, #667eea, #a78bfa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-/* ── Responsive ── */
-@media (max-width: 900px) {
-    .about-hero { grid-template-columns: 1fr; padding: 48px 28px; }
-    .about-hero-image { max-height: 260px; }
-    .stats-strip { grid-template-columns: repeat(2, 1fr); }
-    .about-two-col { grid-template-columns: 1fr; }
-    .team-bios { grid-template-columns: 1fr; }
-    .why-grid { grid-template-columns: 1fr; }
-    .why-section { padding: 36px 24px; }
-}
-@media (max-width: 600px) {
-    .stats-strip { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .stat-card { padding: 20px 16px; }
-    .stat-number { font-size: 24px; }
-    .story-card { padding: 28px 20px; }
-    .about-cta { padding: 36px 20px; }
-    .about-cta h2 { font-size: 24px; }
-    .values-grid { grid-template-columns: 1fr; }
-}
+    .about-hero p {
+        color: #94a3b8;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .about-hero-image {
+        position: relative;
+        z-index: 1;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .about-hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* ── Stats Row ── */
+    .stats-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 60px;
+    }
+
+    .stat-card {
+        background: white;
+        border-radius: 20px;
+        padding: 32px 24px;
+        text-align: center;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .stat-icon {
+        font-size: 36px;
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    .stat-number {
+        font-size: 32px;
+        font-weight: 800;
+        color: #0f172a;
+        font-family: 'Poppins', sans-serif;
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+
+    .stat-number span {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+        color: #64748b;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    /* ── Story Section ── */
+    .about-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+        margin-bottom: 60px;
+    }
+
+    .story-card {
+        background: white;
+        border-radius: 24px;
+        padding: 48px;
+        border: 1px solid #f1f5f9;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        height: 100%;
+    }
+
+    .section-label {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #667eea;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .section-label::before {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 2px;
+        background: #667eea;
+    }
+
+    .story-card h2 {
+        font-size: 26px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+
+    .story-card p {
+        color: #475569;
+        line-height: 1.8;
+        margin-bottom: 16px;
+        font-size: 16px;
+    }
+
+    /* ── Values Grid ── */
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 8px;
+    }
+
+    .value-item {
+        background: #f8fafc;
+        border-radius: 14px;
+        padding: 20px;
+        border: 1px solid #e2e8f0;
+        transition: border-color 0.2s;
+    }
+
+    .value-item:hover {
+        border-color: #667eea;
+    }
+
+    .value-icon {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .value-title {
+        font-weight: 700;
+        color: #0f172a;
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .value-desc {
+        color: #64748b;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    /* ── Team Section ── */
+    .team-section {
+        margin-bottom: 60px;
+    }
+
+    .section-heading {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 12px;
+    }
+
+    .section-heading p {
+        color: #64748b;
+        font-size: 16px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .team-photo-container {
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+        margin-bottom: 32px;
+        max-height: 420px;
+    }
+
+    .team-photo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .team-bios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .bio-card {
+        background: white;
+        border-radius: 20px;
+        padding: 28px 24px;
+        border: 1px solid #e2e8f0;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        transition: transform 0.3s;
+    }
+
+    .bio-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .bio-avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        margin: 0 auto 16px;
+    }
+
+    .bio-avatar.purple {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .bio-avatar.teal {
+        background: linear-gradient(135deg, #0694a2, #047481);
+    }
+
+    .bio-avatar.orange {
+        background: linear-gradient(135deg, #f97316, #ea580c);
+    }
+
+    .bio-name {
+        font-weight: 700;
+        color: #0f172a;
+        font-size: 17px;
+        margin-bottom: 6px;
+    }
+
+    .bio-role {
+        color: #667eea;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    .bio-desc {
+        color: #64748b;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* ── Why We Built This ── */
+    .why-section {
+        background: linear-gradient(135deg, #667eea08, #764ba208);
+        border-radius: 24px;
+        padding: 56px 48px;
+        border: 1px solid #e2e8f0;
+        margin-bottom: 60px;
+    }
+
+    .why-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 32px;
+        margin-top: 40px;
+    }
+
+    .why-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .why-number {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .why-title {
+        font-weight: 700;
+        color: #0f172a;
+        font-size: 17px;
+    }
+
+    .why-desc {
+        color: #475569;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* ── CTA Strip ── */
+    .about-cta {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 24px;
+        padding: 56px 48px;
+        text-align: center;
+        color: white;
+    }
+
+    .about-cta h2 {
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 16px;
+    }
+
+    .about-cta p {
+        font-size: 17px;
+        opacity: 0.85;
+        margin-bottom: 32px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cta-btn-primary {
+        background: white;
+        color: #667eea;
+        font-weight: 700;
+        padding: 16px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 16px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-btn-secondary {
+        background: transparent;
+        color: white;
+        font-weight: 600;
+        padding: 16px 36px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        transition: border-color 0.2s, background 0.2s;
+    }
+
+    .cta-btn-secondary:hover {
+        border-color: white;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+        .about-hero {
+            grid-template-columns: 1fr;
+            padding: 48px 28px;
+        }
+
+        .about-hero-image {
+            max-height: 260px;
+        }
+
+        .stats-strip {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .about-two-col {
+            grid-template-columns: 1fr;
+        }
+
+        .team-bios {
+            grid-template-columns: 1fr;
+        }
+
+        .why-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .why-section {
+            padding: 36px 24px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .stats-strip {
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .stat-card {
+            padding: 20px 16px;
+        }
+
+        .stat-number {
+            font-size: 24px;
+        }
+
+        .story-card {
+            padding: 28px 20px;
+        }
+
+        .about-cta {
+            padding: 36px 20px;
+        }
+
+        .about-cta h2 {
+            font-size: 24px;
+        }
+
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 {% endblock %}
 
@@ -412,10 +548,12 @@
         <div class="about-hero-text">
             <div class="about-hero-badge">🚀 Our Story</div>
             <h1 id="about-h1">We Built the Downloader <span>We Wished Existed</span></h1>
-            <p>SnapReelDownload started as a personal project — a simple tool to save videos without the watermarks, the sign-ups, the popups, and the fake "free" promises. Today, millions of people use it every month.</p>
+            <p>SnapReelDownload started as a personal project — a simple tool to save videos without the watermarks, the
+                sign-ups, the popups, and the fake "free" promises. Today, millions of people use it every month.</p>
         </div>
         <div class="about-hero-image">
-            <img src="/static/images/about_hero_v2.webp" alt="SnapReelDownload team workspace with laptop and phone" width="600" height="400" loading="eager">
+            <img src="/static/images/about_hero_v2.webp" alt="SnapReelDownload team workspace with laptop and phone"
+                width="600" height="400" loading="eager">
         </div>
     </section>
 
@@ -448,9 +586,15 @@
         <div class="story-card">
             <p class="section-label">Our Story</p>
             <h2>How SnapReelDownload Came to Be</h2>
-            <p>It started with a frustration we all recognize. You find a great tutorial on Instagram, a funny clip on TikTok, or a documentary on YouTube — and there's no easy way to save it. The in-app download button adds a watermark. Extension-based tools feel unsafe. Premium desktop apps cost money.</p>
-            <p>So in 2023, we built SnapReelDownload: a clean, fast, browser-based tool that downloads videos from any major platform — no watermark, no login, no nonsense. We started with Instagram and TikTok, then added YouTube, Facebook, Twitter, Pinterest, and Snapchat.</p>
-            <p>What began as a weekend project is now used by content creators, students, researchers, marketers, and everyday users across 150+ countries. We're a small team, but we care deeply about making this tool work perfectly for everyone.</p>
+            <p>It started with a frustration we all recognize. You find a great tutorial on Instagram, a funny clip on
+                TikTok, or a documentary on YouTube — and there's no easy way to save it. The in-app download button
+                adds a watermark. Extension-based tools feel unsafe. Premium desktop apps cost money.</p>
+            <p>So in 2023, we built SnapReelDownload: a clean, fast, browser-based tool that downloads videos from any
+                major platform — no watermark, no login, no nonsense. We started with Instagram and TikTok, then added
+                YouTube, Facebook, Twitter, Pinterest, and Snapchat.</p>
+            <p>What began as a weekend project is now used by content creators, students, researchers, marketers, and
+                everyday users across 150+ countries. We're a small team, but we care deeply about making this tool work
+                perfectly for everyone.</p>
         </div>
 
         <div class="story-card">
@@ -498,26 +642,30 @@
             <p>A small, passionate team building tools people actually find useful.</p>
         </div>
         <div class="team-photo-container">
-            <img src="/static/images/team_photo_v2.webp" alt="The SnapReelDownload team working together" width="1200" height="500" loading="lazy">
+            <img src="/static/images/team_photo_v2.webp" alt="The SnapReelDownload team working together" width="1200"
+                height="500" loading="lazy">
         </div>
         <div class="team-bios">
             <div class="bio-card">
                 <div class="bio-avatar purple">👨‍💻</div>
-                <div class="bio-name">Aryan Mehta</div>
-                <div class="bio-role">Founder & Lead Developer</div>
-                <div class="bio-desc">Full-stack developer with 8+ years of experience. Built the core extraction engine and backend infrastructure that powers SnapReelDownload.</div>
+                <div class="bio-name">Saurab Sisodiya</div>
+                <div class="bio-role">Founder & IT Professional</div>
+                <div class="bio-desc">IT professional with 3+ years of experience in system administration, IT
+                    infrastructure, and business technology.</div>
             </div>
             <div class="bio-card">
                 <div class="bio-avatar teal">👩‍🎨</div>
                 <div class="bio-name">Priya Sharma</div>
                 <div class="bio-role">Product & UX Design</div>
-                <div class="bio-desc">Obsessed with making tools that feel simple and obvious to use. Every button, layout, and interaction on this site has her fingerprints.</div>
+                <div class="bio-desc">Obsessed with making tools that feel simple and obvious to use. Every button,
+                    layout, and interaction on this site has her fingerprints.</div>
             </div>
             <div class="bio-card">
                 <div class="bio-avatar orange">👨‍🔧</div>
                 <div class="bio-name">Rahul Verma</div>
                 <div class="bio-role">Infrastructure & Reliability</div>
-                <div class="bio-desc">Keeps the servers fast and the downloads reliable. When something breaks at 3 AM, Rahul is already on it before anyone notices.</div>
+                <div class="bio-desc">Keeps the servers fast and the downloads reliable. When something breaks at 3 AM,
+                    Rahul is already on it before anyone notices.</div>
             </div>
         </div>
     </section>
@@ -532,17 +680,21 @@
             <div class="why-item">
                 <div class="why-number">1</div>
                 <div class="why-title">Too Many Tools, All Broken</div>
-                <div class="why-desc">Most video downloader sites are filled with fake download buttons, malware redirects, and ads that trick you into installing software you didn't want. We built something you can actually trust.</div>
+                <div class="why-desc">Most video downloader sites are filled with fake download buttons, malware
+                    redirects, and ads that trick you into installing software you didn't want. We built something you
+                    can actually trust.</div>
             </div>
             <div class="why-item">
                 <div class="why-number">2</div>
                 <div class="why-title">The Watermark Problem</div>
-                <div class="why-desc">TikTok's in-app download stamps a username watermark on every video. Instagram gives you no download option at all. We solved both — cleanly, in seconds, from your browser.</div>
+                <div class="why-desc">TikTok's in-app download stamps a username watermark on every video. Instagram
+                    gives you no download option at all. We solved both — cleanly, in seconds, from your browser.</div>
             </div>
             <div class="why-item">
                 <div class="why-number">3</div>
                 <div class="why-title">Everything Asks You to Sign Up</div>
-                <div class="why-desc">You just want to download a video. Why do you need to create an account? You don't. We never ask for your email, your phone number, or your social media login.</div>
+                <div class="why-desc">You just want to download a video. Why do you need to create an account? You
+                    don't. We never ask for your email, your phone number, or your social media login.</div>
             </div>
         </div>
     </section>
