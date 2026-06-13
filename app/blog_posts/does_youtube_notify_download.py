@@ -818,6 +818,7 @@ post = {
     "description": 'Does YouTube notify creators when someone downloads a video? Full answer on download privacy, analytics, and anonymity.',
     "tags": ['YouTube', 'Privacy', 'Download Notification', 'Creator Analytics', 'YouTube Premium'],
     "title": 'Does YouTube Notify When You Download Videos? (2026)',
+    "slug": "does-youtube-notify-download",
     "seo_keywords": [
         'does youtube notify downloads',
         'youtube download notification',

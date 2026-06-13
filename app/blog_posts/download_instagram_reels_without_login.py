@@ -1009,6 +1009,7 @@ post = {
     "description": 'Download Instagram Reels without login or account. Free, anonymous, HD quality. Works on Android, iPhone and PC.',
     "tags": ['Privacy', 'No Login', 'Account Security', 'Phishing', 'Password Protection', 'Safe Download'],
     "title": 'Download Instagram Reels Without Login (2026 Privacy Guide)',
+    "slug": "download-instagram-reels-without-login",
     "seo_keywords": [
         'how to download instagram reels without login',
         'instagram downloader no password',

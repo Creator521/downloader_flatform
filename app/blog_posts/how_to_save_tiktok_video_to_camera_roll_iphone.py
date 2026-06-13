@@ -1,5 +1,6 @@
 post = {
     "title": 'Save TikTok Video to Camera Roll on iPhone (2026 Fix)',
+    "slug": "how-to-save-tiktok-video-to-camera-roll-iphone",
     "description": ('TikTok saved to Files instead of Photos? Learn exactly how to get TikTok '
      'videos into your iPhone camera roll — free, no watermark, no extra apps.'),
     "date": '2026-05-08',

@@ -1,5 +1,6 @@
 post = {
     "title": 'Does Instagram Notify When You Download a Video? (2026)',
+    "slug": "does-instagram-notify-download",
     "description": 'Find out if Instagram notifies creators when you download their video, Reel, or Story. Full 2026 privacy guide.',
     "date": '2026-06-11',
     "author": 'Admin',

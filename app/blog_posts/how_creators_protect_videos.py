@@ -1,5 +1,6 @@
 post = {
     "title": 'How Creators Protect Their Instagram Videos (2026)',
+    "slug": "how-creators-protect-videos",
     "description": ('Learn the tools and methods creators use to watermark and copyright their '
      'work against theft. Understand Instagram creator protection strategies in 2026.'),
     "date": '2026-01-24',

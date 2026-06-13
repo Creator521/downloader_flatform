@@ -1,5 +1,6 @@
 post = {
     "title": 'Why YouTube Videos Lose Quality After Download (Fix)',
+    "slug": "why-youtube-videos-lose-quality-download",
     "description": ('Fix pixelated downloads. Understand exactly why YouTube video quality drops '
      'after downloading and how to ensure you always get the original HD file.'),
     "date": '2026-02-09',

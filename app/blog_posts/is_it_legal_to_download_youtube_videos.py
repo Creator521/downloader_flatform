@@ -1,5 +1,6 @@
 post = {
     "title": 'Is It Legal to Download YouTube Videos? Guide (2026)',
+    "slug": "is-it-legal-to-download-youtube-videos",
     "description": ('Is downloading YouTube videos legal? Get a clear, complete answer on YouTube '
      'copyright law, fair use, and what you can legally download in 2026.'),
     "date": '2026-02-06',

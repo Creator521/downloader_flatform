@@ -1,5 +1,6 @@
 post = {
     "title": 'How to Download YouTube Videos Free — Beginner Guide 2026',
+    "slug": "how-to-download-youtube-videos-beginner-guide",
     "description": 'Learn how to download YouTube videos free in HD, 1080p & 4K. Easy step-by-step beginner guide for all devices.',
     "date": '2026-06-11',
     "author": 'Admin',

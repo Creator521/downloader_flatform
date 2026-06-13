@@ -577,6 +577,7 @@ post = {
      'anonymous. Download in 4K, 1080p, MP3 on any device.'),
     "tags": ['YouTube', 'No Login', 'Privacy', 'Download Guide', 'Without Account'],
     "title": 'Can I Download YouTube Videos Without Login? Complete Guide 2026',
+    "slug": "can-i-download-youtube-videos-without-login",
     "seo_keywords": [
         'download youtube videos without login',
         'youtube downloader no account',

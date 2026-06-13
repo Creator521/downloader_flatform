@@ -1,5 +1,6 @@
 post = {
     "title": 'How to Download Snapchat Videos and Spotlight Free 2026 Guide',
+    "slug": "how-to-download-snapchat-videos",
     "description": 'Download Snapchat videos and Spotlight content in HD free. Save Snapchat stories to your device without screenshots.',
     "date": '2026-06-11',
     "author": 'Admin',

@@ -1,5 +1,6 @@
 post = {
     "title": 'YouTube Video Link Not Working? Try These Fixes (2026)',
+    "slug": "youtube-video-link-not-working-fixes",
     "description": ('Invalid URL? Broken link? Here are the quick fixes to get your YouTube link '
      'accepted by any downloader tool and resolve common YouTube URL errors in 2026.'),
     "date": '2026-02-04',

@@ -1,5 +1,6 @@
 post = {
     "title": 'Instagram Reels vs Posts vs Stories – Complete Comparison (2026)',
+    "slug": "instagram-reels-vs-posts-vs-stories",
     "description": ('Should you post a Reel, a Feed Post, or a Story? We compare reach, lifespan, '
      'engagement, and strategy for each format so you can choose the right one.'),
     "date": '2026-01-23',

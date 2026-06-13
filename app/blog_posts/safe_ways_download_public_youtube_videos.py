@@ -1,5 +1,6 @@
 post = {
     "title": 'Safe Ways to Download Public YouTube Videos (2026 Security Guide)',
+    "slug": "safe-ways-download-public-youtube-videos",
     "description": ('Safety guide: How to identify safe YouTube downloaders and avoid malware-ridden '
      'sites. Download YouTube videos securely without installing risky software.'),
     "date": '2026-02-10',

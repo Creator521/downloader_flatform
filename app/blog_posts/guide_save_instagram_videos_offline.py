@@ -1,5 +1,6 @@
 post = {
     "title": 'Save Instagram Videos for Offline Viewing — Guide (2026)',
+    "slug": "guide-save-instagram-videos-offline",
     "description": ('Going on a flight or losing signal? Learn exactly how to save Instagram videos, '
      'Reels, and Stories for offline viewing on Android, iPhone, and PC in 2026.'),
     "date": '2026-01-30',

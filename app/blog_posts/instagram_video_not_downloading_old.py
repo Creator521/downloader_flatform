@@ -1,5 +1,6 @@
 post = {
     "title": 'Instagram Video Not Downloading? 10 Working Fixes (2026)',
+    "slug": "instagram-video-not-downloading-old",
     "description": ('Instagram download not working? Here are 10 proven fixes for 2026 — solve '
      'failed Instagram video downloads instantly on Android, iPhone & PC.'),
     "date": '2026-01-17',

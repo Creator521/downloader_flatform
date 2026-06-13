@@ -1,5 +1,6 @@
 post = {
     "title": 'Instagram Video Link Not Working? Fix It Fast (2026)',
+    "slug": "instagram-video-link-not-working",
     "description": 'Instagram link not working in downloader? Learn why some links fail and how to fix common paste and URL errors.',
     "date": '2026-01-19',
     "author": 'Admin',

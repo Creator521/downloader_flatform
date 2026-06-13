@@ -1,5 +1,6 @@
 post = {
     "title": 'How to Download Pinterest Videos in HD Free (2026 Guide)',
+    "slug": "how-to-download-pinterest-videos",
     "description": 'Download Pinterest videos and GIF pins in HD quality free. Step-by-step guide for saving Pinterest content offline.',
     "date": '2026-06-11',
     "author": 'Admin',

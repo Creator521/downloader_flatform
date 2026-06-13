@@ -1,5 +1,6 @@
 post = {
     "title": 'YouTube Audio Not Downloading? Complete Fix Guide (2026)',
+    "slug": "youtube-audio-not-downloading-fix",
     "description": ('No sound in your downloaded YouTube video? Or MP3 extraction failed? '
      'Here are all the fixes for YouTube audio download issues in 2026.'),
     "date": '2026-02-05',

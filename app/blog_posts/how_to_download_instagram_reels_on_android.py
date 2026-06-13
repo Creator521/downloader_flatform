@@ -1,5 +1,6 @@
 post = {
     "title": 'Download Instagram Reels on Android — 3 Working Methods',
+    "slug": "how-to-download-instagram-reels-on-android",
     "description": ('Step-by-step guide to downloading Instagram Reels on Android in HD. No '
      'watermark, no app install needed. Works on Samsung, Pixel, and all Android '
      'phones.'),

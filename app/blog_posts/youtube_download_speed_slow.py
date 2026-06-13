@@ -1,5 +1,6 @@
 post = {
     "title": 'YouTube Download Speed Slow? Speed It Up (2026 Fix)',
+    "slug": "youtube-download-speed-slow",
     "description": ('Download taking forever? Learn about throttling, server loads, and how to '
      'dramatically speed up your YouTube video download speed in 2026.'),
     "date": '2026-02-05',

@@ -1,5 +1,6 @@
 post = {
     "title": 'How Creators Protect Videos on YouTube (2026 Guide)',
+    "slug": "how-creators-protect-videos-youtube",
     "description": ('From watermarks to Content ID. Learn the strategies YouTubers use to prevent '
      'theft and protect their videos on YouTube in 2026.'),
     "date": '2026-02-08',

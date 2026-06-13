@@ -1,5 +1,6 @@
 post = {
     "title": 'How to Save Instagram Reels to Gallery in Original Quality (2026)',
+    "slug": "save-instagram-reels-gallery-original-quality",
     "description": 'Save Instagram Reels to gallery in original quality. Tips to avoid compression and keep your downloaded Reels sharp.',
     "date": '2026-01-29',
     "author": 'Admin',

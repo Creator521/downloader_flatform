@@ -1,5 +1,6 @@
 post = {
     "title": 'Instagram Public vs Private Videos — What You Can Download',
+    "slug": "how-instagram-public-private-videos-work",
     "description": 'Public vs private Instagram videos explained. Learn which videos can be downloaded and how visibility settings work.',
     "date": '2026-01-26',
     "author": 'Admin',

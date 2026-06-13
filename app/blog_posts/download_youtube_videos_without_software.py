@@ -1,5 +1,6 @@
 post = {
     "title": 'Download YouTube Videos Without Installing Software (2026 Guide)',
+    "slug": "download-youtube-videos-without-software",
     "description": 'Download YouTube videos without software or apps. Use our free online tool — no install, HD quality, works instantly.',
     "date": '2026-02-03',
     "author": 'Admin',

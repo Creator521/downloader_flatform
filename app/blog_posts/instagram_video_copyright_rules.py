@@ -1,5 +1,6 @@
 post = {
     "title": 'Instagram Video Copyright Rules — Download Guide 2026',
+    "slug": "instagram-video-copyright-rules",
     "description": "Instagram video copyright rules explained. What you can and can't download legally. Stay safe in 2026.",
     "date": '2026-01-24',
     "author": 'Admin',

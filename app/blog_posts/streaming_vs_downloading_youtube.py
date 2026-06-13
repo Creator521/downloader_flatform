@@ -1,5 +1,6 @@
 post = {
     "title": 'Streaming vs Downloading YouTube Videos – Which Is Better? (2026)',
+    "slug": "streaming-vs-downloading-youtube",
     "description": ('Data usage, quality, battery, and convenience compared. We break down streaming '
      'vs downloading YouTube video content so you can make the best choice.'),
     "date": '2026-02-07',

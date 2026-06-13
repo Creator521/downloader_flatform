@@ -1,5 +1,6 @@
 post = {
     "title": 'How YouTube Content ID Works — Guide for Downloaders',
+    "slug": "how-content-id-works-youtube",
     "description": ('The automated system that flags copyright. Understand exactly how Content ID '
      'works, how it affects downloads, and what happens when a video gets flagged.'),
     "date": '2026-02-07',
