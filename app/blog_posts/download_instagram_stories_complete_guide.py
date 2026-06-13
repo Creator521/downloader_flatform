@@ -1,10 +1,6 @@
 post = {
-    "title": 'How to Download Instagram Stories Anonymously Before They Disappear (2026 Guide)',
-    "meta_description": (
-        'Save Instagram Stories before they expire — anonymously, in HD. Complete 2026 guide: '
-        'how Instagram anonymity actually works, viewer list vs screenshots, Highlights, and '
-        'why third-party tools never appear in the viewer list. Free, no login.'
-    ),
+    "title": 'How to Download Instagram Stories Anonymously (2026 Guide)',
+    "meta_description": 'Save Instagram Stories before they expire — anonymously, in HD. Step-by-step guide for Android, iPhone and PC.',
     "slug": 'download-instagram-stories-anonymously-before-disappear',
     "date": '2026-02-18',
     "updated_date": '2026-06-03',

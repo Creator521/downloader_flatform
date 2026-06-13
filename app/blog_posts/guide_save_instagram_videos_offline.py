@@ -1,5 +1,5 @@
 post = {
-    "title": 'Step-by-Step Guide to Save Instagram Videos for Offline Viewing (2026)',
+    "title": 'Save Instagram Videos for Offline Viewing — Guide (2026)',
     "description": ('Going on a flight or losing signal? Learn exactly how to save Instagram videos, '
      'Reels, and Stories for offline viewing on Android, iPhone, and PC in 2026.'),
     "date": '2026-01-30',

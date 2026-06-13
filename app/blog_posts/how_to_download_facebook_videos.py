@@ -1,10 +1,6 @@
 post = {
     "title": 'How to Download Facebook Videos Free in HD — 2026 Complete Guide',
-    "meta_description": (
-        'Download Facebook videos free in HD — Reels, Watch content, and Live recordings. '
-        'Important 2026 update: Facebook now deletes Live videos after 30 days. Step-by-step '
-        'guide for Android, iPhone & PC, no login needed.'
-    ),
+    "meta_description": 'Download Facebook videos free in HD — Reels, Watch, and Live. Step-by-step guide for Android, iPhone, and desktop.',
     "slug": 'how-to-download-facebook-videos-free-hd-2026',
     "date": '2026-03-11',
     "updated_date": '2026-06-03',

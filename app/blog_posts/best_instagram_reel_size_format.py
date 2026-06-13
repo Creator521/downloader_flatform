@@ -1,9 +1,6 @@
 post = {
-"title": 'Best Instagram Reel Size, Format & Resolution (2026 Complete Guide)',
-"meta_description": (
-'Instagram Reel size, dimensions, aspect ratio, resolution, bitrate and file format guide for 2026. '
-'Learn the best settings for sharp, high-quality Reels without compression.'
-),
+"title": 'Best Instagram Reel Size, Format & Resolution (2026 Guide)',
+"meta_description": 'Instagram Reel size, format, resolution and aspect ratio guide 2026. Best settings for sharp, high-quality Reels.',
 "slug": 'best-instagram-reel-size-format-resolution',
 "date": '2026-01-17',
 "updated_date": '2026-06-09',

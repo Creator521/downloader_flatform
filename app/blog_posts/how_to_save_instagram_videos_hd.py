@@ -1,8 +1,6 @@
 post = {
-    "title": 'How to Save Instagram Videos in HD Quality (1080p) — Complete Guide 2026',
-    "meta_description": ('Save Instagram videos in original HD 1080p quality for free. Step-by-step '
-     'guide for Android, iPhone & PC. Download Instagram videos without watermark, '
-     'no login needed.'),
+    "title": 'Save Instagram Videos in HD 1080p — Complete Guide 2026',
+    "meta_description": 'Save Instagram videos in original HD 1080p quality free. Step-by-step guide for Android, iPhone, Windows and Mac.',
     "slug": 'how-to-save-instagram-videos-hd',
     "date": '2026-02-13',
     "updated_date": '2026-06-03',

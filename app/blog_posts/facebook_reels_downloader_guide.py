@@ -1,10 +1,6 @@
 post = {
-    "title": 'Facebook Reels Downloader — Download Facebook Reels Free in HD (2026 Guide)',
-    "meta_description": (
-        'Download Facebook Reels free in HD, no watermark, no login. Complete 2026 guide: '
-        'fb.watch vs share links explained, Facebook privacy tiers (Pages, Groups, Profiles), '
-        'Meta cross-posting, and red flags to avoid. Works on Android, iPhone & PC.'
-    ),
+    "title": 'Facebook Reels Downloader — Download FB Reels Free HD 2026',
+    "meta_description": 'Download Facebook Reels free in HD, no watermark, no login. Step-by-step guide for Android, iPhone, and PC in 2026.',
     "slug": 'facebook-reels-downloader-free-hd-2026',
     "date": '2026-03-12',
     "updated_date": '2026-06-03',

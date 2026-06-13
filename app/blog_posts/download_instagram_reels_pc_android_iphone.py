@@ -1,9 +1,6 @@
 post = {
-    "title": 'Download Instagram Reels on PC, Android & iPhone — Complete 2026 Guide',
-    "meta_description": (
-        'Learn how to download Instagram Reels on any device — Windows PC, Mac, Android & iPhone. '
-        'Save Reels in HD without watermark, no login, no app needed. Works on Chrome, Safari & Firefox.'
-    ),
+    "title": 'Download Instagram Reels on PC, Android & iPhone (2026)',
+    "meta_description": 'Download Instagram Reels on PC, Android & iPhone. Free HD quality, no watermark, step-by-step guide for every device.',
     "slug": 'download-instagram-reels-on-pc-android-iphone',
     "date": '2026-01-18',
     "updated_date": '2026-06-03',

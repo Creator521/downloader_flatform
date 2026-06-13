@@ -1,7 +1,6 @@
 post = {
-    "title": 'Instagram Video Copyright Rules – What You Can & Can\'t Download (2026)',
-    "description": ('Stay legal. Understand the copyright rules surrounding downloading and '
-     'reposting Instagram content, and what you can legally do with downloaded videos in 2026.'),
+    "title": 'Instagram Video Copyright Rules — Download Guide 2026',
+    "description": "Instagram video copyright rules explained. What you can and can't download legally. Stay safe in 2026.",
     "date": '2026-01-24',
     "author": 'Admin',
     "tags": [

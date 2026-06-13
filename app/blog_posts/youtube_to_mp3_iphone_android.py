@@ -1,10 +1,6 @@
 post = {
-    "title": 'YouTube to MP3 on iPhone and Android — Free Mobile Converter Guide 2026',
-    "meta_description": (
-        'Convert YouTube to MP3 on iPhone and Android for free. Complete mobile guide — '
-        'MP3 vs M4A, bitrate options, set as ringtone, save to music library. '
-        'No app needed, works in Chrome & Safari.'
-    ),
+    "title": 'YouTube to MP3 on iPhone & Android — Free Guide 2026',
+    "meta_description": 'Convert YouTube to MP3 on iPhone & Android free. Complete mobile guide — MP3 download, save and play offline.',
     "slug": 'youtube-to-mp3-iphone-android-converter-guide',
     "date": '2026-03-09',
     "updated_date": '2026-06-03',

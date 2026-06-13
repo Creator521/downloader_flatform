@@ -30,7 +30,7 @@
     }
   },
   "datePublished": "{{ post.date }}",
-  "dateModified": "{{ post.date }}",
+  "dateModified": "{{ post.updated_date | default(post.date) }}",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ domain_name }}/blog/{{ slug }}"

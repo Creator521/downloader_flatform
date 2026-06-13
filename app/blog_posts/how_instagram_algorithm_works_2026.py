@@ -1,7 +1,6 @@
 post = {
     "title": 'How Instagram Reels Algorithm Works in 2026 – Complete Breakdown',
-    "description": ('Crack the code. Understand how the 2026 Instagram Reels algorithm ranks content, '
-     'what factors drive reach, and how to get your videos in front of more people.'),
+    "description": 'How the 2026 Instagram Reels algorithm ranks content. Understand reach, engagement and what gets your Reels seen.',
     "date": '2026-01-22',
     "author": 'Admin',
     "tags": [

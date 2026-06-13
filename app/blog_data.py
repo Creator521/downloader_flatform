@@ -20,8 +20,13 @@ if os.path.exists(blog_posts_dir):
                     spec.loader.exec_module(module)
                     if hasattr(module, 'post'):
                         post_data = module.post
+                        # Normalize: support both 'meta_description' and 'description' keys
+                        # Template uses post.description, but newer posts use meta_description
+                        if 'meta_description' in post_data and 'description' not in post_data:
+                            post_data['description'] = post_data['meta_description']
                         # Prefer slug from the dict, otherwise infer from filename
                         slug = post_data.get('slug', module_name.replace('_', '-'))
+                        post_data['slug'] = slug  # Ensure slug is always in the dict
                         BLOG_POSTS[slug] = post_data
                 except Exception as e:
                     pass

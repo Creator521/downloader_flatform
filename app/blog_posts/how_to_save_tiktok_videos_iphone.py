@@ -1,7 +1,6 @@
 post = {
     "title": 'How to Save TikTok Videos on iPhone Without App (Free Guide 2026)',
-    "meta_description": ('Learn how to save TikTok videos on iPhone straight to your Camera Roll '
-     'without installing any apps. Download HD TikToks without watermark for free using Safari.'),
+    "meta_description": 'Save TikTok videos on iPhone to your Camera Roll without watermark. Free method using Safari — no app needed.',
     "slug": 'save-tiktok-videos-iphone-without-app',
     "date": '2026-03-04',
     "updated_date": '2026-06-13',

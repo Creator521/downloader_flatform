@@ -1,7 +1,6 @@
 post = {
     "title": 'Instagram Reel Downloader for iPhone — Save to Photos (Free 2026)',
-    "meta_description": ('Download Instagram Reels on iPhone directly to your Photos app without watermarks. '
-     'The ultimate free iOS guide using Safari — no sketchy apps or subscriptions required.'),
+    "meta_description": 'Download Instagram Reels on iPhone to Photos app without watermark. Free HD quality via Safari — no app needed.',
     "slug": 'instagram-reel-downloader-iphone-save-photos',
     "date": '2026-03-03',
     "updated_date": '2026-06-13',

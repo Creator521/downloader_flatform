@@ -1,5 +1,5 @@
 post = {
-    "title": 'YouTube Fair Use Policy Explained for Beginners (Complete Guide 2026)',
+    "title": 'YouTube Fair Use Policy Explained — Guide 2026',
     "description": ('What is Fair Use? Learn how you can legally use portions of copyrighted '
      'YouTube content in your own creations, and when it does NOT apply.'),
     "date": '2026-02-06',

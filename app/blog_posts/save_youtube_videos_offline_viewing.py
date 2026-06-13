@@ -1,5 +1,5 @@
 post = {
-    "title": 'How to Save YouTube Videos for Offline Viewing – Complete Guide (2026)',
+    "title": 'Save YouTube Videos for Offline Viewing — Guide 2026',
     "description": ('Perfect for travel. Create your own offline playlist by saving YouTube videos '
      'to your device. Complete guide for Android, iPhone, and PC in 2026.'),
     "date": '2026-02-10',

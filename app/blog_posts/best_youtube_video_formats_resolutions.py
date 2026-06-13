@@ -1,9 +1,6 @@
 post = {
-    "title": 'Best YouTube Video Formats & Resolutions Explained (2026 Complete Guide)',
-    "meta_description": (
-        'MP4 vs WebM vs MOV? 1080p vs 4K vs 8K? Complete 2026 guide to the best YouTube video '
-        'formats, codecs, bitrates & resolutions for uploading, downloading & playback.'
-    ),
+    "title": 'YouTube Video Formats & Resolutions Explained (2026)',
+    "meta_description": 'Learn about YouTube video formats and resolutions. Choose the best quality for downloading — 4K, 1080p, 720p explained.',
     "slug": 'best-youtube-video-formats-resolutions-explained',
     "date": '2026-02-02',
     "updated_date": '2026-06-03',

@@ -1,8 +1,6 @@
 post = {
-    "title": 'How to Download YouTube Videos Free — Complete Beginner Guide (2026)',
-    "description": ('Learn how to download YouTube videos for free in HD, 1080p & 4K. Easy '
-     'step-by-step guide for Android, iPhone & PC. No login needed — download any '
-     'YouTube video instantly. Full troubleshooting and FAQ included.'),
+    "title": 'How to Download YouTube Videos Free — Beginner Guide 2026',
+    "description": 'Learn how to download YouTube videos free in HD, 1080p & 4K. Easy step-by-step beginner guide for all devices.',
     "date": '2026-06-11',
     "author": 'Admin',
     "tags": [
@@ -923,9 +921,7 @@ Settings → Safari → Downloads → On My iPhone</p>
 </script>
 """,
     "date": '2026-06-11',
-    "description": ('Learn how to download YouTube videos for free in HD, 1080p & 4K. Easy '
-     'step-by-step guide for Android, iPhone & PC. No login needed — download any '
-     'YouTube video instantly. Full troubleshooting and FAQ.'),
+    "description": 'Learn how to download YouTube videos for free in HD, 1080p & 4K. Easy step-by-step guide for Android, iPhone & PC. No login needed.',
     "seo_keywords": [
         'how to download youtube videos',
         'download youtube video free',

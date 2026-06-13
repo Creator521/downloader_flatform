@@ -1,5 +1,5 @@
 post = {
-    "title": 'How Instagram Compresses Videos & How to Export for Best Quality (2026)',
+    "title": 'How Instagram Compresses Videos & Best Export Tips 2026',
     "description": ("Deep dive into Instagram's video compression codec. Learn exactly how to export "
      'your videos to minimize quality loss when uploading to Instagram in 2026.'),
     "date": '2026-01-23',

@@ -1,10 +1,6 @@
 post = {
-    "title": 'How to Download YouTube Shorts Free — HD No Watermark (2026 Complete Guide)',
-    "meta_description": (
-        'Download YouTube Shorts free in HD quality, no watermark, no login. Complete '
-        '2026 guide: own Shorts vs others\' Shorts, vertical format explained, '
-        'cross-posting to TikTok & Instagram. Works on Android, iPhone & PC.'
-    ),
+    "title": 'Download YouTube Shorts Free HD No Watermark (2026)',
+    "meta_description": 'Download YouTube Shorts free in HD, no watermark, no login. Complete 2026 guide for Android, iPhone, PC and Mac.',
     "slug": 'how-to-download-youtube-shorts-free-hd-no-watermark',
     "date": '2026-02-21',
     "updated_date": '2026-06-03',

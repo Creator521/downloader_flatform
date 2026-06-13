@@ -1,10 +1,6 @@
 post = {
-    "title": 'YouTube to MP3 Converter Free — The Truth About 320kbps Quality (2026)',
-    "meta_description": (
-        'Convert YouTube to MP3 free online — high quality audio extraction from any '
-        'YouTube video, Shorts, or music. Plus: the truth about "320kbps" claims, '
-        'YouTube\'s real audio bitrate, and how to get the best possible quality.'
-    ),
+    "title": 'YouTube to MP3 Converter Free — 320kbps Quality 2026',
+    "meta_description": 'Convert YouTube to MP3 free online — high quality 320kbps audio extraction. No software install, works instantly.',
     "slug": 'youtube-to-mp3-converter-free-320kbps-quality-explained',
     "date": '2026-02-20',
     "updated_date": '2026-06-03',

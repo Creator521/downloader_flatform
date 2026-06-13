@@ -1,10 +1,6 @@
 post = {
     "title": "Is It Legal to Download Instagram Reels and Videos? (2026 Guide)",
-    "description": (
-        "Is downloading Instagram Reels legal? Learn about copyright laws, "
-        "personal use, fair use, creator rights, and what you can legally do "
-        "with downloaded Instagram content in 2026."
-    ),
+    "description": 'Is downloading Instagram Reels legal? Copyright laws, personal use rules, and what creators should know in 2026.',
     "date": "2026-01-25",
     "author": "Admin",
     "tags": [

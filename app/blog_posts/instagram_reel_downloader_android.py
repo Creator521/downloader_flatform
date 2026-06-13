@@ -1,7 +1,6 @@
 post = {
-    "title": 'Instagram Reel Downloader for Android — Save to Gallery (Free 2026)',
-    "meta_description": ('Download Instagram Reels on Android without watermark in HD. The best free '
-     'Instagram Reel downloader for Android — no app install, works in Chrome, saves to gallery instantly.'),
+    "title": 'Instagram Reel Downloader for Android — Free 2026',
+    "meta_description": 'Download Instagram Reels on Android without watermark in HD. Free downloader — save Reels directly to gallery.',
     "slug": 'instagram-reel-downloader-android-save-gallery',
     "date": '2026-03-02',
     "updated_date": '2026-06-13',

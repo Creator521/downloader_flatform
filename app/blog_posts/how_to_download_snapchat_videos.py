@@ -1,8 +1,6 @@
 post = {
     "title": 'How to Download Snapchat Videos and Spotlight Free 2026 Guide',
-    "description": ('Download Snapchat videos and Spotlight content in HD free online. Save '
-     'Snapchat videos anonymously — no login, works on Android and iPhone. '
-     'Complete guide with troubleshooting, privacy info, and FAQ.'),
+    "description": 'Download Snapchat videos and Spotlight content in HD free. Save Snapchat stories to your device without screenshots.',
     "date": '2026-06-11',
     "author": 'Admin',
     "tags": [
@@ -913,9 +911,7 @@ Settings → Safari → Downloads → set to "On My iPhone"</p>
 </script>
 """,
     "date": '2026-06-11',
-    "description": ('Download Snapchat videos and Spotlight content in HD free online. Save '
-     'Snapchat videos anonymously — no login, works on Android and iPhone. '
-     'Complete guide with privacy breakdown, troubleshooting, and FAQ.'),
+    "description": 'Download Snapchat videos and Spotlight content in HD free online. Save Snapchat videos anonymously — no login, works on Android and iPhone.',
     "seo_keywords": [
         'download snapchat spotlight videos',
         'snapchat video downloader',

@@ -1,8 +1,6 @@
 post = {
     "title": 'TikTok to MP3 Converter — Download TikTok Audio Free 2026',
-    "description": ('Convert TikTok to MP3 audio free online. Download TikTok sounds, music & '
-     'audio in high quality — no login, works on Android, iPhone & PC instantly. '
-     'Complete guide with troubleshooting, ringtone setup, and copyright info.'),
+    "description": 'Convert TikTok to MP3 audio free online. Download TikTok sounds and music in high quality. No app installation.',
     "date": '2026-06-11',
     "author": 'Admin',
     "tags": [
@@ -884,9 +882,7 @@ post = {
 </script>
 """,
     "date": '2026-06-11',
-    "description": ('Convert TikTok to MP3 audio free online. Download TikTok sounds, music & '
-     'audio in high quality — no login, works on Android, iPhone & PC instantly. '
-     'Complete guide with troubleshooting, ringtone setup, and copyright info.'),
+    "description": 'Convert TikTok to MP3 audio free online. Download TikTok sounds, music & audio in high quality — no login, works on Android, iPhone & PC.',
     "seo_keywords": [
         'tiktok to mp3',
         'tiktok mp3 converter',

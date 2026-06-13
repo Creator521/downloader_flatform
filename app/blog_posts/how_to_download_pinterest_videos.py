@@ -1,8 +1,6 @@
 post = {
     "title": 'How to Download Pinterest Videos in HD Free (2026 Guide)',
-    "description": ('Learn how to download Pinterest videos and GIF pins in HD quality free '
-     'online. Step-by-step guide for Android, iPhone & PC — no login needed, works '
-     'instantly. Full troubleshooting and FAQ included.'),
+    "description": 'Download Pinterest videos and GIF pins in HD quality free. Step-by-step guide for saving Pinterest content offline.',
     "date": '2026-06-11',
     "author": 'Admin',
     "tags": [
@@ -861,9 +859,7 @@ post = {
 </script>
 """,
     "date": '2026-06-11',
-    "description": ('Learn how to download Pinterest videos and GIF pins in HD quality free '
-     'online. Step-by-step guide for Android, iPhone & PC — no login needed, works '
-     'instantly. Full troubleshooting and FAQ included.'),
+    "description": 'Learn how to download Pinterest videos and GIF pins in HD free online. Guide for Android, iPhone & PC — no login needed.',
     "seo_keywords": [
         'download pinterest videos free',
         'pinterest video downloader',

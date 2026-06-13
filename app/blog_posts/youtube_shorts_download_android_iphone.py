@@ -1,10 +1,6 @@
 post = {
-    "title": 'How to Download YouTube Shorts on Android and iPhone to Your Gallery (2026)',
-    "meta_description": (
-        'Download YouTube Shorts on Android and iPhone free, in HD, straight to your gallery. '
-        'Covers Samsung, Xiaomi, OnePlus & stock Android file managers, storage permission fixes, '
-        'and organizing downloaded Shorts — no app needed.'
-    ),
+    "title": 'Download YouTube Shorts on Android & iPhone Free 2026',
+    "meta_description": 'Download YouTube Shorts on Android & iPhone free in HD. Save Shorts to gallery — no watermark, no login needed.',
     "slug": 'download-youtube-shorts-android-iphone-to-gallery',
     "date": '2026-03-07',
     "updated_date": '2026-06-03',

@@ -1,9 +1,6 @@
 post = {
-    "title": 'Best Browser Settings for Smooth Instagram Video Downloads (2026 Guide)',
-    "meta_description": (
-        'Optimize Chrome, Safari, Firefox, and Edge settings for faster Instagram video downloads. '
-        'Fix download errors, improve speed, and ensure smooth HD video saving in 2026.'
-    ),
+    "title": 'Best Browser Settings for Instagram Downloads (2026)',
+    "meta_description": 'Optimize Chrome, Safari, Firefox and Edge for faster Instagram video downloads. Fix errors and improve speed.',
     "slug": 'best-browser-settings-instagram-video-downloads',
     "date": '2026-01-26',
     "updated_date": '2026-06-09',

@@ -1,9 +1,6 @@
 post = {
-"title": 'YouTube Video Download Failed? Causes & Fixes (2026 Complete Guide)',
-"meta_description": (
-"Troubleshoot YouTube download errors quickly. Learn how to fix 'Download Failed', "
-"'Forbidden', 'Video Not Available', and other common YouTube downloader issues."
-),
+"title": 'YouTube Download Failed? Causes & Fixes (2026 Guide)',
+"meta_description": 'YouTube download failed? Fix common errors fast. Troubleshoot blank screens, slow downloads and format issues.',
 "slug": 'youtube-video-download-failed-fixes',
 "date": '2026-02-02',
 "updated_date": '2026-06-09',

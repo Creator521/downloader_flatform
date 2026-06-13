@@ -1,10 +1,6 @@
 post = {
-    "title": 'How to Download Instagram Photos in Full HD Quality — The 2026 Truth About Resolution',
-    "meta_description": (
-        'Download Instagram photos in full resolution free — feed posts, carousels, and '
-        'profile pictures. Plus: the truth about what "HD" actually means on Instagram, '
-        'real stored resolutions, and why screenshots are always worse. No login.'
-    ),
+    "title": 'Download Instagram Photos in Full HD — The Truth (2026)',
+    "meta_description": 'Download Instagram photos in full HD quality free. Save feed posts, carousels, and profile pictures in original size.',
     "slug": 'download-instagram-photos-full-hd-resolution-explained',
     "date": '2026-03-01',
     "updated_date": '2026-06-03',

@@ -1,8 +1,6 @@
 post = {
-    "title": 'Does Instagram Notify When You Download a Video or Story? (Answered 2026)',
-    "description": ('Does Instagram notify creators when you download their video, Reel, or '
-     'Story? Get the definitive answer — plus everything you need to know about '
-     'Instagram download privacy, screenshots, and how to stay completely anonymous.'),
+    "title": 'Does Instagram Notify When You Download a Video? (2026)',
+    "description": 'Find out if Instagram notifies creators when you download their video, Reel, or Story. Full 2026 privacy guide.',
     "date": '2026-06-11',
     "author": 'Admin',
     "tags": [

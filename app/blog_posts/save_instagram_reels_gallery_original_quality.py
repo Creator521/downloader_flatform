@@ -1,7 +1,6 @@
 post = {
     "title": 'How to Save Instagram Reels to Gallery in Original Quality (2026)',
-    "description": ('Ensure your saved Instagram Reels look just as good as they did on the feed. '
-     'Complete guide to saving Reels to gallery in original quality on Android and iPhone.'),
+    "description": 'Save Instagram Reels to gallery in original quality. Tips to avoid compression and keep your downloaded Reels sharp.',
     "date": '2026-01-29',
     "author": 'Admin',
     "tags": [

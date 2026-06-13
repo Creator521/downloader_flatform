@@ -1,7 +1,6 @@
 post = {
-    "title": 'How Instagram Public & Private Videos Work – What Can Be Downloaded (2026)',
-    "description": ('Understand the difference between public and private visibility settings on Instagram '
-     'and exactly how they affect whether videos can be downloaded by others.'),
+    "title": 'Instagram Public vs Private Videos — What You Can Download',
+    "description": 'Public vs private Instagram videos explained. Learn which videos can be downloaded and how visibility settings work.',
     "date": '2026-01-26',
     "author": 'Admin',
     "tags": [

@@ -1,7 +1,6 @@
 post = {
     "title": 'Instagram Video Not Downloading? 10 Proven Fixes (2026 Guide)',
-    "meta_description": ('Instagram video download not working? Try these 10 proven fixes to solve failed downloads, '
-     'broken links, and server errors instantly. Works for Reels and Videos.'),
+    "meta_description": 'Instagram video download not working? Try these 10 proven fixes to solve failed downloads on any device quickly.',
     "slug": 'instagram-video-not-downloading-fixes',
     "date": '2026-01-17',
     "updated_date": '2026-06-13',
