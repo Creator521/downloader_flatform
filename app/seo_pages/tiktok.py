@@ -14,7 +14,7 @@ page_data = {
     "page_hero_image": '/static/images/how-to-download-tiktok-video.webp?v=2',
     "page_hero_alt": 'TikTok video downloader tool - download videos without watermark in HD',
     "intro_text": """
-        <h1>TikTok Downloader — Download TikTok Videos Without Watermark in HD</h1>
+        <h2>TikTok Downloader — Download TikTok Videos Without Watermark in HD</h2>
         
         <p><strong>Last Updated: June 2026 | Free Tool | No Login Required</strong></p>
 

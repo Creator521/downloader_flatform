@@ -15,7 +15,7 @@ page_data = {
     "page_hero_image": '/static/images/how-to-download-instagram-photos.webp?v=2',
     "page_hero_alt": 'Instagram photo downloader - download instagram photos in full HD quality without watermark',
     "intro_text": """
-        <h1>Instagram Photo Downloader — Download Photos in Full HD Quality</h1>
+        <h2>Instagram Photo Downloader — Download Photos in Full HD Quality</h2>
         
         <p><strong>Last Updated: June 2026 | Free Tool | No Login Required</strong></p>
 

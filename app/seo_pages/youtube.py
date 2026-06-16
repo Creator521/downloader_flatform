@@ -14,7 +14,7 @@ page_data = {
     "page_hero_image": '/static/images/how-to-download-youtube-video.webp?v=2',
     "page_hero_alt": 'YouTube video downloader - download videos in 1080p and 4K quality without watermark',
     "intro_text": """
-        <h1>YouTube Downloader — Download Videos in HD, 1080p & 4K Quality</h1>
+        <h2>YouTube Downloader — Download Videos in HD, 1080p & 4K Quality</h2>
         
         <p><strong>Last Updated: June 2026 | Free Tool | No Login Required</strong></p>
 

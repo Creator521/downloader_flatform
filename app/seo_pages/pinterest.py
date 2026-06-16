@@ -14,7 +14,7 @@ page_data = {
     "page_hero_image": '/static/images/how-to-download-pinterest-video.webp?v=2',
     "page_hero_alt": 'Pinterest video downloader - download pinterest videos in HD quality without watermark',
     "intro_text": """
-        <h1>Pinterest Video Downloader — Download Pinterest Videos in HD Quality</h1>
+        <h2>Pinterest Video Downloader — Download Pinterest Videos in HD Quality</h2>
         
         <p><strong>Last Updated: June 2026 | Free Tool | No Login Required</strong></p>
 
