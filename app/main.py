@@ -186,6 +186,10 @@ async def ads_txt():
     content = "google.com, pub-3721817985222293, DIRECT, f08c47fec0942fa0\n"
     return PlainTextResponse(content=content, media_type="text/plain")
 
+@app.get("/49ee0a05f62d4645bd7fd30f5840e72e.txt", include_in_schema=False)
+async def indexnow_key():
+    return PlainTextResponse("49ee0a05f62d4645bd7fd30f5840e72e")
+
 from app.routes.seo import router as seo_router
 from app.routes.blog import router as blog_router
 from app.routes.legal import router as legal_router
