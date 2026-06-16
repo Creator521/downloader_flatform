@@ -287,8 +287,6 @@ async def robots_txt():
         "Disallow: /*.log$\n"
         "Disallow: /*.tmp$\n"
         "\n"
-        "Crawl-delay: 1\n"
-        "\n"
         f"Sitemap: {domain}/sitemap.xml\n"
     )
     return PlainTextResponse(content=content, media_type="text/plain")
