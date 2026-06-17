@@ -145,6 +145,89 @@ def stream_with_instaloader(url: str, fmt: str):
         return None, None
 
 
+
+# ─────────────────────────────────────────────
+# TIKTOK HELPER (Primary for TikTok)
+# ─────────────────────────────────────────────
+def is_tiktok_url(url: str) -> bool:
+    """Check karo ke URL TikTok ka hai ya nahi."""
+    return "tiktok.com" in urlparse(url).hostname.lower()
+
+def extract_info_with_tikwm(url: str) -> dict | None:
+    """
+    TikWM API se TikTok video ka info extract karo.
+    """
+    try:
+        import requests
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "application/json"
+        }
+        res = requests.get("https://www.tikwm.com/api/", params={"url": url}, headers=headers, timeout=15)
+        res.raise_for_status()
+        data_json = res.json()
+        
+        if data_json.get("code") == 0 and "data" in data_json:
+            data = data_json["data"]
+            title = data.get("title", "TikTok Video")
+            if not title:
+                title = "TikTok Video"
+            return {
+                "title": title[:100],
+                "thumbnail": data.get("cover"),
+                "video_url": data.get("play"),      # No watermark
+                "audio_url": data.get("music"),
+                "uploader": data.get("author", {}).get("nickname"),
+                "view_count": data.get("play_count"),
+                "duration": data.get("duration"),
+            }
+        else:
+            logger.warning(f"TikWM returned error: {data_json.get('msg')}")
+    except Exception as e:
+        logger.warning(f"TikWM extraction failed for {url}: {e}")
+    return None
+
+def stream_with_tikwm(url: str, fmt: str):
+    """
+    TikWM API se video ya audio URL nikal kar stream karo.
+    """
+    info = extract_info_with_tikwm(url)
+    if not info:
+        return None, None
+
+    media_url = info.get("audio_url") if fmt == "audio" else info.get("video_url")
+    if not media_url:
+        return None, None
+
+    title = info.get("title", "tiktok_video")
+    ext = "mp3" if fmt == "audio" else "mp4"
+    filename = f"{title}.{ext}"
+    filename = "".join(c for c in filename if c.isalnum() or c in (' ', '.', '_', '-')).strip()
+    if not filename:
+        filename = f"tiktok.{ext}"
+
+    try:
+        import requests
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        }
+        resp = requests.get(media_url, headers=headers, stream=True, timeout=30)
+        resp.raise_for_status()
+
+        def iterfile():
+            try:
+                for chunk in resp.iter_content(chunk_size=64 * 1024):
+                    if chunk:
+                        yield chunk
+            except Exception as ex:
+                logger.error(f"TikWM stream error: {ex}")
+
+        logger.info(f"TikWM: Streaming media for {url}")
+        return iterfile(), filename
+    except Exception as e:
+        logger.warning(f"TikWM stream request failed: {e}")
+        return None, None
+
 # ─────────────────────────────────────────────
 # URL VALIDATION
 # ─────────────────────────────────────────────
@@ -308,6 +391,17 @@ def preview(request: Request, url: str = Form(...)):
             # Instaloader fail hua → yt-dlp fallback
             logger.info(f"Instaloader failed, falling back to yt-dlp for: {url}")
 
+        # ── PRIMARY: TikWM API (TikTok URLs ke liye) ──
+        if is_tiktok_url(url):
+            logger.info(f"Using TikWM (primary) for TikTok: {url}")
+            tiktok_info = extract_info_with_tikwm(url)
+            
+            if tiktok_info:
+                cache_set(url, tiktok_info)
+                return tiktok_info
+            
+            logger.info(f"TikWM failed, falling back to yt-dlp for: {url}")
+
         # ── FALLBACK / NON-INSTAGRAM: yt-dlp ──
         extracted = extract_info_with_retry(url)
         info = extracted["info"]
@@ -356,6 +450,22 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
     
             logger.info(f"Instaloader stream failed, falling back to yt-dlp for: {url}")
     
+        # ── PRIMARY: TikWM stream (TikTok URLs ke liye) ──
+        if is_tiktok_url(url):
+            logger.info(f"Trying TikWM stream for: {url}")
+            stream_gen, filename = stream_with_tikwm(url, format)
+            
+            if stream_gen:
+                encoded_filename = quote(filename)
+                media_type = "audio/mpeg" if format == "audio" else "video/mp4"
+                headers = {
+                    "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{encoded_filename}',
+                    "X-Robots-Tag": "noindex, nofollow",
+                }
+                return StreamingResponse(stream_gen, media_type=media_type, headers=headers)
+            
+            logger.info(f"TikWM stream failed, falling back to yt-dlp for: {url}")
+
         # ── Check if YouTube URL ──
         parsed_host = urlparse(url).hostname or ""
         is_yt = any(h in parsed_host.lower() for h in ("youtube.com", "youtu.be"))
