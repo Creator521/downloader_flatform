@@ -26,7 +26,7 @@ page_data = {
           our free video downloader handles everything in one place.
         </p>
 
-        <h2>Why Choose SnapReelDownload Over Other Video Downloaders?</h2>
+        <h3>Why Choose SnapReelDownload Over Other Video Downloaders?</h3>
 
         <p>
           We understand the frustration with other free video downloader tools. Most are slow, force you to install 
@@ -44,7 +44,7 @@ page_data = {
           <li><strong>Download any format:</strong> MP4 videos or MP3 audio extraction — your choice</li>
         </ul>
 
-        <h2>How to Download Videos - 3 Quick Steps</h2>
+        <h3>How to Download Videos - 3 Quick Steps</h3>
 
         <p>
           Downloading videos with SnapReelDownload is incredibly simple. Here's exactly how it works:
@@ -73,7 +73,7 @@ page_data = {
           No additional steps, no waiting for emails, no software installation required.
         </p>
 
-        <h2>Download Videos from Any Platform</h2>
+        <h3>Download Videos from Any Platform</h3>
 
         <h3>YouTube Video Downloader</h3>
         <p>
@@ -109,7 +109,7 @@ page_data = {
           new services as they emerge.
         </p>
 
-        <h2>MP4 & MP3 Download Options - Complete Control</h2>
+        <h3>MP4 & MP3 Download Options - Complete Control</h3>
 
         <p>
           We believe you should have complete control over your downloaded content. That's why SnapReelDownload 
@@ -137,7 +137,7 @@ page_data = {
           for offline listening during commutes, workouts, study sessions, or road trips.
         </p>
 
-        <h2>Is SnapReelDownload Completely Secure & Private?</h2>
+        <h3>Is SnapReelDownload Completely Secure & Private?</h3>
 
         <p>
           Your security and privacy are our absolute top priorities. Here's exactly how we protect you:
@@ -153,7 +153,7 @@ page_data = {
           <li><strong>Browser Sandbox:</strong> The tool operates entirely within your browser's secure sandbox environment</li>
         </ul>
 
-        <h2>Compatible with All Devices & Operating Systems</h2>
+        <h3>Compatible with All Devices & Operating Systems</h3>
 
         <p>
           Whether you're using an iPhone, Android phone, Windows computer, or Mac laptop, SnapReelDownload works seamlessly:
@@ -167,7 +167,7 @@ page_data = {
           <li><strong>Tablets & Smart TVs:</strong> Works on any device with a modern web browser</li>
         </ul>
 
-        <h2>100% Free Forever - No Hidden Costs</h2>
+        <h3>100% Free Forever - No Hidden Costs</h3>
 
         <p>
           Unlike other video downloaders that try to upsell premium features, SnapReelDownload is genuinely 100% free 
@@ -185,7 +185,7 @@ page_data = {
           <li>✅ No payment information required</li>
         </ul>
 
-        <h2>Legal & Ethical Video Downloads</h2>
+        <h3>Legal & Ethical Video Downloads</h3>
 
         <p>
           SnapReelDownload is designed for downloading <strong>publicly available content</strong> that you have permission 
@@ -207,7 +207,7 @@ page_data = {
           rights and platform guidelines. When in doubt, ask the creator for permission before reusing their content.
         </p>
 
-        <h2>Frequently Asked Questions About Video Downloads</h2>
+        <h3>Frequently Asked Questions About Video Downloads</h3>
 
         <p>
           Have questions? Check our comprehensive FAQ section below to find answers to common questions about how 

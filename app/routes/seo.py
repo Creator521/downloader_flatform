@@ -271,6 +271,7 @@ async def robots_txt():
         "Allow: /\n"
         "\n"
         "User-agent: *\n"
+        "Allow: /\n"
         "\n"
         "# Block internal API and non-indexable paths\n"
         "Disallow: /proxy-image\n"

@@ -690,7 +690,7 @@
         <!-- Features -->
         {% if page.features %}
         <section aria-labelledby="features-heading" style="margin-top:40px;">
-            <h2 id="features-heading" style="margin-bottom:20px;">Features</h2>
+            <h2 id="features-heading" style="margin-bottom:20px;">Key Features of {{ page.tool_name | default('SnapReelDownload') }}</h2>
             <ul style="list-style:none; color:#4a5568; padding:0;">
                 {% for feature in page.features %}
                 <li style="margin-bottom:12px; display:flex; gap:8px; align-items:flex-start;">

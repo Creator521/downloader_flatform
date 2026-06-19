@@ -180,11 +180,7 @@ os.makedirs(TEMP_DIR, exist_ok=True)
 # --- Register All Route Modules (Point 11: APIRouter split) ---
 from fastapi.responses import PlainTextResponse
 
-@app.get("/ads.txt", include_in_schema=False)
-async def ads_txt():
-    """Serve Google AdSense ads.txt for publisher verification."""
-    content = "google.com, pub-3721817985222293, DIRECT, f08c47fec0942fa0\n"
-    return PlainTextResponse(content=content, media_type="text/plain")
+# Note: /ads.txt is handled by seo_router (app/routes/seo.py)
 
 @app.get("/49ee0a05f62d4645bd7fd30f5840e72e.txt", include_in_schema=False)
 async def indexnow_key():
