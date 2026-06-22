@@ -186,6 +186,27 @@ from fastapi.responses import PlainTextResponse
 async def indexnow_key():
     return PlainTextResponse("49ee0a05f62d4645bd7fd30f5840e72e")
 
+@app.get("/sw.js", include_in_schema=False)
+async def monetag_service_worker():
+    """Monetag push notification service worker — must be served at root scope."""
+    from fastapi.responses import Response
+    content = (
+        'self.options = {\n'
+        '    "domain": "5gvci.com",\n'
+        '    "zoneId": 11184914\n'
+        '}\n'
+        'self.lary = ""\n'
+        'importScripts(\'https://5gvci.com/act/files/service-worker.min.js?r=sw\')\n'
+    )
+    return Response(
+        content=content,
+        media_type="application/javascript",
+        headers={
+            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Service-Worker-Allowed": "/",
+        },
+    )
+
 from app.routes.seo import router as seo_router
 from app.routes.blog import router as blog_router
 from app.routes.legal import router as legal_router
