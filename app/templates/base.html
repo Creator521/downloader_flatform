@@ -616,7 +616,7 @@
     </script>
     {% block extra_js %}{% endblock %}
 
-    <!-- Deferred Third-Party Scripts (AdSense) -->
+    <!-- Deferred Third-Party Scripts (AdSense + Monetag) -->
     <script>
         function loadDeferredScripts() {
             if (window.scriptsLoaded) return;
@@ -628,6 +628,14 @@
             adsense.async = true;
             adsense.crossOrigin = 'anonymous';
             document.head.appendChild(adsense);
+
+            // Load Monetag Multitag (Luminous tag)
+            var monetag = document.createElement('script');
+            monetag.src = 'https://quge5.com/88/tag.min.js';
+            monetag.async = true;
+            monetag.setAttribute('data-zone', '252375');
+            monetag.setAttribute('data-cfasync', 'false');
+            document.head.appendChild(monetag);
 
             // Clean up event listeners
             ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function (e) {
