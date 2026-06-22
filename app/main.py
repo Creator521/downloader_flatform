@@ -207,6 +207,24 @@ async def monetag_service_worker():
         },
     )
 
+@app.get("/tag.min.js", include_in_schema=False)
+async def monetag_tag_js():
+    """Monetag Luminous tag JS file — must be served at root for installation check."""
+    import httpx
+    from fastapi.responses import Response
+    async with httpx.AsyncClient() as client:
+        r = await client.get(
+            "https://quge5.com/88/tag.min.js",
+            headers={"User-Agent": "Mozilla/5.0"},
+            follow_redirects=True,
+            timeout=10.0,
+        )
+    return Response(
+        content=r.content,
+        media_type="application/javascript",
+        headers={"Cache-Control": "public, max-age=3600"},
+    )
+
 from app.routes.seo import router as seo_router
 from app.routes.blog import router as blog_router
 from app.routes.legal import router as legal_router
