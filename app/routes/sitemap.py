@@ -63,12 +63,15 @@ async def sitemap():
         
         xml += '  </url>\n'
 
-    # 3. Blog Posts
+    # 3. Blog Index Page
+    xml += f'  <url>\n    <loc>{base}/blog</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>\n'
+
+    # 4. Blog Posts
     for slug, post in BLOG_POSTS.items():
         post_date = post.get("date", today)
         xml += f'  <url>\n    <loc>{base}/blog/{slug}</loc>\n    <lastmod>{post_date}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>\n'
 
-    # 4. Legal Pages
+    # 5. Legal Pages
     for path in LEGAL_PAGES:
         xml += f'  <url>\n    <loc>{base}{path}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>\n  </url>\n'
 
