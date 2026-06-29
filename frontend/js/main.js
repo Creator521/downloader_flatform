@@ -41,9 +41,10 @@ async function handleDownload(e) {
     }
 
     // Reset UI
-    loading.style.display = 'block';
+    loading.style.display = 'flex';
     result.style.display = 'none';
     error.style.display = 'none';
+    if(document.getElementById('status-msg')) document.getElementById('status-msg').style.display = 'none';
 
     try {
         const formData = new FormData();
@@ -81,8 +82,14 @@ async function handleDownload(e) {
 }
 
 async function triggerDownload(format) {
-    const status = document.getElementById('loading'); // Reuse loading div
-    status.innerText = "Starting download...";
+    let status = document.getElementById('status-msg');
+    if (!status) {
+        status = document.createElement('div');
+        status.id = 'status-msg';
+        status.style.cssText = "text-align:center; padding: 15px; margin-bottom: 20px; border-radius: 12px; font-weight: 600; color: #047857; background: #d1fae5; border: 1px solid #6ee7b7;";
+        document.getElementById('result').insertBefore(status, document.getElementById('result').firstChild);
+    }
+    status.innerText = "Starting download... please wait.";
     status.style.display = 'block';
 
     const url = document.getElementById('urlInput').value;
@@ -92,7 +99,6 @@ async function triggerDownload(format) {
     }
 
     try {
-        // Track the download event in Google Analytics
         if (typeof window.gtag === 'function') {
             window.gtag('event', 'video_download', {
                 'event_category': 'Engagement',
@@ -101,9 +107,6 @@ async function triggerDownload(format) {
             });
         }
 
-        // Native browser download via Form POST
-        // This is 100x faster than fetch+blob because it streams straight to disk
-        // and doesn't store the video in RAM first.
         const form = document.createElement('form');
         form.method = 'POST';
         form.action = '/download';
@@ -126,8 +129,7 @@ async function triggerDownload(format) {
         
         setTimeout(() => { 
             status.style.display = 'none'; 
-            status.innerText = "Processing..."; 
-        }, 3000);
+        }, 4000);
     } catch (err) {
         alert("Error: " + err.message);
         status.style.display = 'none';

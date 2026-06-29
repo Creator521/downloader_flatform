@@ -90,15 +90,18 @@
     </style>
     {% block extra_css %}{% endblock %}
 
-    <!-- Stitch Premium Styles -->
+    <!-- Premium SaaS Styles -->
     <style id="stitch-modern">
         :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --bg-color: #f8fafc;
+            /* Indigo to Violet Premium Gradient */
+            --primary: #4f46e5;       /* Indigo 600 */
+            --secondary: #7c3aed;     /* Violet 600 */
+            --primary-hover: #4338ca; /* Indigo 700 */
+            --bg-color: #f8fafc;      /* Slate 50 */
             --surface: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
+            --text-main: #0f172a;     /* Slate 900 */
+            --text-muted: #64748b;    /* Slate 500 */
+            --border-color: #e2e8f0;  /* Slate 200 */
         }
         *, *::before, *::after {
             box-sizing: border-box !important;
@@ -596,7 +599,7 @@
 
 
     <!-- Defer main JS -->
-    <script src="/static/js/main.min.js?v=4" defer></script>
+    <script src="/static/js/main.min.js?v=5" defer></script>
     <script>
         // Premium Mobile Menu Logic
         document.addEventListener('DOMContentLoaded', () => {

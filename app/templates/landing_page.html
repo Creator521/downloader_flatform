@@ -245,8 +245,8 @@
    PLATFORM SPECIFIC THEMING
    ────────────────────────────────────────────────────────── */
 :root {
-    --page-primary: {{ page.page_color_primary | default('#667eea') }};
-    --page-secondary: {{ page.page_color_secondary | default('#764ba2') }};
+    --page-primary: {{ page.page_color_primary | default('#4f46e5') }};
+    --page-secondary: {{ page.page_color_secondary | default('#7c3aed') }};
 }
 
 .hero-section {
@@ -330,69 +330,79 @@
     line-height: 1.6;
 }
 
-/* ── Input Box Updates ── */
+/* ── Premium Input Box ── */
 .input-group {
     background: #ffffff;
     padding: 8px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e2e8f0;
     display: flex;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin: 0 auto 30px !important;
-    max-width: 700px !important;
+    max-width: 720px !important;
     position: relative;
+    align-items: center;
 }
 .input-group:focus-within {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 40px rgba(var(--page-primary), 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.25);
     border-color: var(--page-primary);
 }
 .url-input {
     border: none !important;
     background: transparent !important;
     flex: 1;
-    padding: 16px 20px !important;
-    font-size: 16px !important;
+    padding: 18px 24px !important;
+    font-size: 17px !important;
     color: #0f172a;
     width: 100%;
     outline: none !important;
+    font-weight: 500;
 }
-.url-input::placeholder { color: #94a3b8; }
+.url-input::placeholder { color: #94a3b8; font-weight: 400; }
 .paste-btn {
-    background: #f1f5f9 !important;
-    border: none !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
     color: #475569 !important;
-    padding: 0 16px !important;
-    border-radius: 12px;
+    padding: 12px 20px !important;
+    border-radius: 14px;
     font-weight: 600 !important;
-    font-size: 14px;
-    transition: color 0.2s, background 0.2s;
+    font-size: 15px;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     cursor: pointer;
-    margin: 4px 8px 4px 0;
+    margin-right: 12px;
 }
 .paste-btn:hover {
     color: var(--page-primary) !important;
-    background: #e2e8f0 !important;
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+}
+.paste-btn:active {
+    transform: scale(0.95);
 }
 .download-btn {
-    padding: 16px 36px !important;
-    font-size: 16px !important;
+    padding: 18px 44px !important;
+    font-size: 17px !important;
     font-weight: 700 !important;
     background: linear-gradient(135deg, var(--page-primary), var(--page-secondary)) !important;
     color: white !important;
     border: none !important;
-    border-radius: 14px !important;
+    border-radius: 16px !important;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
-    transition: transform 0.2s, box-shadow 0.2s !important;
+    box-shadow: 0 8px 20px -6px var(--page-primary) !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    letter-spacing: 0.5px;
 }
 .download-btn:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 12px 24px -8px var(--page-primary) !important;
+}
+.download-btn:active {
+    transform: translateY(0) scale(0.96) !important;
 }
 
 /* ── Badges ── */
@@ -441,21 +451,30 @@
     }
     .url-input {
         background: #ffffff !important;
-        border-radius: 16px !important;
-        border: 1px solid #cbd5e1 !important;
+        border-radius: 20px !important;
+        border: 2px solid #e2e8f0 !important;
         margin-bottom: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
-        padding-right: 90px !important;
+        box-shadow: 0 8px 20px -8px rgba(0,0,0,0.08) !important;
+        padding-right: 110px !important;
+    }
+    .url-input:focus {
+        border-color: var(--page-primary) !important;
+        box-shadow: 0 12px 24px -10px rgba(79, 70, 229, 0.2) !important;
     }
     .paste-btn {
         position: absolute;
-        right: 12px;
-        top: 26px;
+        right: 8px;
+        top: 29px;
         transform: translateY(-50%);
         margin: 0;
+        padding: 10px 14px !important;
+        border-radius: 12px !important;
     }
     .download-btn {
         width: 100%;
+        padding: 20px !important;
+        border-radius: 20px !important;
+        font-size: 18px !important;
     }
 }
 
@@ -483,29 +502,39 @@
     border: 1px solid #f1f5f9 !important;
 }
 
-/* Loading & Results */
-.loading-spinner {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 12px; padding: 30px; color: var(--page-primary); font-weight: 600; font-size: 16px;
+/* Skeleton Loader & Results */
+.skeleton-card {
+    display: flex; gap: 30px; align-items: center;
+    background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px; padding: 32px; margin-top: -20px; margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+    animation: fadeInUp 0.5s ease-out;
 }
-.spinner-circle {
-    width: 44px; height: 44px;
-    border: 4px solid rgba(0, 0, 0, 0.1); border-top: 4px solid var(--page-primary);
-    border-radius: 50%; animation: spin 1s linear infinite;
+.skeleton-box {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
 }
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.skeleton-thumb { width: 240px; height: 320px; border-radius: 12px; flex-shrink: 0; }
+.skeleton-title { height: 28px; width: 80%; margin-bottom: 15px; }
+.skeleton-meta { height: 32px; width: 100px; border-radius: 40px; display: inline-block; margin-right: 8px; margin-bottom: 12px; }
+.skeleton-btn { height: 48px; width: 160px; border-radius: 40px; display: inline-block; margin-right: 12px; }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
 .preview-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0; 
-    border-radius: 20px; 
-    padding: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); 
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    border-radius: 24px; 
+    padding: 32px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05); 
     margin-top: -20px; 
     margin-bottom: 40px;
     position: relative;
     z-index: 10;
-    animation: fadeInUp 0.5s ease-out;
+    animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .preview-flex { display: flex; gap: 30px; align-items: center; }
 .preview-thumb { border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.12); width: 240px; flex-shrink: 0; }
@@ -554,6 +583,10 @@
     .preview-thumb { width: 100%; max-width: 320px; margin: 0 auto; }
     .dl-btn-option { width: 100%; margin-right: 0; }
     .main-article { padding: 24px !important; }
+    .skeleton-card { flex-direction: column; text-align: center; gap: 20px; padding: 24px; }
+    .skeleton-thumb { width: 100%; max-width: 320px; height: 240px; margin: 0 auto; }
+    .skeleton-title { width: 100%; margin: 0 auto 15px; }
+    .skeleton-btn { width: 100%; margin-right: 0; margin-bottom: 10px; }
 }
 </style>
 {% endblock %}
@@ -624,9 +657,21 @@
     </div>
 </div>
 
-<div id="loading" class="loading-spinner" style="display:none;" aria-live="polite">
-    <div class="spinner-circle"></div>
-    <span>Extracting video details...</span>
+<div id="loading" class="skeleton-card" style="display:none;" aria-live="polite">
+    <div class="skeleton-box skeleton-thumb"></div>
+    <div style="flex:1;">
+        <div class="skeleton-box skeleton-title"></div>
+        <div style="margin-bottom:20px;">
+            <div class="skeleton-box skeleton-meta"></div>
+            <div class="skeleton-box skeleton-meta"></div>
+            <div class="skeleton-box skeleton-meta"></div>
+        </div>
+        <div class="skeleton-box skeleton-title" style="height:14px; width:60%; margin-bottom:20px;"></div>
+        <div>
+            <div class="skeleton-box skeleton-btn"></div>
+            <div class="skeleton-box skeleton-btn"></div>
+        </div>
+    </div>
 </div>
 <div id="error" class="error-msg" role="alert" aria-live="assertive" style="display:none; text-align:center; padding: 20px; color: #e53e3e; background: #fff5f5; border-radius: 12px; border: 1px solid #feb2b2; margin-bottom: 30px;"></div>
 
