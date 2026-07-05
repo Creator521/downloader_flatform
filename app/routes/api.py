@@ -6,6 +6,7 @@ import os
 import logging
 import ipaddress
 import time
+import uuid
 import random
 from fastapi import APIRouter, Form, HTTPException, Request
 from fastapi.responses import StreamingResponse, RedirectResponse
@@ -483,10 +484,12 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             successful_proxy = extracted.get("proxy") if extracted else None
 
         if format == "audio":
-            format_code = "bestaudio/best"
+            format_code = "bestaudio[ext=m4a]/bestaudio/best"
             ext = "m4a"
         else:
-            format_code = "best[ext=mp4]/best"
+            # HIGH QUALITY: best video + best audio merged via ffmpeg
+            # Falls back gracefully if separate streams aren't available
+            format_code = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best[ext=mp4]/best"
             ext = "mp4"
     
         filename = f"{title}.{ext}"
@@ -494,12 +497,18 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         if not filename:
             filename = f"video.{ext}"
 
-        # ── PIPE STREAMING (For ALL platforms including YouTube) ──
+        # ── TEMP FILE DOWNLOAD (supports merging for high quality) ──
+        temp_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "temp")
+        os.makedirs(temp_dir, exist_ok=True)
+        temp_filename = f"{uuid.uuid4().hex}.{ext}"
+        temp_path = os.path.join(temp_dir, temp_filename)
+
         cmd = [
             sys.executable, "-m", "yt_dlp",
             "--no-part",
-            "--output", "-",
+            "--output", temp_path,
             "--format", format_code,
+            "--merge-output-format", "mp4" if format != "audio" else "m4a",
             "--quiet",
         ]
     
@@ -518,29 +527,56 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
     
         cmd.append(url)
 
+        logger.info(f"Starting high-quality download with format: {format_code} for {url}")
+
         proc = subprocess.Popen(
             cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.PIPE,
             bufsize=10**7,
         )
+        try:
+            _, stderr_output = proc.communicate(timeout=300)  # 5 min timeout
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            proc.wait()
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+            logger.error(f"yt-dlp download timed out after 300s for {url}")
+            raise HTTPException(status_code=504, detail="Download timed out. The video may be too large. Please try again.")
+
+        if proc.returncode != 0 or not os.path.exists(temp_path) or os.path.getsize(temp_path) == 0:
+            # Cleanup failed temp file
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+            stderr_text = stderr_output.decode(errors='ignore') if stderr_output else 'Unknown error'
+            logger.error(f"yt-dlp download failed (rc={proc.returncode}): {stderr_text[:500]}")
+            raise HTTPException(status_code=500, detail="Download failed. Please try again later.")
+
+        file_size = os.path.getsize(temp_path)
+        logger.info(f"High-quality download complete: {temp_path} ({file_size} bytes)")
 
         def iterfile():
             try:
-                while True:
-                    data = proc.stdout.read(64 * 1024)
-                    if not data:
-                        break
-                    yield data
-            except Exception:
-                proc.kill()
+                with open(temp_path, "rb") as f:
+                    while True:
+                        data = f.read(64 * 1024)
+                        if not data:
+                            break
+                        yield data
             finally:
-                proc.wait()
+                # Cleanup temp file after streaming
+                try:
+                    os.remove(temp_path)
+                    logger.info(f"Cleaned up temp file: {temp_path}")
+                except Exception as cleanup_err:
+                    logger.warning(f"Failed to cleanup temp file {temp_path}: {cleanup_err}")
 
         encoded_filename = quote(filename)
         media_type = "audio/mp4" if format == "audio" else "video/mp4"
         headers = {
             "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{encoded_filename}',
+            "Content-Length": str(file_size),
             "X-Robots-Tag": "noindex, nofollow",
         }
         return StreamingResponse(iterfile(), media_type=media_type, headers=headers)
