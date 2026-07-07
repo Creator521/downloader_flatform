@@ -588,6 +588,75 @@
     .skeleton-title { width: 100%; margin: 0 auto 15px; }
     .skeleton-btn { width: 100%; margin-right: 0; margin-bottom: 10px; }
 }
+
+/* ──────────────────────────────────────────────────────────
+   ADVANCED LOADING BUTTON UI
+   ────────────────────────────────────────────────────────── */
+.btn-loading {
+    position: relative !important;
+    color: transparent !important;
+    pointer-events: none !important;
+    user-select: none !important;
+}
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    margin-top: -12px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.btn-processing {
+    position: relative !important;
+    pointer-events: none !important;
+    opacity: 0.9 !important;
+    overflow: hidden !important;
+}
+
+.btn-processing::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.25) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0.25) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 2rem 2rem;
+    animation: progress-stripes 1s linear infinite;
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+@keyframes progress-stripes {
+    from { background-position: 2rem 0; }
+    to { background-position: 0 0; }
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: white !important;
+    pointer-events: none !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
 </style>
 {% endblock %}
 
@@ -862,6 +931,7 @@
         const loading = document.getElementById('loading');
         const error = document.getElementById('error');
         const result = document.getElementById('result');
+        const submitBtn = document.querySelector('.download-btn');
 
         if (!url) return;
 
@@ -873,8 +943,13 @@
         }
 
         loading.style.display = 'block';
+        loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
         error.textContent = '';
         result.style.display = 'none';
+        
+        if (submitBtn) {
+            submitBtn.classList.add('btn-loading');
+        }
 
         fetch('/preview', {
             method: 'POST',
@@ -891,24 +966,30 @@
             .then(({ ok, data }) => {
                 if (!ok || !data) {
                     loading.style.display = 'none';
+                    if (submitBtn) submitBtn.classList.remove('btn-loading');
                     error.textContent = (data && data.detail) || 'Could not process this link. Please check the URL and try again.';
+                    error.style.display = 'block';
                     return Promise.reject('handled');
                 }
                 return data;
             })
             .then(data => {
                 loading.style.display = 'none';
+                if (submitBtn) submitBtn.classList.remove('btn-loading');
                 document.getElementById('thumb').src = data.thumbnail || '';
                 document.getElementById('videoTitle').textContent = data.title || 'Video';
                 document.getElementById('uploader').textContent = data.uploader || '';
                 document.getElementById('views').textContent = data.view_count || '';
                 document.getElementById('duration').textContent = data.duration || '';
                 result.style.display = 'block';
+                result.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 result._url = url;
             })
             .catch(() => {
                 loading.style.display = 'none';
+                if (submitBtn) submitBtn.classList.remove('btn-loading');
                 error.textContent = 'Could not process this link. Please check the URL and try again.';
+                error.style.display = 'block';
             });
     }
 
@@ -916,6 +997,26 @@
     function triggerDownload(type) {
         const url = document.getElementById('result')._url;
         if (!url) return;
+
+        // Provide visual feedback for downloading
+        let targetBtn;
+        let originalText;
+        if (type === 'audio') {
+            targetBtn = document.querySelector('.dl-audio');
+        } else {
+            targetBtn = document.querySelector('.dl-video');
+        }
+
+        if (targetBtn) {
+            originalText = targetBtn.innerText;
+            targetBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon" style="animation: spin 1s infinite linear;">
+                    <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
+                    <path d="M12 2a10 10 0 0 1 10 10"></path>
+                </svg> Downloading...
+            `;
+            targetBtn.classList.add('btn-processing');
+        }
 
         // GA4 Event: Download Click
         if (typeof gtag === 'function') {
@@ -963,9 +1064,34 @@
                         'url_downloaded': url
                     });
                 }
+
+                // Restore button state
+                if (targetBtn) {
+                    targetBtn.classList.remove('btn-processing');
+                    targetBtn.classList.add('btn-success');
+                    targetBtn.innerHTML = `
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg> Download Complete!
+                    `;
+                    setTimeout(() => {
+                        targetBtn.classList.remove('btn-success');
+                        targetBtn.innerText = originalText;
+                    }, 4000);
+                }
             })
             .catch(err => {
-                if (err !== 'handled') document.getElementById('error').textContent = (err && err.message) || 'Download failed. Please try again.';
+                // Restore button state
+                if (targetBtn) {
+                    targetBtn.classList.remove('btn-processing');
+                    targetBtn.innerText = originalText;
+                }
+                if (err !== 'handled') {
+                    const errorElem = document.getElementById('error');
+                    errorElem.textContent = (err && err.message) || 'Download failed. Please try again.';
+                    errorElem.style.display = 'block';
+                    errorElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             });
     }
 </script>

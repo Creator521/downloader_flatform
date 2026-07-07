@@ -17,12 +17,14 @@ async function handlePaste() {
 }
 
 // Download/Preview Logic
+// Download/Preview Logic
 async function handleDownload(e) {
     e.preventDefault();
     const url = document.getElementById('urlInput').value;
     const loading = document.getElementById('loading');
     const result = document.getElementById('result');
     const error = document.getElementById('error');
+    const submitBtn = document.querySelector('.download-btn');
 
     if (!url) return;
 
@@ -42,9 +44,14 @@ async function handleDownload(e) {
 
     // Reset UI
     loading.style.display = 'flex';
+    loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
     result.style.display = 'none';
     error.style.display = 'none';
     if(document.getElementById('status-msg')) document.getElementById('status-msg').style.display = 'none';
+
+    if (submitBtn) {
+        submitBtn.classList.add('btn-loading');
+    }
 
     try {
         const formData = new FormData();
@@ -73,28 +80,52 @@ async function handleDownload(e) {
         document.getElementById('duration').innerText = data.duration || 'N/A';
 
         result.style.display = 'block';
+        result.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch (err) {
         error.innerText = err.message;
         error.style.display = 'block';
     } finally {
         loading.style.display = 'none';
+        if (submitBtn) submitBtn.classList.remove('btn-loading');
     }
 }
 
 async function triggerDownload(format) {
-    let status = document.getElementById('status-msg');
-    if (!status) {
-        status = document.createElement('div');
-        status.id = 'status-msg';
-        status.style.cssText = "text-align:center; padding: 15px; margin-bottom: 20px; border-radius: 12px; font-weight: 600; color: #047857; background: #d1fae5; border: 1px solid #6ee7b7;";
-        document.getElementById('result').insertBefore(status, document.getElementById('result').firstChild);
+    let targetBtn;
+    let originalText;
+    if (format === 'audio') {
+        targetBtn = document.querySelector('.dl-audio');
+    } else {
+        targetBtn = document.querySelector('.dl-video');
     }
-    status.innerText = "Starting download... please wait.";
-    status.style.display = 'block';
+
+    if (targetBtn) {
+        originalText = targetBtn.innerText;
+        targetBtn.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon" style="animation: spin 1s infinite linear;">
+                <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
+                <path d="M12 2a10 10 0 0 1 10 10"></path>
+            </svg> Downloading...
+        `;
+        targetBtn.classList.add('btn-processing');
+    } else {
+        let status = document.getElementById('status-msg');
+        if (!status) {
+            status = document.createElement('div');
+            status.id = 'status-msg';
+            status.style.cssText = "text-align:center; padding: 15px; margin-bottom: 20px; border-radius: 12px; font-weight: 600; color: #047857; background: #d1fae5; border: 1px solid #6ee7b7;";
+            document.getElementById('result').insertBefore(status, document.getElementById('result').firstChild);
+        }
+        status.innerText = "Starting download... please wait.";
+        status.style.display = 'block';
+    }
 
     const url = document.getElementById('urlInput').value;
     if (!url) {
-        status.style.display = 'none';
+        if (targetBtn) {
+            targetBtn.classList.remove('btn-processing');
+            targetBtn.innerText = originalText;
+        }
         return;
     }
 
@@ -128,10 +159,29 @@ async function triggerDownload(format) {
         document.body.removeChild(form);
         
         setTimeout(() => { 
-            status.style.display = 'none'; 
+            let status = document.getElementById('status-msg');
+            if (status) status.style.display = 'none'; 
+            if (targetBtn) {
+                targetBtn.classList.remove('btn-processing');
+                targetBtn.classList.add('btn-success');
+                targetBtn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg> Download Complete!
+                `;
+                setTimeout(() => {
+                    targetBtn.classList.remove('btn-success');
+                    targetBtn.innerText = originalText;
+                }, 4000);
+            }
         }, 4000);
     } catch (err) {
         alert("Error: " + err.message);
-        status.style.display = 'none';
+        if (targetBtn) {
+            targetBtn.classList.remove('btn-processing');
+            targetBtn.innerText = originalText;
+        }
+        let status = document.getElementById('status-msg');
+        if (status) status.style.display = 'none';
     }
 }
