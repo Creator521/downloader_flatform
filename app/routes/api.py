@@ -617,7 +617,9 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             "Content-Length": str(file_size),
             "X-Robots-Tag": "noindex, nofollow",
         }
-        return StreamingResponse(iterfile(), media_type=media_type, headers=headers)
+        response = StreamingResponse(iterfile(), media_type=media_type, headers=headers)
+        response.set_cookie(key="download_ready", value="1", max_age=60, path="/")
+        return response
 
     except HTTPException:
         raise

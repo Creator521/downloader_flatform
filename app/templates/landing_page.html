@@ -1069,15 +1069,40 @@
 
         form.appendChild(urlInput);
         form.appendChild(formatInput);
+        // Clear old cookie
+        document.cookie = "download_ready=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
         document.body.appendChild(form);
-        
-        // Submit the form which will trigger the browser's native download
         form.submit();
+        setTimeout(() => document.body.removeChild(form), 100);
         
-        // Clean up the form
-        setTimeout(() => {
-            document.body.removeChild(form);
-        }, 100);
+        if (targetBtn) {
+            targetBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon" style="animation: spin 1s infinite linear;">
+                    <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
+                    <path d="M12 2a10 10 0 0 1 10 10"></path>
+                </svg> Processing (up to 5 min)...
+            `;
+        }
+        
+        let checkCookie = setInterval(() => {
+            if (document.cookie.indexOf("download_ready=1") !== -1) {
+                clearInterval(checkCookie);
+                if (targetBtn) {
+                    targetBtn.classList.remove('btn-processing');
+                    targetBtn.classList.add('btn-success');
+                    targetBtn.innerHTML = `
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg> Download Started!
+                    `;
+                    setTimeout(() => {
+                        targetBtn.classList.remove('btn-success');
+                        targetBtn.innerText = originalText;
+                    }, 4000);
+                }
+            }
+        }, 1000);
     }
 </script>
 {% endblock %}

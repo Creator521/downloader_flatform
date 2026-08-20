@@ -164,27 +164,42 @@ async function triggerDownload(format) {
         inputFormat.value = format;
         form.appendChild(inputFormat);
 
+        // Clear old cookie
+        document.cookie = "download_ready=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
         document.body.appendChild(form);
         form.submit();
         setTimeout(() => document.body.removeChild(form), 100);
         
-        setTimeout(() => { 
-            let status = document.getElementById('status-msg');
-            if (status) status.style.display = 'none'; 
-            if (targetBtn) {
-                targetBtn.classList.remove('btn-processing');
-                targetBtn.classList.add('btn-success');
-                targetBtn.innerHTML = `
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg> Download Complete!
-                `;
-                setTimeout(() => {
-                    targetBtn.classList.remove('btn-success');
-                    targetBtn.innerText = originalText;
-                }, 4000);
+        if (targetBtn) {
+            targetBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon" style="animation: spin 1s infinite linear;">
+                    <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
+                    <path d="M12 2a10 10 0 0 1 10 10"></path>
+                </svg> Processing (up to 5 min)...
+            `;
+        }
+        
+        let checkCookie = setInterval(() => {
+            if (document.cookie.indexOf("download_ready=1") !== -1) {
+                clearInterval(checkCookie);
+                let status = document.getElementById('status-msg');
+                if (status) status.style.display = 'none'; 
+                if (targetBtn) {
+                    targetBtn.classList.remove('btn-processing');
+                    targetBtn.classList.add('btn-success');
+                    targetBtn.innerHTML = `
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg> Download Started!
+                    `;
+                    setTimeout(() => {
+                        targetBtn.classList.remove('btn-success');
+                        targetBtn.innerText = originalText;
+                    }, 4000);
+                }
             }
-        }, 4000);
+        }, 1000);
     } catch (err) {
         alert("Error: " + err.message);
         if (targetBtn) {
