@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 # --- FastAPI App ---
 app = FastAPI()
 app.state.limiter = limiter
-app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)  # type: ignore
 
 # --- GZip Compression Middleware (for faster delivery) ---
 if GZipMiddleware is not None:
@@ -216,7 +216,7 @@ async def monetag_service_worker():
 @app.get("/tag.min.js", include_in_schema=False)
 async def monetag_tag_js():
     """Monetag Luminous tag JS file — must be served at root for installation check."""
-    import httpx
+    import httpx  # type: ignore
     from fastapi.responses import Response
     async with httpx.AsyncClient() as client:
         r = await client.get(
