@@ -157,6 +157,50 @@ def is_tiktok_url(url: str) -> bool:
     hostname = urlparse(url).hostname
     return hostname is not None and "tiktok.com" in hostname.lower()
 
+
+def is_youtube_url(url: str) -> bool:
+    """YouTube, Shorts, Music, and youtu.be links."""
+    hostname = (urlparse(url).hostname or "").lower()
+    if hostname.startswith("www."):
+        hostname = hostname[4:]
+    return (
+        hostname in {"youtube.com", "youtu.be", "m.youtube.com", "music.youtube.com", "youtube-nocookie.com"}
+        or hostname.endswith(".youtube.com")
+    )
+
+
+# YouTube web client now requires a browser PO token. Android clients still
+# return real stream URLs without cookies. Node is used for n-sig when needed.
+YOUTUBE_PLAYER_CLIENTS = ["android_sdkless", "android", "ios_music"]
+YOUTUBE_EXTRACTOR_ARGS = (
+    "youtube:player_client=" + ",".join(YOUTUBE_PLAYER_CLIENTS)
+    + ";player_skip=webpage,configs"
+)
+
+
+def apply_youtube_ydl_opts(ydl_opts: dict) -> dict:
+    """Use clients that bypass YouTube's 'confirm you're not a bot' web check."""
+    ydl_opts["extractor_args"] = {
+        "youtube": {
+            "player_client": list(YOUTUBE_PLAYER_CLIENTS),
+            "player_skip": ["webpage", "configs"],
+        }
+    }
+    ydl_opts["js_runtimes"] = {"node": {}}
+    # Chrome UA forces the web client and triggers bot-check / empty formats.
+    ydl_opts.pop("http_headers", None)
+    return ydl_opts
+
+
+def youtube_format_selector(fmt: str) -> str:
+    if fmt == "audio":
+        return "bestaudio[ext=m4a]/bestaudio/best"
+    if fmt == "high_quality":
+        return "bestvideo[vcodec^=avc1]+bestaudio[ext=m4a]/bestvideo+bestaudio/best[ext=mp4]/best"
+    # Prefer a progressive MP4 (format 18/22) so playback works everywhere;
+    # fall back to merging video+audio when YouTube only offers DASH.
+    return "18/22/best[ext=mp4][acodec!=none]/best[acodec!=none][vcodec!=none]/bestvideo[height<=720]+bestaudio/best"
+
 def extract_info_with_tikwm(url: str) -> dict | None:
     """
     TikWM API se TikTok video ka info extract karo.
@@ -319,11 +363,15 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
             "extractor_retries": 3,
             "nocheckcertificate": True,
             "noplaylist": True,
-            "http_headers": {
+            "js_runtimes": {"node": {}},
+        }
+        if not is_youtube_url(url):
+            ydl_opts["http_headers"] = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
                 "Accept-Language": "en-US,en;q=0.9",
-            },
-        }
+            }
+        else:
+            apply_youtube_ydl_opts(ydl_opts)
 
         cookie_file = proxy_manager.get_cookie_file()
         if cookie_file:
@@ -349,6 +397,11 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
     logger.error(f"yt-dlp failed after {max_retries} attempts for {url}. Error: {last_error}")
 
     if "sign in" in error_msg or "login" in error_msg or "requested format is not available" in error_msg:
+        if is_youtube_url(url):
+            raise HTTPException(
+                status_code=400,
+                detail="YouTube is blocking this request right now. Please wait a few seconds and try again."
+            )
         raise HTTPException(
             status_code=400,
             detail="This platform requires login. We are experiencing high traffic. Please try again in a few moments."
@@ -505,9 +558,7 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             
             logger.info(f"TikWM stream failed, falling back to yt-dlp for: {url}")
 
-        # ── Check if YouTube URL ──
-        parsed_host = urlparse(url).hostname or ""
-        is_yt = any(h in parsed_host.lower() for h in ("youtube.com", "youtu.be"))
+        is_yt = is_youtube_url(url)
 
         # ── Get title from cache or extract ──
         cached_data = cache_get(url)
@@ -522,15 +573,13 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             successful_proxy = extracted.get("proxy") if extracted else None
 
         if format == "audio":
-            format_code = "bestaudio[ext=m4a]/bestaudio/best"
+            format_code = youtube_format_selector("audio") if is_yt else "bestaudio[ext=m4a]/bestaudio/best"
             ext = "m4a"
         elif format == "high_quality":
-            # HIGH QUALITY: best video + best audio merged via ffmpeg
-            format_code = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best[ext=mp4]/best"
+            format_code = youtube_format_selector("high_quality") if is_yt else "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best[ext=mp4]/best"
             ext = "mp4"
         else:
-            # FAST STREAMING: Pre-merged formats only, max 720p usually
-            format_code = "best[ext=mp4]/best"
+            format_code = youtube_format_selector("video") if is_yt else "best[ext=mp4]/best"
             ext = "mp4"
     
         filename = f"{title}.{ext}"
@@ -538,15 +587,22 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         if not filename:
             filename = f"video.{ext}"
 
-        cmd = [sys.executable, "-m", "yt_dlp", "--no-part", "--format", format_code, "--quiet"]
+        cmd = [sys.executable, "-m", "yt_dlp", "--no-part", "--format", format_code, "--quiet", "--no-playlist", "--js-runtimes", "node"]
+        if is_yt:
+            cmd.extend(["--extractor-args", YOUTUBE_EXTRACTOR_ARGS])
+
+        # YouTube DASH/SABR streams cannot be piped to stdout reliably.
+        # Download to a temp file (and merge if needed), then stream the file.
+        use_temp_file = format == "high_quality" or is_yt
         
-        # ── TEMP FILE LOGIC FOR HIGH QUALITY ──
-        if format == "high_quality":
+        if use_temp_file:
             temp_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "temp")
             os.makedirs(temp_dir, exist_ok=True)
-            temp_filename = f"{uuid.uuid4().hex}.{ext}"
-            temp_path = os.path.join(temp_dir, temp_filename)
-            cmd.extend(["--output", temp_path, "--merge-output-format", "mp4"])
+            temp_id = uuid.uuid4().hex
+            temp_path = os.path.join(temp_dir, f"{temp_id}.{ext}")
+            cmd.extend(["--output", os.path.join(temp_dir, f"{temp_id}.%(ext)s")])
+            if ext == "mp4":
+                cmd.extend(["--merge-output-format", "mp4"])
         else:
             cmd.extend(["-o", "-"])  # Stream directly to stdout
 
@@ -565,7 +621,7 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
     
         cmd.append(url)
 
-        if format == "high_quality":
+        if use_temp_file:
             logger.info(f"Starting high-quality download (temp file) with format: {format_code} for {url}")
             proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, bufsize=10**7)
             try:
@@ -573,14 +629,32 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             except subprocess.TimeoutExpired:
                 proc.kill()
                 proc.wait()
-                if os.path.exists(temp_path):
-                    os.remove(temp_path)
+                for leftover in os.listdir(temp_dir):
+                    if leftover.startswith(temp_id):
+                        try:
+                            os.remove(os.path.join(temp_dir, leftover))
+                        except OSError:
+                            pass
                 logger.error(f"yt-dlp download timed out after 900s for {url}")
                 raise HTTPException(status_code=504, detail="Download timed out. The video may be too large. Please try again.")
 
+            produced = None
+            for leftover in os.listdir(temp_dir):
+                if leftover.startswith(temp_id) and os.path.isfile(os.path.join(temp_dir, leftover)):
+                    candidate = os.path.join(temp_dir, leftover)
+                    if os.path.getsize(candidate) > 0:
+                        produced = candidate
+                        break
+            if produced:
+                temp_path = produced
+
             if proc.returncode != 0 or not os.path.exists(temp_path) or os.path.getsize(temp_path) == 0:
-                if os.path.exists(temp_path):
-                    os.remove(temp_path)
+                for leftover in os.listdir(temp_dir):
+                    if leftover.startswith(temp_id):
+                        try:
+                            os.remove(os.path.join(temp_dir, leftover))
+                        except OSError:
+                            pass
                 stderr_text = stderr_output.decode(errors='ignore') if stderr_output else 'Unknown error'
                 logger.error(f"yt-dlp download failed (rc={proc.returncode}): {stderr_text[:500]}")
                 raise HTTPException(status_code=500, detail="Download failed. Please try again later.")

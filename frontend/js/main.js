@@ -166,8 +166,9 @@ async function triggerDownload(format) {
         inputFormat.value = format;
         form.appendChild(inputFormat);
 
-        // Clear old cookie
+        // Clear old cookies
         document.cookie = "download_ready=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "download_error=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
         document.body.appendChild(form);
         form.submit();
@@ -201,6 +202,17 @@ async function triggerDownload(format) {
                         targetBtn.innerText = originalText;
                     }, 4000);
                 }
+            } else if (document.cookie.indexOf("download_error=1") !== -1) {
+                clearInterval(checkCookie);
+                document.cookie = "download_error=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                if (targetBtn) {
+                    targetBtn.classList.remove('btn-processing');
+                    targetBtn.innerText = originalText;
+                }
+                let status = document.getElementById('status-msg');
+                if (status) status.style.display = 'none';
+                
+                alert("Fast download is not available for this premium/music video because YouTube split the streams. Please use the 'Download 4K (Best Quality)' button instead, which will process and merge it for you.");
             }
         }, 1000);
     } catch (err) {
