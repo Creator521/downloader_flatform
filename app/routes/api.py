@@ -67,6 +67,7 @@ def extract_info_with_instaloader(url: str) -> dict | None:
             save_metadata=False,
             quiet=True,
         )
+        L.context.max_connection_attempts = 1
 
         post = instaloader.Post.from_shortcode(L.context, shortcode)
 
@@ -317,6 +318,7 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
             "retries": 3,
             "extractor_retries": 3,
             "nocheckcertificate": True,
+            "noplaylist": True,
             "http_headers": {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
                 "Accept-Language": "en-US,en;q=0.9",
