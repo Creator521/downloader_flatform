@@ -105,7 +105,7 @@ async function triggerDownload(format) {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon" style="animation: spin 1s infinite linear;">
                 <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
                 <path d="M12 2a10 10 0 0 1 10 10"></path>
-            </svg> Downloading...
+            </svg> Starting...
         `;
         targetBtn.classList.add('btn-processing');
     } else {
@@ -138,9 +138,19 @@ async function triggerDownload(format) {
             });
         }
 
+        let iframe = document.getElementById('download_iframe');
+        if (!iframe) {
+            iframe = document.createElement('iframe');
+            iframe.id = 'download_iframe';
+            iframe.name = 'download_iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+        }
+
         const form = document.createElement('form');
         form.method = 'POST';
         form.action = '/download';
+        form.target = 'download_iframe';
         
         const inputUrl = document.createElement('input');
         inputUrl.type = 'hidden';
@@ -156,7 +166,7 @@ async function triggerDownload(format) {
 
         document.body.appendChild(form);
         form.submit();
-        document.body.removeChild(form);
+        setTimeout(() => document.body.removeChild(form), 100);
         
         setTimeout(() => { 
             let status = document.getElementById('status-msg');
