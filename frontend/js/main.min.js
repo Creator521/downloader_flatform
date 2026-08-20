@@ -95,6 +95,8 @@ async function triggerDownload(format) {
     let originalText;
     if (format === 'audio') {
         targetBtn = document.querySelector('.dl-audio');
+    } else if (format === 'high_quality') {
+        targetBtn = document.querySelector('.dl-hq');
     } else {
         targetBtn = document.querySelector('.dl-video');
     }
@@ -172,11 +174,12 @@ async function triggerDownload(format) {
         setTimeout(() => document.body.removeChild(form), 100);
         
         if (targetBtn) {
+            let msg = format === 'high_quality' ? 'Processing (up to 5 min)...' : 'Starting...';
             targetBtn.innerHTML = `
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon" style="animation: spin 1s infinite linear;">
                     <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
                     <path d="M12 2a10 10 0 0 1 10 10"></path>
-                </svg> Processing (up to 5 min)...
+                </svg> ${msg}
             `;
         }
         

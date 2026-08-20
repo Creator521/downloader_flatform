@@ -524,6 +524,10 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         if format == "audio":
             format_code = "bestaudio[ext=m4a]/bestaudio/best"
             ext = "m4a"
+        elif format == "high_quality":
+            # HIGH QUALITY: best video + best audio merged via ffmpeg
+            format_code = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best[ext=mp4]/best"
+            ext = "mp4"
         else:
             # FAST STREAMING: Pre-merged formats only, max 720p usually
             format_code = "best[ext=mp4]/best"
@@ -534,15 +538,18 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         if not filename:
             filename = f"video.{ext}"
 
-        # ── DIRECT STREAMING VIA STDOUT ──
-        cmd = [
-            sys.executable, "-m", "yt_dlp",
-            "--no-part",
-            "-o", "-",  # Stream directly to stdout
-            "--format", format_code,
-            "--quiet",
-        ]
-    
+        cmd = [sys.executable, "-m", "yt_dlp", "--no-part", "--format", format_code, "--quiet"]
+        
+        # ── TEMP FILE LOGIC FOR HIGH QUALITY ──
+        if format == "high_quality":
+            temp_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "temp")
+            os.makedirs(temp_dir, exist_ok=True)
+            temp_filename = f"{uuid.uuid4().hex}.{ext}"
+            temp_path = os.path.join(temp_dir, temp_filename)
+            cmd.extend(["--output", temp_path, "--merge-output-format", "mp4"])
+        else:
+            cmd.extend(["-o", "-"])  # Stream directly to stdout
+
         cookie_file = proxy_manager.get_cookie_file()
         if cookie_file:
             cmd.extend(["--cookies", cookie_file])
@@ -558,36 +565,72 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
     
         cmd.append(url)
 
-        logger.info(f"Starting direct stream download with format: {format_code} for {url}")
-
-        proc = subprocess.Popen(
-            cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            bufsize=10**7,
-        )
-
-        def iterfile():
+        if format == "high_quality":
+            logger.info(f"Starting high-quality download (temp file) with format: {format_code} for {url}")
+            proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, bufsize=10**7)
             try:
-                while True:
-                    data = proc.stdout.read(64 * 1024)
-                    if not data:
-                        break
-                    yield data
-            except Exception as e:
-                logger.error(f"Stream interrupted: {e}")
-            finally:
-                proc.stdout.close()
+                _, stderr_output = proc.communicate(timeout=900)  # 15 min timeout
+            except subprocess.TimeoutExpired:
                 proc.kill()
                 proc.wait()
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
+                logger.error(f"yt-dlp download timed out after 900s for {url}")
+                raise HTTPException(status_code=504, detail="Download timed out. The video may be too large. Please try again.")
 
-        encoded_filename = quote(filename)
+            if proc.returncode != 0 or not os.path.exists(temp_path) or os.path.getsize(temp_path) == 0:
+                if os.path.exists(temp_path):
+                    os.remove(temp_path)
+                stderr_text = stderr_output.decode(errors='ignore') if stderr_output else 'Unknown error'
+                logger.error(f"yt-dlp download failed (rc={proc.returncode}): {stderr_text[:500]}")
+                raise HTTPException(status_code=500, detail="Download failed. Please try again later.")
+
+            file_size = os.path.getsize(temp_path)
+            logger.info(f"High-quality download complete: {temp_path} ({file_size} bytes)")
+
+            def iterfile():
+                try:
+                    with open(temp_path, "rb") as f:
+                        while True:
+                            data = f.read(64 * 1024)
+                            if not data:
+                                break
+                            yield data
+                finally:
+                    try:
+                        os.remove(temp_path)
+                    except Exception as cleanup_err:
+                        logger.warning(f"Failed to cleanup temp file {temp_path}: {cleanup_err}")
+            
+            headers = {
+                "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{quote(filename)}',
+                "Content-Length": str(file_size),
+                "X-Robots-Tag": "noindex, nofollow",
+            }
+        else:
+            logger.info(f"Starting direct stream download with format: {format_code} for {url}")
+            proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=10**7)
+
+            def iterfile():
+                try:
+                    while True:
+                        data = proc.stdout.read(64 * 1024)
+                        if not data:
+                            break
+                        yield data
+                except Exception as e:
+                    logger.error(f"Stream interrupted: {e}")
+                finally:
+                    proc.stdout.close()
+                    proc.kill()
+                    proc.wait()
+            
+            headers = {
+                "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{quote(filename)}',
+                "X-Robots-Tag": "noindex, nofollow",
+            }
+
         media_type = "audio/mp4" if format == "audio" else "video/mp4"
-        headers = {
-            "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{encoded_filename}',
-            "X-Robots-Tag": "noindex, nofollow",
-        }
-        # No Content-Length since we are streaming on the fly
         response = StreamingResponse(iterfile(), media_type=media_type, headers=headers)
         response.set_cookie(key="download_ready", value="1", max_age=60, path="/")
         return response
