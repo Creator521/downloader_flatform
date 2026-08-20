@@ -9,7 +9,7 @@ import time
 import uuid
 import random
 from fastapi import APIRouter, Form, HTTPException, Request
-from fastapi.responses import StreamingResponse, RedirectResponse
+from fastapi.responses import StreamingResponse, RedirectResponse, HTMLResponse
 from urllib.parse import quote, urlparse
 import yt_dlp
 
@@ -610,8 +610,32 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         else:
             logger.info(f"Starting direct stream download with format: {format_code} for {url}")
             proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=10**7)
+            
+            try:
+                first_chunk = proc.stdout.read(1024)
+            except Exception as e:
+                first_chunk = b""
+
+            if not first_chunk:
+                proc.kill()
+                stderr = proc.stderr.read().decode('utf-8', errors='ignore')
+                logger.error(f"Direct stream failed to start. Stderr: {stderr}")
+                
+                # HTML template to set the error cookie and close the stream gracefully in the iframe
+                error_html = """
+                <html>
+                <head>
+                    <script>
+                        document.cookie = "download_error=1; path=/; max-age=60";
+                    </script>
+                </head>
+                <body>Fast download failed.</body>
+                </html>
+                """
+                return HTMLResponse(content=error_html, status_code=200)
 
             def iterfile():
+                yield first_chunk
                 try:
                     while True:
                         data = proc.stdout.read(64 * 1024)
