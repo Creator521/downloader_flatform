@@ -574,13 +574,13 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             bufsize=10**7,
         )
         try:
-            _, stderr_output = proc.communicate(timeout=300)  # 5 min timeout
+            _, stderr_output = proc.communicate(timeout=900)  # 15 min timeout
         except subprocess.TimeoutExpired:
             proc.kill()
             proc.wait()
             if os.path.exists(temp_path):
                 os.remove(temp_path)
-            logger.error(f"yt-dlp download timed out after 300s for {url}")
+            logger.error(f"yt-dlp download timed out after 900s for {url}")
             raise HTTPException(status_code=504, detail="Download timed out. The video may be too large. Please try again.")
 
         if proc.returncode != 0 or not os.path.exists(temp_path) or os.path.getsize(temp_path) == 0:
