@@ -46,6 +46,11 @@ TOOLS = [
     ("/youtube-shorts-downloader",     "YouTube",     "YouTube Shorts",   "vid"),
     ("/youtube-to-mp3",                "YouTube",     "YouTube to MP3",   "vid"),
     ("/reddit",                        "Reddit",      "Reddit",           "vid"),
+    ("/savefrom-alternative",          "Any",         "SaveFrom Alternative", "vid"),
+    ("/snaptik-alternative",           "TikTok",      "SnapTik Alternative",  "vid"),
+    ("/ssstiktok-alternative",         "TikTok",      "SSSTikTok Alternative", "vid"),
+    ("/best-instagram-reels-downloader-alternatives", "Instagram", "Reels Alternatives", "rl"),
+    ("/best-tiktok-downloader-without-watermark", "TikTok", "TikTok No Watermark", "vid"),
 ]
 
 

@@ -985,11 +985,14 @@
                 result.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 result._url = url;
             })
-            .catch(() => {
+            .catch((err) => {
                 loading.style.display = 'none';
                 if (submitBtn) submitBtn.classList.remove('btn-loading');
-                error.textContent = 'Could not process this link. Please check the URL and try again.';
-                error.style.display = 'block';
+                // Only show generic error if no specific error was already set
+                if (err !== 'handled') {
+                    error.textContent = 'Network error. Please check your connection and try again.';
+                    error.style.display = 'block';
+                }
             });
     }
 

@@ -64,6 +64,12 @@ CORE_SEO_PATHS = {
     "/tiktok-mp3-downloader",
     "/youtube-shorts-downloader",
     "/youtube-to-mp3",
+    "/reddit",
+    "/savefrom-alternative",
+    "/snaptik-alternative",
+    "/ssstiktok-alternative",
+    "/best-instagram-reels-downloader-alternatives",
+    "/best-tiktok-downloader-without-watermark",
 }
 
 LANGUAGE_PREFIXES = ()

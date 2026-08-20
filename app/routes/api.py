@@ -26,7 +26,8 @@ router = APIRouter()
 # ─────────────────────────────────────────────
 def is_instagram_url(url: str) -> bool:
     """Check karo ke URL Instagram ka hai ya nahi."""
-    return "instagram.com" in urlparse(url).hostname.lower()
+    hostname = urlparse(url).hostname
+    return hostname is not None and "instagram.com" in hostname.lower()
 
 
 def extract_info_with_instaloader(url: str) -> dict | None:
@@ -152,7 +153,8 @@ def stream_with_instaloader(url: str, fmt: str):
 # ─────────────────────────────────────────────
 def is_tiktok_url(url: str) -> bool:
     """Check karo ke URL TikTok ka hai ya nahi."""
-    return "tiktok.com" in urlparse(url).hostname.lower()
+    hostname = urlparse(url).hostname
+    return hostname is not None and "tiktok.com" in hostname.lower()
 
 def extract_info_with_tikwm(url: str) -> dict | None:
     """
@@ -309,7 +311,16 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
     for attempt in range(max_retries):
         ydl_opts = {
             "quiet": True,
+            "no_warnings": True,
             "skip_download": True,
+            "socket_timeout": 30,
+            "retries": 3,
+            "extractor_retries": 3,
+            "nocheckcertificate": True,
+            "http_headers": {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+                "Accept-Language": "en-US,en;q=0.9",
+            },
         }
 
         cookie_file = proxy_manager.get_cookie_file()
@@ -338,7 +349,32 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
     if "sign in" in error_msg or "login" in error_msg or "requested format is not available" in error_msg:
         raise HTTPException(
             status_code=400,
-            detail="Instagram/Platform requires login. We are experiencing high traffic from this platform. Please try again in a few moments."
+            detail="This platform requires login. We are experiencing high traffic. Please try again in a few moments."
+        )
+    if "no supported javascript runtime" in error_msg or "js runtime" in error_msg:
+        raise HTTPException(
+            status_code=500,
+            detail="Server configuration issue. Please try again later."
+        )
+    if "video unavailable" in error_msg or "private video" in error_msg:
+        raise HTTPException(
+            status_code=400,
+            detail="This video is private or unavailable. Please check the URL."
+        )
+    if "members" in error_msg or "member" in error_msg or "join this channel" in error_msg:
+        raise HTTPException(
+            status_code=400,
+            detail="This video is for channel members only. Only public videos can be downloaded."
+        )
+    if "age" in error_msg and ("restricted" in error_msg or "verify" in error_msg or "gate" in error_msg):
+        raise HTTPException(
+            status_code=400,
+            detail="This video is age-restricted. Please try a different video."
+        )
+    if "geo" in error_msg or "not available in your country" in error_msg:
+        raise HTTPException(
+            status_code=400,
+            detail="This video is not available in our server region. Please try another video."
         )
     raise HTTPException(status_code=400, detail="Failed to process the video URL. Please check and try again.")
 
