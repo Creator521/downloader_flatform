@@ -171,7 +171,7 @@ post = {
 
 <h2>Saving & Downloading: What You Can Download</h2>
 
-<p>Using our <a href="/instagram-video-downloader">Instagram Video Downloader</a>:</p>
+<p>Using our <a href="/video">Instagram Video Downloader</a>:</p>
 
 <table border="1" cellpadding="10">
 <tr><th>Content</th><th>Can Download?</th><th>Quality</th></tr>

@@ -758,11 +758,11 @@ Settings → Safari → Downloads → set to "On My iPhone"</p>
 <h2>Related Guides</h2>
 
 <ul>
-<li><a href="/tiktok-video-downloader">TikTok Video Downloader (no watermark) →</a></li>
-<li><a href="/instagram-story-downloader">Instagram Story Downloader →</a></li>
-<li><a href="/instagram-video-downloader">Instagram Video Downloader →</a></li>
-<li><a href="/facebook-video-downloader">Facebook Video Downloader →</a></li>
-<li><a href="/youtube-video-downloader">YouTube Video Downloader →</a></li>
+<li><a href="/tiktok">TikTok Video Downloader (no watermark) →</a></li>
+<li><a href="/story">Instagram Story Downloader →</a></li>
+<li><a href="/video">Instagram Video Downloader →</a></li>
+<li><a href="/facebook">Facebook Video Downloader →</a></li>
+<li><a href="/youtube">YouTube Video Downloader →</a></li>
 </ul>
 
 <hr>

@@ -189,7 +189,7 @@ post = {
 
 <p>Protecting YouTube content requires a combination of built-in tools (watermarks, membership content, copyright strikes) and proactive monitoring. While no method perfectly prevents theft, these strategies provide strong deterrence and recourse.</p>
 
-<p>Remember: downloading YouTube videos for personal offline viewing using tools like <a href="/youtube-video-downloader">SnapReelDownload</a> is separate from re-uploading or redistributing content. Personal downloading for offline use is widely practiced and generally tolerated — commercial redistribution is where creators' legal protections kick in.</p>
+<p>Remember: downloading YouTube videos for personal offline viewing using tools like <a href="/youtube">SnapReelDownload</a> is separate from re-uploading or redistributing content. Personal downloading for offline use is widely practiced and generally tolerated — commercial redistribution is where creators' legal protections kick in.</p>
 
 </div>
 """,

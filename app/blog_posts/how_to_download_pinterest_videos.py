@@ -707,10 +707,10 @@ post = {
 
 <ul>
 <li><a href="/pinterest-photo-downloader">Pinterest Photo/Image Downloader →</a></li>
-<li><a href="/instagram-video-downloader">Instagram Video Downloader →</a></li>
-<li><a href="/tiktok-video-downloader">TikTok Video Downloader →</a></li>
-<li><a href="/youtube-video-downloader">YouTube Video Downloader →</a></li>
-<li><a href="/facebook-video-downloader">Facebook Video Downloader →</a></li>
+<li><a href="/video">Instagram Video Downloader →</a></li>
+<li><a href="/tiktok">TikTok Video Downloader →</a></li>
+<li><a href="/youtube">YouTube Video Downloader →</a></li>
+<li><a href="/facebook">Facebook Video Downloader →</a></li>
 </ul>
 
 <hr>

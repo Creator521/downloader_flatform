@@ -228,7 +228,7 @@ post = {
 <li>❌ <strong>Commercial use:</strong> Always requires licensing or permission</li>
 </ul>
 
-<p>Our <a href="/instagram-video-downloader">Instagram Video Downloader</a> is built for personal use. Download for your own viewing pleasure, always respecting the creators who made the content you love.</p>
+<p>Our <a href="/video">Instagram Video Downloader</a> is built for personal use. Download for your own viewing pleasure, always respecting the creators who made the content you love.</p>
 
 </div>
 """,

@@ -55,7 +55,7 @@ post = {
    <li>Mobile: Tap Share → Copy Link</li>
    </ul>
 </li>
-<li><strong>Open our downloader:</strong> Go to <a href="/youtube-video-downloader">SnapReelDownload YouTube Downloader</a></li>
+<li><strong>Open our downloader:</strong> Go to <a href="/youtube">SnapReelDownload YouTube Downloader</a></li>
 <li><strong>Paste the URL:</strong> Click in the download box and paste your YouTube link</li>
 <li><strong>Click Download:</strong> Tap the Download button</li>
 <li><strong>Select quality:</strong> Choose 720p, 1080p, or highest available</li>
@@ -236,7 +236,7 @@ post = {
 <li>✅ Safe — browser sandbox keeps you protected</li>
 </ul>
 
-<p>Try it now: <a href="/youtube-video-downloader">SnapReelDownload YouTube Downloader</a> — paste your link and download in seconds! 🎬⬇️</p>
+<p>Try it now: <a href="/youtube">SnapReelDownload YouTube Downloader</a> — paste your link and download in seconds! 🎬⬇️</p>
 
 </div>
 """,

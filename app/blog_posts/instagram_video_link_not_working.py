@@ -70,7 +70,7 @@ post = {
 <li>Tap the <strong>three dots (⋯)</strong> in the top-right of the post</li>
 <li>Tap <strong>"Copy Link"</strong></li>
 <li>The link is now in your clipboard</li>
-<li>Paste directly into <a href="/instagram-video-downloader">our downloader</a></li>
+<li>Paste directly into <a href="/video">our downloader</a></li>
 </ol>
 
 <p><strong>Important:</strong> Do NOT use the share sheet links (WhatsApp, Messages, etc.) — these are often shortened or wrapped and won't work correctly.</p>
@@ -219,7 +219,7 @@ post = {
 <ol>
 <li>Tap the <strong>three-dot menu (⋯)</strong> on any post</li>
 <li>Select <strong>"Copy Link"</strong></li>
-<li>Paste directly into <a href="/instagram-video-downloader">SnapReelDownload</a></li>
+<li>Paste directly into <a href="/video">SnapReelDownload</a></li>
 </ol>
 
 <p>This method works 99% of the time for all public Instagram content. If you're still having trouble, try opening the post on instagram.com in a browser and copying the URL from the address bar.</p>

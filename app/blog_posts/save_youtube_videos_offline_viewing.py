@@ -52,7 +52,7 @@ post = {
 <ol>
 <li>Find the YouTube video you want to save</li>
 <li>Copy the URL from your browser address bar (or Share → Copy Link on mobile)</li>
-<li>Go to <a href="/youtube-video-downloader">SnapReelDownload YouTube Downloader</a></li>
+<li>Go to <a href="/youtube">SnapReelDownload YouTube Downloader</a></li>
 <li>Paste the URL → click/tap Download</li>
 <li>Select quality: 720p for balance, 1080p for best quality</li>
 <li>Download the .mp4 file directly to your device</li>
@@ -212,7 +212,7 @@ post = {
 <p>The best setup for offline YouTube viewing:</p>
 
 <ul>
-<li>✅ Use our <a href="/youtube-video-downloader">free YouTube downloader</a> for true offline files</li>
+<li>✅ Use our <a href="/youtube">free YouTube downloader</a> for true offline files</li>
 <li>✅ Download at 720p for balance, 1080p for quality content you'll rewatch</li>
 <li>✅ Pre-download before trips and commutes</li>
 <li>✅ Use VLC for universal playback across all devices</li>

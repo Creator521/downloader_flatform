@@ -19,7 +19,7 @@ post = {
 
 <p><strong>Want to watch Instagram videos, Reels, and Stories without an internet connection?</strong> Whether you're on a long flight, traveling to an area with bad signal, or just want to save your favorite content — this guide covers every method to save Instagram videos for offline viewing on any device.</p>
 
-<p>Using our <a href="/instagram-video-downloader">Instagram Video Downloader</a>, you can save any public video directly to your device in seconds — no app installation, no login required.</p>
+<p>Using our <a href="/video">Instagram Video Downloader</a>, you can save any public video directly to your device in seconds — no app installation, no login required.</p>
 
 <hr>
 
@@ -43,7 +43,7 @@ post = {
 <li>Open Instagram and find the video/Reel you want to save</li>
 <li>Tap the <strong>Share</strong> button (paper airplane icon)</li>
 <li>Tap <strong>"Copy Link"</strong></li>
-<li>Open Chrome browser and go to <a href="/instagram-video-downloader">SnapReelDownload</a></li>
+<li>Open Chrome browser and go to <a href="/video">SnapReelDownload</a></li>
 <li>Paste the link into the download box</li>
 <li>Tap <strong>"Download"</strong></li>
 <li>Select your preferred video quality (HD recommended)</li>
@@ -69,7 +69,7 @@ post = {
 <li>Open Instagram and find the video/Reel</li>
 <li>Tap the <strong>Share</strong> button → <strong>Copy Link</strong></li>
 <li>Open <strong>Safari</strong> browser (recommended on iPhone)</li>
-<li>Visit <a href="/instagram-video-downloader">SnapReelDownload</a></li>
+<li>Visit <a href="/video">SnapReelDownload</a></li>
 <li>Paste the Instagram link and tap Download</li>
 <li>The video preview appears — tap <strong>Download</strong></li>
 <li>Tap <strong>Download</strong> on the popup confirmation</li>
@@ -95,7 +95,7 @@ post = {
 <li>Open Instagram in any browser on your PC</li>
 <li>Navigate to the video/Reel/post</li>
 <li>Copy the URL from the address bar (or tap Share → Copy Link)</li>
-<li>Open a new tab and go to <a href="/instagram-video-downloader">SnapReelDownload</a></li>
+<li>Open a new tab and go to <a href="/video">SnapReelDownload</a></li>
 <li>Paste the URL into the download field</li>
 <li>Click <strong>Download</strong></li>
 <li>Select quality and click the download icon</li>
@@ -209,7 +209,7 @@ post = {
 <h3>How to Save Stories</h3>
 <ol>
 <li>Copy the Story's link (tap "Share" → "Copy Link" — must be a public story)</li>
-<li>Paste into <a href="/instagram-story-downloader">our Instagram Story Downloader</a></li>
+<li>Paste into <a href="/story">our Instagram Story Downloader</a></li>
 <li>Download instantly to your device</li>
 <li>View anytime, even after the Story has disappeared</li>
 </ol>
@@ -249,7 +249,7 @@ post = {
 <li>✅ Free, instant, no ads</li>
 </ul>
 
-<p>Start building your offline library now with <a href="/instagram-video-downloader">SnapReelDownload</a> — paste a link and download in under 10 seconds! ✈️📱</p>
+<p>Start building your offline library now with <a href="/video">SnapReelDownload</a> — paste a link and download in under 10 seconds! ✈️📱</p>
 
 </div>
 """,

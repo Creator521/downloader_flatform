@@ -60,7 +60,7 @@ post = {
 
 <h3>How to Use Our Downloader Safely</h3>
 <ol>
-<li>Go directly to <a href="/youtube-video-downloader">SnapReelDownload's YouTube Downloader</a></li>
+<li>Go directly to <a href="/youtube">SnapReelDownload's YouTube Downloader</a></li>
 <li>Copy the YouTube video URL from your browser's address bar</li>
 <li>Paste into the download box</li>
 <li>Click the <strong>one and only Download button</strong></li>
@@ -199,7 +199,7 @@ post = {
 <li>✅ The site doesn't redirect you through multiple pages</li>
 </ul>
 
-<p>Our <a href="/youtube-video-downloader">YouTube Video Downloader</a> meets all these criteria. Paste your YouTube link and download safely in seconds — no software, no extensions, no risk. 🔒</p>
+<p>Our <a href="/youtube">YouTube Video Downloader</a> meets all these criteria. Paste your YouTube link and download safely in seconds — no software, no extensions, no risk. 🔒</p>
 
 </div>
 """,

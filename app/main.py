@@ -176,6 +176,21 @@ async def add_cache_headers(request, call_next):
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "SAMEORIGIN"
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+    response.headers["Content-Security-Policy"] = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
+            "https://www.googletagmanager.com https://pagead2.googlesyndication.com "
+            "https://quge5.com https://5gvci.com https://*.googlesyndication.com "
+            "https://adservice.google.com https://www.google-analytics.com; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "font-src 'self' https://fonts.gstatic.com; "
+        "img-src 'self' data: https: blob:; "
+        "connect-src 'self' https://www.google-analytics.com https://*.googlesyndication.com "
+            "https://pagead2.googlesyndication.com https://5gvci.com https://quge5.com; "
+        "frame-src https://googleads.g.doubleclick.net https://*.googlesyndication.com; "
+        "media-src 'self' https: blob:;"
+    )
 
     return response
 
@@ -244,6 +259,47 @@ app.include_router(legal_router)
 app.include_router(api_router)
 app.include_router(proxy_router)
 app.include_router(sitemap_router)
+
+# --- Custom 404 Handler (Screaming Frog: Internal Client Error 4xx) ---
+from starlette.exceptions import HTTPException as StarletteHTTPException
+from fastapi.responses import HTMLResponse
+
+@app.exception_handler(StarletteHTTPException)
+async def custom_http_exception_handler(request, exc):
+    if exc.status_code == 404:
+        html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - SnapReelDownload</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f172a;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}
+        .c{text-align:center;max-width:500px;padding:40px}
+        h1{font-size:72px;color:#4f46e5;margin:0}
+        h2{font-size:24px;margin:16px 0 8px}
+        p{color:#64748b;line-height:1.6}
+        a{display:inline-block;margin-top:24px;padding:12px 32px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;transition:transform .2s}
+        a:hover{transform:translateY(-2px)}
+    </style>
+</head>
+<body>
+    <div class="c">
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <p>The page you're looking for doesn't exist or has been moved. Try one of our video downloader tools instead.</p>
+        <a href="/">Go to Homepage</a>
+    </div>
+</body>
+</html>"""
+        return HTMLResponse(content=html, status_code=404)
+    # For other HTTP errors, return JSON
+    from fastapi.responses import JSONResponse
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"detail": exc.detail},
+    )
 
 logger.info("Snap Reel Download app initialized with modular routes.")
 

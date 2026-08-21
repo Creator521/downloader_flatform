@@ -8,7 +8,7 @@ post = {
 <p>Yes, absolutely! You can download YouTube videos without a Google account, without any software, and completely anonymously. This guide shows you exactly how, plus answers to every question about loginless downloading.</p>
 
 <h3>Quick Answer</h3>
-<p>Our <a href="/youtube-video-downloader">YouTube Video Downloader</a> lets you download any public video without signing in. Just paste the URL, choose your format, and download instantly. No account, no registration, no tracking.</p>
+<p>Our <a href="/youtube">YouTube Video Downloader</a> lets you download any public video without signing in. Just paste the URL, choose your format, and download instantly. No account, no registration, no tracking.</p>
 
 <hr>
 
@@ -17,7 +17,7 @@ post = {
 <h3>Method 1: Online Downloader (Fastest - 30 Seconds)</h3>
 <ol>
 <li>Copy the YouTube video URL</li>
-<li>Visit our <a href="/youtube-video-downloader">YouTube downloader</a></li>
+<li>Visit our <a href="/youtube">YouTube downloader</a></li>
 <li>Paste the link in the search box</li>
 <li>Select video quality (4K, 1080p, 720p, etc.)</li>
 <li>Click "Download" — file saves to your device instantly</li>
@@ -32,7 +32,7 @@ post = {
 <h4>iPhone (No App)</h4>
 <ol>
 <li>Open Safari or Chrome browser</li>
-<li>Go to our <a href="/youtube-video-downloader">YouTube downloader</a></li>
+<li>Go to our <a href="/youtube">YouTube downloader</a></li>
 <li>Paste YouTube link</li>
 <li>Tap "Download" button</li>
 <li>Select "Download Video" from options</li>
@@ -44,7 +44,7 @@ post = {
 <h4>Android (Direct Download)</h4>
 <ol>
 <li>Open Chrome browser</li>
-<li>Visit our <a href="/youtube-video-downloader">YouTube downloader</a></li>
+<li>Visit our <a href="/youtube">YouTube downloader</a></li>
 <li>Paste link</li>
 <li>Select format & quality</li>
 <li>Tap download icon</li>
@@ -58,7 +58,7 @@ post = {
 <h4>Windows 10/11</h4>
 <ol>
 <li>Open any browser (Chrome, Edge, Firefox)</li>
-<li>Go to our <a href="/youtube-video-downloader">YouTube downloader</a></li>
+<li>Go to our <a href="/youtube">YouTube downloader</a></li>
 <li>Paste YouTube URL</li>
 <li>Choose quality: 4K, 1080p, 720p (4K available for supported videos)</li>
 <li>Click Download</li>
@@ -144,7 +144,7 @@ post = {
 <p>iPad has more flexibility than iPhone.</p>
 <ol>
 <li>Open Safari (not Chrome — Safari has better download support)</li>
-<li>Visit our <a href="/youtube-video-downloader">YouTube downloader</a></li>
+<li>Visit our <a href="/youtube">YouTube downloader</a></li>
 <li>Paste link</li>
 <li>Select MP4 or MP3</li>
 <li>Tap download</li>
@@ -156,7 +156,7 @@ post = {
 <p>Chromebook runs Chrome OS — same browser process.</p>
 <ol>
 <li>Open Chrome</li>
-<li>Visit our <a href="/youtube-video-downloader">YouTube downloader</a></li>
+<li>Visit our <a href="/youtube">YouTube downloader</a></li>
 <li>Paste link</li>
 <li>Download saves to Downloads folder</li>
 <li>Access via Files app</li>
@@ -166,7 +166,7 @@ post = {
 <p>Our tool works on any Linux distribution.</p>
 <ol>
 <li>Open Firefox or Chrome</li>
-<li>Visit our <a href="/youtube-video-downloader">YouTube downloader</a></li>
+<li>Visit our <a href="/youtube">YouTube downloader</a></li>
 <li>Download saves to ~/Downloads or your chosen folder</li>
 </ol>
 
@@ -249,7 +249,7 @@ post = {
 <li>Region-locked (not available in your country)</li>
 </ul>
 
-<p><strong>Solution:</strong> Check if you can watch the video in YouTube itself. If yes, try our <a href="/youtube-video-downloader">downloader again</a>. If no, the video isn't accessible.</p>
+<p><strong>Solution:</strong> Check if you can watch the video in YouTube itself. If yes, try our <a href="/youtube">downloader again</a>. If no, the video isn't accessible.</p>
 
 <h3>Downloaded File Won't Play?</h3>
 
@@ -261,7 +261,7 @@ post = {
 <li><strong>WebM files:</strong> Use VLC, Firefox, or Chrome (not all players support WebM)</li>
 </ul>
 
-<p><strong>Tip:</strong> Download <a href="https://www.videolan.org/" target="_blank">VLC Media Player (free)</a> — it plays literally every video format.</p>
+<p><strong>Tip:</strong> Download <a href="https://www.videolan.org/" target="_blank" rel="noopener">VLC Media Player (free)</a> — it plays literally every video format.</p>
 
 <h3>Download is Too Slow?</h3>
 
@@ -456,12 +456,12 @@ post = {
 <p>Love downloading? We support more platforms than just YouTube:</p>
 
 <ul>
-<li><a href="/instagram-video-downloader">Download Instagram Videos</a> — No login needed</li>
-<li><a href="/tiktok-video-downloader">Download TikTok Videos</a> — Remove watermarks</li>
-<li><a href="/facebook-video-downloader">Download Facebook Videos</a> — Public & private (if accessible)</li>
+<li><a href="/video">Download Instagram Videos</a> — No login needed</li>
+<li><a href="/tiktok">Download TikTok Videos</a> — Remove watermarks</li>
+<li><a href="/facebook">Download Facebook Videos</a> — Public & private (if accessible)</li>
 <li><a href="/twitter-video-downloader">Download Twitter/X Videos</a> — High quality</li>
 <li><a href="/reddit-video-downloader">Download Reddit Videos</a> — With sound</li>
-<li><a href="/pinterest-video-downloader">Download Pinterest Videos</a> — Full quality</li>
+<li><a href="/pinterest">Download Pinterest Videos</a> — Full quality</li>
 </ul>
 
 <p>All work without login. All free. All anonymous.</p>
@@ -486,7 +486,7 @@ post = {
 <li>Give credit if you use clips in your own work</li>
 </ul>
 
-<p><strong>Ready to download?</strong> Visit our <a href="/youtube-video-downloader">YouTube Video Downloader</a> now. No signup. No registration. No tracking. Just download.</p>
+<p><strong>Ready to download?</strong> Visit our <a href="/youtube">YouTube Video Downloader</a> now. No signup. No registration. No tracking. Just download.</p>
 
 <p>Questions? <a href="/contact">Contact us</a> or check our <a href="/faq">complete FAQ</a>.</p>
 

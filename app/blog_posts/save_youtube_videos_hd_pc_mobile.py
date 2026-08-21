@@ -80,7 +80,7 @@ post = {
 <li>Find the YouTube video you want to save</li>
 <li>Copy the video URL from your browser's address bar<br>
    <em>OR</em> on mobile: tap Share → Copy Link</li>
-<li>Open our <a href="/youtube-video-downloader">YouTube HD Downloader</a></li>
+<li>Open our <a href="/youtube">YouTube HD Downloader</a></li>
 <li>Paste the URL into the download box</li>
 <li>Click/tap Download</li>
 <li>Select your desired quality (720p, 1080p, 4K)</li>
@@ -96,7 +96,7 @@ post = {
 <ol>
 <li>Open YouTube → find your video</li>
 <li>Tap the <strong>Share</strong> button → <strong>Copy Link</strong></li>
-<li>Open Chrome → go to <a href="/youtube-video-downloader">SnapReelDownload YouTube Downloader</a></li>
+<li>Open Chrome → go to <a href="/youtube">SnapReelDownload YouTube Downloader</a></li>
 <li>Paste the URL → tap Download</li>
 <li>Select 1080p HD (or highest available)</li>
 <li>File downloads to <strong>Downloads</strong> folder</li>
@@ -119,7 +119,7 @@ post = {
 <ol>
 <li>Copy the YouTube video URL</li>
 <li>Open <strong>Safari</strong> browser (not Chrome for best iPhone compatibility)</li>
-<li>Visit our <a href="/youtube-video-downloader">YouTube Downloader</a></li>
+<li>Visit our <a href="/youtube">YouTube Downloader</a></li>
 <li>Paste URL → tap Download</li>
 <li>Select 720p or 1080p quality</li>
 <li>Tap the download icon → confirm download</li>
@@ -142,7 +142,7 @@ post = {
 <ol>
 <li>Open YouTube in any browser</li>
 <li>Copy the video URL from the address bar</li>
-<li>Open a new tab → go to <a href="/youtube-video-downloader">SnapReelDownload</a></li>
+<li>Open a new tab → go to <a href="/youtube">SnapReelDownload</a></li>
 <li>Paste the URL</li>
 <li>Click Download</li>
 <li>Select 1080p, 2K, or 4K quality</li>
@@ -216,7 +216,7 @@ yt-dlp -f "bestvideo[height=1080]+bestaudio/best" [URL]
 <p>For the best YouTube HD downloading experience:</p>
 
 <ul>
-<li>✅ Use our free <a href="/youtube-video-downloader">YouTube HD Downloader</a></li>
+<li>✅ Use our free <a href="/youtube">YouTube HD Downloader</a></li>
 <li>✅ Always select the highest quality you need</li>
 <li>✅ Download over Wi-Fi for large files</li>
 <li>✅ Use VLC for smooth 4K playback on all devices</li>

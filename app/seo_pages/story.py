@@ -1,6 +1,6 @@
 page_data = {
     "route": "/story",
-    "title": 'How to Download Instagram Stories Without Watermark Anonymously - HD Free 2026',
+    "title": "Download Instagram Stories Free HD - Anonymous",
     "meta_description": "Download Instagram Stories anonymously in HD quality - no watermark, no login. Save story videos & photos free for Android, iPhone & PC. Creator won't know.",
     "h1": 'Instagram Story Downloader — Download Stories Anonymously Free in HD',
     "subtitle": "Save any Instagram Story privately — No login, no watermark, creator won't know, 100% free",
@@ -22,7 +22,7 @@ page_data = {
 
                 <p>Unlike viewing a Story normally (which adds your name to their viewer list), our tool bypasses Instagram's tracking system entirely. Download with complete privacy — zero notifications, zero traces.</p>
 
-                <h3>Why Download Instagram Stories?</h3>
+                <h4>Why Download Instagram Stories?</h4>
                 <ul>
                     <li><strong>⏰ Beat the 24-Hour Limit:</strong> Stories vanish after a day. Download before they're gone forever. Save important moments permanently.</li>
                     <li><strong>📸 Save Memories:</strong> Friend's travel clips, birthday wishes, special announcements, family moments — keep them forever on your device.</li>
@@ -36,7 +36,7 @@ page_data = {
 
                 <h2>Instagram Story Specifications & Technical Details</h2>
 
-                <h3>Video Format Standards</h3>
+                <h4>Video Format Standards</h4>
                 <table class="specs-table">
                     <thead>
                         <tr>
@@ -121,7 +121,7 @@ page_data = {
 
                 <h2>How to Download Instagram Stories — Complete Device Guide</h2>
 
-                <h3>💻 On Desktop/Laptop (Windows/Mac)</h3>
+                <h4>💻 On Desktop/Laptop (Windows/Mac)</h4>
 
                 <h4>Step 1: Copy the Instagram Story Link</h4>
                 <ol>
@@ -168,7 +168,7 @@ page_data = {
                     <li><strong>Mac:</strong> Finder → Downloads → Double-click → Opens automatically</li>
                 </ul>
 
-                <h3>📱 On Android Phone</h3>
+                <h4>📱 On Android Phone</h4>
 
                 <h4>Step-by-Step Guide</h4>
                 <ol>
@@ -203,7 +203,7 @@ page_data = {
                     <li>🎬 Edit in <strong>CapCut</strong> if needed</li>
                 </ul>
 
-                <h3>📱 On iPhone (iOS)</h3>
+                <h4>📱 On iPhone (iOS)</h4>
 
                 <h4>Important: Use Safari, Not Chrome</h4>
                 <p>⚠️ <strong>Always use Safari on iPhone.</strong> Chrome has iOS file download limitations.</p>
@@ -240,46 +240,46 @@ page_data = {
                     <li>🎬 Edit with iMovie or CapCut</li>
                 </ul>
 
-                <h3>📱 On iPad</h3>
+                <h4>📱 On iPad</h4>
                 <p>Follow the <strong>iPhone steps</strong> — iPadOS works identically to iOS.</p>
 
                 <h2>Instagram Story Types & Download Support</h2>
 
-                <h3>✅ Standard Story Videos</h3>
+                <h4>✅ Standard Story Videos</h4>
                 <p><strong>What:</strong> Regular video Stories (3-15 seconds)</p>
                 <p><strong>Download:</strong> Works perfectly ✅ MP4 format</p>
                 <p><strong>Quality:</strong> 1080×1920 Full HD</p>
 
-                <h3>✅ Story Photos</h3>
+                <h4>✅ Story Photos</h4>
                 <p><strong>What:</strong> Image Stories</p>
                 <p><strong>Download:</strong> Works perfectly ✅ JPG format</p>
                 <p><strong>Quality:</strong> Full original resolution</p>
 
-                <h3>✅ Boomerang Stories</h3>
+                <h4>✅ Boomerang Stories</h4>
                 <p><strong>What:</strong> Looping video clips (Instagram's Boomerang feature)</p>
                 <p><strong>Download:</strong> Works as looping MP4 video ✅</p>
 
-                <h3>✅ Story Highlights</h3>
+                <h4>✅ Story Highlights</h4>
                 <p><strong>What:</strong> Stories saved to permanent Highlights on profiles</p>
                 <p><strong>Download:</strong> Works perfectly for public Highlights ✅</p>
 
-                <h3>✅ Stories with Stickers</h3>
+                <h4>✅ Stories with Stickers</h4>
                 <p><strong>What:</strong> Stories with text, polls, location tags, etc.</p>
                 <p><strong>Download:</strong> Stickers are baked into download ✅</p>
 
-                <h3>✅ Stories with Music</h3>
+                <h4>✅ Stories with Music</h4>
                 <p><strong>What:</strong> Stories with background music</p>
                 <p><strong>Download:</strong> Audio included in video ✅</p>
 
-                <h3>❌ Cannot Download: Private Account Stories</h3>
+                <h4>❌ Cannot Download: Private Account Stories</h4>
                 <p><strong>Why:</strong> Not publicly accessible</p>
 
-                <h3>❌ Cannot Download: Close Friends Only Stories</h3>
+                <h4>❌ Cannot Download: Close Friends Only Stories</h4>
                 <p><strong>Why:</strong> Restricted to specific users</p>
 
                 <h2>Advanced Features & Pro Tips</h2>
 
-                <h3>🎵 Extract Audio from Story Videos</h3>
+                <h4>🎵 Extract Audio from Story Videos</h4>
                 <p>Need just the audio from a Story?</p>
                 <ol>
                     <li>Paste Story link</li>
@@ -287,7 +287,7 @@ page_data = {
                     <li>Download MP3 in seconds</li>
                 </ol>
 
-                <h3>📥 Batch Download Multiple Stories</h3>
+                <h4>📥 Batch Download Multiple Stories</h4>
                 <p>Download several Stories:</p>
                 <ol>
                     <li>Copy first Story link → Download</li>
@@ -295,7 +295,7 @@ page_data = {
                     <li>Repeat as needed</li>
                 </ol>
 
-                <h3>📁 Organize Your Stories</h3>
+                <h4>📁 Organize Your Stories</h4>
                 <p><strong>Folder structure:</strong></p>
                 <ul>
                     <li>📁 /Stories_Friends</li>
@@ -305,7 +305,7 @@ page_data = {
                     <li>📁 /Stories_Archive</li>
                 </ul>
 
-                <h3>☁️ Cloud Backup</h3>
+                <h4>☁️ Cloud Backup</h4>
                 <ul>
                     <li>☁️ Google Drive</li>
                     <li>☁️ OneDrive</li>
@@ -315,7 +315,7 @@ page_data = {
 
                 <h2>Troubleshooting: Common Issues & Solutions</h2>
 
-                <h3>❌ "Invalid Link" or "Story Not Found"</h3>
+                <h4>❌ "Invalid Link" or "Story Not Found"</h4>
 
                 <p><strong>Possible causes:</strong></p>
                 <ul>
@@ -333,7 +333,7 @@ page_data = {
                     <li>✅ Try again in a few minutes</li>
                 </ul>
 
-                <h3>❌ Download is Slow</h3>
+                <h4>❌ Download is Slow</h4>
 
                 <p><strong>Solutions:</strong></p>
                 <ol>
@@ -343,7 +343,7 @@ page_data = {
                     <li>Try different browser</li>
                 </ol>
 
-                <h3>❌ Story Won't Play After Download</h3>
+                <h4>❌ Story Won't Play After Download</h4>
 
                 <p><strong>Solutions:</strong></p>
                 <ul>

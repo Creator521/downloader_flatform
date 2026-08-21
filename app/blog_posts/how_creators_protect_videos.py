@@ -176,7 +176,7 @@ post = {
 
 <p>Protecting Instagram content requires a layered approach — watermarks for attribution, private settings for sensitive content, and DMCA takedowns when theft occurs. No method is 100% foolproof, but combining these strategies significantly reduces unauthorized use.</p>
 
-<p>For legitimate personal downloading (watching content you love offline), use our <a href="/instagram-video-downloader">Instagram Video Downloader</a> — always for personal use, never for redistribution.</p>
+<p>For legitimate personal downloading (watching content you love offline), use our <a href="/video">Instagram Video Downloader</a> — always for personal use, never for redistribution.</p>
 
 </div>
 """,

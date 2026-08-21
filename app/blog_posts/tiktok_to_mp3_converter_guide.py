@@ -681,7 +681,7 @@ post = {
 
 <p><strong>For ringtones and audio use: MP3.</strong> Smaller, compatible with everything, no video bloat.</p>
 <p><strong>For full video save: MP4.</strong> Includes both video and audio.</p>
-<p>Use our <a href="/tiktok-video-downloader">TikTok Video Downloader</a> if you need the full video file.</p>
+<p>Use our <a href="/tiktok">TikTok Video Downloader</a> if you need the full video file.</p>
 
 <hr>
 
@@ -731,12 +731,12 @@ post = {
 <h2>Related Tools & Guides</h2>
 
 <ul>
-<li><a href="/tiktok-video-downloader">TikTok Video Downloader (MP4 with audio) →</a></li>
+<li><a href="/tiktok">TikTok Video Downloader (MP4 with audio) →</a></li>
 <li><a href="/youtube-to-mp3-converter">YouTube to MP3 Converter →</a></li>
 <li><a href="/tiktok-trending-sounds">Download TikTok Trending Sounds Guide →</a></li>
 <li><a href="/tiktok-android">TikTok Download on Android →</a></li>
 <li><a href="/tiktok-iphone">TikTok Download on iPhone →</a></li>
-<li><a href="/instagram-video-downloader">Instagram Video & Audio Downloader →</a></li>
+<li><a href="/video">Instagram Video & Audio Downloader →</a></li>
 </ul>
 
 <hr>

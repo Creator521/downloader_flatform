@@ -239,7 +239,7 @@ post = {
 
 <p><strong>Process:</strong></p>
 <ol>
-<li>Go to a trusted downloader site (example: <a href="/instagram-reel-downloader">SnapReelDownload</a>)</li>
+<li>Go to a trusted downloader site (example: <a href="/reels">SnapReelDownload</a>)</li>
 <li>Copy Instagram Reel URL from the app or browser</li>
 <li>Paste the URL into the download box</li>
 <li>Click "Download"</li>
@@ -282,7 +282,7 @@ post = {
 
 <p><strong>Create a bookmark shortcut:</strong></p>
 <ol>
-<li>Bookmark our <a href="/instagram-reel-downloader">Instagram Reel downloader</a> to your browser favorites</li>
+<li>Bookmark our <a href="/reels">Instagram Reel downloader</a> to your browser favorites</li>
 <li>When you want to download: Open bookmark</li>
 <li>Paste Reel link</li>
 <li>Download instantly</li>
@@ -558,7 +558,7 @@ post = {
 
 <ol>
 <li>Open Safari browser (or Chrome)</li>
-<li>Visit <a href="/instagram-reel-downloader">SnapReelDownload</a></li>
+<li>Visit <a href="/reels">SnapReelDownload</a></li>
 <li>Copy Instagram Reel link (no Instagram app login required)</li>
 <li>Paste link into downloader</li>
 <li>Download to Files or iCloud Drive</li>
@@ -866,7 +866,7 @@ post = {
 
 <h2>The Safe Way: Zero Risk Method</h2>
 
-<p><strong>Using a no-login downloader like <a href="/instagram-reel-downloader">SnapReelDownload</a>:</strong></p>
+<p><strong>Using a no-login downloader like <a href="/reels">SnapReelDownload</a>:</strong></p>
 
 <p><strong>Day 1 — You download safely:</strong></p>
 <ul>
@@ -908,7 +908,7 @@ post = {
 <li>✅ Zero benefit to giving credentials</li>
 </ul>
 
-<p><strong>Use only no-login downloaders like <a href="/instagram-reel-downloader">SnapReelDownload</a>:</strong> Paste URL → Download → Done. No passwords, no risk, no headaches.</p>
+<p><strong>Use only no-login downloaders like <a href="/reels">SnapReelDownload</a>:</strong> Paste URL → Download → Done. No passwords, no risk, no headaches.</p>
 
 <p><strong>Protect your account. Never enter your password anywhere except Instagram.com or the Instagram app itself. Stay safe! 🔒</strong></p>
 

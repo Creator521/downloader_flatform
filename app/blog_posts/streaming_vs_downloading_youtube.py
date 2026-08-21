@@ -204,13 +204,13 @@ post = {
 <h2>FAQ: Streaming vs Downloading YouTube</h2>
 
 <h3>Does downloading YouTube videos cost money?</h3>
-<p>YouTube Premium costs $13.99/month for official offline downloads. Our <a href="/youtube-video-downloader">free YouTube downloader</a> is completely free — just paste the URL and download.</p>
+<p>YouTube Premium costs $13.99/month for official offline downloads. Our <a href="/youtube">free YouTube downloader</a> is completely free — just paste the URL and download.</p>
 
 <h3>Is streaming or downloading better for 4K content?</h3>
 <p><strong>For multiple watches: downloading is dramatically better.</strong> 4K streaming uses 4 GB per hour. If you watch a 4K tutorial 10 times, downloading saves 36 GB of data compared to streaming.</p>
 
 <h3>Can I download YouTube videos for free without YouTube Premium?</h3>
-<p><strong>Yes.</strong> Use our <a href="/youtube-video-downloader">YouTube Video Downloader</a> — free, no account needed, no subscription.</p>
+<p><strong>Yes.</strong> Use our <a href="/youtube">YouTube Video Downloader</a> — free, no account needed, no subscription.</p>
 
 <h3>Does downloading YouTube reduce the quality vs streaming?</h3>
 <p><strong>No.</strong> Our downloader gives you the same video file YouTube streams to you. The quality is identical — or better, because it doesn't adapt down during playback.</p>
@@ -228,7 +228,7 @@ post = {
 <li>✅ No buffering ever</li>
 </ul>
 
-<p>Use our <a href="/youtube-video-downloader">free YouTube Downloader</a> to start building your offline library today. Paste any YouTube URL and download in HD quality instantly! 🎬</p>
+<p>Use our <a href="/youtube">free YouTube Downloader</a> to start building your offline library today. Paste any YouTube URL and download in HD quality instantly! 🎬</p>
 
 </div>
 """,

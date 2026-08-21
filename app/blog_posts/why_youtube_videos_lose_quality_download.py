@@ -72,7 +72,7 @@ post = {
 
 <h3>Step-by-Step for Maximum Quality</h3>
 <ol>
-<li>Go to <a href="/youtube-video-downloader">SnapReelDownload YouTube Downloader</a></li>
+<li>Go to <a href="/youtube">SnapReelDownload YouTube Downloader</a></li>
 <li>Paste your YouTube URL</li>
 <li>Click Download — wait for all quality options to appear</li>
 <li>Select the HIGHEST quality listed (usually 1080p or 720p+Audio)</li>
@@ -186,7 +186,7 @@ post = {
 <p>To maximize YouTube download quality:</p>
 <ul>
 <li>✅ Always select the highest quality option (1080p or 4K)</li>
-<li>✅ Use our <a href="/youtube-video-downloader">YouTube downloader</a> which doesn't re-encode</li>
+<li>✅ Use our <a href="/youtube">YouTube downloader</a> which doesn't re-encode</li>
 <li>✅ Wait for 100% download completion before playing</li>
 <li>✅ Use VLC Media Player for best playback quality</li>
 <li>✅ Enable hardware acceleration in your media player for 4K content</li>

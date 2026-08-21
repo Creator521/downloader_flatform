@@ -163,7 +163,7 @@ post = {
 
 <p><strong>How it works:</strong></p>
 <ol>
-<li>You paste YouTube URL into our <a href="/youtube-video-downloader">downloader</a></li>
+<li>You paste YouTube URL into our <a href="/youtube">downloader</a></li>
 <li>Our server requests the video file from YouTube's CDN</li>
 <li>YouTube's CDN delivers the file (it's public, after all)</li>
 <li>You download to your device</li>
@@ -357,7 +357,7 @@ post = {
 <ol>
 <li>Copy YouTube video link</li>
 <li>Open Safari or Chrome browser</li>
-<li>Visit our <a href="/youtube-video-downloader">YouTube downloader</a></li>
+<li>Visit our <a href="/youtube">YouTube downloader</a></li>
 <li>Paste the URL</li>
 <li>Select video quality (4K, 1080p, 720p, etc.)</li>
 <li>Tap "Download"</li>
@@ -711,7 +711,7 @@ post = {
 
 <p><strong>Is it legal?</strong> Yes, for personal, non-commercial use. YouTube's own Terms of Service allow downloading for offline viewing.</p>
 
-<p><strong>Ready to download?</strong> Use our <a href="/youtube-video-downloader">YouTube Video Downloader</a> now. No signup, no login, completely anonymous. Download with full confidence! 🔒</p>
+<p><strong>Ready to download?</strong> Use our <a href="/youtube">YouTube Video Downloader</a> now. No signup, no login, completely anonymous. Download with full confidence! 🔒</p>
 
 </div>
 

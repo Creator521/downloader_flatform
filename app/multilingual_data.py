@@ -98,7 +98,7 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         else:
             desc = f'{t["dw"]} {brand_name} {content_word} in HD quality for {t["fr"]}. No watermark, no login. Fast & secure.'
 
-        title     = f'{t["dw"]} {brand_name} {content_word} HD {t["fr"]} {t["on"]} | {suffix}'
+        title     = f'{t["dw"]} {brand_name} {content_word} {t["fr"]} | {suffix}'
         h1        = f'{t["dw"]} {brand_name} {content_word}'
         tool_name = f'{brand_name} {content_word} {t["dl"]}'
 
@@ -281,8 +281,8 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             features = features[:2]
 
     return {
-        "title":         str(title)[:70],
-        "description":   str(desc)[:160],
+        "title":         str(title)[:60],
+        "description":   str(desc)[:150],
         "h1":            str(h1),
         "subtitle":      str(page_subtitle),
         "tool_name":     str(tool_name),

@@ -154,7 +154,7 @@ post = {
 
 <h2>What Happens When You Use Our Downloader</h2>
 
-<p>Our <a href="/youtube-video-downloader">YouTube Video Downloader</a>:</p>
+<p>Our <a href="/youtube">YouTube Video Downloader</a>:</p>
 <ul>
 <li>✅ Only accesses publicly available videos (no login required)</li>
 <li>✅ Does not bypass any YouTube encryption or DRM</li>
@@ -197,7 +197,7 @@ post = {
 <li>❌ <strong>Commercial use:</strong> Clear infringement, pursue licensing instead</li>
 </ul>
 
-<p>Use our <a href="/youtube-video-downloader">YouTube Downloader</a> responsibly — for personal offline viewing. This is the overwhelmingly common and practically tolerated use of such tools.</p>
+<p>Use our <a href="/youtube">YouTube Downloader</a> responsibly — for personal offline viewing. This is the overwhelmingly common and practically tolerated use of such tools.</p>
 
 </div>
 """,

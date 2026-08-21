@@ -814,9 +814,9 @@ post = {
 <h2>Related Tools</h2>
 
 <ul>
-<li><a href="/tiktok-video-downloader">TikTok Video Downloader (with audio) →</a></li>
+<li><a href="/tiktok">TikTok Video Downloader (with audio) →</a></li>
 <li><a href="/youtube-to-mp3-converter">YouTube to MP3 Converter →</a></li>
-<li><a href="/instagram-video-downloader">Instagram Audio & Video Downloader →</a></li>
+<li><a href="/video">Instagram Audio & Video Downloader →</a></li>
 <li><a href="/tiktok-android">TikTok Download Guide for Android →</a></li>
 <li><a href="/tiktok-iphone">TikTok Download Guide for iPhone →</a></li>
 </ul>

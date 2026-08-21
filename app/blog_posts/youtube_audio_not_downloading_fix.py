@@ -70,7 +70,7 @@ post = {
 
 <h3>Solution: Use Our Downloader Correctly</h3>
 <ol>
-<li>Go to <a href="/youtube-video-downloader">SnapReelDownload YouTube Downloader</a></li>
+<li>Go to <a href="/youtube">SnapReelDownload YouTube Downloader</a></li>
 <li>Paste your YouTube URL</li>
 <li>Click Download</li>
 <li>Make sure to select a combined video+audio format (labeled "Video + Audio" or similar)</li>
@@ -122,7 +122,7 @@ post = {
 <ol>
 <li>Delete the corrupted file completely</li>
 <li>Check your internet connection is stable</li>
-<li>Go back to <a href="/youtube-video-downloader">our YouTube downloader</a></li>
+<li>Go back to <a href="/youtube">our YouTube downloader</a></li>
 <li>Re-paste the URL fresh</li>
 <li>Do NOT close the browser tab or switch apps during download</li>
 <li>Wait for 100% completion before playing</li>
@@ -212,7 +212,7 @@ post = {
 <li><strong>Incomplete download</strong> — solved by re-downloading</li>
 </ol>
 
-<p>Try <a href="/youtube-video-downloader">downloading again with our tool</a> — select the MP4 combined format, and you'll have full audio every time. 🔊</p>
+<p>Try <a href="/youtube">downloading again with our tool</a> — select the MP4 combined format, and you'll have full audio every time. 🔊</p>
 
 </div>
 """,

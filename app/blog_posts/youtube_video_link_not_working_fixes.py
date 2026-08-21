@@ -121,7 +121,7 @@ post = {
 <li>Click on the video title or make sure you're on the video's own page (not a playlist page)</li>
 <li>Copy the URL from the browser's <strong>address bar</strong></li>
 <li>The URL should look like: <code>https://www.youtube.com/watch?v=XXXXXXXXXXX</code></li>
-<li>Paste into <a href="/youtube-video-downloader">SnapReelDownload</a></li>
+<li>Paste into <a href="/youtube">SnapReelDownload</a></li>
 </ol>
 
 <h3>From YouTube Mobile App (Android)</h3>
@@ -222,7 +222,7 @@ post = {
 <ol>
 <li>Open the video directly on YouTube's website</li>
 <li>Copy the URL from the browser's address bar</li>
-<li>Paste it into <a href="/youtube-video-downloader">SnapReelDownload</a></li>
+<li>Paste it into <a href="/youtube">SnapReelDownload</a></li>
 </ol>
 
 <p>This method works with every public YouTube video — Shorts, regular videos, and everything in between. If the video plays on YouTube, our downloader can get it for you. 🎬⬇️</p>

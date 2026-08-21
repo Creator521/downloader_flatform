@@ -26,7 +26,7 @@ post = {
 <ol>
 <li>Open Instagram and find the Reel you want to save</li>
 <li>Tap the three-dot menu (⋯) → <strong>Copy Link</strong></li>
-<li>Open Chrome browser → go to <a href="/instagram-reel-downloader">SnapReelDownload</a></li>
+<li>Open Chrome browser → go to <a href="/reels">SnapReelDownload</a></li>
 <li>Paste the Reel link → tap Download</li>
 <li>Select "HD" or highest quality available</li>
 <li>The .mp4 file saves to your Downloads folder</li>
@@ -36,7 +36,7 @@ post = {
 <h3>For iPhone</h3>
 <ol>
 <li>Copy the Reel link (three-dot menu → Copy Link)</li>
-<li>Open Safari browser → go to <a href="/instagram-reel-downloader">SnapReelDownload</a></li>
+<li>Open Safari browser → go to <a href="/reels">SnapReelDownload</a></li>
 <li>Paste and tap Download</li>
 <li>When the video appears, tap the download icon</li>
 <li>Tap "Download" on the confirmation popup</li>
@@ -180,7 +180,7 @@ post = {
 <p>For the highest quality Reels saved directly to your gallery:</p>
 
 <ul>
-<li>✅ Use <a href="/instagram-reel-downloader">SnapReelDownload</a> — free, no login, HD quality</li>
+<li>✅ Use <a href="/reels">SnapReelDownload</a> — free, no login, HD quality</li>
 <li>✅ Always select the highest quality option</li>
 <li>✅ On iPhone: save from Files app → "Save to Photos" to add to Camera Roll</li>
 <li>✅ On Android: file goes directly to Gallery/Downloads after download</li>

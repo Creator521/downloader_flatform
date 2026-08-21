@@ -200,7 +200,7 @@ post = {
 <li>✅ <strong>Be non-commercial</strong> (or commercial for legitimate purposes)</li>
 </ul>
 
-<p>When in doubt, create something original. And for personal offline viewing of YouTube content, use our <a href="/youtube-video-downloader">YouTube Downloader</a> — personal viewing is far removed from any copyright dispute. 🎬⚖️</p>
+<p>When in doubt, create something original. And for personal offline viewing of YouTube content, use our <a href="/youtube">YouTube Downloader</a> — personal viewing is far removed from any copyright dispute. 🎬⚖️</p>
 
 </div>
 """,

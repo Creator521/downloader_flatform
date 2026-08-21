@@ -188,7 +188,7 @@ post = {
 
 <h2>Can Our Downloader Access Private Content?</h2>
 
-<p><strong>No.</strong> Our <a href="/instagram-video-downloader">Instagram Video Downloader</a> can only access public content. We do not:</p>
+<p><strong>No.</strong> Our <a href="/video">Instagram Video Downloader</a> can only access public content. We do not:</p>
 <ul>
 <li>❌ Bypass Instagram's authentication for private accounts</li>
 <li>❌ Access content behind login walls</li>
@@ -224,7 +224,7 @@ post = {
 <li>✅ <strong>Close Friends</strong> = Privacy within a public account for specific content</li>
 </ul>
 
-<p>Choose based on your goals. Creators growing an audience should stay public. Personal users who only want to share with friends should go private. Our <a href="/instagram-video-downloader">downloader</a> only works on public content — your choice to go private is always respected.</p>
+<p>Choose based on your goals. Creators growing an audience should stay public. Personal users who only want to share with friends should go private. Our <a href="/video">downloader</a> only works on public content — your choice to go private is always respected.</p>
 
 </div>
 """,

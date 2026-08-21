@@ -153,7 +153,7 @@ Color Space: sRGB
 
 <h2>How Compression Affects Downloads</h2>
 
-<p>When you use our <a href="/instagram-video-downloader">Instagram Video Downloader</a> to save a video, you receive the version Instagram has stored — which is already the compressed version. You can't "uncompress" it, but you can:</p>
+<p>When you use our <a href="/video">Instagram Video Downloader</a> to save a video, you receive the version Instagram has stored — which is already the compressed version. You can't "uncompress" it, but you can:</p>
 <ul>
 <li>Download at the highest available quality option</li>
 <li>Use video upscaling tools (Topaz Video AI, etc.) to improve quality post-download</li>

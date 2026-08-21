@@ -81,7 +81,7 @@ post = {
 
 <h3>Solution: Use Our Downloader's Audio-Preserved Option</h3>
 <ol>
-<li>Go to <a href="/instagram-video-downloader">SnapReelDownload</a></li>
+<li>Go to <a href="/video">SnapReelDownload</a></li>
 <li>Paste the Instagram Reel/video link</li>
 <li>Try downloading in different quality options</li>
 <li>If audio is missing in one quality, try another</li>
@@ -126,7 +126,7 @@ post = {
 <ol>
 <li>Delete the downloaded file completely</li>
 <li>Check your internet connection speed</li>
-<li>Go back to <a href="/instagram-video-downloader">our downloader</a></li>
+<li>Go back to <a href="/video">our downloader</a></li>
 <li>Paste the link fresh and download again</li>
 <li>Wait for 100% download completion before playing</li>
 </ol>
@@ -215,7 +215,7 @@ post = {
 <li>Incomplete download — solved by re-downloading</li>
 </ol>
 
-<p>Try <a href="/instagram-video-downloader">downloading again with our tool</a> — we serve the highest quality version available from Instagram's servers, including audio whenever possible.</p>
+<p>Try <a href="/video">downloading again with our tool</a> — we serve the highest quality version available from Instagram's servers, including audio whenever possible.</p>
 
 </div>
 """,

@@ -21,7 +21,7 @@ post = {
 
 <p><strong>No. Instagram does not notify creators when you download their videos, Reels, Stories, or feed posts using a third-party downloader.</strong></p>
 
-<p>Your username will not appear in any notification, view count, or activity log. The creator has no way to know you downloaded their content — whether using our <a href="/instagram-video-downloader">Instagram Video Downloader</a> or any other third-party tool.</p>
+<p>Your username will not appear in any notification, view count, or activity log. The creator has no way to know you downloaded their content — whether using our <a href="/video">Instagram Video Downloader</a> or any other third-party tool.</p>
 
 <p>This guide covers every Instagram download scenario, notification edge cases, and how to download completely anonymously on any device.</p>
 
@@ -137,7 +137,7 @@ post = {
 <li>You cannot view anonymously in-app</li>
 </ul>
 
-<p><strong>So if you don't want the creator to know you watched:</strong> Use our <a href="/instagram-story-downloader">Instagram Story Downloader</a> to download first, then watch offline. No tracking, no notification.</p>
+<p><strong>So if you don't want the creator to know you watched:</strong> Use our <a href="/story">Instagram Story Downloader</a> to download first, then watch offline. No tracking, no notification.</p>
 
 <h3>Taking a Screenshot (In-App)</h3>
 <p>When you screenshot a Story using your phone's screenshot function while viewing in Instagram:</p>
@@ -165,7 +165,7 @@ post = {
 <h2>Instagram Reels: Download vs. Save vs. Share</h2>
 
 <h3>Scenario 1: You Download a Reel (Third-Party Tool)</h3>
-<p>Using <a href="/instagram-reel-downloader">our Reel downloader</a>:</p>
+<p>Using <a href="/reels">our Reel downloader</a>:</p>
 <ul>
 <li>❌ Creator is NOT notified</li>
 <li>❌ Your username does NOT appear anywhere</li>
@@ -223,7 +223,7 @@ post = {
 
 <ol>
 <li>Find Instagram link (post/story/reel)</li>
-<li>Use <a href="/instagram-video-downloader">our downloader</a> to save it</li>
+<li>Use <a href="/video">our downloader</a> to save it</li>
 <li>Download to your device (no login required)</li>
 <li>Never interact with the original post/story</li>
 <li>Creator sees ZERO activity from you</li>
@@ -270,7 +270,7 @@ post = {
 <ol>
 <li>Copy Instagram post/story/reel link</li>
 <li>Open Safari or Chrome browser</li>
-<li>Visit <a href="/instagram-video-downloader">our Instagram downloader</a></li>
+<li>Visit <a href="/video">our Instagram downloader</a></li>
 <li>Paste link</li>
 <li>Select quality</li>
 <li>Tap "Download"</li>
@@ -481,7 +481,7 @@ post = {
 
 <h3>Scenario 5: You Screenshot a Story (In-App)</h3>
 <p><strong>Will they know?</strong> ✅ Yes, immediately. Alert sent instantly.</p>
-<p><strong>Better approach:</strong> Use our <a href="/instagram-story-downloader">Story downloader</a> instead. No alert, no notification, zero trace.</p>
+<p><strong>Better approach:</strong> Use our <a href="/story">Story downloader</a> instead. No alert, no notification, zero trace.</p>
 
 <hr>
 
@@ -520,7 +520,7 @@ post = {
 
 <h2>Final Answer: You're Completely Safe</h2>
 
-<p><strong>Bottom line:</strong> When you download Instagram content using a third-party tool like <a href="/instagram-video-downloader">SnapReelDownload</a>:</p>
+<p><strong>Bottom line:</strong> When you download Instagram content using a third-party tool like <a href="/video">SnapReelDownload</a>:</p>
 
 <ul>
 <li>✅ Creator is NOT notified</li>
@@ -531,7 +531,7 @@ post = {
 <li>✅ Zero tracking, zero evidence</li>
 </ul>
 
-<p><strong>The only exception:</strong> In-app screenshots of Stories and DM disappearing photos. If you want complete privacy for Stories, use our <a href="/instagram-story-downloader">Story downloader</a> instead.</p>
+<p><strong>The only exception:</strong> In-app screenshots of Stories and DM disappearing photos. If you want complete privacy for Stories, use our <a href="/story">Story downloader</a> instead.</p>
 
 <p>Your Instagram downloads are safe, private, and completely invisible to creators. Download with confidence! 🔒</p>
 

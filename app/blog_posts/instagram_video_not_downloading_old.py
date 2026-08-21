@@ -42,7 +42,7 @@ post = {
 <li>Open the Instagram post/Reel you want to download</li>
 <li>Tap the <strong>three dots (⋯)</strong> in the top-right corner of the post</li>
 <li>Tap <strong>"Copy Link"</strong></li>
-<li>Paste directly into <a href="/instagram-video-downloader">our downloader</a></li>
+<li>Paste directly into <a href="/video">our downloader</a></li>
 </ol>
 
 <p><strong>Don't use:</strong> Profile page URL, hashtag page URL, search results URL, or links copied from Share menus that may be shortened or wrapped.</p>
@@ -233,7 +233,7 @@ post = {
 
 <p>One of these 10 fixes will solve your Instagram download issue. Start from the top and work your way down — most problems are solved by Fix 1 or Fix 2.</p>
 
-<p>Ready to try again? <a href="/instagram-video-downloader">Visit our Instagram Video Downloader</a> — paste your link and download in seconds! 📱✨</p>
+<p>Ready to try again? <a href="/video">Visit our Instagram Video Downloader</a> — paste your link and download in seconds! 📱✨</p>
 
 </div>
 """,

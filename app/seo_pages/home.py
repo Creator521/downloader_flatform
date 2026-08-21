@@ -26,7 +26,7 @@ page_data = {
           our free video downloader handles everything in one place.
         </p>
 
-        <h3>Why Choose SnapReelDownload Over Other Video Downloaders?</h3>
+        <h4>Why Choose SnapReelDownload Over Other Video Downloaders?</h4>
 
         <p>
           We understand the frustration with other free video downloader tools. Most are slow, force you to install 
@@ -44,13 +44,13 @@ page_data = {
           <li><strong>Download any format:</strong> MP4 videos or MP3 audio extraction — your choice</li>
         </ul>
 
-        <h3>How to Download Videos - 3 Quick Steps</h3>
+        <h4>How to Download Videos - 3 Quick Steps</h4>
 
         <p>
           Downloading videos with SnapReelDownload is incredibly simple. Here's exactly how it works:
         </p>
 
-        <h3>Step 1: Copy Your Video's URL</h3>
+        <h4>Step 1: Copy Your Video's URL</h4>
         <p>
           Open your preferred platform (YouTube, TikTok, Instagram, Facebook, etc.), find the video you want to download, 
           and copy its URL from the address bar. On mobile, tap the video's share button and select "Copy Link". 
@@ -58,7 +58,7 @@ page_data = {
           or <code style="background: var(--color-background-secondary); padding: 2px 6px; border-radius: 4px;">https://www.tiktok.com/@user/video/...</code>
         </p>
 
-        <h3>Step 2: Paste the Link & Choose Your Format</h3>
+        <h4>Step 2: Paste the Link & Choose Your Format</h4>
         <p>
           Come back to SnapReelDownload, paste the copied URL in the input field above, and select your preferred format:
         </p>
@@ -67,56 +67,56 @@ page_data = {
           <li><strong>MP3 Audio:</strong> Extract just the audio track at 320kbps quality — perfect for music videos and podcasts</li>
         </ul>
 
-        <h3>Step 3: Download & Save to Your Device</h3>
+        <h4>Step 3: Download & Save to Your Device</h4>
         <p>
           Click the Download button. Your video processes in seconds and automatically saves to your device's downloads folder. 
           No additional steps, no waiting for emails, no software installation required.
         </p>
 
-        <h3>Download Videos from Any Platform</h3>
+        <h4>Download Videos from Any Platform</h4>
 
-        <h3>YouTube Video Downloader</h3>
+        <h4>YouTube Video Downloader</h4>
         <p>
           Download any YouTube video including standard videos, YouTube Shorts, Premieres, and published livestreams 
           in resolutions up to 4K (2160p). Perfect for saving educational content, tutorials, music videos, documentaries, 
           and lectures for offline viewing without ads. Extract MP3 audio at 320kbps from music videos.
         </p>
 
-        <h3>TikTok Video Downloader (No Watermark)</h3>
+        <h4>TikTok Video Downloader (No Watermark)</h4>
         <p>
           Download TikTok videos completely clean without the username watermark overlay that TikTok normally applies. 
           Save trending clips, dances, comedy videos, and educational content without any platform logos. Perfect for 
           creators who want to repurpose trending videos or users who want to save favorites.
         </p>
 
-        <h3>Instagram Video & Reels Downloader</h3>
+        <h4>Instagram Video & Reels Downloader</h4>
         <p>
           Save Instagram Reels, feed videos, carousel photos (individually or as a set), Stories, and IGTV content 
           in high quality. Excellent for archiving memories, saving tutorial content, backing up creator posts, 
           or collecting inspiration. All downloads are watermark-free.
         </p>
 
-        <h3>Facebook Video Downloader</h3>
+        <h4>Facebook Video Downloader</h4>
         <p>
           Download Facebook videos, Reels, Watch videos, and group-shared content in HD quality. Works with both 
           personal and public page videos that you have permission to view. Save important family moments or public content.
         </p>
 
-        <h3>Additional Supported Platforms</h3>
+        <h4>Additional Supported Platforms</h4>
         <p>
           We also support Snapchat Spotlight videos, Twitter/X video downloads, Pinterest video pins, Reddit videos, 
           and many other social media platforms. Our engineering team continuously updates the platform list to support 
           new services as they emerge.
         </p>
 
-        <h3>MP4 & MP3 Download Options - Complete Control</h3>
+        <h4>MP4 & MP3 Download Options - Complete Control</h4>
 
         <p>
           We believe you should have complete control over your downloaded content. That's why SnapReelDownload 
           offers flexible download format options:
         </p>
 
-        <h3>Save as MP4 Video (Full Video with Audio)</h3>
+        <h4>Save as MP4 Video (Full Video with Audio)</h4>
         <p>
           Download complete videos in MP4 format, which is compatible with virtually every device: smartphones, tablets, 
           smart TVs, laptops, and all media players. MP4 is the universal video standard — it works everywhere without 
@@ -129,7 +129,7 @@ page_data = {
           <li>480p and lower - Mobile-optimized, minimal storage space</li>
         </ul>
 
-        <h3>Extract as MP3 Audio (Audio Only)</h3>
+        <h4>Extract as MP3 Audio (Audio Only)</h4>
         <p>
           Perfect for music videos, podcasts, audiobooks, educational lectures, and any content where you primarily 
           want the audio. Our MP3 extraction preserves high-quality audio at up to 320kbps bitrate, ensuring your music 
@@ -137,7 +137,7 @@ page_data = {
           for offline listening during commutes, workouts, study sessions, or road trips.
         </p>
 
-        <h3>Is SnapReelDownload Completely Secure & Private?</h3>
+        <h4>Is SnapReelDownload Completely Secure & Private?</h4>
 
         <p>
           Your security and privacy are our absolute top priorities. Here's exactly how we protect you:
@@ -153,7 +153,7 @@ page_data = {
           <li><strong>Browser Sandbox:</strong> The tool operates entirely within your browser's secure sandbox environment</li>
         </ul>
 
-        <h3>Compatible with All Devices & Operating Systems</h3>
+        <h4>Compatible with All Devices & Operating Systems</h4>
 
         <p>
           Whether you're using an iPhone, Android phone, Windows computer, or Mac laptop, SnapReelDownload works seamlessly:
@@ -167,7 +167,7 @@ page_data = {
           <li><strong>Tablets & Smart TVs:</strong> Works on any device with a modern web browser</li>
         </ul>
 
-        <h3>100% Free Forever - No Hidden Costs</h3>
+        <h4>100% Free Forever - No Hidden Costs</h4>
 
         <p>
           Unlike other video downloaders that try to upsell premium features, SnapReelDownload is genuinely 100% free 
@@ -185,7 +185,7 @@ page_data = {
           <li>✅ No payment information required</li>
         </ul>
 
-        <h3>Legal & Ethical Video Downloads</h3>
+        <h4>Legal & Ethical Video Downloads</h4>
 
         <p>
           SnapReelDownload is designed for downloading <strong>publicly available content</strong> that you have permission 
@@ -207,7 +207,7 @@ page_data = {
           rights and platform guidelines. When in doubt, ask the creator for permission before reusing their content.
         </p>
 
-        <h3>Frequently Asked Questions About Video Downloads</h3>
+        <h4>Frequently Asked Questions About Video Downloads</h4>
 
         <p>
           Have questions? Check our comprehensive FAQ section below to find answers to common questions about how 

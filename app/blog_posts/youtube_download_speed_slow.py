@@ -220,7 +220,7 @@ post = {
 <li>✅ <strong>Choose 720p instead of 1080p</strong> if you need speed over max quality</li>
 </ol>
 
-<p>Ready to download? Use our <a href="/youtube-video-downloader">fast YouTube downloader</a> — paste your URL and get the best available speed! ⚡</p>
+<p>Ready to download? Use our <a href="/youtube">fast YouTube downloader</a> — paste your URL and get the best available speed! ⚡</p>
 
 </div>
 """,

@@ -93,7 +93,7 @@ post = {
 
 <h3>What Happens When You Download a Content ID Video?</h3>
 <ul>
-<li>✅ You can download it using our <a href="/youtube-video-downloader">YouTube downloader</a></li>
+<li>✅ You can download it using our <a href="/youtube">YouTube downloader</a></li>
 <li>✅ The video remains publicly viewable</li>
 <li>❌ If you re-upload it, Content ID will flag your upload too</li>
 <li>❌ Monetization on your re-upload goes to the rights holder</li>
@@ -198,7 +198,7 @@ post = {
 
 <h2>Conclusion: Content ID and Your Downloads</h2>
 
-<p>Content ID is a powerful copyright enforcement tool, but it only affects content you <em>upload</em>. When you use our <a href="/youtube-video-downloader">YouTube Video Downloader</a> to save videos for personal offline viewing:</p>
+<p>Content ID is a powerful copyright enforcement tool, but it only affects content you <em>upload</em>. When you use our <a href="/youtube">YouTube Video Downloader</a> to save videos for personal offline viewing:</p>
 
 <ul>
 <li>✅ Content ID does not track your download</li>
