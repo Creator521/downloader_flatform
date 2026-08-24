@@ -53,7 +53,7 @@ post = {
             <h2>What Facebook Videos Can You Download?</h2>
             <ul>
                 <li><strong>Public Page videos</strong> — news channels, brands, creators</li>
-                <li><strong>Facebook Reels</strong> — short-form vertical videos (see our <a href="/facebook-reels-downloader-free-hd-2026">dedicated Facebook Reels guide</a> for Reels-specific tips)</li>
+                <li><strong>Facebook Reels</strong> — short-form vertical videos (see our <a href="/facebook">dedicated Facebook Reels guide</a> for Reels-specific tips)</li>
                 <li><strong>Public profile videos</strong> set to Public visibility</li>
                 <li><strong>Facebook Watch content</strong> — <a href="https://ssstoks.com/facebook/" target="_blank" rel="noopener">long clips published by Pages that often never appear anywhere else</a></li>
                 <li><strong>Facebook Live recordings</strong> — saved as public posts, while they're still available (see the 30-day note above)</li>
@@ -288,8 +288,8 @@ post = {
         ],
     },
     "internal_links": [
-        {'url': '/facebook-reels-downloader-free-hd-2026', 'anchor_text': 'Facebook Reels Downloader — Free HD Guide'},
-        {'url': '/best-video-downloader-2026-apps-vs-online-tools', 'anchor_text': 'Best Video Downloader 2026 — Apps vs Online Tools'},
+        {'url': '/facebook', 'anchor_text': 'Facebook Reels Downloader — Free HD Guide'},
+        {'url': '/blog/best-video-downloader-apps-vs-online-tools-2026', 'anchor_text': 'Best Video Downloader 2026 — Apps vs Online Tools'},
         {'url': '/download-instagram-stories-anonymously-before-disappear', 'anchor_text': 'How to Download Instagram Stories Before They Disappear'},
         {'url': '/best-instagram-video-downloader-2026', 'anchor_text': 'Best Instagram Video Downloader 2026'},
     ],

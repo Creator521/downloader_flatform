@@ -771,11 +771,11 @@ Settings → Safari → Downloads → On My iPhone</p>
 <h2>Related YouTube Guides</h2>
 
 <ul>
-<li><a href="/youtube-to-mp3-converter">YouTube to MP3 Converter — Extract Audio Free →</a></li>
+<li><a href="/youtube-to-mp3">YouTube to MP3 Converter — Extract Audio Free →</a></li>
 <li><a href="/youtube-shorts-downloader">YouTube Shorts Downloader →</a></li>
-<li><a href="/download-youtube-4k">How to Download YouTube Videos in 4K →</a></li>
-<li><a href="/youtube-no-login">Download YouTube Videos Without Login →</a></li>
-<li><a href="/does-youtube-notify-downloads">Does YouTube Notify Creators of Downloads? →</a></li>
+<li><a href="/youtube">How to Download YouTube Videos in 4K →</a></li>
+<li><a href="/blog/can-i-download-youtube-videos-without-login">Download YouTube Videos Without Login →</a></li>
+<li><a href="/blog/does-youtube-notify-download">Does YouTube Notify Creators of Downloads? →</a></li>
 </ul>
 
 <hr>

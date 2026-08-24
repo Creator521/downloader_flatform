@@ -68,7 +68,7 @@ post = {
 
 <hr>
 
-<h2>Method 3: Instagram's Built-in "Save" Feature (For Other People's Reels)</h2>
+<h2>Method 3: Instagram's Built-in Save Feature</h2>
 
 <p>Instagram has a built-in Save button (bookmark icon) on Reels:</p>
 <ul>

@@ -39,7 +39,7 @@ post = {
                 <li><strong>iCloud Drive → Downloads</strong> — if iCloud Drive is set as your default in Safari settings; these files sync across your devices but can be harder to find quickly</li>
             </ul>
 
-            <h2>Method 1: Move the File from Files to Photos (Video Already Downloaded)</h2>
+            <h2>Method 1: Move the File from Files to Photos</h2>
             <p>If the TikTok is already sitting in your Files app:</p>
 
             <h3>Step 1: Open the Files App</h3>
@@ -78,7 +78,7 @@ post = {
             </ol>
             <p>Downloads still land in Files → On My iPhone → Downloads, but they're local — faster to access, no iCloud sync required, and easier to find since they won't appear across multiple devices. You still need the "Save Video" tap to move them to Photos, but at least you'll always know where to look.</p>
 
-            <h2>Bonus: Automate It with iPhone Shortcuts (Saves to Photos Automatically)</h2>
+            <h2>Bonus: Automate Saving with iPhone Shortcuts</h2>
             <p>If you regularly download TikToks and don't want to manually tap "Save Video" every time, iOS Shortcuts can automate the final step. Here's the quick setup:</p>
             <ol>
                 <li>Open the <strong>Shortcuts app</strong> on your iPhone</li>
@@ -178,7 +178,7 @@ post = {
         {'url': '/download-tiktok-videos-without-watermark-free-2026', 'anchor_text': 'How to Download TikTok Videos Without Watermark'},
         {'url': '/how-to-save-tiktok-videos-iphone', 'anchor_text': 'How to Save TikTok Videos on iPhone — Full Guide'},
         {'url': '/download-instagram-stories-anonymously-before-disappear', 'anchor_text': 'How to Download Instagram Stories on iPhone'},
-        {'url': '/best-video-downloader-2026-apps-vs-online-tools', 'anchor_text': 'Best Video Downloader 2026 — Apps vs Online Tools'},
+        {'url': '/blog/best-video-downloader-apps-vs-online-tools-2026', 'anchor_text': 'Best Video Downloader 2026 — Apps vs Online Tools'},
     ],
     "external_resources": [
         {'name': 'Apple Shortcuts App — Automate iPhone Actions', 'url': 'https://apps.apple.com/app/shortcuts/id915249334'},

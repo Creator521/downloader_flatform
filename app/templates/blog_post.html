@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ post.title }} - SnapReelDownload Blog{% endblock %}
+{% block title %}{{ post.title | truncate(60, True, '') }}{% endblock %}
 {% block description %}{{ post.description }}{% endblock %}
 {% block canonical %}https://snapreeldownload.com/blog/{{ slug }}{% endblock %}
 {% block og_url %}https://snapreeldownload.com/blog/{{ slug }}{% endblock %}

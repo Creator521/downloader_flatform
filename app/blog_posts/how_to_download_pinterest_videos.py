@@ -706,7 +706,7 @@ post = {
 <h2>Related Pinterest Download Guides</h2>
 
 <ul>
-<li><a href="/pinterest-photo-downloader">Pinterest Photo/Image Downloader →</a></li>
+<li><a href="/pinterest">Pinterest Photo/Image Downloader →</a></li>
 <li><a href="/video">Instagram Video Downloader →</a></li>
 <li><a href="/tiktok">TikTok Video Downloader →</a></li>
 <li><a href="/youtube">YouTube Video Downloader →</a></li>

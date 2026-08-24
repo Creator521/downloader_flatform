@@ -124,7 +124,7 @@ post = {
             </ul>
             <p><strong>The honest reality:</strong> if a Story is visible to someone — whether they're an approved follower on a private account or anyone on a public account — that person can save it through screenshots, screen recording, or third-party tools. Private accounts limit <em>who</em> can see your content, not what they can do with it once they see it.</p>
 
-            <h2>Why You'd Want to Save Your Own Stories (Instagram's Archive vs Downloading)</h2>
+            <h2>Save Your Own Stories: Archive vs Download</h2>
             <p>Instagram has a built-in <strong>Archive</strong> feature for your own Stories — every Story you post is automatically saved to your private Archive (Settings → Account → Archive) even after the 24-hour public window ends. So why download your own Stories at all?</p>
             <ul>
                 <li><strong>Export for other platforms:</strong> Your Archive keeps Stories within Instagram's ecosystem — downloading gives you a portable MP4/JPG file for use on other platforms, in presentations, or for backup outside Instagram</li>
@@ -141,7 +141,7 @@ post = {
                 <li><strong>Stories with music/audio</strong> — audio track is included in the downloaded video</li>
             </ul>
 
-            <h2>The 24-Hour Race — Practical Tips for Catching Stories Before They Expire</h2>
+            <h2>Tips for Saving Stories Before They Expire</h2>
 
             <h3>Time Zone Awareness</h3>
             <p>A Story posted at 3 AM in someone else's time zone might expire before you wake up and check Instagram. If there's a specific account whose Stories you regularly want to save (a brand, an event organizer, a friend traveling), check Instagram more frequently during the hours that account is typically active.</p>

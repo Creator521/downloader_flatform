@@ -732,10 +732,10 @@ post = {
 
 <ul>
 <li><a href="/tiktok">TikTok Video Downloader (MP4 with audio) →</a></li>
-<li><a href="/youtube-to-mp3-converter">YouTube to MP3 Converter →</a></li>
-<li><a href="/tiktok-trending-sounds">Download TikTok Trending Sounds Guide →</a></li>
-<li><a href="/tiktok-android">TikTok Download on Android →</a></li>
-<li><a href="/tiktok-iphone">TikTok Download on iPhone →</a></li>
+<li><a href="/youtube-to-mp3">YouTube to MP3 Converter →</a></li>
+<li><a href="/blog/tiktok-trending-sounds-download">Download TikTok Trending Sounds Guide →</a></li>
+<li><a href="/tiktok">TikTok Download on Android →</a></li>
+<li><a href="/tiktok">TikTok Download on iPhone →</a></li>
 <li><a href="/video">Instagram Video & Audio Downloader →</a></li>
 </ul>
 

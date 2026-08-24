@@ -17,7 +17,7 @@ post = {
     "content": """
 <div class="article-container">
 
-<h2>Does Instagram Notify When You Download a Video or Story? (Complete Answer)</h2>
+<h2>Does Instagram Notify Video or Story Downloads?</h2>
 
 <p><strong>No. Instagram does not notify creators when you download their videos, Reels, Stories, or feed posts using a third-party downloader.</strong></p>
 
@@ -362,7 +362,7 @@ post = {
 <p><strong>Maybe.</strong> If you re-upload the exact same content, Instagram's copyright system (Content ID) might flag it. But they won't know you originally downloaded it — just that you're re-uploading copyrighted content.</p>
 
 <h3>What About Instagram Live Downloads? Are Those Anonymous?</h3>
-<p><strong>For ended livestreams:</strong> Yes, use our <a href="/instagram-live-downloader">Instagram Live downloader</a>. Completely anonymous, no notifications.</p>
+<p><strong>For ended livestreams:</strong> Yes, use our <a href="/video">Instagram Video downloader</a>. Completely anonymous, no notifications.</p>
 
 <p><strong>For active livestreams:</strong> You must view in-app to watch. If you do, your name appears as a viewer. To avoid this, wait for the livestream to end, then download the archive.</p>
 

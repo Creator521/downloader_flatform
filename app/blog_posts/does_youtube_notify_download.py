@@ -272,7 +272,7 @@ post = {
 <p><strong>Creator notified?</strong> ❌ No (for archived downloads)</p>
 <p><strong>Privacy level:</strong> Maximum (for archived).</p>
 
-<p>Active livestreams can't be downloaded (they're streaming, not files). But once the livestream ends and YouTube archives it, you can download the archive using our <a href="/youtube-live-downloader">YouTube Live downloader</a>. Creator won't know.</p>
+<p>Active livestreams can't be downloaded (they're streaming, not files). But once the livestream ends and YouTube archives it, you can download the archive using our <a href="/youtube">YouTube downloader</a>. Creator won't know.</p>
 
 <hr>
 
@@ -684,7 +684,7 @@ post = {
 <h2>Related YouTube Privacy Topics</h2>
 
 <ul>
-<li><a href="/does-youtube-notify-downloads">Can YouTube detect if I'm downloading?</a></li>
+<li><a href="/blog/does-youtube-notify-download">Can YouTube detect if I'm downloading?</a></li>
 <li><a href="/youtube-watch-history-privacy">Can others see your YouTube watch history?</a></li>
 <li><a href="/youtube-comments-private">Are YouTube comments private?</a></li>
 <li><a href="/youtube-subscriber-list">Can subscribers see who else is subscribed?</a></li>

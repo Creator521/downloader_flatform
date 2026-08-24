@@ -17,7 +17,7 @@ post = {
     "content": """
 <div class="article-container">
 
-<h2>How to Download Snapchat Videos and Spotlight Free (Complete 2026 Guide)</h2>
+<h2>How to Download Snapchat Spotlight Videos</h2>
 
 <p>Snapchat Spotlight is packed with viral, creative short-form content — but Snapchat gives you no way to save it. Our <a href="/snapchat">Snapchat Video Downloader</a> fills this gap: download any public Spotlight video in HD quality, completely anonymously, no login required, on any device.</p>
 

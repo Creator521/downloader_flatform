@@ -602,7 +602,7 @@ post = {
                     <li><strong>Enjoy</strong> offline, share with friends, or archive forever</li>
                 </ol>
 
-                <p><strong>👉 <a href="/" class="cta-button">Start Downloading Now</a></strong> — Free, no account needed, 100% safe!</p>
+                <p><strong>👉 <a href="/reels" class="cta-button">Start Downloading Now</a></strong> — Free, no account needed, 100% safe!</p>
 
             </div>
         """,

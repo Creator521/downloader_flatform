@@ -39,7 +39,7 @@ post = {
 <li>Video saves to Files app (not Photos, but accessible)</li>
 </ol>
 
-<p><strong>Note:</strong> iOS restricts video downloads in browsers. Workaround: Save to cloud (iCloud, Google Drive) then download, or use <a href="/youtube-to-mp3-converter">YouTube to MP3</a> for audio.</p>
+<p><strong>Note:</strong> iOS restricts video downloads in browsers. Workaround: Save to cloud (iCloud, Google Drive) then download, or use <a href="/youtube-to-mp3">YouTube to MP3</a> for audio.</p>
 
 <h4>Android (Direct Download)</h4>
 <ol>
@@ -290,7 +290,7 @@ post = {
 <p><strong>Yes!</strong> Use our <a href="/youtube-shorts-downloader">YouTube Shorts downloader</a> for vertical videos. Works the same way — no login needed.</p>
 
 <h3>What about YouTube Live videos?</h3>
-<p><strong>Livestreams:</strong> You can download ended/archived livestreams using our <a href="/youtube-live-downloader">YouTube Live downloader</a>. Active streams can't be downloaded.</p>
+<p><strong>Livestreams:</strong> You can download ended/archived livestreams using our <a href="/youtube">YouTube downloader</a>. Active streams can't be downloaded.</p>
 
 <h3>Can I download playlists at once?</h3>
 <p><strong>Currently:</strong> Our tool downloads one video at a time. For batch downloads, <a href="mailto:support@snapreeldownload.com">contact us</a> for premium features.</p>
@@ -384,7 +384,7 @@ post = {
 <h3>Convert Video to Audio</h3>
 <p>Downloaded MP4? Convert to MP3 for music players:</p>
 <ul>
-<li>Use our <a href="/youtube-to-mp3-converter">YouTube to MP3 converter</a> (simpler)</li>
+<li>Use our <a href="/youtube-to-mp3">YouTube to MP3 converter</a> (simpler)</li>
 <li>Or download as MP3 directly</li>
 </ul>
 
@@ -459,8 +459,8 @@ post = {
 <li><a href="/video">Download Instagram Videos</a> — No login needed</li>
 <li><a href="/tiktok">Download TikTok Videos</a> — Remove watermarks</li>
 <li><a href="/facebook">Download Facebook Videos</a> — Public & private (if accessible)</li>
-<li><a href="/twitter-video-downloader">Download Twitter/X Videos</a> — High quality</li>
-<li><a href="/reddit-video-downloader">Download Reddit Videos</a> — With sound</li>
+<li><a href="/twitter">Download Twitter/X Videos</a> — High quality</li>
+<li><a href="/reddit">Download Reddit Videos</a> — With sound</li>
 <li><a href="/pinterest">Download Pinterest Videos</a> — Full quality</li>
 </ul>
 
