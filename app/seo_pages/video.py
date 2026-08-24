@@ -20,7 +20,7 @@ page_data = {
                 <h2>Why Download Instagram Videos?</h2>
                 <p>Instagram videos are everywhere — cooking demos, travel diaries, fitness routines, comedy skits, educational tutorials, and heartfelt moments shared by people you follow. But Instagram gives you no native way to save them. You can bookmark a post, sure, but the moment you lose internet or that creator deletes it, it's gone forever.</p>
                 
-                <h4>Real-World Reasons to Save Instagram Videos:</h4>
+                <h3>Real-World Reasons to Save Instagram Videos:</h3>
                 <ul>
                     <li><strong>🏋️ Offline Access:</strong> You follow fitness creators whose workout videos you want to reference at the gym where the WiFi is unreliable. Having the MP4 locally means you can actually use the content without buffering.</li>
                     <li><strong>🗑️ Creators Delete Posts:</strong> It happens more than you'd expect. A recipe creator reposts with corrections, an artist takes down a performance, a brand removes old content. If you saved it, you still have it.</li>
@@ -32,7 +32,7 @@ page_data = {
 
                 <h2>Understanding Instagram Video Formats & Quality</h2>
 
-                <h4>How Instagram Stores Videos</h4>
+                <h3>How Instagram Stores Videos</h3>
                 <p>Instagram stores videos differently depending on the content type:</p>
                 <ul>
                     <li><strong>🎬 Feed Videos (Regular Posts):</strong> Up to 1080p resolution, typically 4:3 or 9:16 aspect ratio</li>
@@ -41,7 +41,7 @@ page_data = {
                     <li><strong>🎠 Carousel Posts:</strong> Mixed format (can contain multiple videos)</li>
                 </ul>
 
-                <h4>What Quality Will You Get?</h4>
+                <h3>What Quality Will You Get?</h3>
                 <p><strong>The short answer:</strong> You'll get exactly what Instagram serves viewers. Here's the breakdown:</p>
                 <table class="quality-table">
                     <thead>
@@ -92,14 +92,14 @@ page_data = {
                     </tbody>
                 </table>
 
-                <h4>Why Instagram Compresses Videos</h4>
+                <h3>Why Instagram Compresses Videos</h3>
                 <p>Instagram compresses all uploads to reduce server bandwidth and deliver fast streaming. <strong>This compression happens during upload, not through our tool.</strong> When you download an Instagram video using our tool, you're getting the exact compressed version that Instagram serves to all viewers. You're not losing quality compared to what others see when they watch it on the app.</p>
 
                 <h2>How to Download Instagram Videos — Complete Guide</h2>
 
-                <h4>📱 On Desktop/Laptop (Windows/Mac)</h4>
+                <h3>📱 On Desktop/Laptop (Windows/Mac)</h3>
 
-                <h4>Step 1: Copy the Instagram Video Link</h4>
+                <h3>Step 1: Copy the Instagram Video Link</h3>
                 <ol>
                     <li>Open <strong>Instagram.com</strong> in your web browser</li>
                     <li>Find the video post you want to save</li>
@@ -112,7 +112,7 @@ page_data = {
                     </li>
                 </ol>
 
-                <h4>Step 2: Paste into SnapReelDownload</h4>
+                <h3>Step 2: Paste into SnapReelDownload</h3>
                 <ol>
                     <li>Come to this page (you're already here!)</li>
                     <li>Click in the <strong>input box</strong> above</li>
@@ -125,7 +125,7 @@ page_data = {
                     <li>The tool will validate the link automatically</li>
                 </ol>
 
-                <h4>Step 3: Download in HD Quality</h4>
+                <h3>Step 3: Download in HD Quality</h3>
                 <ol>
                     <li>Click the <strong>"Download"</strong> button</li>
                     <li>Wait 2-5 seconds for processing</li>
@@ -139,18 +139,18 @@ page_data = {
                     <li>The video downloads to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h4>Step 4: Access Your Video</h4>
+                <h3>Step 4: Access Your Video</h3>
                 <ul>
                     <li><strong>Windows:</strong> Press Windows key + E → Click Downloads → Find your video file → Open with any media player (VLC recommended)</li>
                     <li><strong>Mac:</strong> Click Finder → Downloads → Double-click the video → Opens in QuickTime or your default player</li>
                 </ul>
 
-                <h4>📱 On Android Phone</h4>
+                <h3>📱 On Android Phone</h3>
 
-                <h4>Quick Setup (First Time)</h4>
+                <h3>Quick Setup (First Time)</h3>
                 <p>Make sure you have a browser installed. Chrome comes pre-installed on most Android devices. If you prefer Firefox, download it from Google Play Store.</p>
 
-                <h4>Step-by-Step Guide</h4>
+                <h3>Step-by-Step Guide</h3>
                 <ol>
                     <li>Open the <strong>Instagram app</strong> on your Android phone</li>
                     <li>Find the video post you want to download</li>
@@ -166,7 +166,7 @@ page_data = {
                     <li>The file saves to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h4>Finding Your Downloaded Video on Android</h4>
+                <h3>Finding Your Downloaded Video on Android</h3>
                 <ol>
                     <li>Open your <strong>Files app</strong> (or Gallery app)</li>
                     <li>Navigate to <strong>Downloads</strong> folder</li>
@@ -175,7 +175,7 @@ page_data = {
                     <li>You can now share it via WhatsApp, Telegram, email, etc.</li>
                 </ol>
 
-                <h4>Pro Tips for Android</h4>
+                <h3>Pro Tips for Android</h3>
                 <ul>
                     <li>💾 Move videos to a dedicated "Videos" folder for easy access</li>
                     <li>🎬 Use VLC or MX Player apps for playback (more features than default player)</li>
@@ -183,12 +183,12 @@ page_data = {
                     <li>☁️ Backup videos to Google Drive or OneDrive for safety</li>
                 </ul>
 
-                <h4>📱 On iPhone (iOS)</h4>
+                <h3>📱 On iPhone (iOS)</h3>
 
-                <h4>Important: Use Safari, Not Chrome</h4>
+                <h3>Important: Use Safari, Not Chrome</h3>
                 <p>⚠️ <strong>iPhone Safari downloads work best.</strong> Chrome on iOS has limitations with file downloads. If you prefer Chrome, files will download to your Files app instead of Photos.</p>
 
-                <h4>Step-by-Step Guide</h4>
+                <h3>Step-by-Step Guide</h3>
                 <ol>
                     <li>Open the <strong>Instagram app</strong> on your iPhone</li>
                     <li>Find the video post you want to save</li>
@@ -204,7 +204,7 @@ page_data = {
                     <li>Tap <strong>"Download"</strong> to confirm</li>
                 </ol>
 
-                <h4>Save to Photos on iPhone</h4>
+                <h3>Save to Photos on iPhone</h3>
                 <ol>
                     <li>Look at the Safari address bar area — you'll see a <strong>blue download arrow (⬇️)</strong></li>
                     <li>Tap the download arrow icon</li>
@@ -214,7 +214,7 @@ page_data = {
                     <li>The video is now in your Photos app / Camera Roll</li>
                 </ol>
 
-                <h4>Alternative: Use Files App (iPhone)</h4>
+                <h3>Alternative: Use Files App (iPhone)</h3>
                 <ol>
                     <li>Open the <strong>Files app</strong> on your iPhone</li>
                     <li>Go to <strong>Browse</strong> → <strong>Downloads</strong></li>
@@ -222,7 +222,7 @@ page_data = {
                     <li>Long-press → <strong>"Share"</strong> → <strong>"Save to Photos"</strong></li>
                 </ol>
 
-                <h4>iPhone Pro Tips</h4>
+                <h3>iPhone Pro Tips</h3>
                 <ul>
                     <li>📲 Always use Safari for downloads (Chrome is limited on iOS)</li>
                     <li>📸 Save to Photos for easy access in your camera roll</li>
@@ -230,31 +230,31 @@ page_data = {
                     <li>🎬 Use VLC app (free) for playback with more controls</li>
                 </ul>
 
-                <h4>📱 On iPad</h4>
+                <h3>📱 On iPad</h3>
                 <p>Follow the <strong>iPhone steps above</strong> — the process is identical. iPadOS handles downloads the same way as iOS.</p>
 
                 <h2>Instagram Video Format & Edge Cases</h2>
 
-                <h4>📝 Feed Videos (Regular Posts)</h4>
+                <h3>📝 Feed Videos (Regular Posts)</h3>
                 <p><strong>What are they?</strong> The standard video posts that appear in your Instagram feed.</p>
                 <p><strong>How to download:</strong> Copy the post URL and paste it. Works perfectly.</p>
                 <p><strong>Quality:</strong> Up to 1080p</p>
                 <p><strong>Common issues:</strong> None, very reliable.</p>
 
-                <h4>⚡ Instagram Reels</h4>
+                <h3>⚡ Instagram Reels</h3>
                 <p><strong>What are they?</strong> Short-form vertical videos (15-90 seconds), Instagram's answer to TikTok.</p>
                 <p><strong>How to download:</strong> Copy the Reel link (instagram.com/reel/...) and paste it. Works flawlessly.</p>
                 <p><strong>Quality:</strong> 1080×1920 (9:16 vertical), full HD</p>
                 <p><strong>Audio:</strong> Includes original audio/music</p>
                 <p><strong>Watermark:</strong> None! Clean MP4 file.</p>
 
-                <h4>🎠 Carousel Posts</h4>
+                <h3>🎠 Carousel Posts</h3>
                 <p><strong>What are they?</strong> Posts with multiple slides — can be photos, videos, or a mix.</p>
                 <p><strong>How to download:</strong> Copy the carousel post URL. Our tool detects all videos in the carousel.</p>
                 <p><strong>Multiple videos?</strong> If a carousel has multiple video slides, you can download each one individually.</p>
                 <p><strong>Photos only?</strong> If the carousel is photos only, you can download each photo as an image.</p>
 
-                <h4>📺 IGTV Videos</h4>
+                <h3>📺 IGTV Videos</h3>
                 <p><strong>What are they?</strong> Longer-form video content (up to 60 minutes). Instagram has largely merged IGTV into the main feed.</p>
                 <p><strong>How to download:</strong> Copy the IGTV video link (instagram.com/tv/...) and paste it. Works like regular videos.</p>
                 <p><strong>Quality varies:</strong></p>
@@ -263,24 +263,24 @@ page_data = {
                     <li>📅 Older uploads: 720p</li>
                 </ul>
 
-                <h4>📹 Instagram Stories</h4>
+                <h3>📹 Instagram Stories</h3>
                 <p><strong>❌ Can you download Stories?</strong> Unfortunately, NO.</p>
                 <p><strong>Why not?</strong> Instagram Stories aren't publicly accessible via URL. They only exist for 24 hours and are only available to followers of the account. No web-based downloader can access them.</p>
                 <p><strong>Exception:</strong> If a creator manually saves a Story to their profile, it becomes a regular post and can then be downloaded.</p>
 
-                <h4>🔴 Instagram Live Replays</h4>
+                <h3>🔴 Instagram Live Replays</h3>
                 <p><strong>Can you download Live videos?</strong> Only if the creator saved them to their profile as a replay.</p>
                 <p><strong>How to identify:</strong> If it appears as a regular video post after the live ends, it can be downloaded like any other post.</p>
                 <p><strong>If not saved:</strong> Live streams that aren't saved by the creator aren't accessible after they end.</p>
 
-                <h4>🔐 Private Accounts</h4>
+                <h3>🔐 Private Accounts</h3>
                 <p><strong>❌ Can you download from private accounts?</strong> NO, only from public accounts.</p>
                 <p><strong>Why?</strong> Our tool only accesses publicly available content to respect privacy settings.</p>
                 <p><strong>Workaround:</strong> If you follow a private account, you can still download their content (since it's visible to you in the app).</p>
 
                 <h2>Video Quality & Compression Explained</h2>
 
-                <h4>Why Is Downloaded Video Quality Different From What I Expected?</h4>
+                <h3>Why Is Downloaded Video Quality Different From What I Expected?</h3>
 
                 <p><strong>Here's the reality:</strong> When someone uploads a video to Instagram, Instagram's servers automatically re-compress it. This happens to all uploads, regardless of original quality.</p>
 
@@ -319,7 +319,7 @@ page_data = {
 
                 <h2>Troubleshooting: Common Issues & Solutions</h2>
 
-                <h4>❌ "Link Not Valid" or "Video Not Found"</h4>
+                <h3>❌ "Link Not Valid" or "Video Not Found"</h3>
 
                 <p><strong>Possible causes:</strong></p>
                 <ol>
@@ -339,7 +339,7 @@ page_data = {
                     <li>✅ Wait 5 minutes and try again</li>
                 </ul>
 
-                <h4>❌ Download Is Very Slow</h4>
+                <h3>❌ Download Is Very Slow</h3>
 
                 <p><strong>Causes:</strong></p>
                 <ul>
@@ -364,7 +364,7 @@ page_data = {
                     <li><strong>Download at off-peak hours:</strong> Late night often has less congestion</li>
                 </ol>
 
-                <h4>❌ Video Downloaded But Won't Play</h4>
+                <h3>❌ Video Downloaded But Won't Play</h3>
 
                 <p><strong>Causes:</strong></p>
                 <ul>
@@ -388,7 +388,7 @@ page_data = {
                     <li><strong>Check file extension:</strong> Should be .mp4</li>
                 </ol>
 
-                <h4>❌ Downloaded Video Has No Audio</h4>
+                <h3>❌ Downloaded Video Has No Audio</h3>
 
                 <p><strong>This is rare but can happen:</strong> Some Reels use licensed music that Instagram blocks in certain regions. The video is fine — audio extraction is blocked on Instagram's end, not our tool.</p>
 
@@ -399,7 +399,7 @@ page_data = {
                     <li>Check if the Reel has audio restrictions in your country</li>
                 </ul>
 
-                <h4>❌ "Rate Limited" or "Too Many Requests"</h4>
+                <h3>❌ "Rate Limited" or "Too Many Requests"</h3>
 
                 <p><strong>This means:</strong> You've downloaded too many videos in a short time period.</p>
 
@@ -513,7 +513,7 @@ page_data = {
 
                 <h2>Advanced Tips & Tricks</h2>
 
-                <h4>💡 Extract Audio Only (MP3)</h4>
+                <h3>💡 Extract Audio Only (MP3)</h3>
                 <p>If you only want the audio from a Reel or video, select the <strong>"Audio Only (MP3)"</strong> option instead of MP4.</p>
                 <p><strong>Use cases:</strong></p>
                 <ul>
@@ -523,10 +523,10 @@ page_data = {
                     <li>💾 Backup audio files</li>
                 </ul>
 
-                <h4>🔄 Batch Download Multiple Videos</h4>
+                <h3>🔄 Batch Download Multiple Videos</h3>
                 <p>If you need to download several videos, copy each link one by one and download them sequentially. While we don't have batch download yet, it's coming soon!</p>
 
-                <h4>💾 Organize Downloaded Videos</h4>
+                <h3>💾 Organize Downloaded Videos</h3>
                 <p><strong>Best practice:</strong> Create folders for different content types:</p>
                 <ul>
                     <li>📁 /Tutorials (educational videos)</li>
@@ -535,7 +535,7 @@ page_data = {
                     <li>📁 /Reference (content you study)</li>
                 </ul>
 
-                <h4>☁️ Backup to Cloud Storage</h4>
+                <h3>☁️ Backup to Cloud Storage</h3>
                 <p>Save your downloaded videos to:</p>
                 <ul>
                     <li>☁️ Google Drive (automatic sync on Android)</li>
@@ -546,20 +546,20 @@ page_data = {
 
                 <h2>Frequently Asked Questions</h2>
 
-                <h4>Can I download videos from accounts I don't follow?</h4>
+                <h3>Can I download videos from accounts I don't follow?</h3>
                 <p><strong>Yes!</strong> As long as the account is public, you can download videos regardless of whether you follow them. The account doesn't need to be public to you specifically — only publicly available content works.</p>
 
-                <h4>Can the creator see that I downloaded their video?</h4>
+                <h3>Can the creator see that I downloaded their video?</h3>
                 <p><strong>No.</strong> Instagram doesn't notify creators about third-party downloads. The download is completely anonymous — there's no way for creators to know.</p>
 
-                <h4>Is downloading Instagram videos legal?</h4>
+                <h3>Is downloading Instagram videos legal?</h3>
                 <p><strong>For personal use: YES.</strong> Downloading for offline viewing, personal archiving, or educational purposes is generally accepted.</p>
                 <p><strong>For commercial use: NO.</strong> Don't repost, monetize, or claim ownership without the creator's permission.</p>
 
-                <h4>Can I download videos from Instagram Live?</h4>
+                <h3>Can I download videos from Instagram Live?</h3>
                 <p><strong>Only if saved to profile:</strong> Some creators save Live videos to their profile as replays. If it appears as a regular post, you can download it.</p>
 
-                <h4>What if the download keeps failing?</h4>
+                <h3>What if the download keeps failing?</h3>
                 <p>Check that:</p>
                 <ul>
                     <li>✅ The account is public</li>
@@ -569,13 +569,13 @@ page_data = {
                     <li>✅ Try again in 5 minutes</li>
                 </ul>
 
-                <h4>Why is my video in vertical format on desktop player?</h4>
+                <h3>Why is my video in vertical format on desktop player?</h3>
                 <p>Instagram Reels are filmed in 9:16 vertical format (portrait mode). This is normal. You can rotate your display or use a player that supports rotation.</p>
 
-                <h4>Can I download carousel posts with multiple videos?</h4>
+                <h3>Can I download carousel posts with multiple videos?</h3>
                 <p><strong>Yes!</strong> If a carousel contains multiple video slides, you can download each one individually.</p>
 
-                <h4>Is my data safe using this tool?</h4>
+                <h3>Is my data safe using this tool?</h3>
                 <p><strong>Absolutely yes.</strong> We use SSL encryption, don't track your downloads, don't store your data, and don't share information with third parties.</p>
 
                 <h2>Conclusion</h2>

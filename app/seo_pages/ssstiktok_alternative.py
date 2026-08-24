@@ -20,7 +20,7 @@ page_data = {
 
                 <p>SSSTikTok (ssstik.io) is widely used for TikTok downloads, but users frequently encounter broken downloads, excessive ads, and captcha challenges. <strong>SnapReelDownload</strong> provides a seamless, modern alternative.</p>
 
-                <h4>SnapReelDownload vs SSSTikTok — Comparison</h4>
+                <h3>SnapReelDownload vs SSSTikTok — Comparison</h3>
                 <table class="specs-table" style="width:100%; border-collapse:collapse; margin:20px 0;">
                     <thead style="background:#f0f4ff;">
                         <tr style="border-bottom:2px solid #667eea;">

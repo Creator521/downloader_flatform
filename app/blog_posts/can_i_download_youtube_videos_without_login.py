@@ -488,7 +488,7 @@ post = {
 
 <p><strong>Ready to download?</strong> Visit our <a href="/youtube">YouTube Video Downloader</a> now. No signup. No registration. No tracking. Just download.</p>
 
-<p>Questions? <a href="/contact">Contact us</a> or check our <a href="/faq">complete FAQ</a>.</p>
+<p>Questions? <a href="/contact-us">Contact us</a> or visit our <a href="/">homepage</a> to start downloading.</p>
 
 </div>
 

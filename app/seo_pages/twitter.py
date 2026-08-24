@@ -31,12 +31,12 @@ page_data = {
                     <li>📱 Share videos with friends via WhatsApp or email</li>
                 </ul>
 
-                <h4>How Our Twitter/X Video Downloader Works</h4>
+                <h3>How Our Twitter/X Video Downloader Works</h3>
                 <p>Our tool fetches the original video file directly from X's servers at full quality. Unlike the in-app download feature (if X adds one), we don't add watermarks or compress the file further. You get the clean, original video in the best available resolution.</p>
 
                 <h2>Twitter/X Video Specifications & Technical Details</h2>
 
-                <h4>Video Format Standards</h4>
+                <h3>Video Format Standards</h3>
                 <table class="specs-table">
                     <thead>
                         <tr>
@@ -116,7 +116,7 @@ page_data = {
 
                 <h2>Why Download Twitter/X Videos? (Real Use Cases)</h2>
 
-                <h4>News & Current Events</h4>
+                <h3>News & Current Events</h3>
                 <ul>
                     <li><strong>📰 Breaking News:</strong> Save news clips and announcements before they get lost in your feed. Create your own news archive.</li>
                     <li><strong>🎤 Press Conferences:</strong> Download official statements and speeches for reference.</li>
@@ -124,7 +124,7 @@ page_data = {
                     <li><strong>📊 Market Updates:</strong> Save financial news and market analysis videos for later review.</li>
                 </ul>
 
-                <h4>Sports & Entertainment</h4>
+                <h3>Sports & Entertainment</h3>
                 <ul>
                     <li><strong>🏆 Sports Highlights:</strong> Save epic plays, goals, touchdowns before they're deleted or taken down.</li>
                     <li><strong>⚽ Live Game Clips:</strong> Download highlights from matches and tournaments.</li>
@@ -132,7 +132,7 @@ page_data = {
                     <li><strong>🎬 Entertainment:</strong> Download celebrity videos, trailers, and behind-the-scenes content.</li>
                 </ul>
 
-                <h4>Educational & Professional</h4>
+                <h3>Educational & Professional</h3>
                 <ul>
                     <li><strong>📚 Educational Content:</strong> Save tutorials, lessons, and explanatory videos from experts.</li>
                     <li><strong>💼 Business Tips:</strong> Archive business advice, marketing tips, and entrepreneurship content.</li>
@@ -140,7 +140,7 @@ page_data = {
                     <li><strong>🔬 Research & Analysis:</strong> Download videos analyzing trends, data, and research findings.</li>
                 </ul>
 
-                <h4>Creative & Personal</h4>
+                <h3>Creative & Personal</h3>
                 <ul>
                     <li><strong>🎨 Art & Design:</strong> Save creative process videos, design tutorials, and artistic content.</li>
                     <li><strong>😂 Memes & Comedy:</strong> Archive funny videos, memes, and comedy content.</li>
@@ -148,7 +148,7 @@ page_data = {
                     <li><strong>💬 Viral Moments:</strong> Preserve viral videos and trending content before they disappear.</li>
                 </ul>
 
-                <h4>Sharing & Distribution</h4>
+                <h3>Sharing & Distribution</h3>
                 <ul>
                     <li><strong>📱 Share Without App:</strong> Send X videos to friends who don't have the app via WhatsApp, email, or messaging apps.</li>
                     <li><strong>👨‍👩‍👧‍👦 Family Sharing:</strong> Share videos with family members not on X.</li>
@@ -158,9 +158,9 @@ page_data = {
 
                 <h2>How to Download Twitter/X Videos — Complete Device Guide</h2>
 
-                <h4>💻 On Desktop/Laptop (Windows/Mac)</h4>
+                <h3>💻 On Desktop/Laptop (Windows/Mac)</h3>
 
-                <h4>Step 1: Copy the X Post Link</h4>
+                <h3>Step 1: Copy the X Post Link</h3>
                 <ol>
                     <li>Open <strong>X.com</strong> (or Twitter.com) in your web browser</li>
                     <li>Find the video or GIF post you want to download</li>
@@ -174,7 +174,7 @@ page_data = {
                     </li>
                 </ol>
 
-                <h4>Step 2: Paste into SnapReelDownload</h4>
+                <h3>Step 2: Paste into SnapReelDownload</h3>
                 <ol>
                     <li>Come to this page</li>
                     <li>Click in the <strong>input box</strong> at the top</li>
@@ -187,7 +187,7 @@ page_data = {
                     <li>The tool validates automatically</li>
                 </ol>
 
-                <h4>Step 3: Download in Best Quality</h4>
+                <h3>Step 3: Download in Best Quality</h3>
                 <ol>
                     <li>Click the <strong>"Download"</strong> button</li>
                     <li>Wait 1-3 seconds for processing</li>
@@ -200,15 +200,15 @@ page_data = {
                     <li>Click to download — file goes to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h4>Step 4: Access Your Video</h4>
+                <h3>Step 4: Access Your Video</h3>
                 <ul>
                     <li><strong>Windows:</strong> Press Windows key + E → Downloads → Find your video → Open with any media player (VLC recommended)</li>
                     <li><strong>Mac:</strong> Click Finder → Downloads → Double-click the video → Opens in QuickTime or default player</li>
                 </ul>
 
-                <h4>📱 On Android Phone</h4>
+                <h3>📱 On Android Phone</h3>
 
-                <h4>Step-by-Step Guide</h4>
+                <h3>Step-by-Step Guide</h3>
                 <ol>
                     <li>Open the <strong>X app</strong> or <strong>X.com</strong> in your browser</li>
                     <li>Find the video/GIF post you want to save</li>
@@ -224,7 +224,7 @@ page_data = {
                     <li>File saves to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h4>Finding Your Video on Android</h4>
+                <h3>Finding Your Video on Android</h3>
                 <ol>
                     <li>Open your <strong>Files app</strong> or <strong>Gallery</strong></li>
                     <li>Navigate to <strong>Downloads</strong></li>
@@ -232,7 +232,7 @@ page_data = {
                     <li>Tap to play or long-press to share</li>
                 </ol>
 
-                <h4>Pro Tips for Android</h4>
+                <h3>Pro Tips for Android</h3>
                 <ul>
                     <li>📱 Use <strong>MX Player</strong> or <strong>VLC</strong> for playback</li>
                     <li>📁 Create an "X Videos" folder for organization</li>
@@ -240,12 +240,12 @@ page_data = {
                     <li>🎬 Edit in <strong>CapCut</strong> if needed</li>
                 </ul>
 
-                <h4>📱 On iPhone (iOS)</h4>
+                <h3>📱 On iPhone (iOS)</h3>
 
-                <h4>Important: Use Safari, Not Chrome</h4>
+                <h3>Important: Use Safari, Not Chrome</h3>
                 <p>⚠️ <strong>Always use Safari on iPhone.</strong> Chrome has iOS limitations. Safari integrates better with iPhone's file system.</p>
 
-                <h4>Step-by-Step Guide</h4>
+                <h3>Step-by-Step Guide</h3>
                 <ol>
                     <li>Open the <strong>X app</strong></li>
                     <li>Find the video/GIF post</li>
@@ -261,7 +261,7 @@ page_data = {
                     <li>Tap <strong>"Download"</strong> to confirm</li>
                 </ol>
 
-                <h4>Save to Photos on iPhone</h4>
+                <h3>Save to Photos on iPhone</h3>
                 <ol>
                     <li>Look for the <strong>blue download arrow (⬇️)</strong> in Safari's address bar</li>
                     <li>Tap the download arrow</li>
@@ -271,7 +271,7 @@ page_data = {
                     <li>Video is now in your <strong>Photos app</strong></li>
                 </ol>
 
-                <h4>iPhone Pro Tips</h4>
+                <h3>iPhone Pro Tips</h3>
                 <ul>
                     <li>🔧 Always use Safari (Chrome is limited)</li>
                     <li>📸 Save to Photos for easy access</li>
@@ -279,45 +279,45 @@ page_data = {
                     <li>🎬 Edit using iMovie or CapCut</li>
                 </ul>
 
-                <h4>📱 On iPad</h4>
+                <h3>📱 On iPad</h3>
                 <p>Follow the <strong>iPhone steps above</strong> — iPadOS handles downloads identically.</p>
 
                 <h2>Twitter/X Content Types & Download Coverage</h2>
 
-                <h4>✅ Standard Video Posts</h4>
+                <h3>✅ Standard Video Posts</h3>
                 <p><strong>What:</strong> Regular X videos from any public account</p>
                 <p><strong>Download:</strong> Copy link → paste → download. Works perfectly.</p>
                 <p><strong>Quality:</strong> Up to 1080p</p>
                 <p><strong>Reliability:</strong> 99%+ success</p>
 
-                <h4>✅ GIF Animations</h4>
+                <h3>✅ GIF Animations</h3>
                 <p><strong>What:</strong> Animated GIFs from X posts</p>
                 <p><strong>Download:</strong> Works like regular videos, saves as MP4</p>
                 <p><strong>Result:</strong> Smooth animation preserved</p>
 
-                <h4>✅ Sports Highlights</h4>
+                <h3>✅ Sports Highlights</h3>
                 <p><strong>What:</strong> Game highlights, plays, goals</p>
                 <p><strong>Download:</strong> Works great for sports content</p>
                 <p><strong>Quality:</strong> Often 720p or higher</p>
 
-                <h4>✅ News & Breaking Moments</h4>
+                <h3>✅ News & Breaking Moments</h3>
                 <p><strong>What:</strong> News clips, statements, breaking news</p>
                 <p><strong>Download:</strong> No issues, reliable</p>
                 <p><strong>Note:</strong> Archive before content gets taken down</p>
 
-                <h4>✅ Livestream Replays (If Saved as Post)</h4>
+                <h3>✅ Livestream Replays (If Saved as Post)</h3>
                 <p><strong>What:</strong> Saved livestream videos posted as regular posts</p>
                 <p><strong>Download:</strong> Works like regular videos</p>
 
-                <h4>❌ Can't Download: Private Account Videos</h4>
+                <h3>❌ Can't Download: Private Account Videos</h3>
                 <p><strong>Why:</strong> Private content isn't publicly accessible</p>
 
-                <h4>❌ Can't Download: Direct Messages</h4>
+                <h3>❌ Can't Download: Direct Messages</h3>
                 <p><strong>Why:</strong> DM videos aren't public URLs</p>
 
                 <h2>Advanced Features & Pro Tips</h2>
 
-                <h4>🎵 Extract Audio from X Videos</h4>
+                <h3>🎵 Extract Audio from X Videos</h3>
                 <p>Need just the audio from an X video?</p>
                 <ol>
                     <li>Paste the X link into our downloader</li>
@@ -325,7 +325,7 @@ page_data = {
                     <li>Download MP3 in seconds</li>
                 </ol>
 
-                <h4>📥 Batch Download Multiple Videos</h4>
+                <h3>📥 Batch Download Multiple Videos</h3>
                 <p>Download several X videos sequentially:</p>
                 <ol>
                     <li>Copy first X video link → Download</li>
@@ -333,7 +333,7 @@ page_data = {
                     <li>Repeat for as many as needed</li>
                 </ol>
 
-                <h4>📁 Organize Your X Videos</h4>
+                <h3>📁 Organize Your X Videos</h3>
                 <p><strong>Folder structure:</strong></p>
                 <ul>
                     <li>📁 /X_News</li>
@@ -343,7 +343,7 @@ page_data = {
                     <li>📁 /X_Viral_Content</li>
                 </ul>
 
-                <h4>☁️ Cloud Backup Options</h4>
+                <h3>☁️ Cloud Backup Options</h3>
                 <ul>
                     <li>☁️ Google Drive</li>
                     <li>☁️ OneDrive</li>
@@ -351,7 +351,7 @@ page_data = {
                     <li>☁️ Dropbox</li>
                 </ul>
 
-                <h4>🎬 Edit Downloaded X Videos</h4>
+                <h3>🎬 Edit Downloaded X Videos</h3>
                 <p>Popular editing software:</p>
                 <ul>
                     <li><strong>CapCut</strong> (free, all platforms)</li>
@@ -362,7 +362,7 @@ page_data = {
 
                 <h2>Troubleshooting: Common Issues & Solutions</h2>
 
-                <h4>❌ "Invalid Link" or "Video Not Found"</h4>
+                <h3>❌ "Invalid Link" or "Video Not Found"</h3>
 
                 <p><strong>Possible causes:</strong></p>
                 <ol>
@@ -381,7 +381,7 @@ page_data = {
                     <li>✅ Wait 5 minutes and retry</li>
                 </ul>
 
-                <h4>❌ Download is Slow</h4>
+                <h3>❌ Download is Slow</h3>
 
                 <p><strong>Solutions:</strong></p>
                 <ol>
@@ -392,7 +392,7 @@ page_data = {
                     <li>Download during off-peak hours</li>
                 </ol>
 
-                <h4>❌ Video Won't Play</h4>
+                <h3>❌ Video Won't Play</h3>
 
                 <p><strong>Solutions:</strong></p>
                 <ul>
@@ -401,7 +401,7 @@ page_data = {
                     <li>Check file extension (.mp4)</li>
                 </ul>
 
-                <h4>❌ "Too Many Requests" / Rate Limited</h4>
+                <h3>❌ "Too Many Requests" / Rate Limited</h3>
 
                 <p><strong>Solutions:</strong></p>
                 <ol>
@@ -485,34 +485,34 @@ page_data = {
 
                 <h2>Comprehensive FAQ</h2>
 
-                <h4>Q: How do I download X (Twitter) videos?</h4>
+                <h3>Q: How do I download X (Twitter) videos?</h3>
                 <p>A: Copy the X post link → Paste into our tool → Click Download. Get the video in seconds.</p>
 
-                <h4>Q: Is this Twitter video downloader completely free?</h4>
+                <h3>Q: Is this Twitter video downloader completely free?</h3>
                 <p>A: Yes, 100% free with unlimited downloads. No login, no subscriptions, no hidden costs.</p>
 
-                <h4>Q: Can I download GIFs from X?</h4>
+                <h3>Q: Can I download GIFs from X?</h3>
                 <p>A: Yes! Animated GIFs are downloaded as MP4 video files with smooth animation.</p>
 
-                <h4>Q: Do I need to create an X account?</h4>
+                <h3>Q: Do I need to create an X account?</h3>
                 <p>A: No account needed. Just paste a link and download.</p>
 
-                <h4>Q: Can I download from private X accounts?</h4>
+                <h3>Q: Can I download from private X accounts?</h3>
                 <p>A: No, only public posts. This protects privacy.</p>
 
-                <h4>Q: What quality will I get?</h4>
+                <h3>Q: What quality will I get?</h3>
                 <p>A: Up to 1080p HD, depending on the original post quality.</p>
 
-                <h4>Q: Can the poster know I downloaded their video?</h4>
+                <h3>Q: Can the poster know I downloaded their video?</h3>
                 <p>A: No, completely anonymous. Your download is invisible.</p>
 
-                <h4>Q: Is it legal to download X videos?</h4>
+                <h3>Q: Is it legal to download X videos?</h3>
                 <p>A: For personal use — yes. For commercial use without permission — no. Always respect creators.</p>
 
-                <h4>Q: Works on iPhone and Android?</h4>
+                <h3>Q: Works on iPhone and Android?</h3>
                 <p>A: Yes, works perfectly on all mobile browsers without any app.</p>
 
-                <h4>Q: Can I extract audio from X videos?</h4>
+                <h3>Q: Can I extract audio from X videos?</h3>
                 <p>A: Yes! Select "Audio Only" to download just the sound as MP3.</p>
 
                 <h2>Conclusion</h2>

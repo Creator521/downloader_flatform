@@ -20,7 +20,7 @@ page_data = {
                 <h2>What Are Instagram Reels?</h2>
                 <p>Instagram Reels are short-form vertical videos — typically 15 to 90 seconds in length — that Instagram introduced to compete directly with TikTok. But unlike TikTok, Reels are deeply woven into Instagram's existing social graph. A trending Reel from a fitness creator you follow might show up right between photos from your friends, creating a seamless feed experience.</p>
                 
-                <h4>Key Reel Specifications:</h4>
+                <h3>Key Reel Specifications:</h3>
                 <ul>
                     <li><strong>📏 Format:</strong> 9:16 vertical aspect ratio (1080×1920 pixels)</li>
                     <li><strong>⏱️ Duration:</strong> 15-90 seconds (max 90 seconds)</li>
@@ -34,7 +34,7 @@ page_data = {
 
                 <h2>Why Download Instagram Reels? (Real Use Cases)</h2>
 
-                <h4>Creative & Content Creation</h4>
+                <h3>Creative & Content Creation</h3>
                 <ul>
                     <li><strong>🎵 Trending Audio:</strong> If you hear a sound in a Reel you want to use in your own video edit, downloading gives you direct access to that audio track. Extract it as MP3 and use it in your projects.</li>
                     <li><strong>🎬 Study Editing Techniques:</strong> Analyze how professional creators edit their Reels. Study transitions, pacing, color grading, and effects frame-by-frame.</li>
@@ -42,7 +42,7 @@ page_data = {
                     <li><strong>💡 Inspiration Archive:</strong> Build a personal library of inspiring content to reference when creating your own videos.</li>
                 </ul>
 
-                <h4>Educational & Reference</h4>
+                <h3>Educational & Reference</h3>
                 <ul>
                     <li><strong>👨‍🍳 Tutorials You'll Actually Use:</strong> A 60-second cooking technique or makeup tutorial is more useful saved locally than bookmarked — especially when you're mid-recipe with wet hands.</li>
                     <li><strong>🏋️ Fitness Routines:</strong> Save workout Reels to reference at the gym without needing WiFi or the Instagram app.</li>
@@ -50,7 +50,7 @@ page_data = {
                     <li><strong>💬 Language Learning:</strong> Download Reels in languages you're learning for accent and pronunciation study.</li>
                 </ul>
 
-                <h4>Sharing & Distribution</h4>
+                <h3>Sharing & Distribution</h3>
                 <ul>
                     <li><strong>💬 Universal Sharing:</strong> Reel links require Instagram to view them. Send the MP4 file via WhatsApp, email, or Telegram — works on any device without the app.</li>
                     <li><strong>👨‍👩‍👧‍👦 Family Sharing:</strong> Family members without Instagram can watch by receiving the MP4 file directly.</li>
@@ -58,7 +58,7 @@ page_data = {
                     <li><strong>🎤 Presentations:</strong> Use Reels in business presentations, training materials, or promotional videos.</li>
                 </ul>
 
-                <h4>Personal & Archival</h4>
+                <h3>Personal & Archival</h3>
                 <ul>
                     <li><strong>💾 Creator Deletion Safety:</strong> Favorite creators delete or reposts Reels all the time. Save them before they're gone.</li>
                     <li><strong>❤️ Personal Memories:</strong> Download Reels from friends and loved ones to preserve memories.</li>
@@ -68,7 +68,7 @@ page_data = {
 
                 <h2>Understanding Instagram Reels Quality & Specifications</h2>
 
-                <h4>Reel Video Quality Standards</h4>
+                <h3>Reel Video Quality Standards</h3>
                 <p>Instagram stores Reels at standardized specifications. Here's what you're getting when you download:</p>
 
                 <table class="quality-table">
@@ -138,17 +138,17 @@ page_data = {
                     </tbody>
                 </table>
 
-                <h4>Why Reels Display as Vertical on Desktop</h4>
+                <h3>Why Reels Display as Vertical on Desktop</h3>
                 <p>When you download a Reel and open it on a desktop media player (like VLC on Windows or QuickTime on Mac), it will appear with black bars on the sides. This is completely normal. The Reel is 1080×1920 (taller than it is wide), so when displayed on a standard 16:9 widescreen, there's empty space on the sides. This doesn't indicate a problem — the video itself is fine.</p>
 
-                <h4>Quality Loss Myth</h4>
+                <h3>Quality Loss Myth</h3>
                 <p><strong>Reality:</strong> You're downloading the exact same quality that Instagram serves to all users. There's no quality loss through our tool. The only compression happens when the creator uploads the Reel to Instagram in the first place — that's outside our control. Everyone who watches the Reel on Instagram sees the same compressed version.</p>
 
                 <h2>How to Download Instagram Reels — Complete Device Guide</h2>
 
-                <h4>💻 On Desktop/Laptop (Windows/Mac)</h4>
+                <h3>💻 On Desktop/Laptop (Windows/Mac)</h3>
 
-                <h4>Step 1: Find & Copy the Reel Link</h4>
+                <h3>Step 1: Find & Copy the Reel Link</h3>
                 <ol>
                     <li>Open <strong>Instagram.com</strong> in your web browser (Chrome, Firefox, Safari, or Edge)</li>
                     <li>Navigate to the Reels tab (camera icon in the left sidebar) or find a Reel in your feed</li>
@@ -162,7 +162,7 @@ page_data = {
                     </li>
                 </ol>
 
-                <h4>Step 2: Paste into SnapReelDownload</h4>
+                <h3>Step 2: Paste into SnapReelDownload</h3>
                 <ol>
                     <li>Come to this page (you're already here!)</li>
                     <li>Click in the <strong>input box</strong> at the top</li>
@@ -175,7 +175,7 @@ page_data = {
                     <li>The tool validates the link automatically</li>
                 </ol>
 
-                <h4>Step 3: Choose Format & Quality</h4>
+                <h3>Step 3: Choose Format & Quality</h3>
                 <ol>
                     <li>Click the <strong>"Download"</strong> button</li>
                     <li>Wait 1-3 seconds for processing</li>
@@ -194,18 +194,18 @@ page_data = {
                     <li>Click to download — file goes to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h4>Step 4: Access Your Reel</h4>
+                <h3>Step 4: Access Your Reel</h3>
                 <ul>
                     <li><strong>Windows:</strong> Press Windows key + E → Downloads → Find your Reel file → Open with any media player (VLC recommended)</li>
                     <li><strong>Mac:</strong> Click Finder → Downloads → Double-click the Reel → Opens in QuickTime or default player</li>
                 </ul>
 
-                <h4>📱 On Android Phone</h4>
+                <h3>📱 On Android Phone</h3>
 
-                <h4>Initial Setup</h4>
+                <h3>Initial Setup</h3>
                 <p>Make sure you have a browser app. Chrome comes pre-installed on most Android phones. If you prefer Firefox, download it from Google Play Store.</p>
 
-                <h4>Step-by-Step Guide</h4>
+                <h3>Step-by-Step Guide</h3>
                 <ol>
                     <li>Open the <strong>Instagram app</strong> on your Android phone</li>
                     <li>Find the Reel you want to download (Reels tab, Explore, or Feed)</li>
@@ -232,7 +232,7 @@ page_data = {
                     <li>The file saves to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h4>Finding Your Reel on Android</h4>
+                <h3>Finding Your Reel on Android</h3>
                 <ol>
                     <li>Open your <strong>Files app</strong> or <strong>Gallery app</strong></li>
                     <li>Navigate to <strong>Downloads</strong> folder</li>
@@ -241,7 +241,7 @@ page_data = {
                     <li>You can now share via WhatsApp, Telegram, email, etc.</li>
                 </ol>
 
-                <h4>Pro Tips for Android</h4>
+                <h3>Pro Tips for Android</h3>
                 <ul>
                     <li>📱 Use <strong>MX Player</strong> or <strong>VLC</strong> for better playback controls</li>
                     <li>📁 Move Reels to a dedicated "Reels" folder for organization</li>
@@ -250,12 +250,12 @@ page_data = {
                     <li>📤 Share directly to other apps without leaving Files app</li>
                 </ul>
 
-                <h4>📱 On iPhone (iOS)</h4>
+                <h3>📱 On iPhone (iOS)</h3>
 
-                <h4>Important: Use Safari, Not Chrome</h4>
+                <h3>Important: Use Safari, Not Chrome</h3>
                 <p>⚠️ <strong>Always use Safari on iPhone for downloads.</strong> Chrome has limitations with file downloads on iOS. Safari integrates perfectly with iPhone's file system.</p>
 
-                <h4>Step-by-Step Guide</h4>
+                <h3>Step-by-Step Guide</h3>
                 <ol>
                     <li>Open the <strong>Instagram app</strong> on your iPhone</li>
                     <li>Find the Reel (Reels tab, Explore, or Feed)</li>
@@ -277,7 +277,7 @@ page_data = {
                     <li>Tap <strong>"Download"</strong> to confirm</li>
                 </ol>
 
-                <h4>Save to Photos on iPhone</h4>
+                <h3>Save to Photos on iPhone</h3>
                 <ol>
                     <li>Look for the <strong>blue download arrow (⬇️)</strong> in Safari's address bar area</li>
                     <li>Tap the download arrow icon</li>
@@ -287,7 +287,7 @@ page_data = {
                     <li>The Reel is now in your <strong>Photos app / Camera Roll</strong></li>
                 </ol>
 
-                <h4>Alternative: Files App Method (iPhone)</h4>
+                <h3>Alternative: Files App Method (iPhone)</h3>
                 <ol>
                     <li>Open the <strong>Files app</strong> on your iPhone</li>
                     <li>Go to <strong>Browse</strong> → <strong>Downloads</strong></li>
@@ -295,7 +295,7 @@ page_data = {
                     <li>Long-press → <strong>"Share"</strong> → <strong>"Save to Photos"</strong></li>
                 </ol>
 
-                <h4>iPhone Pro Tips</h4>
+                <h3>iPhone Pro Tips</h3>
                 <ul>
                     <li>🔧 Always use Safari (Chrome is limited on iOS)</li>
                     <li>📸 Save to Photos for easy camera roll access</li>
@@ -304,12 +304,12 @@ page_data = {
                     <li>💾 Use <strong>Offload Unused Apps</strong> to save phone storage</li>
                 </ul>
 
-                <h4>📱 On iPad</h4>
+                <h3>📱 On iPad</h3>
                 <p>Follow the <strong>iPhone steps above</strong> — iPadOS handles downloads identically to iOS. Use Safari, and save to Photos the same way.</p>
 
                 <h2>Advanced Features & Pro Tips</h2>
 
-                <h4>🎵 Extract Audio as MP3</h4>
+                <h3>🎵 Extract Audio as MP3</h3>
                 <p>Instagram Reels often feature trending audio. You can extract just the audio:</p>
                 <ol>
                     <li>Paste the Reel link into our downloader</li>
@@ -326,7 +326,7 @@ page_data = {
                     <li>💬 Extract voiceovers or speeches</li>
                 </ul>
 
-                <h4>📥 Batch Download Multiple Reels</h4>
+                <h3>📥 Batch Download Multiple Reels</h3>
                 <p>Need to download several Reels? Copy and download them one by one:</p>
                 <ol>
                     <li>Copy first Reel link → Download</li>
@@ -335,7 +335,7 @@ page_data = {
                 </ol>
                 <p><strong>Pro tip:</strong> Batch downloading feature coming soon! Sign up for updates.</p>
 
-                <h4>📁 Organize Your Downloaded Reels</h4>
+                <h3>📁 Organize Your Downloaded Reels</h3>
                 <p><strong>Recommended folder structure:</strong></p>
                 <ul>
                     <li>📁 /Reels_Inspiration (creative ideas)</li>
@@ -345,7 +345,7 @@ page_data = {
                     <li>📁 /Reels_Audio (extracted sounds)</li>
                 </ul>
 
-                <h4>💾 Backup Reels to Cloud</h4>
+                <h3>💾 Backup Reels to Cloud</h3>
                 <p>Save your Reels collection to:</p>
                 <ul>
                     <li>☁️ Google Drive (automatic sync on Android)</li>
@@ -355,7 +355,7 @@ page_data = {
                     <li>☁️ AWS S3 (for advanced users)</li>
                 </ul>
 
-                <h4>🎬 Edit Downloaded Reels</h4>
+                <h3>🎬 Edit Downloaded Reels</h3>
                 <p>After downloading, you can edit in:</p>
                 <ul>
                     <li><strong>CapCut</strong> (free, powerful, all platforms)</li>
@@ -367,40 +367,40 @@ page_data = {
 
                 <h2>Reel Format & Edge Cases</h2>
 
-                <h4>✅ Standard Reel Download</h4>
+                <h3>✅ Standard Reel Download</h3>
                 <p><strong>What it is:</strong> A regular Reel from any public account.</p>
                 <p><strong>How to download:</strong> Copy the Reel URL (instagram.com/reel/...) and paste it. Works perfectly.</p>
                 <p><strong>Quality:</strong> 1080×1920 vertical, Full HD</p>
                 <p><strong>Audio:</strong> Included with original sound</p>
                 <p><strong>Reliability:</strong> 99%+ success rate</p>
 
-                <h4>✅ Reel Collab (Dual Creator Reels)</h4>
+                <h3>✅ Reel Collab (Dual Creator Reels)</h3>
                 <p><strong>What it is:</strong> A Reel with two creators appearing side-by-side.</p>
                 <p><strong>How to download:</strong> Copy the Reel link — works like any standard Reel.</p>
                 <p><strong>What you get:</strong> Single MP4 file with both creators visible</p>
                 <p><strong>Quality:</strong> 1080×1920, both creators in frame</p>
 
-                <h4>✅ Reel with Effects & Filters</h4>
+                <h3>✅ Reel with Effects & Filters</h3>
                 <p><strong>What it is:</strong> Reels with AR filters, effects, or Instagram's built-in editing applied.</p>
                 <p><strong>How to download:</strong> Standard download process.</p>
                 <p><strong>What you get:</strong> All effects and filters are preserved in the downloaded file</p>
 
-                <h4>⚠️ Reel with Copyrighted Audio</h4>
+                <h3>⚠️ Reel with Copyrighted Audio</h3>
                 <p><strong>What happens:</strong> Some Reels use music/audio that Instagram blocks in certain regions due to copyright.</p>
                 <p><strong>Result:</strong> You may download the Reel with reduced or no audio, depending on your region.</p>
                 <p><strong>Solution:</strong> This is an Instagram-side restriction, not our tool. The same Reel might have audio if accessed from a different region.</p>
 
-                <h4>❌ Can't Download: Private Account Reels</h4>
+                <h3>❌ Can't Download: Private Account Reels</h3>
                 <p><strong>Why not:</strong> Reels from private accounts aren't publicly accessible.</p>
                 <p><strong>Solution:</strong> Only public Reels can be downloaded — this protects privacy.</p>
 
-                <h4>❌ Can't Download: Instagram Stories</h4>
+                <h3>❌ Can't Download: Instagram Stories</h3>
                 <p><strong>Why not:</strong> Stories aren't public URLs and expire in 24 hours.</p>
                 <p><strong>Note:</strong> If someone saves a Story to their profile, it becomes a Reel and can be downloaded.</p>
 
                 <h2>Troubleshooting: Common Issues & Solutions</h2>
 
-                <h4>❌ "Invalid Link" or "Reel Not Found"</h4>
+                <h3>❌ "Invalid Link" or "Reel Not Found"</h3>
 
                 <p><strong>Possible causes:</strong></p>
                 <ol>
@@ -420,7 +420,7 @@ page_data = {
                     <li>✅ Wait 5 minutes and retry (server may be busy)</li>
                 </ul>
 
-                <h4>❌ Download is Slow or Times Out</h4>
+                <h3>❌ Download is Slow or Times Out</h3>
 
                 <p><strong>Causes:</strong></p>
                 <ul>
@@ -445,7 +445,7 @@ page_data = {
                     <li>Download during off-peak hours</li>
                 </ol>
 
-                <h4>❌ Downloaded Reel Won't Play</h4>
+                <h3>❌ Downloaded Reel Won't Play</h3>
 
                 <p><strong>Causes:</strong></p>
                 <ul>
@@ -469,7 +469,7 @@ page_data = {
                     <li>Verify file extension is .mp4</li>
                 </ol>
 
-                <h4>❌ Reel Downloaded But No Audio</h4>
+                <h3>❌ Reel Downloaded But No Audio</h3>
 
                 <p><strong>Why this happens:</strong> Some Reels use licensed music restricted by region.</p>
 
@@ -481,7 +481,7 @@ page_data = {
                     <li>Contact support if persistent</li>
                 </ul>
 
-                <h4>❌ "Too Many Requests" / Rate Limited</h4>
+                <h3>❌ "Too Many Requests" / Rate Limited</h3>
 
                 <p><strong>What this means:</strong> You've downloaded too many Reels too quickly.</p>
 
@@ -602,57 +602,57 @@ page_data = {
 
                 <h2>Comprehensive FAQ</h2>
 
-                <h4>Basic Questions</h4>
+                <h3>Basic Questions</h3>
 
-                <h4>Q: Do I need to create an account to download Reels?</h4>
+                <h3>Q: Do I need to create an account to download Reels?</h3>
                 <p>A: No! You don't need an account, login, or signup. Just paste a Reel link and download. Your privacy is completely protected.</p>
 
-                <h4>Q: How long does a Reel download take?</h4>
+                <h3>Q: How long does a Reel download take?</h3>
                 <p>A: Most Reels download in 1-3 seconds. Depends on Reel length and your internet speed. Maximum 90-second Reels typically take 3 seconds.</p>
 
-                <h4>Q: Will the downloaded Reel still loop?</h4>
+                <h3>Q: Will the downloaded Reel still loop?</h3>
                 <p>A: No. Looping is something Instagram's app adds during playback. The downloaded MP4 file plays once and stops, like any normal video.</p>
 
-                <h4>Quality & Format Questions</h4>
+                <h3>Quality & Format Questions</h3>
 
-                <h4>Q: What quality will I get?</h4>
+                <h3>Q: What quality will I get?</h3>
                 <p>A: You'll get 1080×1920 pixels (Full HD vertical). This is the same quality Instagram serves to all viewers.</p>
 
-                <h4>Q: Can I extract audio from a Reel as MP3?</h4>
+                <h3>Q: Can I extract audio from a Reel as MP3?</h3>
                 <p>A: Yes! Select "Audio Only (MP3)" option. You get just the sound track in seconds.</p>
 
-                <h4>Q: What about Reel Collab videos (two creators)?</h4>
+                <h3>Q: What about Reel Collab videos (two creators)?</h3>
                 <p>A: They download perfectly. Both creators appear in the same MP4 file, side-by-side as shown on Instagram.</p>
 
-                <h4>Q: Can I download Reels with effects?</h4>
+                <h3>Q: Can I download Reels with effects?</h3>
                 <p>A: Yes! All effects, filters, transitions, and text are preserved in the downloaded file.</p>
 
-                <h4>Legal & Privacy Questions</h4>
+                <h3>Legal & Privacy Questions</h3>
 
-                <h4>Q: Is it legal to download Instagram Reels?</h4>
+                <h3>Q: Is it legal to download Instagram Reels?</h3>
                 <p>A: For personal, offline use — yes. For commercial use or reposting without permission — no. Always respect creators' work.</p>
 
-                <h4>Q: Can the creator see I downloaded their Reel?</h4>
+                <h3>Q: Can the creator see I downloaded their Reel?</h3>
                 <p>A: No. Your download is completely anonymous. Instagram doesn't track or notify about third-party downloads.</p>
 
-                <h4>Q: Can I download from private accounts?</h4>
+                <h3>Q: Can I download from private accounts?</h3>
                 <p>A: No, only public content. This protects privacy — Reels must be publicly visible to download.</p>
 
-                <h4>Q: Is my data safe using this tool?</h4>
+                <h3>Q: Is my data safe using this tool?</h3>
                 <p>A: Yes, completely safe. SSL encrypted, no tracking, no data storage, no login required.</p>
 
-                <h4>Technical Questions</h4>
+                <h3>Technical Questions</h3>
 
-                <h4>Q: Why does the Reel appear with black bars on desktop?</h4>
+                <h3>Q: Why does the Reel appear with black bars on desktop?</h3>
                 <p>A: Reels are 1080×1920 (taller than wide). On standard 16:9 screens, there's empty space on sides. This is normal.</p>
 
-                <h4>Q: Can I convert the MP4 to other formats?</h4>
+                <h3>Q: Can I convert the MP4 to other formats?</h3>
                 <p>A: Yes! Use: CloudConvert.com, Online-Convert.com, or HandBrake (desktop app).</p>
 
-                <h4>Q: What video player should I use?</h4>
+                <h3>Q: What video player should I use?</h3>
                 <p>A: VLC Media Player (free, universal) works best. Also: MX Player (Android), QuickTime (Mac).</p>
 
-                <h4>Q: How big is a typical Reel file?</h4>
+                <h3>Q: How big is a typical Reel file?</h3>
                 <p>A: 30-second Reel: 10-20 MB | 60-second: 20-40 MB | 90-second: 30-60 MB</p>
 
                 <h2>Conclusion</h2>

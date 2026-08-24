@@ -22,7 +22,7 @@ page_data = {
 
                 <p>Unlike viewing a Story normally (which adds your name to their viewer list), our tool bypasses Instagram's tracking system entirely. Download with complete privacy — zero notifications, zero traces.</p>
 
-                <h4>Why Download Instagram Stories?</h4>
+                <h3>Why Download Instagram Stories?</h3>
                 <ul>
                     <li><strong>⏰ Beat the 24-Hour Limit:</strong> Stories vanish after a day. Download before they're gone forever. Save important moments permanently.</li>
                     <li><strong>📸 Save Memories:</strong> Friend's travel clips, birthday wishes, special announcements, family moments — keep them forever on your device.</li>
@@ -36,7 +36,7 @@ page_data = {
 
                 <h2>Instagram Story Specifications & Technical Details</h2>
 
-                <h4>Video Format Standards</h4>
+                <h3>Video Format Standards</h3>
                 <table class="specs-table">
                     <thead>
                         <tr>
@@ -121,9 +121,9 @@ page_data = {
 
                 <h2>How to Download Instagram Stories — Complete Device Guide</h2>
 
-                <h4>💻 On Desktop/Laptop (Windows/Mac)</h4>
+                <h3>💻 On Desktop/Laptop (Windows/Mac)</h3>
 
-                <h4>Step 1: Copy the Instagram Story Link</h4>
+                <h3>Step 1: Copy the Instagram Story Link</h3>
                 <ol>
                     <li>Go to <strong>instagram.com</strong> and log into your account</li>
                     <li>Click on a Story from the Stories section at the top of your Feed</li>
@@ -137,7 +137,7 @@ page_data = {
                     </li>
                 </ol>
 
-                <h4>Step 2: Paste into SnapReelDownload</h4>
+                <h3>Step 2: Paste into SnapReelDownload</h3>
                 <ol>
                     <li>Come to this page</li>
                     <li>Click in the <strong>input box</strong> at the top</li>
@@ -149,7 +149,7 @@ page_data = {
                     </li>
                 </ol>
 
-                <h4>Step 3: Download in HD Quality</h4>
+                <h3>Step 3: Download in HD Quality</h3>
                 <ol>
                     <li>Click the <strong>"Download"</strong> button</li>
                     <li>Wait 2-5 seconds for processing</li>
@@ -162,15 +162,15 @@ page_data = {
                     <li>Click to download — file goes to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h4>Step 4: Access Your Story</h4>
+                <h3>Step 4: Access Your Story</h3>
                 <ul>
                     <li><strong>Windows:</strong> Press Windows key + E → Downloads → Find your Story → Open with any media player</li>
                     <li><strong>Mac:</strong> Finder → Downloads → Double-click → Opens automatically</li>
                 </ul>
 
-                <h4>📱 On Android Phone</h4>
+                <h3>📱 On Android Phone</h3>
 
-                <h4>Step-by-Step Guide</h4>
+                <h3>Step-by-Step Guide</h3>
                 <ol>
                     <li>Open the <strong>Instagram app</strong> on your Android phone</li>
                     <li>Find the Story you want to save (tap on it from the Stories bar)</li>
@@ -187,7 +187,7 @@ page_data = {
                     <li>Story saves to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h4>Finding Your Story on Android</h4>
+                <h3>Finding Your Story on Android</h3>
                 <ol>
                     <li>Open your <strong>Files app</strong> or <strong>Gallery</strong></li>
                     <li>Go to <strong>Downloads</strong></li>
@@ -195,7 +195,7 @@ page_data = {
                     <li>Tap to view or long-press to share</li>
                 </ol>
 
-                <h4>Pro Tips for Android</h4>
+                <h3>Pro Tips for Android</h3>
                 <ul>
                     <li>📱 Use <strong>MX Player</strong> or <strong>VLC</strong> for playback</li>
                     <li>📁 Create "Instagram Stories" folder</li>
@@ -203,12 +203,12 @@ page_data = {
                     <li>🎬 Edit in <strong>CapCut</strong> if needed</li>
                 </ul>
 
-                <h4>📱 On iPhone (iOS)</h4>
+                <h3>📱 On iPhone (iOS)</h3>
 
-                <h4>Important: Use Safari, Not Chrome</h4>
+                <h3>Important: Use Safari, Not Chrome</h3>
                 <p>⚠️ <strong>Always use Safari on iPhone.</strong> Chrome has iOS file download limitations.</p>
 
-                <h4>Step-by-Step Guide</h4>
+                <h3>Step-by-Step Guide</h3>
                 <ol>
                     <li>Open the <strong>Instagram app</strong> on your iPhone</li>
                     <li>Find the Story you want to save</li>
@@ -223,7 +223,7 @@ page_data = {
                     <li>Tap <strong>"Download"</strong></li>
                 </ol>
 
-                <h4>Save to Photos on iPhone</h4>
+                <h3>Save to Photos on iPhone</h3>
                 <ol>
                     <li>Tap the <strong>blue download arrow (⬇️)</strong> in Safari's address bar</li>
                     <li>Find your Story in <strong>"Downloads"</strong></li>
@@ -232,7 +232,7 @@ page_data = {
                     <li>Story is now in your <strong>Photos app</strong></li>
                 </ol>
 
-                <h4>iPhone Pro Tips</h4>
+                <h3>iPhone Pro Tips</h3>
                 <ul>
                     <li>🔧 Always use Safari</li>
                     <li>📸 Save to Photos for easy access</li>
@@ -240,46 +240,46 @@ page_data = {
                     <li>🎬 Edit with iMovie or CapCut</li>
                 </ul>
 
-                <h4>📱 On iPad</h4>
+                <h3>📱 On iPad</h3>
                 <p>Follow the <strong>iPhone steps</strong> — iPadOS works identically to iOS.</p>
 
                 <h2>Instagram Story Types & Download Support</h2>
 
-                <h4>✅ Standard Story Videos</h4>
+                <h3>✅ Standard Story Videos</h3>
                 <p><strong>What:</strong> Regular video Stories (3-15 seconds)</p>
                 <p><strong>Download:</strong> Works perfectly ✅ MP4 format</p>
                 <p><strong>Quality:</strong> 1080×1920 Full HD</p>
 
-                <h4>✅ Story Photos</h4>
+                <h3>✅ Story Photos</h3>
                 <p><strong>What:</strong> Image Stories</p>
                 <p><strong>Download:</strong> Works perfectly ✅ JPG format</p>
                 <p><strong>Quality:</strong> Full original resolution</p>
 
-                <h4>✅ Boomerang Stories</h4>
+                <h3>✅ Boomerang Stories</h3>
                 <p><strong>What:</strong> Looping video clips (Instagram's Boomerang feature)</p>
                 <p><strong>Download:</strong> Works as looping MP4 video ✅</p>
 
-                <h4>✅ Story Highlights</h4>
+                <h3>✅ Story Highlights</h3>
                 <p><strong>What:</strong> Stories saved to permanent Highlights on profiles</p>
                 <p><strong>Download:</strong> Works perfectly for public Highlights ✅</p>
 
-                <h4>✅ Stories with Stickers</h4>
+                <h3>✅ Stories with Stickers</h3>
                 <p><strong>What:</strong> Stories with text, polls, location tags, etc.</p>
                 <p><strong>Download:</strong> Stickers are baked into download ✅</p>
 
-                <h4>✅ Stories with Music</h4>
+                <h3>✅ Stories with Music</h3>
                 <p><strong>What:</strong> Stories with background music</p>
                 <p><strong>Download:</strong> Audio included in video ✅</p>
 
-                <h4>❌ Cannot Download: Private Account Stories</h4>
+                <h3>❌ Cannot Download: Private Account Stories</h3>
                 <p><strong>Why:</strong> Not publicly accessible</p>
 
-                <h4>❌ Cannot Download: Close Friends Only Stories</h4>
+                <h3>❌ Cannot Download: Close Friends Only Stories</h3>
                 <p><strong>Why:</strong> Restricted to specific users</p>
 
                 <h2>Advanced Features & Pro Tips</h2>
 
-                <h4>🎵 Extract Audio from Story Videos</h4>
+                <h3>🎵 Extract Audio from Story Videos</h3>
                 <p>Need just the audio from a Story?</p>
                 <ol>
                     <li>Paste Story link</li>
@@ -287,7 +287,7 @@ page_data = {
                     <li>Download MP3 in seconds</li>
                 </ol>
 
-                <h4>📥 Batch Download Multiple Stories</h4>
+                <h3>📥 Batch Download Multiple Stories</h3>
                 <p>Download several Stories:</p>
                 <ol>
                     <li>Copy first Story link → Download</li>
@@ -295,7 +295,7 @@ page_data = {
                     <li>Repeat as needed</li>
                 </ol>
 
-                <h4>📁 Organize Your Stories</h4>
+                <h3>📁 Organize Your Stories</h3>
                 <p><strong>Folder structure:</strong></p>
                 <ul>
                     <li>📁 /Stories_Friends</li>
@@ -305,7 +305,7 @@ page_data = {
                     <li>📁 /Stories_Archive</li>
                 </ul>
 
-                <h4>☁️ Cloud Backup</h4>
+                <h3>☁️ Cloud Backup</h3>
                 <ul>
                     <li>☁️ Google Drive</li>
                     <li>☁️ OneDrive</li>
@@ -315,7 +315,7 @@ page_data = {
 
                 <h2>Troubleshooting: Common Issues & Solutions</h2>
 
-                <h4>❌ "Invalid Link" or "Story Not Found"</h4>
+                <h3>❌ "Invalid Link" or "Story Not Found"</h3>
 
                 <p><strong>Possible causes:</strong></p>
                 <ul>
@@ -333,7 +333,7 @@ page_data = {
                     <li>✅ Try again in a few minutes</li>
                 </ul>
 
-                <h4>❌ Download is Slow</h4>
+                <h3>❌ Download is Slow</h3>
 
                 <p><strong>Solutions:</strong></p>
                 <ol>
@@ -343,7 +343,7 @@ page_data = {
                     <li>Try different browser</li>
                 </ol>
 
-                <h4>❌ Story Won't Play After Download</h4>
+                <h3>❌ Story Won't Play After Download</h3>
 
                 <p><strong>Solutions:</strong></p>
                 <ul>
@@ -411,34 +411,34 @@ page_data = {
 
                 <h2>Comprehensive FAQ</h2>
 
-                <h4>Q: Can I download Instagram Stories without them knowing?</h4>
+                <h3>Q: Can I download Instagram Stories without them knowing?</h3>
                 <p>A: Yes, completely anonymous. Creator never sees your name, no notification sent, no traces left.</p>
 
-                <h4>Q: Can I save Stories from private accounts?</h4>
+                <h3>Q: Can I save Stories from private accounts?</h3>
                 <p>A: No, only from public accounts. This protects user privacy.</p>
 
-                <h4>Q: Do downloaded Stories expire?</h4>
+                <h3>Q: Do downloaded Stories expire?</h3>
                 <p>A: No, once on your device, they stay forever even after disappearing from Instagram.</p>
 
-                <h4>Q: Can I download Story Highlights?</h4>
+                <h3>Q: Can I download Story Highlights?</h3>
                 <p>A: Yes, works for public Highlights perfectly.</p>
 
-                <h4>Q: What formats are Stories saved in?</h4>
+                <h3>Q: What formats are Stories saved in?</h3>
                 <p>A: Videos as MP4, photos as JPG — both universal formats.</p>
 
-                <h4>Q: Works on iPhone without app?</h4>
+                <h3>Q: Works on iPhone without app?</h3>
                 <p>A: Yes, Safari browser only, no app needed.</p>
 
-                <h4>Q: Can I download multiple Stories at once?</h4>
+                <h3>Q: Can I download multiple Stories at once?</h3>
                 <p>A: One at a time, paste each link sequentially.</p>
 
-                <h4>Q: Is it completely free?</h4>
+                <h3>Q: Is it completely free?</h3>
                 <p>A: Yes, 100% free forever with no limits.</p>
 
-                <h4>Q: Can I extract audio from Story videos?</h4>
+                <h3>Q: Can I extract audio from Story videos?</h3>
                 <p>A: Yes, select "Audio Only (MP3)" option.</p>
 
-                <h4>Q: Is it legal to download Stories?</h4>
+                <h3>Q: Is it legal to download Stories?</h3>
                 <p>A: For personal use — yes. For commercial use without permission — no.</p>
 
                 <h2>Conclusion</h2>

@@ -20,7 +20,7 @@ page_data = {
 
                 <p>SnapTik is a popular TikTok downloader, but users often face aggressive ads, redirect pop-ups, and unreliable downloads. <strong>SnapReelDownload</strong> provides a modern, reliable alternative with support for multiple platforms beyond just TikTok.</p>
 
-                <h4>SnapReelDownload vs SnapTik — Feature Comparison</h4>
+                <h3>SnapReelDownload vs SnapTik — Feature Comparison</h3>
                 <table class="specs-table" style="width:100%; border-collapse:collapse; margin:20px 0;">
                     <thead style="background:#f0f4ff;">
                         <tr style="border-bottom:2px solid #667eea;">
@@ -39,7 +39,7 @@ page_data = {
                     </tbody>
                 </table>
 
-                <h4>Beyond TikTok</h4>
+                <h3>Beyond TikTok</h3>
                 <p>While SnapTik only works with TikTok, SnapReelDownload lets you download from <strong>Instagram, YouTube, Facebook, Twitter/X, Pinterest, Snapchat, and Reddit</strong> — all from one tool. One bookmark replaces multiple downloaders.</p>
             </div>
     """,
