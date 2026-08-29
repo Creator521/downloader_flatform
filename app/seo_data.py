@@ -465,4 +465,7 @@ PAGE_KEYWORD_MAP: dict[str, list[str]] = {
     "/musicallydown-alternative": ["alternatives", "alternatives_extended", "tiktok"],
     "/cobalt-tools-alternative": ["alternatives", "alternatives_extended", "core"],
     "/vidmate-alternative":     ["alternatives", "alternatives_extended", "core"],
+    # ── Emerging Platforms ──
+    "/threads":                 ["emerging_platforms", "high_intent"],
+    "/linkedin":                ["emerging_platforms", "high_intent", "core"],
 }
