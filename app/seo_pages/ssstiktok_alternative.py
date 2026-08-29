@@ -2,7 +2,7 @@ page_data = {
     "route": "/ssstiktok-alternative",
     "title": "Best SSSTikTok Alternative 2026 | Free HD",
     "meta_description": "Best SSSTikTok alternative for downloading TikTok videos without watermark. Free, fast, HD quality. Also supports Instagram, YouTube, Facebook & more platforms.",
-    "h1": "Best SSSTikTok Alternative — Download TikTok Videos Free",
+    "h1": "Best SSSTikTok Alternative — Download TikTok Videos Free 2026",
     "subtitle": "A modern, ad-free alternative to SSSTikTok for TikTok video downloads",
     "tool_name": "SSSTikTok Alternative",
     "keyword": "ssstiktok alternative",
