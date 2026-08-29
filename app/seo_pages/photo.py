@@ -1,8 +1,8 @@
 page_data = {
     "route": "/photo",
-    "title": "Download Instagram Photos HD Free - No Watermark",
+    "title": "Download Instagram Photos HD Free 2026 — No Watermark",
     "description": 'Download Instagram photos in HD quality free. Save carousel photos, profile pictures & images. No watermark, no login. Android, iPhone & PC.',
-    "h1": 'Instagram Photo Downloader — Download Photos in Full HD Quality',
+    "h1": 'Instagram Photo Downloader — Download Photos in Full HD Quality 2026',
     "h2_subtitle": 'Save Any Instagram Photo in Original Resolution — HD Quality, No Watermark, No Login Required',
     "tool_name": 'Instagram Photo Downloader',
     "keyword": 'download instagram photos, instagram photo downloader, save instagram photos',
@@ -14,7 +14,7 @@ page_data = {
     "page_hero_image": '/static/images/how-to-download-instagram-photos.webp?v=2',
     "page_hero_alt": 'Instagram photo downloader - download instagram photos in full HD quality without watermark',
     "intro_text": """
-        <h3>Instagram Photo Downloader — Download Photos in Full HD Quality</h3>
+        <h3>Instagram Photo Downloader — Download Photos in Full HD Quality 2026</h3>
         
         <p><strong>Last Updated: June 2026 | Free Tool | No Login Required</strong></p>
 

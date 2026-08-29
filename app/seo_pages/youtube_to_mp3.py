@@ -1,8 +1,8 @@
 page_data = {
     "route": "/youtube-to-mp3",
-    "title": "YouTube to MP3 Converter Free Online - 320kbps",
+    "title": "YouTube to MP3 Converter Free Online 2026 — 320kbps HD",
     "description": 'Convert YouTube to MP3 free online. Download high-quality 320kbps audio from music, podcasts & lectures. Android, iPhone, Windows & Mac.',
-    "h1": 'YouTube to MP3 Converter - Download High Quality Audio Online',
+    "h1": 'YouTube to MP3 Converter — Download High Quality Audio Free 2026',
     "h2_subtitle": 'Convert YouTube Videos into MP3 Audio Files in Seconds',
     "page_hero_image": '/static/images/how-to-download-youtube-to-convertervideo.webp?v=2',
     "page_hero_alt": 'YouTube to MP3 converter tool',

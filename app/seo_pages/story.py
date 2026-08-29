@@ -1,8 +1,8 @@
 page_data = {
     "route": "/story",
-    "title": "Download Instagram Stories Free HD - Anonymous",
+    "title": "Download Instagram Stories Free HD 2026 — Anonymous, No Login",
     "meta_description": "Download Instagram Stories anonymously in HD quality - no watermark, no login. Save story videos & photos free for Android, iPhone & PC. Creator won't know.",
-    "h1": 'Instagram Story Downloader — Download Stories Anonymously Free in HD',
+    "h1": 'Instagram Story Downloader — Download Stories Anonymously Free 2026',
     "subtitle": "Save any Instagram Story privately — No login, no watermark, creator won't know, 100% free",
     "tool_name": 'Instagram Story Downloader',
     "keyword": 'instagram story downloader',
@@ -496,7 +496,7 @@ page_data = {
         'seo_recommendations': {   'title_optimization': 'Instagram Story Downloader - Download Stories Anonymously in HD Free 2026',
                                    'meta_description': 'Download Instagram Stories anonymously in HD quality - free tool for Android, iPhone & PC. No login, no '
                                                        "watermark, creator won't know. Download now!",
-                                   'h1_optimization': 'Instagram Story Downloader — Download Stories Anonymously Free in HD',
+                                   'h1_optimization': 'Instagram Story Downloader — Download Stories Anonymously Free 2026',
                                    'critical_additions': [   "✅ 'Download Instagram Stories on iPhone' (8,200/month)",
                                                              "✅ 'How to Download Instagram Stories' (10,500/month)",
                                                              "✅ 'Instagram Story Downloader Android' (6,800/month)",

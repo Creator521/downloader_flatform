@@ -1,8 +1,8 @@
 page_data = {
     "route": "/snapchat",
-    "title": "Download Snapchat Videos Free HD - No Notify",
+    "title": "Download Snapchat Videos & Spotlight Free HD 2026",
     "meta_description": 'Download Snapchat videos, Spotlight & Stories in HD quality free - anonymous downloader for Android, iPhone & PC. No login, no notification, works instantly.',
-    "h1": 'Snapchat Video Downloader — Download Spotlight & Stories Free in HD',
+    "h1": 'Snapchat Video Downloader — Download Spotlight & Stories Free 2026',
     "subtitle": 'Save any Snapchat video anonymously — No login, no notification, 100% free',
     "tool_name": 'Snapchat Video Downloader',
     "keyword": 'snapchat downloader',

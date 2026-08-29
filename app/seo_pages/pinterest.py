@@ -1,8 +1,8 @@
 page_data = {
     "route": "/pinterest",
-    "title": "Download Pinterest Videos HD Free - No Login",
+    "title": "Download Pinterest Videos HD Free 2026 — No Login Required",
     "description": 'Download Pinterest videos & GIFs in HD free online. Save video pins instantly — no login, no watermark. Works on Android, iPhone & PC.',
-    "h1": 'Pinterest Video Downloader — Download Pinterest Videos in HD Quality',
+    "h1": 'Pinterest Video Downloader — Download Videos & Images Free 2026',
     "h2_subtitle": 'Save Any Pinterest Video or GIF in HD to Your Device — Free, Instant, No Login',
     "tool_name": 'Pinterest Video Downloader',
     "keyword": 'download pinterest videos, pinterest video downloader, save pinterest videos, pinterest video download free',
@@ -14,7 +14,7 @@ page_data = {
     "page_hero_image": '/static/images/how-to-download-pinterest-video.webp?v=2',
     "page_hero_alt": 'Pinterest video downloader - download pinterest videos in HD quality without watermark',
     "intro_text": """
-        <h3>Pinterest Video Downloader — Download Pinterest Videos in HD Quality</h3>
+        <h3>Pinterest Video Downloader — Download Videos & Images Free 2026</h3>
         
         <p><strong>Last Updated: June 2026 | Free Tool | No Login Required</strong></p>
 

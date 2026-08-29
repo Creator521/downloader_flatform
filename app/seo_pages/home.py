@@ -1,8 +1,8 @@
 page_data = {
     "route": "/",
-    "title": 'Free Video Downloader - Download HD Videos Instantly',
+    "title": 'Free Video Downloader 2026 — Download HD & 4K Videos Instantly',
     "description": '⚡ Download videos from YouTube, TikTok, Instagram & more in HD/4K - no watermark, no login, completely free. Works on iPhone & Android. Try now! →',
-    "h1": 'Free Video Downloader - Save HD & 4K Videos from Any Platform',
+    "h1": 'Free Video Downloader — Save HD & 4K Videos from Any Platform 2026',
     "subtitle": '⚡ Download without watermarks in 3 seconds - YouTube, TikTok, Instagram, Facebook & more. 100% Free. No login. No limits.',
     "tool_name": 'SnapReelDownload',
     "keyword": 'free video downloader',

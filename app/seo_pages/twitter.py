@@ -1,9 +1,9 @@
 page_data = {
     "route": "/twitter",
-    "title": "Download Twitter (X) Videos Free HD - No Login",
+    "title": "Download Twitter (X) Videos Free HD 2026 — No Login",
     "meta_description": ('Download Twitter (X) videos and GIFs in HD quality - free online tool for Android, iPhone & PC. Save X videos instantly, no login, no watermark. Works with '
      'all posts.'),
-    "h1": 'Twitter (X) Video Downloader — Save Videos & GIFs Free in HD',
+    "h1": 'Twitter (X) Video Downloader — Save Videos & GIFs Free HD 2026',
     "subtitle": 'Download any Twitter/X video or GIF instantly — No login, no watermark, 100% free',
     "tool_name": 'Twitter Video Downloader',
     "keyword": 'twitter video downloader',

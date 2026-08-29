@@ -1,9 +1,9 @@
 page_data = {
     "route": "/reels",
-    "title": "Download Instagram Reels No Watermark - HD Free",
+    "title": "Download Instagram Reels No Watermark — HD Free 2026",
     "meta_description": ('Download Instagram Reels without watermark in HD 1080p quality - free, fast, no login. Complete guide for Android, iPhone & PC. Extract audio, batch '
      'download, no app needed.'),
-    "h1": 'Download Instagram Reels Free in HD 1080p — No Watermark, No Login',
+    "h1": 'Download Instagram Reels Free in HD 1080p — No Watermark 2026',
     "subtitle": 'Save any Instagram Reel instantly — Clean MP4, 1080×1920 vertical, works on all devices',
     "tool_name": 'Instagram Reels Downloader',
     "keyword": 'instagram reels download',
