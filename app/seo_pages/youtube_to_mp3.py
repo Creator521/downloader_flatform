@@ -254,4 +254,20 @@ page_data = {
         {'question': 'How long does conversion take?', 'answer': 'Most conversions complete within a few seconds.'},
         {'question': 'Can I save MP3 files permanently?', 'answer': 'Downloaded MP3 files remain on your device until removed.'},
         {'question': 'Is registration required?', 'answer': 'No account creation is required.'}],
+    "schema_markup": """
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Video Downloader",
+  "description": "Convert YouTube to MP3 free online. Download high-quality 320kbps audio from music, podcasts & lectures. Android, iPhone, Windows & Mac.",
+  "url": "https://snapreeldownload.com/youtube-to-mp3",
+  "applicationCategory": "Multimedia",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>""",
 }

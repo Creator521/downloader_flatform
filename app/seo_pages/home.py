@@ -319,4 +319,20 @@ page_data = {
             'answer': "If you encounter any issues or have questions, we're here to help. Check our FAQ section for solutions to common problems. For technical "
                       'issues, try clearing your browser cache, disabling extensions, or trying a different browser. If a download fails repeatedly, the video may '
                       'have been removed or made private. For persistent issues, contact our support team and describe the problem in detail. We respond quickly.'}],
+    "schema_markup": """
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "SnapReelDownload",
+  "description": "⚡ Download videos from YouTube, TikTok, Instagram & more in HD/4K - no watermark, no login, completely free. Works on iPhone & Android. Try now! →",
+  "url": "https://snapreeldownload.com/",
+  "applicationCategory": "Multimedia",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>""",
 }

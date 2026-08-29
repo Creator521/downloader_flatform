@@ -61,4 +61,60 @@ page_data = {
         {"question": "Can I download Reddit videos with audio on iPhone?", "answer": "Yes! SnapReelDownload works on iPhone, Android, PC, and Mac. Just paste the Reddit video link and download with audio included."},
         {"question": "Is this RedditSave alternative free?", "answer": "Yes, SnapReelDownload is 100% free — no login, no limits, no hidden charges."},
     ],
+    "schema_markup": """<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do Reddit videos download without sound?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reddit stores video and audio as separate streams (DASH format). Basic downloaders only grab the video. SnapReelDownload automatically merges both audio and video into one MP4 file with perfect sync."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SnapReelDownload better than RedditSave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. SnapReelDownload reliably merges audio and video (fixing the 'silent video' problem), has better uptime, faster processing, and supports 8+ platforms beyond Reddit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I download Reddit videos with audio on iPhone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! SnapReelDownload works on iPhone, Android, PC, and Mac. Just paste the Reddit video link and download with audio included."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this RedditSave alternative free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, SnapReelDownload is 100% free — no login, no limits, no hidden charges."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "RedditSave Alternative",
+  "description": "Best RedditSave alternative — download Reddit videos WITH audio merged. Free, fast, no login. SnapReelDownload fixes the silent video problem. Works on iPhone, Android & PC.",
+  "url": "https://snapreeldownload.com/redditsave-alternative",
+  "applicationCategory": "Multimedia",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>""",
 }
