@@ -40,6 +40,15 @@ page_data = {
                 </table>
 
                 <p>Switch to SnapReelDownload for a <strong>faster, cleaner, captcha-free</strong> TikTok downloading experience — plus download from Instagram, YouTube, and 5 more platforms.</p>
+
+                <h4>Related TikTok Tools</h4>
+                <ul>
+                    <li><a href="/tiktok">TikTok Video Downloader</a> — Download TikTok without watermark</li>
+                    <li><a href="/tiktok-mp3-downloader">TikTok to MP3 Converter</a> — Extract TikTok audio as MP3</li>
+                    <li><a href="/youtube-shorts-downloader">YouTube Shorts Downloader</a> — Save Shorts in HD</li>
+                </ul>
+            </div>
+    
             </div>
     """,
     "faqs": [

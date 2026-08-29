@@ -48,6 +48,18 @@ page_data = {
                     <li><strong>Paste on SnapReelDownload</strong> — instant processing, no redirects</li>
                     <li><strong>Download in original quality</strong> — save directly to your device</li>
                 </ol>
+
+                <h4>Related Instagram Tools</h4>
+                <ul>
+                    <li><a href="/reels">Instagram Reels Downloader</a> — Download Reels without watermark in HD</li>
+                    <li><a href="/story">Instagram Story Downloader</a> — Save Stories anonymously</li>
+                    <li><a href="/photo">Instagram Photo Downloader</a> — Download photos in full HD</li>
+                    <li><a href="/video">Instagram Video Downloader</a> — Save any Instagram video</li>
+                </ul>
+            </div>
+    
+                    <li><strong>Download in original quality</strong> — save directly to your device</li>
+                </ol>
             </div>
     """,
     "faqs": [

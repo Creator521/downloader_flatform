@@ -60,6 +60,17 @@ page_data = {
                 </ol>
 
                 <p>Make the switch today — enjoy a <strong>safe, fast, ad-free</strong> video downloading experience.</p>
+
+                <h4>Related Tools</h4>
+                <ul>
+                    <li><a href="/youtube">YouTube Video Downloader</a> — Download YouTube videos in HD & 4K</li>
+                    <li><a href="/youtube-shorts-downloader">YouTube Shorts Downloader</a> — Save Shorts without watermark</li>
+                    <li><a href="/youtube-to-mp3">YouTube to MP3 Converter</a> — Extract audio from YouTube videos</li>
+                    <li><a href="/tiktok">TikTok Downloader</a> — Download TikTok without watermark</li>
+                    <li><a href="/reels">Instagram Reels Downloader</a> — Save Reels in HD</li>
+                </ul>
+            </div>
+     — enjoy a <strong>safe, fast, ad-free</strong> video downloading experience.</p>
             </div>
     """,
     "faqs": [

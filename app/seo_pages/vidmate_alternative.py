@@ -50,6 +50,17 @@ page_data = {
 
                 <h4>The Safe Way to Download Videos</h4>
                 <p>SnapReelDownload works entirely in your browser — <strong>no app download, no APK, no permissions needed</strong>. Just paste a link from YouTube, Instagram, TikTok, or any supported platform and download instantly. Works on every device.</p>
+
+                <h4>Popular Download Tools</h4>
+                <ul>
+                    <li><a href="/youtube">YouTube Downloader</a> — Download YouTube videos in HD & 4K</li>
+                    <li><a href="/tiktok">TikTok Downloader</a> — Download TikTok without watermark</li>
+                    <li><a href="/reels">Instagram Reels Downloader</a> — Save Reels in HD</li>
+                    <li><a href="/facebook">Facebook Video Downloader</a> — Download FB videos & Reels</li>
+                    <li><a href="/snapchat">Snapchat Downloader</a> — Save Spotlight & Stories</li>
+                </ul>
+            </div>
+    
             </div>
     """,
     "faqs": [

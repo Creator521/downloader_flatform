@@ -51,6 +51,16 @@ page_data = {
                 </ol>
 
                 <p>Make the switch today and enjoy a cleaner, faster, and more reliable video downloading experience.</p>
+
+                <h4>Popular Download Tools</h4>
+                <ul>
+                    <li><a href="/youtube">YouTube Downloader</a> — Download YouTube videos in HD & 4K</li>
+                    <li><a href="/tiktok">TikTok Downloader</a> — Download TikTok without watermark</li>
+                    <li><a href="/reels">Instagram Reels Downloader</a> — Save Reels in HD</li>
+                    <li><a href="/facebook">Facebook Video Downloader</a> — Download FB videos & Reels</li>
+                </ul>
+            </div>
+    
             </div>
     """,
     "faqs": [

@@ -44,6 +44,15 @@ page_data = {
 
                 <h4>Beyond Reddit</h4>
                 <p>Unlike RedditSave which only works with Reddit, SnapReelDownload also supports <strong>Instagram, TikTok, YouTube, Facebook, Twitter/X, Pinterest, and Snapchat</strong>.</p>
+
+                <h4>Related Tools</h4>
+                <ul>
+                    <li><a href="/reddit">Reddit Video Downloader</a> — Download Reddit videos with audio</li>
+                    <li><a href="/youtube">YouTube Downloader</a> — Save YouTube videos in HD</li>
+                    <li><a href="/tiktok">TikTok Downloader</a> — Download TikTok without watermark</li>
+                </ul>
+            </div>
+    , Facebook, Twitter/X, Pinterest, and Snapchat</strong>.</p>
             </div>
     """,
     "faqs": [

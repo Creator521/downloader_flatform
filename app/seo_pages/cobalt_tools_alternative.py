@@ -49,6 +49,17 @@ page_data = {
                 </ul>
 
                 <p>If you love Cobalt's principles but want a <strong>simpler, ready-to-use experience</strong>, SnapReelDownload is the perfect alternative.</p>
+
+                <h4>Popular Download Tools</h4>
+                <ul>
+                    <li><a href="/youtube">YouTube Downloader</a> — Download YouTube videos in HD & 4K</li>
+                    <li><a href="/tiktok">TikTok Downloader</a> — Download TikTok without watermark</li>
+                    <li><a href="/reels">Instagram Reels Downloader</a> — Save Reels in HD</li>
+                    <li><a href="/reddit">Reddit Video Downloader</a> — Download with audio</li>
+                    <li><a href="/twitter">Twitter/X Video Downloader</a> — Save Twitter videos & GIFs</li>
+                </ul>
+            </div>
+    
             </div>
     """,
     "faqs": [
