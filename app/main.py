@@ -186,7 +186,7 @@ async def add_cache_headers(request, call_next):
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
         "font-src 'self' https://fonts.gstatic.com; "
         "img-src 'self' data: https: blob:; "
-        "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googlesyndication.com "
+        "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://*.googlesyndication.com "
             "https://pagead2.googlesyndication.com https://5gvci.com https://quge5.com; "
         "frame-src https://googleads.g.doubleclick.net https://*.googlesyndication.com; "
         "media-src 'self' https: blob:;"
