@@ -1,9 +1,8 @@
 post = {
     "title": 'Save TikTok Video to Camera Roll on iPhone — 2026 Fix (Files vs Photos Explained)',
     "meta_description": (
-        'TikTok saved to Files instead of Photos on iPhone? Complete 2026 fix: move Files to '
-        'Photos in 2 taps, download without watermark via Safari, set default download location, '
-        'and automate with Shortcuts. No extra apps needed.'
+        'TikTok saved to Files instead of Photos on iPhone? Complete 2026 fix: '
+        'move Files to Photos easily, download without watermark, and set default location.'
     ),
     "slug": 'how-to-save-tiktok-video-to-camera-roll-iphone',
     "date": '2026-05-08',

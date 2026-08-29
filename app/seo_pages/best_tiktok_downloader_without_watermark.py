@@ -16,14 +16,14 @@ page_data = {
     "content": """
             <div class="alternative-page">
 
-                <h2>Download TikTok Videos Without Watermark</h2>
+                <h3>Download TikTok Videos Without Watermark</h3>
 
                 <p>TikTok adds a watermark with the creator's username on every saved video. If you need clean videos for presentations, compilations, or personal use, you need a <strong>TikTok downloader that removes the watermark</strong>. SnapReelDownload fetches the original video directly from TikTok's servers — giving you a watermark-free MP4 file.</p>
 
-                <h3>How We Remove the TikTok Watermark</h3>
+                <h4>How We Remove the TikTok Watermark</h4>
                 <p>We don't actually "remove" the watermark — we download the <strong>original, unwatermarked version</strong> directly from TikTok's CDN servers. This means you get the exact same quality as the creator uploaded, without any logo overlay.</p>
 
-                <h3>Top TikTok No-Watermark Downloaders Compared</h3>
+                <h4>Top TikTok No-Watermark Downloaders Compared</h4>
                 <table class="specs-table" style="width:100%; border-collapse:collapse; margin:20px 0;">
                     <thead style="background:#f0f4ff;">
                         <tr style="border-bottom:2px solid #667eea;">
@@ -43,7 +43,7 @@ page_data = {
                     </tbody>
                 </table>
 
-                <h3>How to Download TikTok Videos Without Watermark</h3>
+                <h4>How to Download TikTok Videos Without Watermark</h4>
                 <ol>
                     <li>Open TikTok and find the video you want to download</li>
                     <li>Tap <strong>Share → Copy Link</strong></li>

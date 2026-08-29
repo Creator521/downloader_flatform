@@ -16,13 +16,13 @@ page_data = {
     "content": """
             <div class="tiktok-mp3-converter-page">
                 
-                <h2>Understanding TikTok Audio & Why Convert to MP3</h2>
+                <h3>Understanding TikTok Audio & Why Convert to MP3</h3>
                 
                 <p>TikTok is famous for trending sounds and viral audio that define internet culture. Every day, millions of users create content using TikTok's massive library of sounds, songs, voiceovers, and original audio. But TikTok's greatest weakness is its lack of audio extraction tools. If you hear a trending sound you love, there's no easy way to save just the audio — you're forced to download the entire video, which wastes storage space and data.</p>
 
                 <p>Our <strong>TikTok to MP3 Converter</strong> solves this completely. Extract the audio from any public TikTok video and download it as a high-quality MP3 file in seconds. No video, no watermark, just pure audio. Whether you want to use trending sounds in your own content, set audio as a ringtone, or listen offline, our converter handles it all.</p>
 
-                <h3>Why Convert TikTok to MP3?</h3>
+                <h4>Why Convert TikTok to MP3?</h4>
                 <ul>
                     <li><strong>🎵 Save Trending Sounds:</strong> Download viral TikTok sounds before they disappear or get removed from the platform.</li>
                     <li><strong>📱 Set Ringtones:</strong> Use your favorite TikTok audio as a phone ringtone, notification sound, or alarm tone.</li>
@@ -34,9 +34,9 @@ page_data = {
                     <li><strong>💾 Digital Archive:</strong> Build your own collection of trending sounds and music that matter to you.</li>
                 </ul>
 
-                <h2>TikTok Audio Specifications & Technical Details</h2>
+                <h3>TikTok Audio Specifications & Technical Details</h3>
 
-                <h3>Audio Format Standards</h3>
+                <h4>Audio Format Standards</h4>
                 <table class="specs-table">
                     <thead>
                         <tr>
@@ -104,11 +104,11 @@ page_data = {
                     </tbody>
                 </table>
 
-                <h2>How to Convert TikTok to MP3 — Complete Device Guide</h2>
+                <h3>How to Convert TikTok to MP3 — Complete Device Guide</h3>
 
-                <h3>💻 On Desktop/Laptop (Windows/Mac)</h3>
+                <h4>💻 On Desktop/Laptop (Windows/Mac)</h4>
 
-                <h3>Step 1: Copy the TikTok Video Link</h3>
+                <h4>Step 1: Copy the TikTok Video Link</h4>
                 <ol>
                     <li>Go to <strong>TikTok.com</strong> in your web browser</li>
                     <li>Find the TikTok video with the audio you want to convert</li>
@@ -123,7 +123,7 @@ page_data = {
                     </li>
                 </ol>
 
-                <h3>Step 2: Paste into TikTok to MP3 Converter</h3>
+                <h4>Step 2: Paste into TikTok to MP3 Converter</h4>
                 <ol>
                     <li>Come to this page (SnapReelDownload's TikTok MP3 Converter)</li>
                     <li>Click in the <strong>input box</strong> at the top</li>
@@ -135,7 +135,7 @@ page_data = {
                     </li>
                 </ol>
 
-                <h3>Step 3: Extract & Download MP3</h3>
+                <h4>Step 3: Extract & Download MP3</h4>
                 <ol>
                     <li>Click the <strong>"Convert"</strong> or <strong>"Download"</strong> button</li>
                     <li>Wait 5-15 seconds for audio extraction</li>
@@ -143,15 +143,15 @@ page_data = {
                     <li>The MP3 file saves to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h3>Step 4: Use Your MP3</h3>
+                <h4>Step 4: Use Your MP3</h4>
                 <ul>
                     <li><strong>Windows:</strong> Press Windows key + E → Downloads → Find your MP3 → Open with Media Player or any audio player</li>
                     <li><strong>Mac:</strong> Finder → Downloads → Double-click → Opens in Music or default player</li>
                 </ul>
 
-                <h3>📱 On Android Phone</h3>
+                <h4>📱 On Android Phone</h4>
 
-                <h3>Step-by-Step Guide</h3>
+                <h4>Step-by-Step Guide</h4>
                 <ol>
                     <li>Open the <strong>TikTok app</strong> on your Android</li>
                     <li>Find the video with the audio you want</li>
@@ -166,7 +166,7 @@ page_data = {
                     <li>MP3 file saves to your <strong>Downloads</strong> folder</li>
                 </ol>
 
-                <h3>Finding Your MP3 on Android</h3>
+                <h4>Finding Your MP3 on Android</h4>
                 <ol>
                     <li>Open your <strong>Files app</strong> or <strong>Gallery</strong></li>
                     <li>Go to <strong>Downloads</strong></li>
@@ -175,14 +175,14 @@ page_data = {
                     <li>Long-press to set as ringtone or share</li>
                 </ol>
 
-                <h3>Set as Ringtone on Android</h3>
+                <h4>Set as Ringtone on Android</h4>
                 <ol>
                     <li>Find the MP3 in your Files app</li>
                     <li>Long-press and select <strong>"Set as Ringtone"</strong> (some phones)</li>
                     <li>Or open Settings → Sound → Ringtone → Select the MP3</li>
                 </ol>
 
-                <h3>Pro Tips for Android</h3>
+                <h4>Pro Tips for Android</h4>
                 <ul>
                     <li>🎵 Use <strong>Google Play Music</strong> or <strong>Spotify</strong> to manage your MP3s</li>
                     <li>📁 Create "TikTok Audio" folder for organization</li>
@@ -190,12 +190,12 @@ page_data = {
                     <li>🔔 Set as notification sounds in Settings</li>
                 </ul>
 
-                <h3>📱 On iPhone (iOS)</h3>
+                <h4>📱 On iPhone (iOS)</h4>
 
-                <h3>Important: Use Safari, Not Chrome</h3>
+                <h4>Important: Use Safari, Not Chrome</h4>
                 <p>⚠️ <strong>Always use Safari on iPhone.</strong> Chrome has iOS file download limitations for MP3s.</p>
 
-                <h3>Step-by-Step Guide</h3>
+                <h4>Step-by-Step Guide</h4>
                 <ol>
                     <li>Open the <strong>TikTok app</strong></li>
                     <li>Find the video with the audio you want</li>
@@ -209,7 +209,7 @@ page_data = {
                     <li>Tap <strong>"Download Audio (MP3)"</strong></li>
                 </ol>
 
-                <h3>Save MP3 to iPhone</h3>
+                <h4>Save MP3 to iPhone</h4>
                 <ol>
                     <li>Tap the <strong>blue download arrow (⬇️)</strong> in Safari's address bar</li>
                     <li>Find your MP3 in <strong>"Downloads"</strong></li>
@@ -218,7 +218,7 @@ page_data = {
                     <li>Or select <strong>"Copy"</strong> and paste to Notes app</li>
                 </ol>
 
-                <h3>Set as iPhone Ringtone (GarageBand Method)</h3>
+                <h4>Set as iPhone Ringtone (GarageBand Method)</h4>
                 <ol>
                     <li>Download the MP3 to your iPhone</li>
                     <li>Open <strong>GarageBand</strong> app</li>
@@ -227,7 +227,7 @@ page_data = {
                     <li>Share as ringtone through GarageBand settings</li>
                 </ol>
 
-                <h3>iPhone Pro Tips</h3>
+                <h4>iPhone Pro Tips</h4>
                 <ul>
                     <li>🔧 Always use Safari for downloads</li>
                     <li>🎵 Use <strong>Music app</strong> to organize MP3s</li>
@@ -235,41 +235,41 @@ page_data = {
                     <li>🔔 Ringtones require GarageBand or special apps</li>
                 </ul>
 
-                <h3>📱 On iPad</h3>
+                <h4>📱 On iPad</h4>
                 <p>Follow the <strong>iPhone steps</strong> — iPadOS is nearly identical to iOS.</p>
 
-                <h2>Types of TikTok Audio You Can Convert</h2>
+                <h3>Types of TikTok Audio You Can Convert</h3>
 
-                <h3>✅ Trending Sounds</h3>
+                <h4>✅ Trending Sounds</h4>
                 <p><strong>What:</strong> Viral sounds dominating TikTok's FYP</p>
                 <p><strong>Conversion:</strong> Works perfectly ✅</p>
 
-                <h3>✅ Original Creator Audio</h3>
+                <h4>✅ Original Creator Audio</h4>
                 <p><strong>What:</strong> Voiceovers, comedy bits, original songs by creators</p>
                 <p><strong>Conversion:</strong> Works great ✅</p>
 
-                <h3>✅ Licensed Music Clips</h3>
+                <h4>✅ Licensed Music Clips</h4>
                 <p><strong>What:</strong> Music snippets from TikTok's music library</p>
                 <p><strong>Conversion:</strong> Works perfectly ✅ (For personal use)</p>
 
-                <h3>✅ Educational Narration</h3>
+                <h4>✅ Educational Narration</h4>
                 <p><strong>What:</strong> Tutorial audio, explanations, instructions</p>
                 <p><strong>Conversion:</strong> Works great ✅</p>
 
-                <h3>✅ Comedy & Entertainment Audio</h3>
+                <h4>✅ Comedy & Entertainment Audio</h4>
                 <p><strong>What:</strong> Funny audio, comedy bits, entertaining sound effects</p>
                 <p><strong>Conversion:</strong> Works perfectly ✅</p>
 
-                <h3>✅ Duet & Stitch Audio</h3>
+                <h4>✅ Duet & Stitch Audio</h4>
                 <p><strong>What:</strong> Audio from duets and stitches with multiple voices</p>
                 <p><strong>Conversion:</strong> Works as combined audio ✅</p>
 
-                <h3>❌ Cannot Convert: Private Account Audio</h3>
+                <h4>❌ Cannot Convert: Private Account Audio</h4>
                 <p><strong>Why:</strong> Not publicly accessible</p>
 
-                <h2>Advanced Features & Tips</h2>
+                <h3>Advanced Features & Tips</h3>
 
-                <h3>🎵 Audio Quality Control</h3>
+                <h4>🎵 Audio Quality Control</h4>
                 <p>Our converter extracts audio at the highest quality available:</p>
                 <ul>
                     <li>📊 Most TikToks: 128 kbps (perfect for casual listening)</li>
@@ -277,7 +277,7 @@ page_data = {
                     <li>📊 All converted to MP3 or M4A format</li>
                 </ul>
 
-                <h3>📁 Organize Your Downloaded Audio</h3>
+                <h4>📁 Organize Your Downloaded Audio</h4>
                 <p><strong>Folder structure suggestion:</strong></p>
                 <ul>
                     <li>📁 /TikTok_Trending_Sounds</li>
@@ -288,7 +288,7 @@ page_data = {
                     <li>📁 /TikTok_Educational</li>
                 </ul>
 
-                <h3>🎬 Use in Your Content</h3>
+                <h4>🎬 Use in Your Content</h4>
                 <p>Downloaded TikTok audio works great in:</p>
                 <ul>
                     <li>🎥 YouTube videos</li>
@@ -299,7 +299,7 @@ page_data = {
                     <li>🎵 Music playlists</li>
                 </ul>
 
-                <h3>☁️ Cloud Backup</h3>
+                <h4>☁️ Cloud Backup</h4>
                 <ul>
                     <li>☁️ Google Drive</li>
                     <li>☁️ OneDrive</li>
@@ -307,9 +307,9 @@ page_data = {
                     <li>☁️ Dropbox</li>
                 </ul>
 
-                <h2>Troubleshooting: Common Issues & Solutions</h2>
+                <h3>Troubleshooting: Common Issues & Solutions</h3>
 
-                <h3>❌ "Invalid Link" or "Audio Not Found"</h3>
+                <h4>❌ "Invalid Link" or "Audio Not Found"</h4>
 
                 <p><strong>Possible causes:</strong></p>
                 <ul>
@@ -327,7 +327,7 @@ page_data = {
                     <li>✅ Try different TikTok video</li>
                 </ul>
 
-                <h3>❌ Downloaded MP3 Won't Play</h3>
+                <h4>❌ Downloaded MP3 Won't Play</h4>
 
                 <p><strong>Solutions:</strong></p>
                 <ul>
@@ -336,7 +336,7 @@ page_data = {
                     <li>Re-download the audio</li>
                 </ul>
 
-                <h3>❌ Conversion is Slow</h3>
+                <h4>❌ Conversion is Slow</h4>
 
                 <p><strong>Solutions:</strong></p>
                 <ol>
@@ -345,7 +345,7 @@ page_data = {
                     <li>Try again later (server load)</li>
                 </ol>
 
-                <h2>TikTok to MP3 Converter Comparison</h2>
+                <h3>TikTok to MP3 Converter Comparison</h3>
 
                 <table class="comparison-table">
                     <thead>
@@ -396,39 +396,39 @@ page_data = {
                     </tbody>
                 </table>
 
-                <h2>Comprehensive FAQ</h2>
+                <h3>Comprehensive FAQ</h3>
 
-                <h3>Q: Is TikTok to MP3 conversion completely free?</h3>
+                <h4>Q: Is TikTok to MP3 conversion completely free?</h4>
                 <p>A: Yes, 100% free with unlimited conversions. No login, no subscriptions, no hidden costs.</p>
 
-                <h3>Q: What audio quality do I get?</h3>
+                <h4>Q: What audio quality do I get?</h4>
                 <p>A: Audio is extracted at the original TikTok quality (typically 128-256 kbps), which is perfect for casual listening and ringtones.</p>
 
-                <h3>Q: Can I use the audio in my own videos?</h3>
+                <h4>Q: Can I use the audio in my own videos?</h4>
                 <p>A: For personal use — yes. For commercial use or republishing without permission — no. Always respect copyright and creator rights.</p>
 
-                <h3>Q: Does it work on iPhone?</h3>
+                <h4>Q: Does it work on iPhone?</h4>
                 <p>A: Yes, use Safari browser. No app needed.</p>
 
-                <h3>Q: Can I convert private account audio?</h3>
+                <h4>Q: Can I convert private account audio?</h4>
                 <p>A: No, only public TikToks. This respects privacy.</p>
 
-                <h3>Q: What format is the audio?</h3>
+                <h4>Q: What format is the audio?</h4>
                 <p>A: MP3 or M4A format — works on all devices and media players.</p>
 
-                <h3>Q: How long does conversion take?</h3>
+                <h4>Q: How long does conversion take?</h4>
                 <p>A: Usually 5-15 seconds depending on video length and server load.</p>
 
-                <h3>Q: Can I convert multiple TikToks at once?</h3>
+                <h4>Q: Can I convert multiple TikToks at once?</h4>
                 <p>A: One at a time. Paste each link separately.</p>
 
-                <h3>Q: Can I set it as a ringtone?</h3>
+                <h4>Q: Can I set it as a ringtone?</h4>
                 <p>A: Yes, follow your phone's instructions for setting custom ringtones.</p>
 
-                <h3>Q: Is it legal?</h3>
+                <h4>Q: Is it legal?</h4>
                 <p>A: For personal use — yes. Always respect copyright laws and creator rights.</p>
 
-                <h2>Conclusion</h2>
+                <h3>Conclusion</h3>
 
                 <p>Converting TikTok to MP3 is simple with our TikTok to MP3 Converter. Whether you're saving trending sounds, extracting music for editing, or collecting audio for creative projects, our tool handles it all instantly.</p>
 

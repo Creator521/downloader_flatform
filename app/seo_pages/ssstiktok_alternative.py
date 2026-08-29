@@ -16,11 +16,11 @@ page_data = {
     "content": """
             <div class="alternative-page">
 
-                <h2>Why Choose SnapReelDownload Over SSSTikTok?</h2>
+                <h3>Why Choose SnapReelDownload Over SSSTikTok?</h3>
 
                 <p>SSSTikTok (ssstik.io) is widely used for TikTok downloads, but users frequently encounter broken downloads, excessive ads, and captcha challenges. <strong>SnapReelDownload</strong> provides a seamless, modern alternative.</p>
 
-                <h3>SnapReelDownload vs SSSTikTok — Comparison</h3>
+                <h4>SnapReelDownload vs SSSTikTok — Comparison</h4>
                 <table class="specs-table" style="width:100%; border-collapse:collapse; margin:20px 0;">
                     <thead style="background:#f0f4ff;">
                         <tr style="border-bottom:2px solid #667eea;">

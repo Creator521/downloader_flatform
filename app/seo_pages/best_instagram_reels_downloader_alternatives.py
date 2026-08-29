@@ -16,11 +16,11 @@ page_data = {
     "content": """
             <div class="alternative-page">
 
-                <h2>Top Instagram Reels Downloader Alternatives Compared</h2>
+                <h4>Top Instagram Reels Downloader Alternatives Compared</h4>
 
                 <p>With so many Instagram Reels downloaders available, it can be hard to choose the right one. We've compared the most popular options to help you find the best tool for downloading Instagram Reels without watermark in HD quality.</p>
 
-                <h3>Comparison Table — Instagram Reels Downloaders</h3>
+                <h5>Comparison Table — Instagram Reels Downloaders</h5>
                 <table class="specs-table" style="width:100%; border-collapse:collapse; margin:20px 0;">
                     <thead style="background:#f0f4ff;">
                         <tr style="border-bottom:2px solid #E1306C;">
@@ -41,7 +41,7 @@ page_data = {
                     </tbody>
                 </table>
 
-                <h3>Why SnapReelDownload is the Best Choice</h3>
+                <h5>Why SnapReelDownload is the Best Choice</h5>
                 <ul>
                     <li><strong>All-in-one tool</strong> — Download Reels, Videos, Stories, and Photos from Instagram</li>
                     <li><strong>Multi-platform</strong> — Also works with YouTube, TikTok, Facebook, Twitter, Pinterest, Snapchat</li>

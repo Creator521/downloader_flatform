@@ -3,7 +3,7 @@ import os
 import logging
 from datetime import date
 from fastapi import APIRouter
-from fastapi.responses import HTMLResponse
+from fastapi.responses import Response
 
 from app.multilingual_data import MULTILINGUAL_PAGES
 from app.blog_data import BLOG_POSTS
@@ -76,4 +76,4 @@ async def sitemap():
         xml += f'  <url>\n    <loc>{base}{path}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>\n  </url>\n'
 
     xml += '</urlset>'
-    return HTMLResponse(content=xml, media_type="application/xml")
+    return Response(content=xml, media_type="application/xml")

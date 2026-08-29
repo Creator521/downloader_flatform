@@ -14,11 +14,11 @@ page_data = {
     "page_hero_image": '/static/images/how-to-download-youtube-video.webp?v=2',
     "page_hero_alt": 'YouTube video downloader - download videos in 1080p and 4K quality without watermark',
     "intro_text": """
-        <h2>YouTube Downloader — Download Videos in HD, 1080p & 4K Quality</h2>
+        <h3>YouTube Downloader — Download Videos in HD, 1080p & 4K Quality</h3>
         
         <p><strong>Last Updated: June 2026 | Free Tool | No Login Required</strong></p>
 
-        <h2>How to Download YouTube Videos for Free</h2>
+        <h3>How to Download YouTube Videos for Free</h3>
 
         <p>YouTube hosts over 800 million videos — tutorials, documentaries, music, podcasts, educational lectures, live stream replays, and almost everything in between. It's the world's second-largest search engine and the go-to platform for learning almost any skill. But YouTube's offline feature (YouTube Premium) costs money, locks files inside the app, and disappears if you cancel your subscription.</p>
 
@@ -26,7 +26,7 @@ page_data = {
 
         <p>Our YouTube downloader is completely free and lets you <strong>download any public YouTube video in HD, 1080p, and even 4K quality</strong> — up to 4GB for the longest videos. The tool is web-based, requires no login, contains no malware, and works on Android, iPhone, Windows, Mac, and Linux.</p>
 
-        <h2>What Makes YouTube Videos Worth Downloading? (5 Reasons)</h2>
+        <h3>What Makes YouTube Videos Worth Downloading? (5 Reasons)</h3>
 
         <ol>
             <li><strong>Unreliable internet connectivity:</strong> Planes, trains, rural areas, hotel WiFi, and tethered connections all have moments of poor or zero connectivity. A downloaded video plays perfectly offline in any of those situations, giving you guaranteed access when you need it.</li>
@@ -40,7 +40,7 @@ page_data = {
             <li><strong>Content reference and study:</strong> Educators, researchers, and creators download videos to analyze editing techniques, study storytelling, understand production quality, or reference educational content without needing an internet connection or YouTube account access.</li>
         </ol>
 
-        <h2>YouTube Video Quality Levels Explained</h2>
+        <h3>YouTube Video Quality Levels Explained</h3>
 
         <p>YouTube videos come in multiple quality levels. Our tool gives you access to all available quality tiers for any video — you choose the resolution that fits your needs:</p>
 
@@ -54,11 +54,11 @@ page_data = {
 
         <p>For most phones, 1080p is the sweet spot — looks great and downloads quickly. For large monitors or TV playback, 1440p or 4K is worth it if the creator uploaded at that resolution.</p>
 
-        <h2>YouTube Shorts Support</h2>
+        <h3>YouTube Shorts Support</h3>
 
         <p>YouTube Shorts — the platform's short-form vertical video format — are fully supported. Just paste a Shorts URL (youtube.com/shorts/XXXX) the same way as any other YouTube link. They download as vertical MP4 files perfect for phone playback.</p>
 
-        <h2>Table of Contents</h2>
+        <h3>Table of Contents</h3>
         <ul>
             <li><a href="#how-to-download">How to Download YouTube Videos — Step by Step</a></li>
             <li><a href="#device-guides">Device-Specific Instructions (Android/iPhone/Windows/Mac)</a></li>
@@ -146,9 +146,9 @@ page_data = {
             'title': 'Works on All Devices',
             'desc': 'Android, iPhone, Windows PC, Mac, Linux — any device with a web browser. No app installation needed anywhere.'}],
     "device_specific_section": ('\n'
-     '        <h2 id="device-guides">How to Download YouTube Videos on Android, iPhone, Windows & Mac</h2>\n'
+     '        <h3 id="device-guides">How to Download YouTube Videos on Android, iPhone, Windows & Mac</h3>\n'
      '\n'
-     '        <h3>📱 On Android Phone or Tablet</h3>\n'
+     '        <h4>📱 On Android Phone or Tablet</h4>\n'
      '\n'
      '        <p><strong>What You Need:</strong> Chrome browser (or Firefox/Samsung Internet) and a YouTube link</p>\n'
      '\n'
@@ -170,7 +170,7 @@ page_data = {
      '\n'
      '        <p><strong>File Location:</strong> /storage/emulated/0/Downloads/ or /sdcard/Download/ depending on your device</p>\n'
      '\n'
-     '        <h3>🍎 On iPhone or iPad (iOS)</h3>\n'
+     '        <h4>🍎 On iPhone or iPad (iOS)</h4>\n'
      '\n'
      '        <p><strong>What You Need:</strong> Safari browser (recommended over Chrome for iOS) and a YouTube link</p>\n'
      '\n'
@@ -193,7 +193,7 @@ page_data = {
      "        <p><strong>Troubleshooting on iPhone:</strong> If you don't see the download arrow icon, try refreshing the page or clearing Safari cache (Settings "
      '→ Safari → Clear History and Website Data).</p>\n'
      '\n'
-     '        <h3>💻 On Windows PC</h3>\n'
+     '        <h4>💻 On Windows PC</h4>\n'
      '\n'
      '        <p><strong>What You Need:</strong> Any browser (Chrome, Firefox, Edge) and a YouTube link</p>\n'
      '\n'
@@ -212,7 +212,7 @@ page_data = {
      '        <p><strong>Pro Tip for Windows:</strong> Pin your Downloads folder to Quick Access in File Explorer for faster access. Or use Windows Search '
      '(Windows key + type filename) to quickly find downloaded videos.</p>\n'
      '\n'
-     '        <h3>🖥️ On Mac</h3>\n'
+     '        <h4>🖥️ On Mac</h4>\n'
      '\n'
      '        <p><strong>What You Need:</strong> Safari or Chrome and a YouTube link</p>\n'
      '\n'
@@ -234,9 +234,9 @@ page_data = {
      '        <p><strong>File Location:</strong> ~/Downloads/ (which is /Users/[YourName]/Downloads/)</p>\n'
      '    '),
     "quality_section": ('\n'
-     '        <h2 id="quality-guide">YouTube Video Quality Selection & File Size Guide</h2>\n'
+     '        <h3 id="quality-guide">YouTube Video Quality Selection & File Size Guide</h3>\n'
      '\n'
-     '        <h3>🎬 4K (2160p) — Ultra HD</h3>\n'
+     '        <h4>🎬 4K (2160p) — Ultra HD</h4>\n'
      '\n'
      '        <p><strong>Quality:</strong> Absolutely stunning. The highest resolution YouTube offers.</p>\n'
      '\n'
@@ -248,7 +248,7 @@ page_data = {
      '\n'
      "        <p><strong>Note:</strong> If 4K isn't showing as an option, the video was uploaded at lower resolution.</p>\n"
      '\n'
-     '        <h3>1440p (2K) — Quad HD</h3>\n'
+     '        <h4>1440p (2K) — Quad HD</h4>\n'
      '\n'
      '        <p><strong>Quality:</strong> Excellent. Noticeably sharper than 1080p.</p>\n'
      '\n'
@@ -258,7 +258,7 @@ page_data = {
      '\n'
      "        <p><strong>Not always available:</strong> Many creators don't upload at this resolution</p>\n"
      '\n'
-     '        <h3>1080p (Full HD) — ⭐ RECOMMENDED</h3>\n'
+     '        <h4>1080p (Full HD) — ⭐ RECOMMENDED</h4>\n'
      '\n'
      '        <p><strong>Quality:</strong> Excellent. The standard for video quality.</p>\n'
      '\n'
@@ -278,7 +278,7 @@ page_data = {
      '            </ul>\n'
      '        </p>\n'
      '\n'
-     '        <h3>720p (HD) — Mobile Friendly</h3>\n'
+     '        <h4>720p (HD) — Mobile Friendly</h4>\n'
      '\n'
      '        <p><strong>Quality:</strong> Good. Still very watchable for most content.</p>\n'
      '\n'
@@ -295,7 +295,7 @@ page_data = {
      '            </ul>\n'
      '        </p>\n'
      '\n'
-     '        <h3>480p / 360p — Minimal Quality</h3>\n'
+     '        <h4>480p / 360p — Minimal Quality</h4>\n'
      '\n'
      '        <p><strong>Quality:</strong> Basic. Noticeable pixelation on larger screens.</p>\n'
      '\n'
@@ -305,7 +305,7 @@ page_data = {
      '\n'
      '        <p><strong>Avoid for:</strong> Movies, tutorials, or anything where visual quality matters</p>\n'
      '\n'
-     '        <h3>Audio Only (MP3) — Music & Podcasts</h3>\n'
+     '        <h4>Audio Only (MP3) — Music & Podcasts</h4>\n'
      '\n'
      '        <p><strong>Format:</strong> High-quality audio file without video</p>\n'
      '\n'
@@ -320,7 +320,7 @@ page_data = {
      '            </ul>\n'
      '        </p>\n'
      '\n'
-     '        <h3>Quality Selection Quick Reference Table</h3>\n'
+     '        <h4>Quality Selection Quick Reference Table</h4>\n'
      '\n'
      '        <table border="1" cellpadding="10" style="width:100%; margin: 20px 0;">\n'
      '            <tr>\n'
@@ -367,7 +367,7 @@ page_data = {
      '            </tr>\n'
      '        </table>\n'
      '\n'
-     '        <h3>File Size Comparison Example</h3>\n'
+     '        <h4>File Size Comparison Example</h4>\n'
      '\n'
      '        <p><strong>For a typical 60-minute YouTube video:</strong></p>\n'
      '\n'
@@ -381,79 +381,79 @@ page_data = {
      '        </ul>\n'
      '    '),
     "content_types_section": ('\n'
-     '        <h2 id="what-can-download">What Types of YouTube Content Can You Download?</h2>\n'
+     '        <h3 id="what-can-download">What Types of YouTube Content Can You Download?</h3>\n'
      '\n'
      '        <p>Our tool supports downloading most types of YouTube content from public accounts:</p>\n'
      '\n'
-     '        <h3>✅ Regular Feed Videos</h3>\n'
+     '        <h4>✅ Regular Feed Videos</h4>\n'
      '        <p>Any standard YouTube video from a public channel downloads instantly. Music videos, tutorials, vlogs, reviews — just paste the link and '
      'download.</p>\n'
      '\n'
-     '        <h3>✅ YouTube Shorts</h3>\n'
+     '        <h4>✅ YouTube Shorts</h4>\n'
      '        <p>Short vertical videos (youtube.com/shorts/...) download perfectly as vertical MP4 files. Ideal for phone playback.</p>\n'
      '\n'
-     '        <h3>✅ Educational Content</h3>\n'
+     '        <h4>✅ Educational Content</h4>\n'
      '        <p>Lectures, tutorials, courses, coding lessons — download for offline studying and learning without distractions.</p>\n'
      '\n'
-     '        <h3>✅ Music & Concert Videos</h3>\n'
+     '        <h4>✅ Music & Concert Videos</h4>\n'
      '        <p>Music videos, live performances, concerts — download in 1080p or extract audio as MP3 for offline listening.</p>\n'
      '\n'
-     '        <h3>✅ Podcasts & Audiobooks</h3>\n'
+     '        <h4>✅ Podcasts & Audiobooks</h4>\n'
      '        <p>Video podcasts, audiobook readings, motivational talks — download for commute or offline listening.</p>\n'
      '\n'
-     '        <h3>✅ Documentary & Educational Series</h3>\n'
+     '        <h4>✅ Documentary & Educational Series</h4>\n'
      '        <p>Long-form educational content, documentaries, historical videos — save for permanent personal reference.</p>\n'
      '\n'
-     '        <h3>✅ Archived Content (Deleted Elsewhere)</h3>\n'
+     '        <h4>✅ Archived Content (Deleted Elsewhere)</h4>\n'
      '        <p>Videos that were removed from other platforms still exist on YouTube. Download to preserve important content.</p>\n'
      '\n'
-     '        <h3>✅ Live Stream Replays</h3>\n'
+     '        <h4>✅ Live Stream Replays</h4>\n'
      '        <p>Once a live stream ends and YouTube processes it into a regular video post, it can be downloaded. Active live streams (currently broadcasting) '
      'cannot be downloaded.</p>\n'
      '\n'
-     '        <h3>✅ Unlisted Videos</h3>\n'
+     '        <h4>✅ Unlisted Videos</h4>\n'
      '        <p>Videos marked as "Unlisted" (not indexed in search, only accessible via direct link) can be downloaded if you have the link.</p>\n'
      '\n'
-     '        <h3>✅ Your Own Videos (Backups)</h3>\n'
+     '        <h4>✅ Your Own Videos (Backups)</h4>\n'
      "        <p>If you're a content creator, use this tool to back up your own videos in high quality for editing, portfolio, or archival.</p>\n"
      '    '),
     "cannot_download_section": ('\n'
-     '        <h2 id="what-cannot">What Cannot Be Downloaded & Why</h2>\n'
+     '        <h3 id="what-cannot">What Cannot Be Downloaded & Why</h3>\n'
      '\n'
-     '        <h3>❌ Private Videos</h3>\n'
+     '        <h4>❌ Private Videos</h4>\n'
      '        <p>Videos marked as "Private" are only visible to the uploader. They cannot be downloaded by any tool because they\'re not publicly accessible on '
      "YouTube's servers.</p>\n"
      '\n'
-     '        <h3>❌ Age-Restricted Videos</h3>\n'
+     '        <h4>❌ Age-Restricted Videos</h4>\n'
      "        <p>Videos that require age verification (marked as 18+ by YouTube or the creator) are restricted on YouTube's end. You'd need to be logged into a "
      "YouTube account verified as 18+ to access them, and external tools can't perform this authentication.</p>\n"
      '\n'
-     '        <h3>❌ Active Live Streams</h3>\n'
+     '        <h4>❌ Active Live Streams</h4>\n'
      "        <p>Currently broadcasting live streams cannot be downloaded while they're live. Once the live stream ends and YouTube processes it into a regular "
      'video post, it can be downloaded normally.</p>\n'
      '\n'
-     '        <h3>❌ YouTube Premium Exclusive Content</h3>\n'
+     '        <h4>❌ YouTube Premium Exclusive Content</h4>\n'
      '        <p>Content locked behind YouTube Premium subscriptions is not accessible to external tools.</p>\n'
      '\n'
-     '        <h3>❌ Super Chat and Membership Content</h3>\n'
+     '        <h4>❌ Super Chat and Membership Content</h4>\n'
      '        <p>Videos or segments exclusively for YouTube members or Super Chat supporters cannot be downloaded.</p>\n'
      '\n'
-     '        <h3>❌ Geo-Blocked Videos</h3>\n'
+     '        <h4>❌ Geo-Blocked Videos</h4>\n'
      "        <p>Some videos are blocked in certain countries due to licensing or copyright restrictions. If you're in a blocked region, the tool cannot download "
      'the content.</p>\n'
      '\n'
-     '        <h3>❌ Subtitles (Separate Download Needed)</h3>\n'
+     '        <h4>❌ Subtitles (Separate Download Needed)</h4>\n'
      "        <p>The downloaded MP4 file contains the video and audio only — subtitles are not embedded in the file automatically. You'd need to download "
      'subtitles separately from a dedicated tool and then manually add them to your video file.</p>\n'
      '\n'
-     '        <h3>❌ Playlists (Download One at a Time)</h3>\n'
+     '        <h4>❌ Playlists (Download One at a Time)</h4>\n'
      "        <p>Our web tool doesn't support batch playlist downloads. Paste individual video links from a playlist one at a time. For batch downloading multiple "
      'videos, use dedicated desktop software.</p>\n'
      '    '),
     "safety_section": ('\n'
-     '        <h2 id="safety">Is It Safe & Legal to Download YouTube Videos?</h2>\n'
+     '        <h3 id="safety">Is It Safe & Legal to Download YouTube Videos?</h3>\n'
      '\n'
-     '        <h3>Is It Safe? Yes. 100% Safe.</h3>\n'
+     '        <h4>Is It Safe? Yes. 100% Safe.</h4>\n'
      '\n'
      '        <p><strong>Our tool is secure because:</strong></p>\n'
      '\n'
@@ -469,7 +469,7 @@ page_data = {
      '            <li><strong>No Ads or Popups:</strong> Clean interface with no aggressive ads, popups, or intrusive tracking.</li>\n'
      '        </ul>\n'
      '\n'
-     '        <h3>Is It Legal? Depends on Use Case</h3>\n'
+     '        <h4>Is It Legal? Depends on Use Case</h4>\n'
      '\n'
      "        <p>YouTube's Terms of Service technically restrict downloading without express permission. However, downloading for personal use is widely practiced "
      'and rarely enforced against individual users (only against commercial operators).</p>\n'
@@ -496,12 +496,12 @@ page_data = {
      "            <li><strong>Don't mass-download:</strong> Downloading huge quantities of videos for resale or distribution is not permitted.</li>\n"
      '        </ul>\n'
      '\n'
-     '        <h3>Fair Use Considerations</h3>\n'
+     '        <h4>Fair Use Considerations</h4>\n'
      '\n'
      '        <p>In some jurisdictions, downloading for personal use may fall under "fair use" — a legal doctrine allowing limited use of copyrighted material. '
      'However, fair use is complex and varies by country. When in doubt, follow the "golden rules" below.</p>\n'
      '\n'
-     '        <h3>Golden Rules for Safe Downloads</h3>\n'
+     '        <h4>Golden Rules for Safe Downloads</h4>\n'
      '\n'
      '        <ol>\n'
      '            <li>Download for yourself, not for mass distribution</li>\n'
@@ -514,9 +514,9 @@ page_data = {
      "        <p>In short: <strong>download for yourself, don't steal someone else's work, and you'll be fine.</strong></p>\n"
      '    '),
     "troubleshooting_section": ('\n'
-     '        <h2 id="troubleshooting">Troubleshooting: Common Problems & Solutions</h2>\n'
+     '        <h3 id="troubleshooting">Troubleshooting: Common Problems & Solutions</h3>\n'
      '\n'
-     '        <h3>❌ Problem: "Invalid Link" or "Video Not Found" Error</h3>\n'
+     '        <h4>❌ Problem: "Invalid Link" or "Video Not Found" Error</h4>\n'
      '\n'
      '        <p><strong>Why It Happens:</strong> The YouTube URL is in the wrong format, the video is private, or the video has been deleted.</p>\n'
      '\n'
@@ -530,7 +530,7 @@ page_data = {
      '            <li>Try pasting the link again (sometimes copy-paste glitches occur)</li>\n'
      '        </ol>\n'
      '\n'
-     "        <h3>❌ Problem: Download Button Doesn't Respond</h3>\n"
+     "        <h4>❌ Problem: Download Button Doesn't Respond</h4>\n"
      '\n'
      '        <p><strong>Why It Happens:</strong> Ad blocker, browser extension, temporary server issue, or internet problem.</p>\n'
      '\n'
@@ -545,7 +545,7 @@ page_data = {
      '            <li>Disable browser extensions temporarily and test</li>\n'
      '        </ol>\n'
      '\n'
-     '        <h3>❌ Problem: Downloaded Video Has No Sound</h3>\n'
+     '        <h4>❌ Problem: Downloaded Video Has No Sound</h4>\n'
      '\n'
      "        <p><strong>Why It Happens:</strong> Rare codec issue where YouTube separates audio/video streams, or video player doesn't support the format.</p>\n"
      '\n'
@@ -558,7 +558,7 @@ page_data = {
      '            <li>Update your media player to the latest version</li>\n'
      '        </ol>\n'
      '\n'
-     "        <h3>❌ Problem: Can't Find Downloaded File on Phone</h3>\n"
+     "        <h4>❌ Problem: Can't Find Downloaded File on Phone</h4>\n"
      '\n'
      '        <p><strong>Why It Happens:</strong> File saved to Downloads folder but not appearing in main Gallery.</p>\n'
      '\n'
@@ -570,7 +570,7 @@ page_data = {
      'bar)</li>\n'
      '        </ul>\n'
      '\n'
-     '        <h3>❌ Problem: Download is Very Slow</h3>\n'
+     '        <h4>❌ Problem: Download is Very Slow</h4>\n'
      '\n'
      '        <p><strong>Why It Happens:</strong> Slow internet connection, mobile data limitations, or busy server.</p>\n'
      '\n'
@@ -584,7 +584,7 @@ page_data = {
      '            <li>Try downloading at a different time (server load varies throughout the day)</li>\n'
      '        </ul>\n'
      '\n'
-     '        <h3>❌ Problem: 4K Quality Not Available for the Video</h3>\n'
+     '        <h4>❌ Problem: 4K Quality Not Available for the Video</h4>\n'
      '\n'
      "        <p><strong>Why It Happens:</strong> The creator uploaded the video at a lower resolution (like 1080p). YouTube doesn't upscale videos — only offers "
      'what was originally uploaded.</p>\n'
@@ -597,7 +597,7 @@ page_data = {
      '            <li>Check the video details — older videos are often uploaded at 720p or lower</li>\n'
      '        </ol>\n'
      '\n'
-     "        <h3>❌ Problem: Downloaded MP4 Won't Play in My Media Player</h3>\n"
+     "        <h4>❌ Problem: Downloaded MP4 Won't Play in My Media Player</h4>\n"
      '\n'
      "        <p><strong>Why It Happens:</strong> Your media player doesn't support MP4 codec, or the file is corrupted.</p>\n"
      '\n'
@@ -654,7 +654,7 @@ page_data = {
             'answer': 'Our web tool downloads one video at a time. For batch downloading multiple videos, repeat the process or use desktop software like 4K Video '
                       'Downloader. Most users find one-at-a-time sufficient.'}],
     "pro_tips_section": ('\n'
-     '        <h2 id="pro-tips">Pro Tips for Best YouTube Downloading Experience</h2>\n'
+     '        <h3 id="pro-tips">Pro Tips for Best YouTube Downloading Experience</h3>\n'
      '\n'
      '        <ul>\n'
      '            <li><strong>Use WiFi for fastest downloads:</strong> WiFi is always faster than mobile data. A 1-hour 1080p video (900 MB) takes 30-60 seconds '

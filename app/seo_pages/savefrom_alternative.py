@@ -16,11 +16,11 @@ page_data = {
     "content": """
             <div class="alternative-page">
                 
-                <h2>Why Choose SnapReelDownload Over SaveFrom?</h2>
+                <h3>Why Choose SnapReelDownload Over SaveFrom?</h3>
                 
                 <p>SaveFrom.net has been a popular video downloader for years, but users increasingly face issues like intrusive ads, pop-ups, slow speeds, and broken downloads. <strong>SnapReelDownload</strong> offers a modern, clean, and reliable alternative that works seamlessly across all platforms.</p>
 
-                <h3>SnapReelDownload vs SaveFrom — Feature Comparison</h3>
+                <h4>SnapReelDownload vs SaveFrom — Feature Comparison</h4>
                 <table class="specs-table" style="width:100%; border-collapse:collapse; margin:20px 0;">
                     <thead style="background:#f0f4ff;">
                         <tr style="border-bottom:2px solid #667eea;">
@@ -40,10 +40,10 @@ page_data = {
                     </tbody>
                 </table>
 
-                <h3>Platforms Supported</h3>
+                <h4>Platforms Supported</h4>
                 <p>Unlike SaveFrom which primarily focuses on YouTube, SnapReelDownload supports <strong>YouTube, Instagram (Reels, Videos, Stories, Photos), TikTok, Facebook, Twitter/X, Pinterest, Snapchat, and Reddit</strong> — all from one tool.</p>
 
-                <h3>How to Switch from SaveFrom to SnapReelDownload</h3>
+                <h4>How to Switch from SaveFrom to SnapReelDownload</h4>
                 <ol>
                     <li><strong>No installation needed</strong> — just visit snapreeldownload.com</li>
                     <li><strong>Paste your video link</strong> in the download box</li>

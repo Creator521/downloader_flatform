@@ -14,11 +14,11 @@ page_data = {
     "page_hero_image": '/static/images/how-to-download-instagram-photos.webp?v=2',
     "page_hero_alt": 'Instagram photo downloader - download instagram photos in full HD quality without watermark',
     "intro_text": """
-        <h2>Instagram Photo Downloader — Download Photos in Full HD Quality</h2>
+        <h3>Instagram Photo Downloader — Download Photos in Full HD Quality</h3>
         
         <p><strong>Last Updated: June 2026 | Free Tool | No Login Required</strong></p>
 
-        <h2>Why Download Instagram Photos? Understanding the Need</h2>
+        <h3>Why Download Instagram Photos? Understanding the Need</h3>
 
         <p>Instagram is home to over 95 million photos posted daily — breathtaking travel photography, professional artwork, fashion inspiration, food photography, real estate listings, family memories, and creative content from millions of creators worldwide. It's become the world's largest visual archive.</p>
 
@@ -26,7 +26,7 @@ page_data = {
 
         <p>Our <strong>Instagram Photo Downloader</strong> solves this completely. Download any public Instagram photo in <strong>original HD resolution</strong> — the exact file uploaded by the creator, without any compression, quality loss, or watermarks. Works perfectly on Android, iPhone, Windows, and Mac.</p>
 
-        <h2>5 Real Reasons People Download Instagram Photos</h2>
+        <h3>5 Real Reasons People Download Instagram Photos</h3>
 
         <ol>
             <li><strong>Preserving precious memories:</strong> Friends and family share beautiful moments on Instagram. Downloading ensures you have permanent copies in original quality.</li>
@@ -36,13 +36,13 @@ page_data = {
             <li><strong>Backup and archival:</strong> Creators backup their photos. Businesses backup product photos. Communities preserve important shared images.</li>
         </ol>
 
-        <h2>Instagram Quality Problem — Why You Need This Tool</h2>
+        <h3>Instagram Quality Problem — Why You Need This Tool</h3>
 
         <p><strong>The Problem:</strong> Screenshots and Instagram's save feature give you compressed, lower resolution images.</p>
 
         <p><strong>Our Solution:</strong> Download original quality with full HD resolution, zero compression, clean image files perfect for printing or editing.</p>
 
-        <h2>Types of Instagram Photos You Can Download</h2>
+        <h3>Types of Instagram Photos You Can Download</h3>
 
         <ul>
             <li><strong>Single photos:</strong> Standard feed posts in full resolution</li>
@@ -53,7 +53,7 @@ page_data = {
             <li><strong>IGTV thumbnails:</strong> Cover images from IGTV videos</li>
         </ul>
 
-        <h2>Table of Contents</h2>
+        <h3>Table of Contents</h3>
         <ul>
             <li><a href="#how-to-download">How to Download Instagram Photos — Step by Step</a></li>
             <li><a href="#device-guides">Device-Specific Instructions</a></li>
@@ -97,9 +97,9 @@ page_data = {
         {'icon': '⚡', 'title': 'Lightning Fast', 'desc': 'Processing: 2-5 seconds. Downloads complete instantly. Under 30 seconds total.'},
         {'icon': '🚫', 'title': 'No Watermark', 'desc': 'Downloaded photos are completely clean — no watermarks, no logos, no overlays.'}],
     "device_specific_section": ('\n'
-     '        <h2 id="device-guides">How to Download Instagram Photos on Android, iPhone, Windows & Mac</h2>\n'
+     '        <h3 id="device-guides">How to Download Instagram Photos on Android, iPhone, Windows & Mac</h3>\n'
      '\n'
-     '        <h3>📱 On Android</h3>\n'
+     '        <h4>📱 On Android</h4>\n'
      '        <ol>\n'
      '            <li>Open Instagram app or instagram.com in Chrome</li>\n'
      '            <li>Find the photo and tap three dots (⋮) → Copy Link</li>\n'
@@ -112,7 +112,7 @@ page_data = {
      '        </ol>\n'
      '        <p><strong>Pro Tip:</strong> Create a folder called "Instagram Downloads" to keep everything organized.</p>\n'
      '\n'
-     '        <h3>🍎 On iPhone (iOS)</h3>\n'
+     '        <h4>🍎 On iPhone (iOS)</h4>\n'
      '        <ol>\n'
      '            <li>Open Instagram and locate the photo</li>\n'
      '            <li>Tap three dots (⋮) → Copy Link</li>\n'
@@ -125,7 +125,7 @@ page_data = {
      '            <li>Tap photo → Share → Save Image to Photos</li>\n'
      '        </ol>\n'
      '\n'
-     '        <h3>💻 On Windows PC</h3>\n'
+     '        <h4>💻 On Windows PC</h4>\n'
      '        <ol>\n'
      '            <li>Open Instagram.com in your browser</li>\n'
      '            <li>Find the photo and copy link from address bar or three dots menu</li>\n'
@@ -136,7 +136,7 @@ page_data = {
      '            <li>Photo downloads to Downloads folder</li>\n'
      '        </ol>\n'
      '\n'
-     '        <h3>🖥️ On Mac</h3>\n'
+     '        <h4>🖥️ On Mac</h4>\n'
      '        <ol>\n'
      '            <li>Open Instagram.com in Safari or Chrome</li>\n'
      '            <li>Find your photo and copy the link</li>\n'
@@ -148,13 +148,13 @@ page_data = {
      '        </ol>\n'
      '        '),
     "quality_section": ('\n'
-     '        <h2 id="quality-explained">Instagram Photo Quality & Resolution Explained</h2>\n'
+     '        <h3 id="quality-explained">Instagram Photo Quality & Resolution Explained</h3>\n'
      '\n'
-     '        <h3>Original Upload Quality vs Instagram Compression</h3>\n'
+     '        <h4>Original Upload Quality vs Instagram Compression</h4>\n'
      '\n'
      '        <p><strong>Why This Matters:</strong> Instagram compresses all photos. Our tool fetches the highest quality Instagram stores.</p>\n'
      '\n'
-     '        <h3>Typical Instagram Photo Resolutions</h3>\n'
+     '        <h4>Typical Instagram Photo Resolutions</h4>\n'
      '\n'
      '        <ul>\n'
      '            <li><strong>Square posts (1:1):</strong> Usually 1080px × 1080px</li>\n'
@@ -164,22 +164,22 @@ page_data = {
      '            <li><strong>High-quality uploads:</strong> Can be up to 1920px × 1920px or higher</li>\n'
      '        </ul>\n'
      '\n'
-     '        <h3>What Format Will My Downloaded Photo Be In?</h3>\n'
+     '        <h4>What Format Will My Downloaded Photo Be In?</h4>\n'
      '\n'
      '        <p><strong>File Format:</strong> JPEG or PNG depending on the original upload.</p>\n'
      '        <p><strong>File Size:</strong> Typically 200KB - 3MB per photo (very manageable).</p>\n'
      '\n'
-     '        <h3>Carousel Posts — Downloading Multiple Photos</h3>\n'
+     '        <h4>Carousel Posts — Downloading Multiple Photos</h4>\n'
      '\n'
      '        <p><strong>What Are Carousel Posts?</strong> Instagram posts with multiple photos swipeable in sequence.</p>\n'
      '        <p><strong>How We Handle Them:</strong> Detect carousel posts and let you download each image individually in original HD quality.</p>\n'
      '\n'
-     '        <h3>Profile Picture Quality</h3>\n'
+     '        <h4>Profile Picture Quality</h4>\n'
      '\n'
      '        <p><strong>The Problem:</strong> Instagram shows profile pictures as small circular thumbnails (160px).</p>\n'
      '        <p><strong>Our Solution:</strong> We download the full-size profile picture (usually 320px or larger).</p>\n'
      '\n'
-     '        <h3>Quality Comparison Table</h3>\n'
+     '        <h4>Quality Comparison Table</h4>\n'
      '\n'
      '        <table border="1" cellpadding="10" style="width:100%; margin: 20px 0;">\n'
      '            <tr>\n'
@@ -215,63 +215,63 @@ page_data = {
      '        </table>\n'
      '        '),
     "content_types_section": ('\n'
-     '        <h2 id="what-can-download">What Types of Instagram Content Can You Download?</h2>\n'
+     '        <h3 id="what-can-download">What Types of Instagram Content Can You Download?</h3>\n'
      '\n'
-     '        <h3>✅ Single Feed Photos</h3>\n'
+     '        <h4>✅ Single Feed Photos</h4>\n'
      '        <p>Standard feed posts with one image. Works for all types: portraits, landscapes, squares.</p>\n'
      '\n'
-     '        <h3>✅ Carousel Posts (Multi-Photo Albums)</h3>\n'
+     '        <h4>✅ Carousel Posts (Multi-Photo Albums)</h4>\n'
      '        <p>Posts with multiple photos. Download each photo individually in full resolution.</p>\n'
      '\n'
-     '        <h3>✅ Profile Pictures</h3>\n'
+     '        <h4>✅ Profile Pictures</h4>\n'
      '        <p>Download any public profile picture in its full available size.</p>\n'
      '\n'
-     '        <h3>✅ Story Highlights</h3>\n'
+     '        <h4>✅ Story Highlights</h4>\n'
      '        <p>Photos saved in Story Highlight collections that creators make public.</p>\n'
      '\n'
-     '        <h3>✅ IGTV Thumbnails / Cover Images</h3>\n'
+     '        <h4>✅ IGTV Thumbnails / Cover Images</h4>\n'
      '        <p>Cover images from IGTV videos — download as separate photo files.</p>\n'
      '\n'
-     '        <h3>✅ Professional & Business Content</h3>\n'
+     '        <h4>✅ Professional & Business Content</h4>\n'
      '        <p>Product photos, promotional images, portfolio pictures — save in original quality.</p>\n'
      '\n'
-     '        <h3>✅ High-Quality Creator Content</h3>\n'
+     '        <h4>✅ High-Quality Creator Content</h4>\n'
      '        <p>Photographers, artists, designers. Our tool preserves the full quality they uploaded.</p>\n'
      '\n'
-     '        <h3>✅ Your Own Instagram Photos (Backups)</h3>\n'
+     '        <h4>✅ Your Own Instagram Photos (Backups)</h4>\n'
      '        <p>Back up your own photos in original quality for personal archive or editing.</p>\n'
      '\n'
-     '        <h3>✅ Educational & Reference Content</h3>\n'
+     '        <h4>✅ Educational & Reference Content</h4>\n'
      '        <p>Art references, design inspiration — download for offline studying and reference.</p>\n'
      '        '),
     "cannot_download_section": ('\n'
-     '        <h2 id="what-cannot">What Cannot Be Downloaded & Why</h2>\n'
+     '        <h3 id="what-cannot">What Cannot Be Downloaded & Why</h3>\n'
      '\n'
-     '        <h3>❌ Private Account Photos</h3>\n'
+     '        <h4>❌ Private Account Photos</h4>\n'
      '        <p>Photos from private Instagram accounts are only visible to accepted followers.</p>\n'
      '\n'
-     '        <h3>❌ Age-Restricted Photos</h3>\n'
+     '        <h4>❌ Age-Restricted Photos</h4>\n'
      '        <p>Content requiring age verification (18+) requires authentication.</p>\n'
      '\n'
-     '        <h3>❌ Deleted Photos</h3>\n'
+     '        <h4>❌ Deleted Photos</h4>\n'
      '        <p>Once deleted from Instagram, they no longer exist on their servers.</p>\n'
      '\n'
-     '        <h3>❌ Restricted Geo-Blocked Photos</h3>\n'
+     '        <h4>❌ Restricted Geo-Blocked Photos</h4>\n'
      '        <p>Some photos are blocked in certain countries due to licensing.</p>\n'
      '\n'
-     '        <h3>❌ Direct Messages (DMs)</h3>\n'
+     '        <h4>❌ Direct Messages (DMs)</h4>\n'
      '        <p>Photos sent in private messages are not accessible — we only work with public content.</p>\n'
      '\n'
-     '        <h3>❌ Instagram Stories (Active/Recent)</h3>\n'
+     '        <h4>❌ Instagram Stories (Active/Recent)</h4>\n'
      '        <p>Active Stories disappear after 24 hours. Story Highlights (permanent) can be downloaded.</p>\n'
      '\n'
-     '        <h3>❌ Videos (Use Video Downloader)</h3>\n'
+     '        <h4>❌ Videos (Use Video Downloader)</h4>\n'
      '        <p>This tool is for photos. For Instagram videos/Reels, use our Instagram video downloader.</p>\n'
      '        '),
     "safety_section": ('\n'
-     '        <h2 id="safety">Is It Safe & Legal to Download Instagram Photos?</h2>\n'
+     '        <h3 id="safety">Is It Safe & Legal to Download Instagram Photos?</h3>\n'
      '\n'
-     '        <h3>Is It Safe? Yes. 100% Safe.</h3>\n'
+     '        <h4>Is It Safe? Yes. 100% Safe.</h4>\n'
      '\n'
      '        <ul>\n'
      '            <li><strong>🔒 SSL Encrypted:</strong> All connections use HTTPS encryption.</li>\n'
@@ -282,7 +282,7 @@ page_data = {
      "            <li><strong>💾 No Storage:</strong> We don't store downloads or keep records.</li>\n"
      '        </ul>\n'
      '\n'
-     '        <h3>Is It Legal? Yes, For Personal Use</h3>\n'
+     '        <h4>Is It Legal? Yes, For Personal Use</h4>\n'
      '\n'
      '        <p><strong>✅ LEGAL — Do This:</strong></p>\n'
      '        <ul>\n'
@@ -302,34 +302,34 @@ page_data = {
      "            <li><strong>Don't mass-download:</strong> Downloading huge quantities for resale violates copyright.</li>\n"
      '        </ul>\n'
      '\n'
-     '        <h3>Best Practice: Always Credit Creators</h3>\n'
+     '        <h4>Best Practice: Always Credit Creators</h4>\n'
      '        <p>If you share a downloaded photo, credit the photographer, tag them, link to the original post.</p>\n'
      '\n'
      "        <p>In short: <strong>download for yourself, don't steal someone else's work, and you'll be fine.</strong></p>\n"
      '        '),
     "troubleshooting_section": ('\n'
-     '        <h2 id="troubleshooting">Troubleshooting: Common Problems & Solutions</h2>\n'
+     '        <h3 id="troubleshooting">Troubleshooting: Common Problems & Solutions</h3>\n'
      '\n'
-     '        <h3>❌ Problem: "Invalid Link" Error</h3>\n'
+     '        <h4>❌ Problem: "Invalid Link" Error</h4>\n'
      '        <p><strong>Why:</strong> Instagram URL in wrong format or photo is deleted/private.</p>\n'
      '        <p><strong>Fix:</strong> Copy the link again using three dots → Copy Link. Make sure it starts with "instagram.com".</p>\n'
      '\n'
-     "        <h3>❌ Problem: Download Button Doesn't Work</h3>\n"
+     "        <h4>❌ Problem: Download Button Doesn't Work</h4>\n"
      '        <p><strong>Why:</strong> Ad blocker, browser extension, or server issue.</p>\n'
      '        <p><strong>Fix:</strong> Disable ad blocker, try incognito mode, clear cache, try different browser.</p>\n'
      '\n'
-     '        <h3>❌ Problem: Downloaded Photo Quality is Poor</h3>\n'
+     '        <h4>❌ Problem: Downloaded Photo Quality is Poor</h4>\n'
      '        <p><strong>Why:</strong> The original Instagram photo was uploaded in low quality.</p>\n'
      '        <p><strong>Fix:</strong> This is the best quality Instagram has available.</p>\n'
      '\n'
-     "        <h3>❌ Problem: Can't Find Downloaded Photo on Phone</h3>\n"
+     "        <h4>❌ Problem: Can't Find Downloaded Photo on Phone</h4>\n"
      '        <p><strong>Android:</strong> Open Files app → Downloads → Move to Pictures folder</p>\n'
      '        <p><strong>iPhone:</strong> Should be in Photos app. Check Safari Downloads if not.</p>\n'
      '\n'
-     '        <h3>❌ Problem: Download is Very Slow</h3>\n'
+     '        <h4>❌ Problem: Download is Very Slow</h4>\n'
      '        <p><strong>Fix:</strong> Use WiFi, close other apps, restart router, try at different time.</p>\n'
      '\n'
-     "        <h3>❌ Problem: Carousel Post Won't Download All Photos</h3>\n"
+     "        <h4>❌ Problem: Carousel Post Won't Download All Photos</h4>\n"
      '        <p><strong>Why:</strong> Large carousels (10+) sometimes need individual downloads.</p>\n'
      '        <p><strong>Fix:</strong> Copy the post link again. Download each photo individually.</p>\n'
      '        '),
@@ -362,7 +362,7 @@ page_data = {
         {   'question': 'Do you store or keep my downloaded photos?',
             'answer': 'No. We never store, save, or keep records of downloaded photos. Immediately deleted from servers.'}],
     "pro_tips_section": ('\n'
-     '        <h2 id="pro-tips">Pro Tips for Best Instagram Photo Downloading</h2>\n'
+     '        <h3 id="pro-tips">Pro Tips for Best Instagram Photo Downloading</h3>\n'
      '\n'
      '        <ul>\n'
      '            <li><strong>Use WiFi for faster downloads:</strong> WiFi is faster. Instagram photos are usually instant anyway.</li>\n'

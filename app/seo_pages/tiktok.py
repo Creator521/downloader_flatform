@@ -14,11 +14,11 @@ page_data = {
     "page_hero_image": '/static/images/how-to-download-tiktok-video.webp?v=2',
     "page_hero_alt": 'TikTok video downloader tool - download videos without watermark in HD',
     "intro_text": """
-        <h2>TikTok Downloader — Download TikTok Videos Without Watermark in HD</h2>
+        <h3>TikTok Downloader — Download TikTok Videos Without Watermark in HD</h3>
         
         <p><strong>Last Updated: June 2026 | Free Tool | No Login Required</strong></p>
 
-        <h2>Why Download TikTok Videos Without Watermark?</h2>
+        <h3>Why Download TikTok Videos Without Watermark?</h3>
 
         <p>TikTok videos are built around a specific tension: the platform actively wants you to share content to other apps, but it embeds a watermark — your username and the TikTok logo — directly into the video file when you use the in-app download button. That watermark serves TikTok's marketing interests, not yours. When you share a TikTok to WhatsApp, Instagram, or any other platform, that spinning logo watermark goes with it, making the video look less professional and still advertising TikTok's brand.</p>
 
@@ -34,7 +34,7 @@ page_data = {
 
         <p>TikTok videos are short — usually 15 seconds to 3 minutes — and vertical (9:16 aspect ratio). This means file sizes are small, downloads are incredibly fast, and the entire process takes less than 30 seconds whether you're on Android, iPhone, Windows, or Mac.</p>
 
-        <h2>Why People Download TikTok Videos (6 Common Reasons)</h2>
+        <h3>Why People Download TikTok Videos (6 Common Reasons)</h3>
 
         <ol>
             <li><strong>Clean sharing to other platforms:</strong> Sending a TikTok to someone who doesn't have the app works much better as a direct MP4 file — no app required to play it, no watermark, completely professional.</li>
@@ -50,7 +50,7 @@ page_data = {
             <li><strong>Educational use:</strong> Teachers and educators download TikTok content for classroom presentations, training materials, or educational projects where watermarks would be distracting.</li>
         </ol>
 
-        <h2>Table of Contents</h2>
+        <h3>Table of Contents</h3>
         <ul>
             <li><a href="#how-to-use">How to Download TikTok Videos — Step by Step</a></li>
             <li><a href="#device-specific">Device-Specific Instructions</a></li>
@@ -125,9 +125,9 @@ page_data = {
             'title': 'Always Updated',
             'desc': 'We automatically update our tool when TikTok makes changes. You never need to install updates or worry about compatibility.'}],
     "device_specific_section": ('\n'
-     '        <h2 id="device-specific">How to Download TikTok Videos on Android, iPhone, Windows & Mac</h2>\n'
+     '        <h3 id="device-specific">How to Download TikTok Videos on Android, iPhone, Windows & Mac</h3>\n'
      '\n'
-     '        <h3>📱 On Android Phone or Tablet</h3>\n'
+     '        <h4>📱 On Android Phone or Tablet</h4>\n'
      '\n'
      '        <p><strong>What You Need:</strong> Chrome browser (or Firefox/Samsung Internet) and a TikTok link</p>\n'
      '\n'
@@ -146,7 +146,7 @@ page_data = {
      "        <p><strong>Pro Tip for Android:</strong> If the video doesn't appear in your Gallery app, open Files app → Downloads → find the MP4 → long-press → "
      "Move to Pictures folder. It'll now show in your Gallery.</p>\n"
      '\n'
-     '        <h3>🍎 On iPhone or iPad (iOS)</h3>\n'
+     '        <h4>🍎 On iPhone or iPad (iOS)</h4>\n'
      '\n'
      '        <p><strong>What You Need:</strong> Safari browser (recommended over Chrome for iOS) and a TikTok link</p>\n'
      '\n'
@@ -166,7 +166,7 @@ page_data = {
      "        <p><strong>Troubleshooting on iPhone:</strong> If you don't see the download arrow icon, try refreshing the page or clearing Safari cache (Settings "
      '→ Safari → Clear History and Website Data).</p>\n'
      '\n'
-     '        <h3>💻 On Windows PC</h3>\n'
+     '        <h4>💻 On Windows PC</h4>\n'
      '\n'
      '        <p><strong>What You Need:</strong> Any browser (Chrome, Firefox, Edge) and a TikTok link</p>\n'
      '\n'
@@ -184,7 +184,7 @@ page_data = {
      '        <p><strong>Pro Tip for Windows:</strong> Right-click the downloaded file → Rename to give it a meaningful name (like '
      '"trending_dance_video.mp4")</p>\n'
      '\n'
-     '        <h3>🖥️ On Mac</h3>\n'
+     '        <h4>🖥️ On Mac</h4>\n'
      '\n'
      '        <p><strong>What You Need:</strong> Safari or Chrome and a TikTok link</p>\n'
      '\n'
@@ -202,9 +202,9 @@ page_data = {
      '        <p><strong>Pro Tip for Mac:</strong> Use Cmd+Space to open Spotlight, type "Downloads", and quickly access your downloads folder.</p>\n'
      '    '),
     "quality_section": ('\n'
-     '        <h2 id="quality-options">TikTok Video Quality & Format Options Explained</h2>\n'
+     '        <h3 id="quality-options">TikTok Video Quality & Format Options Explained</h3>\n'
      '\n'
-     '        <h3>HD Video (MP4 Format) — Recommended</h3>\n'
+     '        <h4>HD Video (MP4 Format) — Recommended</h4>\n'
      '\n'
      '        <p><strong>What You Get:</strong> Clean TikTok video in 1080p HD quality without watermark</p>\n'
      '\n'
@@ -216,7 +216,7 @@ page_data = {
      '\n'
      '        <p><strong>Compatible With:</strong> All devices, all video players, all platforms. MP4 is universal.</p>\n'
      '\n'
-     '        <h3>Audio Only (MP3 Format)</h3>\n'
+     '        <h4>Audio Only (MP3 Format)</h4>\n'
      '\n'
      '        <p><strong>What You Get:</strong> Just the audio/sound from the TikTok, saved as an MP3 file</p>\n'
      '\n'
@@ -235,7 +235,7 @@ page_data = {
      '\n'
      '        <p><strong>Compatible With:</strong> All music players, all devices, all operating systems</p>\n'
      '\n'
-     '        <h3>Which Format Should You Choose?</h3>\n'
+     '        <h4>Which Format Should You Choose?</h4>\n'
      '\n'
      '        <table border="1" cellpadding="10" style="width:100%; margin: 20px 0;">\n'
      '            <tr>\n'
@@ -276,34 +276,34 @@ page_data = {
      '        </table>\n'
      '    '),
     "content_types_section": ('\n'
-     '        <h2 id="what-can-download">What Types of TikTok Videos Can You Download?</h2>\n'
+     '        <h3 id="what-can-download">What Types of TikTok Videos Can You Download?</h3>\n'
      '\n'
      '        <p>Our tool handles most common types of TikTok content from public accounts:</p>\n'
      '\n'
-     '        <h3>✅ Regular Feed Videos</h3>\n'
+     '        <h4>✅ Regular Feed Videos</h4>\n'
      "        <p>Any standard TikTok from a public account downloads instantly. Just paste the link and you're done. This is the most common type.</p>\n"
      '\n'
-     '        <h3>✅ Dance and Music Videos</h3>\n'
+     '        <h4>✅ Dance and Music Videos</h4>\n'
      '        <p>Save trending dance clips and music videos without the TikTok watermark, so you can share them cleanly. Perfect for collectors of trending '
      'content.</p>\n'
      '\n'
-     '        <h3>✅ Tutorials and How-To Content</h3>\n'
+     '        <h4>✅ Tutorials and How-To Content</h4>\n'
      '        <p>Cooking guides, fitness routines, DIY projects, life hacks, makeup tutorials — download these once and access them offline anytime, even without '
      'internet. Great for learning.</p>\n'
      '\n'
-     '        <h3>✅ Comedy and Meme Videos</h3>\n'
+     '        <h4>✅ Comedy and Meme Videos</h4>\n'
      '        <p>Build your personal collection of the funniest TikToks without having to bookmark them in-app. Share with friends without the watermark.</p>\n'
      '\n'
-     '        <h3>✅ Educational Content</h3>\n'
+     '        <h4>✅ Educational Content</h4>\n'
      '        <p>Language lessons, coding tips, science explanations, history facts — save for offline studying.</p>\n'
      '\n'
-     '        <h3>✅ Motivational and Inspirational Videos</h3>\n'
+     '        <h4>✅ Motivational and Inspirational Videos</h4>\n'
      '        <p>Personal development, fitness motivation, success stories — save and review anytime.</p>\n'
      '\n'
-     '        <h3>✅ Your Own TikTok Videos (Backups)</h3>\n'
+     '        <h4>✅ Your Own TikTok Videos (Backups)</h4>\n'
      "        <p>If you're a TikTok creator, use this tool to back up your own videos in HD without watermark for editing, portfolio, or archival purposes.</p>\n"
      '\n'
-     "        <h3>❌ What DOESN'T Work:</h3>\n"
+     "        <h4>❌ What DOESN'T Work:</h4>\n"
      '        <ul>\n'
      "            <li><strong>Private account videos:</strong> If an account is set to private, the video isn't publicly accessible. No tool can download "
      'it.</li>\n'
@@ -312,9 +312,9 @@ page_data = {
      '        </ul>\n'
      '    '),
     "safety_section": ('\n'
-     '        <h2 id="safety">Is It Safe & Legal to Download TikTok Videos?</h2>\n'
+     '        <h3 id="safety">Is It Safe & Legal to Download TikTok Videos?</h3>\n'
      '\n'
-     '        <h3>Is It Safe? Yes. 100% Safe.</h3>\n'
+     '        <h4>Is It Safe? Yes. 100% Safe.</h4>\n'
      '\n'
      '        <p><strong>Our tool is secure because:</strong></p>\n'
      '\n'
@@ -328,7 +328,7 @@ page_data = {
      '            <li><strong>🔄 Always Updated:</strong> We automatically update when TikTok changes. You never have compatibility problems.</li>\n'
      '        </ul>\n'
      '\n'
-     '        <h3>Is It Legal? Yes, For Personal Use.</h3>\n'
+     '        <h4>Is It Legal? Yes, For Personal Use.</h4>\n'
      '\n'
      '        <p>Downloading TikTok videos for <strong>personal use</strong> — watching offline, archiving content you enjoy, or studying editing styles — is '
      'widely accepted and falls within fair use in most countries. However, there are important guidelines:</p>\n'
@@ -353,7 +353,7 @@ page_data = {
      "            <li><strong>Don't claim ownership:</strong> Never claim you made something someone else created.</li>\n"
      '        </ul>\n'
      '\n'
-     '        <h3>Best Practice: Always Credit Creators</h3>\n'
+     '        <h4>Best Practice: Always Credit Creators</h4>\n'
      '\n'
      '        <p>If you share a downloaded TikTok video:</p>\n'
      '\n'
@@ -367,9 +367,9 @@ page_data = {
      "        <p>In short: <strong>download for yourself, don't steal someone else's work, and you'll be fine.</strong></p>\n"
      '    '),
     "troubleshooting_section": ('\n'
-     '        <h2 id="troubleshooting">Troubleshooting: Common Issues & Solutions</h2>\n'
+     '        <h3 id="troubleshooting">Troubleshooting: Common Issues & Solutions</h3>\n'
      '\n'
-     '        <h3>❌ Problem: "Invalid Link" or "Link Not Working" Error</h3>\n'
+     '        <h4>❌ Problem: "Invalid Link" or "Link Not Working" Error</h4>\n'
      '\n'
      '        <p><strong>Why It Happens:</strong> The TikTok URL is in the wrong format or the video is private/deleted.</p>\n'
      '\n'
@@ -382,7 +382,7 @@ page_data = {
      '            <li>Try pasting the link again (sometimes copy-paste glitches happen)</li>\n'
      '        </ol>\n'
      '\n'
-     "        <h3>❌ Problem: Download Button Doesn't Work</h3>\n"
+     "        <h4>❌ Problem: Download Button Doesn't Work</h4>\n"
      '\n'
      '        <p><strong>Why It Happens:</strong> Ad blocker, browser extension, or temporary server issue.</p>\n'
      '\n'
@@ -396,7 +396,7 @@ page_data = {
      '            <li>Wait a few minutes and try again (temporary server issue)</li>\n'
      '        </ol>\n'
      '\n'
-     "        <h3>❌ Problem: Can't Find Downloaded File on Phone</h3>\n"
+     "        <h4>❌ Problem: Can't Find Downloaded File on Phone</h4>\n"
      '\n'
      '        <p><strong>Why It Happens:</strong> File saved to Downloads folder but not appearing in main Gallery.</p>\n'
      '\n'
@@ -408,7 +408,7 @@ page_data = {
      'bar)</li>\n'
      '        </ul>\n'
      '\n'
-     '        <h3>❌ Problem: Download is Very Slow</h3>\n'
+     '        <h4>❌ Problem: Download is Very Slow</h4>\n'
      '\n'
      '        <p><strong>Why It Happens:</strong> Slow internet connection or busy server.</p>\n'
      '\n'
@@ -422,7 +422,7 @@ page_data = {
      '            <li>Try downloading at a different time</li>\n'
      '        </ul>\n'
      '\n'
-     '        <h3>❌ Problem: Video Has No Sound or Audio Glitch</h3>\n'
+     '        <h4>❌ Problem: Video Has No Sound or Audio Glitch</h4>\n'
      '\n'
      '        <p><strong>Why It Happens:</strong> Original TikTok might not have audio, or codec issue.</p>\n'
      '\n'
@@ -467,7 +467,7 @@ page_data = {
             'answer': 'Our web tool downloads one TikTok at a time. For batch downloading, repeat the process or use desktop software. Most users find '
                       'one-at-a-time sufficient for their needs.'}],
     "pro_tips_section": ('\n'
-     '        <h2 id="pro-tips">Pro Tips for Best TikTok Downloading Experience</h2>\n'
+     '        <h3 id="pro-tips">Pro Tips for Best TikTok Downloading Experience</h3>\n'
      '\n'
      '        <ul>\n'
      '            <li><strong>Use WiFi for fastest downloads:</strong> Downloads complete faster on WiFi than mobile data. A 20MB video takes seconds on WiFi, 10+ '

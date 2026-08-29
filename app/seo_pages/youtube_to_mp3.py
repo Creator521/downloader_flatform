@@ -24,7 +24,7 @@ page_data = {
      'download youtube music\n'),
     "intro_text": """
 
-<h2>YouTube to MP3 Converter - Free Online Audio Downloader</h2>
+<h3>YouTube to MP3 Converter - Free Online Audio Downloader</h3>
 
 <p><strong>Updated 2026</strong></p>
 
@@ -34,7 +34,7 @@ page_data = {
 
 <p>Our YouTube to MP3 converter works directly from your browser without software installation. Simply copy a YouTube link, paste it into the converter, and download the audio file in high quality.</p>
 
-<h2>Why People Convert YouTube Videos to MP3</h2>
+<h3>Why People Convert YouTube Videos to MP3</h3>
 
 <ul>
 <li>Offline listening anywhere.</li>
@@ -46,7 +46,7 @@ page_data = {
 <li>Store music on your device permanently.</li>
 </ul>
 
-<h2>Who Uses YouTube to MP3 Converters?</h2>
+<h3>Who Uses YouTube to MP3 Converters?</h3>
 
 <ul>
 <li>Students downloading lectures.</li>
@@ -65,7 +65,7 @@ page_data = {
         {'number': 4, 'title': 'Download MP3 Audio', 'desc': 'Download the generated MP3 file to your device.'}],
     "audio_quality_section": ('\n'
      '\n'
-     '<h2>MP3 Audio Quality Explained</h2>\n'
+     '<h3>MP3 Audio Quality Explained</h3>\n'
      '\n'
      '<p>Audio quality is measured using bitrate. Higher bitrates generally produce better sound quality while increasing file size.</p>\n'
      '\n'
@@ -102,13 +102,13 @@ page_data = {
      '\n'
      '</table>\n'
      '\n'
-     '<h3>Is 320kbps Worth It?</h3>\n'
+     '<h4>Is 320kbps Worth It?</h4>\n'
      '\n'
      '<p>For music lovers and users with good headphones, 320kbps offers the best listening experience available in MP3 format.</p>\n'
      '\n'),
     "device_guides": ('\n'
      '\n'
-     '<h2>How to Convert YouTube to MP3 on Android</h2>\n'
+     '<h3>How to Convert YouTube to MP3 on Android</h3>\n'
      '\n'
      '<ol>\n'
      '<li>Open YouTube App.</li>\n'
@@ -119,7 +119,7 @@ page_data = {
      '<li>Download MP3.</li>\n'
      '</ol>\n'
      '\n'
-     '<h2>How to Convert YouTube to MP3 on iPhone</h2>\n'
+     '<h3>How to Convert YouTube to MP3 on iPhone</h3>\n'
      '\n'
      '<ol>\n'
      '<li>Open YouTube App.</li>\n'
@@ -130,7 +130,7 @@ page_data = {
      '<li>Download MP3.</li>\n'
      '</ol>\n'
      '\n'
-     '<h2>How to Convert YouTube to MP3 on Windows</h2>\n'
+     '<h3>How to Convert YouTube to MP3 on Windows</h3>\n'
      '\n'
      '<ol>\n'
      '<li>Copy YouTube URL.</li>\n'
@@ -139,7 +139,7 @@ page_data = {
      '<li>Save in Downloads Folder.</li>\n'
      '</ol>\n'
      '\n'
-     '<h2>How to Convert YouTube to MP3 on Mac</h2>\n'
+     '<h3>How to Convert YouTube to MP3 on Mac</h3>\n'
      '\n'
      '<ol>\n'
      '<li>Copy Link.</li>\n'
@@ -150,51 +150,51 @@ page_data = {
      '\n'),
     "content_types": ('\n'
      '\n'
-     '<h2>Supported Content Types</h2>\n'
+     '<h3>Supported Content Types</h3>\n'
      '\n'
-     '<h3>Music Videos</h3>\n'
+     '<h4>Music Videos</h4>\n'
      '<p>Convert songs and music videos into MP3 audio.</p>\n'
      '\n'
-     '<h3>Podcasts</h3>\n'
+     '<h4>Podcasts</h4>\n'
      '<p>Save podcasts for offline listening during travel or work.</p>\n'
      '\n'
-     '<h3>Audiobooks</h3>\n'
+     '<h4>Audiobooks</h4>\n'
      '<p>Download audiobook recordings from public videos.</p>\n'
      '\n'
-     '<h3>Educational Lectures</h3>\n'
+     '<h4>Educational Lectures</h4>\n'
      '<p>Students can save educational content for study sessions.</p>\n'
      '\n'
-     '<h3>Motivational Speeches</h3>\n'
+     '<h4>Motivational Speeches</h4>\n'
      '<p>Listen to inspirational content without needing video playback.</p>\n'
      '\n'
-     '<h3>YouTube Shorts Audio</h3>\n'
+     '<h4>YouTube Shorts Audio</h4>\n'
      '<p>Extract audio from supported YouTube Shorts videos.</p>\n'
      '\n'),
     "troubleshooting": ('\n'
      '\n'
-     '<h2>Common Problems and Solutions</h2>\n'
+     '<h3>Common Problems and Solutions</h3>\n'
      '\n'
-     '<h3>Video Not Converting</h3>\n'
+     '<h4>Video Not Converting</h4>\n'
      '<p>Verify the YouTube URL is public and valid.</p>\n'
      '\n'
-     '<h3>Audio Missing</h3>\n'
+     '<h4>Audio Missing</h4>\n'
      '<p>Try processing the video again.</p>\n'
      '\n'
-     '<h3>Invalid URL Error</h3>\n'
+     '<h4>Invalid URL Error</h4>\n'
      '<p>Copy the original link again directly from YouTube.</p>\n'
      '\n'
-     '<h3>Slow Downloads</h3>\n'
+     '<h4>Slow Downloads</h4>\n'
      '<p>Use a stable internet connection.</p>\n'
      '\n'
-     '<h3>File Not Appearing on Mobile</h3>\n'
+     '<h4>File Not Appearing on Mobile</h4>\n'
      '<p>Check your Downloads folder.</p>\n'
      '\n'
-     '<h3>Unsupported Video</h3>\n'
+     '<h4>Unsupported Video</h4>\n'
      '<p>Private videos and restricted content may not be available.</p>\n'
      '\n'),
     "eeat_section": ('\n'
      '\n'
-     '<h2>Why Trust This YouTube to MP3 Converter?</h2>\n'
+     '<h3>Why Trust This YouTube to MP3 Converter?</h3>\n'
      '\n'
      '<ul>\n'
      '\n'
@@ -216,7 +216,7 @@ page_data = {
      '\n'),
     "related_searches": ('\n'
      '\n'
-     '<h2>Popular Searches Related to YouTube to MP3</h2>\n'
+     '<h3>Popular Searches Related to YouTube to MP3</h3>\n'
      '\n'
      '<ul>\n'
      '\n'

@@ -2,8 +2,7 @@ post = {
     "title": 'Download Instagram Reels on Android — 3 Working Methods (2026)',
     "meta_description": (
         'Download Instagram Reels on Android in HD — no watermark, no app install needed. '
-        '3 working methods with device-specific tips for Samsung, Pixel, OnePlus & Xiaomi. '
-        'Works on any Android phone via Chrome.'
+        '3 working methods with device tips for Samsung, Pixel & Xiaomi.'
     ),
     "slug": 'how-to-download-instagram-reels-on-android',
     "date": '2026-05-08',
