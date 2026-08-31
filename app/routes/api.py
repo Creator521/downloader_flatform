@@ -8,6 +8,8 @@ import ipaddress
 import time
 import uuid
 import random
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from fastapi import APIRouter, Form, HTTPException, Request
 from fastapi.responses import StreamingResponse, RedirectResponse, HTMLResponse
 from urllib.parse import quote, urlparse
@@ -233,23 +235,22 @@ def youtube_format_selector(fmt: str) -> str:
         return "bestaudio[ext=m4a]/bestaudio/best"
     if fmt == "high_quality":
         return "bestvideo[vcodec^=avc1]+bestaudio[ext=m4a]/bestvideo+bestaudio/best[ext=mp4]/best"
-    # Prefer a single progressive MP4 stream for the default mode so the browser
-    # starts downloading quickly without waiting on a DASH merge.
-    return "18/22/136/135/134/best[height<=720][ext=mp4]/best[ext=mp4]/bestvideo[height<=720]+bestaudio/best"
+    # Fastest default for normal YouTube videos: prefer a single progressive MP4
+    # instead of a DASH video+audio merge that takes longer to resolve and buffer.
+    return "18/22/136/135/134/best[height<=720][ext=mp4]/best[ext=mp4]/best"
 
 
 def youtube_can_direct_stream(format_code: str) -> bool:
-    """Return True when the selected yt-dlp format is a single progressive stream."""
+    """Only return True for formats that are a single progressive stream."""
     if not format_code:
         return False
-
     lowered = format_code.lower()
-    if "+bestaudio" in lowered or "+audio" in lowered:
+    if "bestaudio" in lowered and "+bestaudio" in lowered:
         return False
-    if "bestvideo" in lowered and "bestaudio" in lowered:
+    if "+bestaudio" in lowered or "bestvideo" in lowered and "bestaudio" in lowered:
         return False
-    if "bestaudio" in lowered and "bestvideo" not in lowered:
-        return True
+    if "bestaudio" in lowered:
+        return False
     return True
 
 
@@ -758,18 +759,24 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=10**7)
 
             try:
-                first_chunk = proc.stdout.read(1024)
+                with ThreadPoolExecutor(max_workers=1) as executor:
+                    future = executor.submit(proc.stdout.read, 1024)
+                    first_chunk = future.result(timeout=20)
             except Exception:
                 first_chunk = b""
+                try:
+                    proc.kill()
+                    proc.wait(timeout=10)
+                except Exception:
+                    pass
 
             if not first_chunk:
-                stderr = proc.stderr.read().decode('utf-8', errors='ignore')
+                stderr = proc.stderr.read().decode('utf-8', errors='ignore') if proc.stderr else ''
                 logger.warning(f"Direct stream failed to start for {url}. Falling back to temp-file mode. Stderr: {stderr[:500]}")
-                proc.kill()
-                proc.wait()
+                if proc.poll() is None:
+                    proc.kill()
+                    proc.wait(timeout=10)
 
-                # Fallback to the same format in temp-file mode when the progressive
-                # stream is blocked or not available on this video.
                 use_temp_file = True
                 temp_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "temp")
                 os.makedirs(temp_dir, exist_ok=True)
