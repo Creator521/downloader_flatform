@@ -201,6 +201,22 @@ def youtube_format_selector(fmt: str) -> str:
     # fall back to merging video+audio when YouTube only offers DASH.
     return "18/22/best[ext=mp4][acodec!=none]/best[acodec!=none][vcodec!=none]/bestvideo[height<=720]+bestaudio/best"
 
+
+def youtube_can_direct_stream(format_code: str) -> bool:
+    """Return True when the selected yt-dlp format is a single progressive stream."""
+    if not format_code:
+        return False
+
+    lowered = format_code.lower()
+    if "+bestaudio" in lowered or "+audio" in lowered:
+        return False
+    if "bestvideo" in lowered and "bestaudio" in lowered:
+        return False
+    if "bestaudio" in lowered and "bestvideo" not in lowered:
+        return True
+    return True
+
+
 def extract_info_with_tikwm(url: str) -> dict | None:
     """
     TikWM API se TikTok video ka info extract karo.
@@ -591,10 +607,11 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         if is_yt:
             cmd.extend(["--extractor-args", YOUTUBE_EXTRACTOR_ARGS])
 
-        # YouTube DASH/SABR streams cannot be piped to stdout reliably.
-        # Download to a temp file (and merge if needed), then stream the file.
-        use_temp_file = format == "high_quality" or is_yt
-        
+        # Prefer direct streaming for standard progressive YouTube formats so the
+        # browser starts receiving data immediately instead of waiting for the full
+        # file to land in /temp. Merge formats must still use temp files.
+        use_temp_file = format == "high_quality" or (is_yt and not youtube_can_direct_stream(format_code))
+
         if use_temp_file:
             temp_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "temp")
             os.makedirs(temp_dir, exist_ok=True)
@@ -609,7 +626,7 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         cookie_file = proxy_manager.get_cookie_file()
         if cookie_file:
             cmd.extend(["--cookies", cookie_file])
-    
+
         if "pinterest.com" in url.lower() or "pinimg.com" in url.lower():
             pass  # Bypass proxy for Pinterest to prevent 0 KB download issues
         elif successful_proxy:
@@ -618,7 +635,7 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
             proxy = proxy_manager.get_proxy()
             if proxy:
                 cmd.extend(["--proxy", proxy])
-    
+
         cmd.append(url)
 
         if use_temp_file:
@@ -675,7 +692,7 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
                         os.remove(temp_path)
                     except Exception as cleanup_err:
                         logger.warning(f"Failed to cleanup temp file {temp_path}: {cleanup_err}")
-            
+
             headers = {
                 "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{quote(filename)}',
                 "Content-Length": str(file_size),
@@ -684,29 +701,105 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         else:
             logger.info(f"Starting direct stream download with format: {format_code} for {url}")
             proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=10**7)
-            
+
             try:
                 first_chunk = proc.stdout.read(1024)
-            except Exception as e:
+            except Exception:
                 first_chunk = b""
 
             if not first_chunk:
-                proc.kill()
                 stderr = proc.stderr.read().decode('utf-8', errors='ignore')
-                logger.error(f"Direct stream failed to start. Stderr: {stderr}")
-                
-                # HTML template to set the error cookie and close the stream gracefully in the iframe
-                error_html = """
-                <html>
-                <head>
-                    <script>
-                        document.cookie = "download_error=1; path=/; max-age=60";
-                    </script>
-                </head>
-                <body>Fast download failed.</body>
-                </html>
-                """
-                return HTMLResponse(content=error_html, status_code=200)
+                logger.warning(f"Direct stream failed to start for {url}. Falling back to temp-file mode. Stderr: {stderr[:500]}")
+                proc.kill()
+                proc.wait()
+
+                # Fallback to the same format in temp-file mode when the progressive
+                # stream is blocked or not available on this video.
+                use_temp_file = True
+                temp_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "temp")
+                os.makedirs(temp_dir, exist_ok=True)
+                temp_id = uuid.uuid4().hex
+                temp_path = os.path.join(temp_dir, f"{temp_id}.{ext}")
+                fallback_cmd = [
+                    sys.executable, "-m", "yt_dlp", "--no-part", "--format", format_code,
+                    "--quiet", "--no-playlist", "--js-runtimes", "node",
+                    "--output", os.path.join(temp_dir, f"{temp_id}.%(ext)s"),
+                    "--merge-output-format", "mp4" if ext == "mp4" else None,
+                ]
+                if is_yt:
+                    fallback_cmd.extend(["--extractor-args", YOUTUBE_EXTRACTOR_ARGS])
+                if cookie_file:
+                    fallback_cmd.extend(["--cookies", cookie_file])
+                if "pinterest.com" in url.lower() or "pinimg.com" in url.lower():
+                    pass
+                elif successful_proxy:
+                    fallback_cmd.extend(["--proxy", successful_proxy])
+                else:
+                    proxy = proxy_manager.get_proxy()
+                    if proxy:
+                        fallback_cmd.extend(["--proxy", proxy])
+                fallback_cmd.append(url)
+                fallback_cmd = [part for part in fallback_cmd if part is not None]
+                proc = subprocess.Popen(fallback_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, bufsize=10**7)
+                try:
+                    _, stderr_output = proc.communicate(timeout=900)
+                except subprocess.TimeoutExpired:
+                    proc.kill()
+                    proc.wait()
+                    for leftover in os.listdir(temp_dir):
+                        if leftover.startswith(temp_id):
+                            try:
+                                os.remove(os.path.join(temp_dir, leftover))
+                            except OSError:
+                                pass
+                    logger.error(f"yt-dlp fallback download timed out after 900s for {url}")
+                    raise HTTPException(status_code=504, detail="Download timed out. Please try again.")
+
+                produced = None
+                for leftover in os.listdir(temp_dir):
+                    if leftover.startswith(temp_id) and os.path.isfile(os.path.join(temp_dir, leftover)):
+                        candidate = os.path.join(temp_dir, leftover)
+                        if os.path.getsize(candidate) > 0:
+                            produced = candidate
+                            break
+                if produced:
+                    temp_path = produced
+                if proc.returncode != 0 or not os.path.exists(temp_path) or os.path.getsize(temp_path) == 0:
+                    for leftover in os.listdir(temp_dir):
+                        if leftover.startswith(temp_id):
+                            try:
+                                os.remove(os.path.join(temp_dir, leftover))
+                            except OSError:
+                                pass
+                    stderr_text = stderr_output.decode(errors='ignore') if stderr_output else 'Unknown error'
+                    logger.error(f"yt-dlp fallback failed (rc={proc.returncode}): {stderr_text[:500]}")
+                    raise HTTPException(status_code=500, detail="Download failed. Please try again later.")
+
+                file_size = os.path.getsize(temp_path)
+
+                def iterfile():
+                    try:
+                        with open(temp_path, "rb") as f:
+                            while True:
+                                data = f.read(64 * 1024)
+                                if not data:
+                                    break
+                                yield data
+                    finally:
+                        try:
+                            os.remove(temp_path)
+                        except Exception as cleanup_err:
+                            logger.warning(f"Failed to cleanup temp file {temp_path}: {cleanup_err}")
+
+                headers = {
+                    "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{quote(filename)}',
+                    "Content-Length": str(file_size),
+                    "X-Robots-Tag": "noindex, nofollow",
+                }
+                media_type = "audio/mp4" if format == "audio" else "video/mp4"
+                response = StreamingResponse(iterfile(), media_type=media_type, headers=headers)
+                response.set_cookie(key="download_ready", value="1", max_age=60, path="/")
+                return response
 
             def iterfile():
                 yield first_chunk
@@ -722,7 +815,7 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
                     proc.stdout.close()
                     proc.kill()
                     proc.wait()
-            
+
             headers = {
                 "Content-Disposition": f'attachment; filename="video.mp4"; filename*=UTF-8\'\'{quote(filename)}',
                 "X-Robots-Tag": "noindex, nofollow",
