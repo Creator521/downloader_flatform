@@ -188,7 +188,8 @@ async def add_cache_headers(request, call_next):
         "img-src 'self' data: https: blob:; "
         "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://*.googlesyndication.com "
             "https://pagead2.googlesyndication.com https://5gvci.com https://quge5.com; "
-        "frame-src https://googleads.g.doubleclick.net https://*.googlesyndication.com; "
+        "frame-src 'self' https://googleads.g.doubleclick.net https://*.googlesyndication.com; "
+        "frame-ancestors 'self'; "
         "media-src 'self' https: blob:;"
     )
 
