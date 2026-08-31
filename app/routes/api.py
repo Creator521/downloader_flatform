@@ -176,6 +176,42 @@ YOUTUBE_EXTRACTOR_ARGS = (
     "youtube:player_client=" + ",".join(YOUTUBE_PLAYER_CLIENTS)
     + ";player_skip=webpage,configs"
 )
+YT_INFO_CACHE = {}
+YT_INFO_CACHE_TTL = 900
+URL_RESULT_CACHE = {}
+MAX_URL_RESULT_CACHE = 500
+
+
+def get_cached_yt_info(url: str):
+    """Avoid repeated yt-dlp extraction on the same URL for a short window."""
+    cached = YT_INFO_CACHE.get(url)
+    if not cached:
+        return None
+    if time.time() - cached["ts"] > YT_INFO_CACHE_TTL:
+        YT_INFO_CACHE.pop(url, None)
+        return None
+    return cached["payload"]
+
+
+def set_cached_yt_info(url: str, payload: dict):
+    YT_INFO_CACHE[url] = {"ts": time.time(), "payload": payload}
+
+
+def get_cached_url_result(key: str):
+    cached = URL_RESULT_CACHE.get(key)
+    if not cached:
+        return None
+    if time.time() - cached["ts"] > 600:
+        URL_RESULT_CACHE.pop(key, None)
+        return None
+    return cached["payload"]
+
+
+def set_cached_url_result(key: str, payload: dict):
+    if len(URL_RESULT_CACHE) >= MAX_URL_RESULT_CACHE:
+        oldest_key = next(iter(URL_RESULT_CACHE))
+        URL_RESULT_CACHE.pop(oldest_key, None)
+    URL_RESULT_CACHE[key] = {"ts": time.time(), "payload": payload}
 
 
 def apply_youtube_ydl_opts(ydl_opts: dict) -> dict:
@@ -197,9 +233,9 @@ def youtube_format_selector(fmt: str) -> str:
         return "bestaudio[ext=m4a]/bestaudio/best"
     if fmt == "high_quality":
         return "bestvideo[vcodec^=avc1]+bestaudio[ext=m4a]/bestvideo+bestaudio/best[ext=mp4]/best"
-    # Prefer a progressive MP4 (format 18/22) so playback works everywhere;
-    # fall back to merging video+audio when YouTube only offers DASH.
-    return "18/22/best[ext=mp4][acodec!=none]/best[acodec!=none][vcodec!=none]/bestvideo[height<=720]+bestaudio/best"
+    # Prefer a single progressive MP4 stream for the default mode so the browser
+    # starts downloading quickly without waiting on a DASH merge.
+    return "18/22/136/135/134/best[height<=720][ext=mp4]/best[ext=mp4]/bestvideo[height<=720]+bestaudio/best"
 
 
 def youtube_can_direct_stream(format_code: str) -> bool:
@@ -368,6 +404,11 @@ def cache_set(key: str, value: dict, ttl: int = CACHE_DURATION):
 # ─────────────────────────────────────────────
 def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
     """yt-dlp se info extract karo with proxy retry logic."""
+    cached = get_cached_yt_info(url)
+    if cached:
+        logger.info(f"Using cached yt-dlp metadata for {url}")
+        return cached
+
     last_error = None
     for attempt in range(max_retries):
         ydl_opts = {
@@ -402,9 +443,15 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
                 info = ydl.extract_info(url, download=False)
                 if attempt > 0:
                     logger.info(f"yt-dlp succeeded on attempt {attempt + 1} for {url}")
-                return {"info": info, "proxy": proxy}
+                if proxy:
+                    proxy_manager.clear_proxy_failure(proxy)
+                payload = {"info": info, "proxy": proxy}
+                set_cached_yt_info(url, payload)
+                return payload
         except Exception as e:
             last_error = e
+            if proxy:
+                proxy_manager.mark_proxy_failed(proxy)
             logger.warning(f"yt-dlp extract error (attempt {attempt + 1}/{max_retries}): {e}")
             if attempt < max_retries - 1:
                 time.sleep(random.uniform(1.0, 3.0))
@@ -473,6 +520,10 @@ def preview(request: Request, url: str = Form(...)):
     if cached_data:
         return cached_data
 
+    key_result = get_cached_url_result(f"preview:{url}")
+    if key_result:
+        return key_result
+
     try:
         # ── PRIMARY: Instaloader (Instagram URLs ke liye) ──
         if is_instagram_url(url):
@@ -494,6 +545,7 @@ def preview(request: Request, url: str = Form(...)):
                     "duration": insta_info.get("duration"),
                 }
                 cache_set(url, data)
+                set_cached_url_result(f"preview:{url}", data)
                 return data
 
             # Instaloader fail hua → yt-dlp fallback
@@ -506,6 +558,7 @@ def preview(request: Request, url: str = Form(...)):
             
             if tiktok_info:
                 cache_set(url, tiktok_info)
+                set_cached_url_result(f"preview:{url}", tiktok_info)
                 return tiktok_info
             
             logger.info(f"TikWM failed, falling back to yt-dlp for: {url}")
@@ -527,6 +580,7 @@ def preview(request: Request, url: str = Form(...)):
             "duration": info.get("duration"),
         }
         cache_set(url, data)
+        set_cached_url_result(f"preview:{url}", data)
         return data
 
     except HTTPException:
@@ -627,14 +681,15 @@ def download(request: Request, url: str = Form(...), format: str = Form("video")
         if cookie_file:
             cmd.extend(["--cookies", cookie_file])
 
+        proxy_value = None
         if "pinterest.com" in url.lower() or "pinimg.com" in url.lower():
             pass  # Bypass proxy for Pinterest to prevent 0 KB download issues
         elif successful_proxy:
-            cmd.extend(["--proxy", successful_proxy])
+            proxy_value = successful_proxy
         else:
-            proxy = proxy_manager.get_proxy()
-            if proxy:
-                cmd.extend(["--proxy", proxy])
+            proxy_value = proxy_manager.get_proxy()
+        if proxy_value:
+            cmd.extend(["--proxy", proxy_value])
 
         cmd.append(url)
 
