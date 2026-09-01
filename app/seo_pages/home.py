@@ -13,6 +13,7 @@ page_data = {
     "page_color_secondary": '#764ba2',
     "page_hero_image": '/static/images/how-to-download-any-video.webp?v=2',
     "page_hero_alt": 'Free online video downloader tool for YouTube TikTok Instagram and more social media platforms',
+    "show_author_expertise": True,
     "intro_text": """
         <p>
           <strong>Need to download a video fast?</strong> SnapReelDownload is the fastest, most reliable free video downloader 
