@@ -503,7 +503,6 @@ def extract_info_with_retry(url: str, max_retries: int = 3) -> dict:
 # ─────────────────────────────────────────────
 
 @router.get("/preview")
-@router.get("/download")
 def redirect_api_gets(request: Request):
     """
     SEO FIX: Prevent 405 Method Not Allowed errors when Googlebot
@@ -511,6 +510,11 @@ def redirect_api_gets(request: Request):
     Returns a 301 Permanent Redirect to the home page instead.
     """
     return RedirectResponse(url="/", status_code=301)
+
+@router.get("/download")
+@limiter.limit("5/minute")
+def download_get(request: Request, url: str, format: str = "video"):
+    return download(request, url=url, format=format)
 @router.post("/preview")
 @limiter.limit("10/minute")
 def preview(request: Request, url: str = Form(...)):
