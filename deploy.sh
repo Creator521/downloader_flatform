@@ -76,6 +76,12 @@ sudo cp nginx/snapreeldownload.conf /etc/nginx/sites-available/snapreeldownload.
 sudo nginx -t && sudo systemctl reload nginx
 log "  nginx reloaded OK"
 
+# ── Create required runtime files ─────────────────────────────────────────
+log "Ensuring runtime files exist..."
+if [ -d "cookies.txt" ]; then sudo rm -rf cookies.txt; fi
+if [ -d "proxies.txt" ]; then sudo rm -rf proxies.txt; fi
+touch cookies.txt proxies.txt
+
 # ── Docker deploy ─────────────────────────────────────────────────────────
 log "Rebuilding and restarting containers..."
 docker compose up -d --build --force-recreate
