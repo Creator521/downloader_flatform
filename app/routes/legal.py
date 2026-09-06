@@ -39,3 +39,9 @@ async def disclaimer(request: Request):
 @router.get("/dmca", response_class=HTMLResponse)
 async def dmca(request: Request):
     return templates.TemplateResponse("pages/dmca.html", {"request": request})
+
+
+@router.get("/cookie-policy", response_class=HTMLResponse)
+async def cookie_policy(request: Request):
+    return templates.TemplateResponse("pages/cookie_policy.html", {"request": request})
+

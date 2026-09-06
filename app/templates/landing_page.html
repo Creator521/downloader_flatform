@@ -210,6 +210,55 @@
     --page-secondary: {{ page.page_color_secondary | default('#7c3aed') }};
 }
 
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+    padding: 12px 0;
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+.breadcrumb-nav a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+.breadcrumb-nav a:hover { text-decoration: underline; }
+.breadcrumb-sep {
+    margin: 0 8px;
+    color: #cbd5e1;
+}
+.breadcrumb-current { color: #475569; }
+
+/* Related Tools Strip */
+.related-tools-strip {
+    margin-top: 50px;
+    padding: 28px;
+    background: #f1f5f9;
+    border-radius: 12px;
+}
+.related-tools-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.rt-link {
+    display: inline-block;
+    padding: 10px 18px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #334155;
+    font-weight: 600;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.rt-link:hover {
+    border-color: var(--primary);
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.12);
+    color: var(--primary);
+}
+
 .hero-section {
     position: relative;
     border-radius: 32px !important;
@@ -648,6 +697,14 @@
          (window.adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 </div>
+
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{{ '/' + page.lang + '/' if (page and page.lang and page.lang != 'en') else '/' }}">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">{{ page.tool_name | default('Video Downloader') }}</span>
+</nav>
+
 <div class="hero-section">
     <!-- Left Column: Content -->
     <div class="hero-content-col">
@@ -883,6 +940,22 @@
         </section>
         {% endif %}
 
+        <!-- Related Tools — Internal Linking -->
+        <section class="related-tools-strip" aria-label="Related download tools">
+            <h2 class="section-title" style="margin-bottom:16px;">Explore More Downloaders</h2>
+            {% set lp = '/' + page.lang if (page and page.lang and page.lang != 'en') else '' %}
+            <div class="related-tools-links">
+                <a href="{{ lp }}/reels" class="rt-link">🎬 Reels</a>
+                <a href="{{ lp }}/video" class="rt-link">📸 Instagram Video</a>
+                <a href="{{ lp }}/story" class="rt-link">📖 Stories</a>
+                <a href="{{ lp }}/youtube" class="rt-link">▶️ YouTube</a>
+                <a href="{{ lp }}/tiktok" class="rt-link">🎵 TikTok</a>
+                <a href="{{ lp }}/facebook" class="rt-link">📘 Facebook</a>
+                <a href="{{ lp }}/twitter" class="rt-link">🐦 Twitter/X</a>
+                <a href="{{ lp }}/youtube-to-mp3" class="rt-link">🎧 YT→MP3</a>
+            </div>
+        </section>
+
         <!-- Disclaimer -->
         <div
             style="margin-top:50px; padding:20px; background:#fff5f5; border-left:4px solid #e53e3e; color:#718096; font-size:14px; border-radius:0 8px 8px 0;">
@@ -1036,10 +1109,28 @@
             });
     }
 
+    // ✅ Detect platform from URL for GA4 tracking
+    function detectPlatform(url) {
+        if (!url) return 'unknown';
+        const u = url.toLowerCase();
+        if (u.includes('instagram.com') || u.includes('instagr.am')) return 'instagram';
+        if (u.includes('youtube.com') || u.includes('youtu.be')) return 'youtube';
+        if (u.includes('tiktok.com')) return 'tiktok';
+        if (u.includes('facebook.com') || u.includes('fb.watch')) return 'facebook';
+        if (u.includes('twitter.com') || u.includes('x.com') || u.includes('t.co')) return 'twitter';
+        if (u.includes('snapchat.com')) return 'snapchat';
+        if (u.includes('pinterest.com') || u.includes('pin.it')) return 'pinterest';
+        if (u.includes('reddit.com')) return 'reddit';
+        return 'other';
+    }
+
     // ✅ Trigger video or audio download
     function triggerDownload(type) {
         const url = document.getElementById('result')._url;
         if (!url) return;
+
+        const platform = detectPlatform(url);
+        const format = type === 'audio' ? 'audio' : (type === 'high_quality' ? 'video_hq' : 'video');
 
         // Provide visual feedback for downloading
         let targetBtn;
@@ -1063,16 +1154,12 @@
             targetBtn.classList.add('btn-processing');
         }
 
-        // GA4 Event: Download Click
+        // GA4 Events: Download Start with platform + format tracking
         if (typeof gtag === 'function') {
-            gtag('event', 'download_button_click', {
-                'event_category': 'engagement',
-                'event_label': type === 'audio' ? 'Download Audio' : 'Download Video'
-            });
-            gtag('event', 'video_download', {
-                'event_category': 'Engagement',
-                'event_label': type,
-                'url_downloaded': url
+            gtag('event', 'download_start', {
+                'platform': platform,
+                'format': format,
+                'event_category': 'engagement'
             });
         }
 
@@ -1116,6 +1203,14 @@
         let checkCookie = setInterval(() => {
             if (document.cookie.indexOf("download_ready=1") !== -1) {
                 clearInterval(checkCookie);
+                // GA4 Event: Download Complete
+                if (typeof gtag === 'function') {
+                    gtag('event', 'download_complete', {
+                        'platform': platform,
+                        'format': format,
+                        'event_category': 'engagement'
+                    });
+                }
                 if (targetBtn) {
                     targetBtn.classList.remove('btn-processing');
                     targetBtn.classList.add('btn-success');
@@ -1132,6 +1227,15 @@
             } else if (document.cookie.indexOf("download_error=1") !== -1) {
                 clearInterval(checkCookie);
                 document.cookie = "download_error=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                // GA4 Event: Download Error
+                if (typeof gtag === 'function') {
+                    gtag('event', 'download_error', {
+                        'platform': platform,
+                        'format': format,
+                        'error': 'split_streams',
+                        'event_category': 'engagement'
+                    });
+                }
                 if (targetBtn) {
                     targetBtn.classList.remove('btn-processing');
                     targetBtn.innerText = originalText;

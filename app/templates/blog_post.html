@@ -105,6 +105,21 @@
         <a href="https://api.whatsapp.com/send?text={{ post.title }}%20https://snapreeldownload.com/blog/{{ slug }}" target="_blank" rel="noopener" class="share-btn wa-btn">Share on WhatsApp</a>
     </div>
 
+    {% if related_posts %}
+    <div class="related-posts">
+        <h3>Related Articles</h3>
+        <div class="related-posts-grid">
+            {% for rel_slug, rel_post in related_posts %}
+            <a href="/blog/{{ rel_slug }}" class="related-post-card">
+                <h4>{{ rel_post.title }}</h4>
+                <p>{{ rel_post.description | truncate(100, True, '...') }}</p>
+                <span class="related-post-date">{{ rel_post.date }}</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
     <div class="back-link">
         <a href="/blog">← Back to Blog</a>
     </div>
@@ -259,6 +274,55 @@
         text-decoration: none;
     }
     .author-bio-link:hover { text-decoration: underline; }
+
+    .related-posts {
+        margin-top: 50px;
+        padding-top: 40px;
+        border-top: 1px solid #e2e8f0;
+    }
+    .related-posts h3 {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        text-align: center;
+        color: #0f172a;
+    }
+    .related-posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+    .related-post-card {
+        display: block;
+        padding: 20px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        text-decoration: none;
+        color: inherit;
+        transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .related-post-card:hover {
+        border-color: var(--primary);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+    }
+    .related-post-card h4 {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+    .related-post-card p {
+        font-size: 13px;
+        color: #64748b;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+    .related-post-date {
+        font-size: 12px;
+        color: #94a3b8;
+        font-weight: 500;
+    }
 
     .back-link {
         text-align: center; 

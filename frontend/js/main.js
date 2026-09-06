@@ -1,3 +1,25 @@
+// Analytics Helper — extract platform from URL for GA4 events
+function detectPlatform(url) {
+    const host = url.toLowerCase();
+    if (host.includes('instagram.com')) return 'instagram';
+    if (host.includes('youtube.com') || host.includes('youtu.be')) return 'youtube';
+    if (host.includes('tiktok.com')) return 'tiktok';
+    if (host.includes('facebook.com') || host.includes('fb.watch')) return 'facebook';
+    if (host.includes('twitter.com') || host.includes('x.com')) return 'twitter';
+    if (host.includes('pinterest.com') || host.includes('pin.it')) return 'pinterest';
+    if (host.includes('snapchat.com')) return 'snapchat';
+    if (host.includes('reddit.com')) return 'reddit';
+    if (host.includes('threads.net')) return 'threads';
+    if (host.includes('linkedin.com')) return 'linkedin';
+    return 'other';
+}
+
+function trackEvent(name, params) {
+    if (typeof window.gtag === 'function') {
+        window.gtag('event', name, params);
+    }
+}
+
 // Mobile Menu Logic
 function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');
@@ -49,6 +71,9 @@ async function handleDownload(e) {
     error.style.display = 'none';
     if(document.getElementById('status-msg')) document.getElementById('status-msg').style.display = 'none';
 
+    const platform = detectPlatform(url);
+    trackEvent('preview_start', { 'event_category': 'Engagement', 'platform': platform });
+
     if (submitBtn) {
         submitBtn.classList.add('btn-loading');
     }
@@ -81,9 +106,11 @@ async function handleDownload(e) {
 
         result.style.display = 'block';
         result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        trackEvent('preview_success', { 'event_category': 'Engagement', 'platform': platform });
     } catch (err) {
         error.innerText = err.message;
         error.style.display = 'block';
+        trackEvent('preview_error', { 'event_category': 'Engagement', 'platform': platform, 'error': err.message.substring(0, 100) });
     } finally {
         loading.style.display = 'none';
         if (submitBtn) submitBtn.classList.remove('btn-loading');
@@ -132,13 +159,12 @@ async function triggerDownload(format) {
     }
 
     try {
-        if (typeof window.gtag === 'function') {
-            window.gtag('event', 'video_download', {
-                'event_category': 'Engagement',
-                'event_label': format,
-                'url_downloaded': url
-            });
-        }
+        const platform = detectPlatform(url);
+        trackEvent('download_start', {
+            'event_category': 'Conversion',
+            'platform': platform,
+            'format': format
+        });
 
         let iframe = document.getElementById('download_iframe');
         if (!iframe) {
@@ -187,6 +213,7 @@ async function triggerDownload(format) {
         let checkCookie = setInterval(() => {
             if (document.cookie.indexOf("download_ready=1") !== -1) {
                 clearInterval(checkCookie);
+                trackEvent('download_complete', { 'event_category': 'Conversion', 'platform': platform, 'format': format });
                 let status = document.getElementById('status-msg');
                 if (status) status.style.display = 'none'; 
                 if (targetBtn) {
@@ -204,6 +231,7 @@ async function triggerDownload(format) {
                 }
             } else if (document.cookie.indexOf("download_error=1") !== -1) {
                 clearInterval(checkCookie);
+                trackEvent('download_error', { 'event_category': 'Conversion', 'platform': platform, 'format': format, 'error': 'stream_merge_required' });
                 document.cookie = "download_error=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 if (targetBtn) {
                     targetBtn.classList.remove('btn-processing');

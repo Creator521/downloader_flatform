@@ -3,6 +3,7 @@ Snap Reel Download — FastAPI Application Entry Point
 Slim entry point: all route logic lives in app/routes/ modules.
 """
 import os
+import secrets
 import logging
 from pathlib import Path
 
@@ -163,6 +164,10 @@ async def normalize_url_middleware(request, call_next):
 
 @app.middleware("http")
 async def add_cache_headers(request, call_next):
+    # Generate per-request CSP nonce (available in templates via request.state.csp_nonce)
+    nonce = secrets.token_urlsafe(24)
+    request.state.csp_nonce = nonce
+
     response = await call_next(request)
 
     # Optimized caching for static files
@@ -191,7 +196,7 @@ async def add_cache_headers(request, call_next):
     monetag_connect_src = " https://5gvci.com https://quge5.com" if MONETAG_ENABLED else ""
     response.headers["Content-Security-Policy"] = (
         "default-src 'self'; "
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
+        f"script-src 'self' 'nonce-{nonce}' "
             "https://www.googletagmanager.com https://pagead2.googlesyndication.com "
             "https://*.googlesyndication.com "
             "https://adservice.google.com https://www.google-analytics.com" + monetag_script_src + "; "

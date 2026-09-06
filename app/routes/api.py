@@ -5,6 +5,7 @@ import sys
 import os
 import logging
 import ipaddress
+import socket
 import time
 import uuid
 import random
@@ -346,16 +347,34 @@ def validate_url(url: str) -> str:
     if not parsed.hostname:
         raise HTTPException(status_code=400, detail="Invalid URL: no hostname found.")
 
-    try:
-        ip = ipaddress.ip_address(parsed.hostname)
-        if ip.is_private or ip.is_loopback or ip.is_reserved:
-            raise HTTPException(status_code=400, detail="Internal URLs are not allowed.")
-    except ValueError:
-        pass
+    hostname = parsed.hostname.lower()
 
-    blocked_hosts = ["localhost", "0.0.0.0", "metadata.google.internal"]
-    if parsed.hostname.lower() in blocked_hosts:
+    # Block known dangerous hostnames (cloud metadata, localhost, etc.)
+    blocked_hosts = {
+        "localhost", "0.0.0.0", "metadata.google.internal",
+        "169.254.169.254", "metadata.google", "metadata.azure.com",
+        "metadata.internal", "instance-data",
+    }
+    if hostname in blocked_hosts:
         raise HTTPException(status_code=400, detail="This URL is not allowed.")
+
+    # Resolve hostname to IP(s) and validate each — catches both IP literals
+    # AND domains that DNS-resolve to private/reserved addresses (DNS rebinding).
+    CGNAT = ipaddress.ip_network("100.64.0.0/10")
+    try:
+        addrinfos = socket.getaddrinfo(hostname, None, socket.AF_UNSPEC, socket.SOCK_STREAM)
+    except socket.gaierror:
+        raise HTTPException(status_code=400, detail="Could not resolve the hostname.")
+
+    for _family, _type, _proto, _canon, sockaddr in addrinfos:
+        try:
+            ip = ipaddress.ip_address(sockaddr[0])
+        except ValueError:
+            continue
+        if ip.is_private or ip.is_loopback or ip.is_reserved or ip.is_link_local or ip.is_unspecified:
+            raise HTTPException(status_code=400, detail="URL resolves to an internal or reserved address.")
+        if ip in CGNAT:
+            raise HTTPException(status_code=400, detail="URL resolves to a blocked address range.")
 
     return url
 

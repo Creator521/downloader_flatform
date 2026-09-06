@@ -18,6 +18,7 @@ LEGAL_PAGES = [
     "/about-us",
     "/contact-us",
     "/privacy-policy",
+    "/cookie-policy",
     "/terms-of-service",
     "/disclaimer",
     "/dmca",

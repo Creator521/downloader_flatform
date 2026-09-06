@@ -1,7 +1,28 @@
+# Version control
 .git
 .gitignore
+
+# Python
 .venv
 __pycache__
 *.pyc
-temp/
+*.pyo
 .env
+.env.*
+
+# Temp / cache
+temp/
+
+# Development & docs — never ship to production
+snapreel-mobile-app/
+_agents/
+.github/
+*.md
+LICENSE
+nginx/
+deploy.sh
+README.md
+
+# OS junk
+.DS_Store
+Thumbs.db
