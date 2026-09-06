@@ -1,5 +1,12 @@
 page_data = {
     "route": "/facebook",
+    "faqs": [
+        {"question": "Can I download videos from private Facebook groups?", "answer": "<strong>No.</strong> Only public videos — from open pages, public profiles, and the Watch tab — can be downloaded. Private group content is restricted to members inside Facebook, so there is no accessible URL for a downloader to fetch."},
+        {"question": "Do Facebook Reels download the same as regular videos?", "answer": "Yes. Paste the Reel link and it saves as a vertical MP4 exactly like a standard video. Facebook does not stamp watermarks on Reels the way TikTok does, so the file is already clean."},
+        {"question": "What quality are Facebook videos saved in?", "answer": "You get the <strong>highest quality the uploader posted</strong> — typically 720p or 1080p for newer uploads. Older videos or low-resolution uploads cannot be upscaled; the download matches what Facebook's own player serves."},
+        {"question": "Can I download a Facebook Live stream while it is running?", "answer": "Not during the broadcast. Once the stream ends and Facebook processes the replay, the video becomes a normal post with a standard URL — that link downloads here without problems."},
+        {"question": "Why does my Facebook video link fail?", "answer": "The most common cause is copying the link from inside a private group or a profile with restricted visibility. Also make sure you copied the video's own link (open the post, click the timestamp, then copy the address bar URL) rather than your feed's URL."},
+    ],
     "title": "Download Facebook Videos Free HD 2026 — No Watermark",
     "meta_description": 'Download Facebook videos, Reels & Watch in HD quality free - no watermark, no login needed. Works on Android, iPhone & PC. Save videos instantly without app.',
     "h1": 'Facebook Video Downloader — Download Reels & Videos Free HD 2026',

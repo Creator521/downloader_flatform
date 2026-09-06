@@ -1,5 +1,12 @@
 page_data = {
     "route": "/tiktok-mp3-downloader",
+    "faqs": [
+        {"question": "What audio exactly do I get — the original sound or the full song?", "answer": "You get the <strong>audio track attached to that specific TikTok post</strong>: the creator's original recording, the snippet of a licensed song they used, or the trending sound from the video. It matches exactly what plays in the app — not the full studio track."},
+        {"question": "What quality are the MP3 files?", "answer": "TikTok's audio streams are typically AAC at around 128 kbps. We deliver the sound at its source quality without re-compressing it further, so the MP3 sounds identical to the in-app original."},
+        {"question": "Can I download sounds from private TikTok accounts?", "answer": "No. Only sounds from public videos can be extracted. Private accounts keep their content locked to approved followers, so there is no public URL for the extractor to read."},
+        {"question": "Is extracting TikTok audio legal?", "answer": "For personal use — saving a sound for offline listening or your own video edits — it is generally fine. Re-uploading a creator's original audio as your own, or using licensed music commercially, is not. Always respect the creator and the platform's terms."},
+        {"question": "Can I grab the sound from someone else's duet or stitch?", "answer": "Yes, if the duet or stitch post is public, the extracted audio contains the combined track you hear in that video — both the original sound and the added response."},
+    ],
     "title": "TikTok to MP3 Converter 2026 — Download Audio Free Online",
     "meta_description": 'Convert TikTok to MP3 free - download TikTok audio, sounds & music in high quality. Works on Android, iPhone & PC. No login, fast, 100% free.',
     "h1": 'TikTok to MP3 Converter — Download TikTok Audio & Music Free 2026',

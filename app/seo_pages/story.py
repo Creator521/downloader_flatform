@@ -1,5 +1,12 @@
 page_data = {
     "route": "/story",
+    "faqs": [
+        {"question": "Will the creator know I viewed or downloaded their Story?", "answer": "<strong>No — that is the core of this tool.</strong> Downloading through SnapReelDownload never adds your name to the creator's viewer list and sends no notification. Your view is completely invisible, unlike opening a Story inside the Instagram app."},
+        {"question": "Can I download Stories from a private account I follow?", "answer": "No. Private account Stories are only visible to approved followers inside the app, and there is no public URL our server can access. If it is your own account, use Instagram's <strong>Save Story</strong> option before the Story expires."},
+        {"question": "Do Story Highlights download too?", "answer": "<strong>Yes.</strong> Highlights are Stories the creator pinned permanently to their profile, so they never expire. Copy the Highlight link from the profile page and paste it here — it downloads in the same HD quality as regular Stories."},
+        {"question": "Can I save both video Stories and photo Stories?", "answer": "Yes. Video Stories download as MP4 with original audio, and photo Stories save as full-resolution JPG images. If a Story contains both (for example a photo with music), you get each element separately."},
+        {"question": "How long do I have before a Story disappears?", "answer": "Regular Stories vanish <strong>24 hours after posting</strong>, so download anything you want to keep before then. Once a Story expires, the link stops working — unless the creator added it to their Highlights, where it stays available."},
+    ],
     "title": "Download Instagram Stories Free HD 2026 — Anonymous, No Login",
     "meta_description": "Download Instagram Stories anonymously in HD quality - no watermark, no login. Save story videos & photos free for Android, iPhone & PC. Creator won't know.",
     "h1": 'Instagram Story Downloader — Download Stories Anonymously Free 2026',

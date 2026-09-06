@@ -41,6 +41,12 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)  # ty
 if GZipMiddleware is not None:
     app.add_middleware(GZipMiddleware, minimum_size=1000)
 
+# --- Monetag Kill-Switch (AdSense review mode) ---
+# Set MONETAG_ENABLED=false to disable every Monetag script (push service
+# worker + ad tag) and remove its domains from the CSP. Keep it disabled
+# while AdSense reviews the site; flip back to true after approval.
+MONETAG_ENABLED = os.getenv("MONETAG_ENABLED", "true").strip().lower() in ("1", "true", "yes", "on")
+
 # --- CORS Middleware ---
 ALLOWED_ORIGINS = [
     "https://snapreeldownload.com",
@@ -181,17 +187,19 @@ async def add_cache_headers(request, call_next):
     response.headers["X-Frame-Options"] = "SAMEORIGIN"
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
     response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+    monetag_script_src = " https://quge5.com https://5gvci.com" if MONETAG_ENABLED else ""
+    monetag_connect_src = " https://5gvci.com https://quge5.com" if MONETAG_ENABLED else ""
     response.headers["Content-Security-Policy"] = (
         "default-src 'self'; "
         "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
             "https://www.googletagmanager.com https://pagead2.googlesyndication.com "
-            "https://quge5.com https://5gvci.com https://*.googlesyndication.com "
-            "https://adservice.google.com https://www.google-analytics.com; "
+            "https://*.googlesyndication.com "
+            "https://adservice.google.com https://www.google-analytics.com" + monetag_script_src + "; "
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
         "font-src 'self' https://fonts.gstatic.com; "
         "img-src 'self' data: https: blob:; "
         "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://*.googlesyndication.com "
-            "https://pagead2.googlesyndication.com https://5gvci.com https://quge5.com; "
+            "https://pagead2.googlesyndication.com" + monetag_connect_src + "; "
         "frame-src 'self' https://googleads.g.doubleclick.net https://*.googlesyndication.com; "
         "frame-ancestors 'self'; "
         "media-src 'self' https: blob:;"
@@ -216,14 +224,24 @@ async def indexnow_key():
 async def monetag_service_worker():
     """Monetag push notification service worker — must be served at root scope."""
     from fastapi.responses import Response
-    content = (
-        'self.options = {\n'
-        '    "domain": "5gvci.com",\n'
-        '    "zoneId": 11184914\n'
-        '}\n'
-        'self.lary = ""\n'
-        'importScripts(\'https://5gvci.com/act/files/service-worker.min.js?r=sw\')\n'
-    )
+    if MONETAG_ENABLED:
+        content = (
+            'self.options = {\n'
+            '    "domain": "5gvci.com",\n'
+            '    "zoneId": 11184914\n'
+            '}\n'
+            'self.lary = ""\n'
+            'importScripts(\'https://5gvci.com/act/files/service-worker.min.js?r=sw\')\n'
+        )
+    else:
+        # Neutral no-op worker that unregisters itself — replaces any
+        # previously-installed Monetag worker on returning visitors' browsers
+        content = (
+            'self.addEventListener("install", () => self.skipWaiting());\n'
+            'self.addEventListener("activate", (event) => {\n'
+            '    event.waitUntil(self.registration.unregister());\n'
+            '});\n'
+        )
     return Response(
         content=content,
         media_type="application/javascript",
@@ -238,6 +256,13 @@ async def monetag_tag_js():
     """Monetag Luminous tag JS file — must be served at root for installation check."""
     import httpx  # type: ignore
     from fastapi.responses import Response
+    if not MONETAG_ENABLED:
+        # AdSense review mode: serve a no-op instead of the third-party ad tag
+        return Response(
+            content="/* Monetag disabled (MONETAG_ENABLED=false) */\n",
+            media_type="application/javascript",
+            headers={"Cache-Control": "no-cache, no-store, must-revalidate"},
+        )
     async with httpx.AsyncClient() as client:
         r = await client.get(
             "https://quge5.com/88/tag.min.js",

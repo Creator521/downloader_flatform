@@ -1,5 +1,12 @@
 page_data = {
     "route": "/snapchat",
+    "faqs": [
+        {"question": "What Snapchat content can actually be downloaded?", "answer": "<strong>Public content only:</strong> Spotlight videos and public Stories/My Public Stories that have a shareable link. Private snaps, chats, and friends-only Stories never leave Snapchat's encrypted system and cannot be accessed by any downloader."},
+        {"question": "Can I download a snap someone sent me privately?", "answer": "No — and be wary of any tool claiming otherwise. Private snaps exist only inside the app between sender and recipient. Our downloader works exclusively with public Spotlight links, which anyone can view without an account."},
+        {"question": "Will the sender know I downloaded their Spotlight video?", "answer": "<strong>No.</strong> Snapchat shows creators aggregate view counts, but there is no per-user download notification and no way to see who saved a public video through a third-party tool."},
+        {"question": "What quality are Snapchat video downloads?", "answer": "Spotlight videos typically save at the quality they were uploaded — commonly 1080p vertical. Snapchat's in-app camera records in high quality, so most downloads look sharp on both phones and desktops."},
+        {"question": "How do I get the link for a Snapchat video?", "answer": "Open the Spotlight video, tap the <strong>Share</strong> button, and choose Copy Link. The URL looks like <code>snapchat.com/spotlight/...</code>. Paste it into the box above and download instantly — no Snapchat account required."},
+    ],
     "title": "Download Snapchat Videos & Spotlight Free HD 2026",
     "meta_description": 'Download Snapchat videos, Spotlight & Stories in HD quality free - anonymous downloader for Android, iPhone & PC. No login, no notification, works instantly.',
     "h1": 'Snapchat Video Downloader — Download Spotlight & Stories Free 2026',

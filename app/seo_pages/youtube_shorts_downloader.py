@@ -1,5 +1,12 @@
 page_data = {
     "route": "/youtube-shorts-downloader",
+    "faqs": [
+        {"question": "Can I download YouTube Shorts in HD?", "answer": "<strong>Yes.</strong> Shorts are vertical videos up to 1080p, and you get the maximum resolution the creator uploaded. Since Shorts have no watermark, the MP4 is clean and ready to rewatch or re-edit offline."},
+        {"question": "How is this different from the regular YouTube downloader?", "answer": "Same engine, tuned for Shorts links (<code>/shorts/</code> URLs). If you paste a long-form video link it still works, but this page is optimised for vertical Short links you copy from the Shorts feed."},
+        {"question": "Can I extract just the audio from a Short?", "answer": "Yes — choose the audio option after pasting the link and the sound saves as an MP3-class audio file. Handy for grabbing trending Shorts sounds for your own edits."},
+        {"question": "Do YouTube Shorts have watermarks when downloaded?", "answer": "No. Unlike TikTok's save button, YouTube does not burn a watermark into Shorts files, so the MP4 you get here is clean full-frame video."},
+        {"question": "Where do I find the link for a Short?", "answer": "In the YouTube app, open the Short, tap <strong>Share</strong>, then Copy Link. On desktop, copy the URL from the address bar — it contains <code>/shorts/</code>. Paste it above and the download starts in seconds."},
+    ],
     "title": "Download YouTube Shorts Free HD 2026 — No Watermark",
     "meta_description": 'Download YouTube Shorts in HD quality free - no watermark, no login. Save any YouTube Short to iPhone, Android & PC instantly. Fast, secure, 100% free.',
     "h1": 'YouTube Shorts Downloader — Download Shorts Free HD 2026',

@@ -322,68 +322,24 @@
 
     <!-- ✅ FAQPage Schema – Rich Results for FAQ accordion in Google SERPs -->
     <script type="application/ld+json">
+{% if page and page.faqs %}
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {% for faq in page.faqs %}
     {
       "@type": "Question",
-      "name": "Is SnapReelDownload completely free?",
+      "name": {{ faq.question | tojson }},
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, absolutely free! No hidden charges, no premium plans, and no annoying subscriptions. Download unlimited videos forever at literally zero cost."
+        "text": {{ faq.answer | striptags | tojson }}
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to sign up or create an account?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No signup, no email registration, no social media login needed. Just paste your video link and hit download immediately."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which platforms does SnapReelDownload support?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We support Instagram (Reels, Videos, Stories, Photos), YouTube, TikTok, Facebook (Reels & Watch), Twitter/X, Pinterest, and Snapchat Spotlight."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I download videos without a watermark?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! TikTok and Instagram videos are extracted cleanly from the source server without any watermarks or platform logos embedded in the file."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does it work on iPhone and Android?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, it works perfectly on iPhones via the Safari browser, and on all Android devices using Google Chrome or Firefox. No app installation required."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What formats can I download?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We primarily support MP4 for video files and M4A/MP3 for audio extractions. MP4 works natively on all smartphones, smart TVs, and media players."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it safe to use SnapReelDownload?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We use SSL encryption across the entire site. We never require you to download executable files (.exe or .apk), and we never log your browsing history or store your data."
-      }
-    }
+    }{{ "," if not loop.last }}
+    {% endfor %}
   ]
 }
+{% endif %}
     </script>
 
     <!-- ✅ HowTo Schema – Enables rich step-by-step results in Google -->
@@ -656,9 +612,11 @@
             adsense.crossOrigin = 'anonymous';
             document.head.appendChild(adsense);
 
-            // Load Monetag Multitag (deferred from head for performance)
+            // Load Monetag Multitag via our same-origin /tag.min.js endpoint.
+            // It serves the real ad tag when MONETAG_ENABLED=true and a no-op
+            // when false (AdSense review mode) — single kill-switch, no redeploy.
             var monetag = document.createElement('script');
-            monetag.src = 'https://quge5.com/88/tag.min.js';
+            monetag.src = '/tag.min.js';
             monetag.setAttribute('data-zone', '252375');
             monetag.async = true;
             monetag.setAttribute('data-cfasync', 'false');

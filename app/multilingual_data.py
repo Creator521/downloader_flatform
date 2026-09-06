@@ -191,6 +191,7 @@ def make_page_data(path, platform, brand_name, content_key, lang):
 
     # ── SEO_PAGES override (Phase 4 merge) ───────────────────────────────────
     page_subtitle = f"{t['dw']} {content_word}s in HD"
+    troubleshooting = []
 
     if path in SEO_PAGES:
         override   = SEO_PAGES[path]
@@ -217,15 +218,23 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             elif "subtitle" in override and lang == "en":
                 page_subtitle = override["subtitle"]
 
-            # Merge — custom content first, generated content appended
+            # Merge — custom content REPLACES the generated boilerplate.
+            # (Appending both made every tool page ~70% identical, which
+            # AdSense reviewers flag as thin / low-value templated content.)
             # Support both 'intro_text' and 'content' key names
+            has_custom_body = ("intro_text" in lang_data) or ("content" in lang_data)
             if "intro_text"     in lang_data:
-                intro = lang_data["intro_text"] + "<hr style='margin:30px 0; border:0; border-top:1px dashed #cbd5e0;'>" + intro
+                intro = lang_data["intro_text"]
             elif "content"      in lang_data:
-                intro = lang_data["content"] + "<hr style='margin:30px 0; border:0; border-top:1px dashed #cbd5e0;'>" + intro
-            if "faqs"           in lang_data: faqs           = lang_data["faqs"] + faqs
-            if "features"       in lang_data: features       = lang_data["features"] + features
-            if "extra_sections" in lang_data: extra_sections = lang_data["extra_sections"] + extra_sections
+                intro = lang_data["content"]
+            if has_custom_body:
+                # Custom-body page: drop the generic templated sections
+                # (device guides + shared comparison tables)
+                extra_sections = []
+            if "faqs"           in lang_data: faqs           = lang_data["faqs"]
+            if "features"       in lang_data: features       = lang_data["features"]
+            if "troubleshooting" in lang_data: troubleshooting = lang_data["troubleshooting"]
+            if "extra_sections" in lang_data: extra_sections = lang_data["extra_sections"]
 
             # Auto-convert any custom *_section keys into extra_sections format
             # This handles keys like quality_section, safety_section, troubleshooting_section, etc.
@@ -248,7 +257,12 @@ def make_page_data(path, platform, brand_name, content_key, lang):
                     _section_title = _k.replace("_section", "").replace("_", " ").strip().title()
                     _custom_extra.append({"title": _section_title, "content": lang_data[_k]})
             if _custom_extra:
-                extra_sections = _custom_extra + extra_sections
+                # Custom sections replace the generated boilerplate too; when
+                # both forms of custom sections exist, keep them together
+                if "extra_sections" in lang_data:
+                    extra_sections = extra_sections + _custom_extra
+                else:
+                    extra_sections = _custom_extra
 
             if "tool_name"      in lang_data: tool_name      = lang_data["tool_name"]
             if "keyword"        in lang_data:
@@ -256,6 +270,8 @@ def make_page_data(path, platform, brand_name, content_key, lang):
             if "platform"       in lang_data: platform        = lang_data["platform"]
 
     # ✅ FIX 6: Extract missing design and hero properties
+    # E-E-A-T: show the trust/expertise block on custom-content pages by default
+    show_author_expertise = bool(override.get("show_author_expertise", True)) if path in SEO_PAGES else False
     page_hero_image = override.get("page_hero_image", "") if path in SEO_PAGES else ""
     page_hero_alt = override.get("page_hero_alt", "") if path in SEO_PAGES else ""
     page_theme = override.get("page_theme", "default") if path in SEO_PAGES else "default"
@@ -293,7 +309,9 @@ def make_page_data(path, platform, brand_name, content_key, lang):
         "steps":         steps,
         "features":      features,
         "faqs":          faqs,
+        "troubleshooting": troubleshooting,
         "extra_sections": extra_sections,
+        "show_author_expertise": show_author_expertise,
         "lang":          lang,
         "page_hero_image": page_hero_image,
         "page_hero_alt": page_hero_alt,

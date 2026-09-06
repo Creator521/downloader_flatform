@@ -1,5 +1,12 @@
 page_data = {
     "route": "/reddit",
+    "faqs": [
+        {"question": "Why do Reddit video downloads sometimes have no sound?", "answer": "Reddit stores video and audio as <strong>two separate files</strong> on its v.redd.it servers, which is why right-click-saving gives you a silent video. Our downloader automatically fetches both tracks, merges them, and delivers a single MP4 with working audio."},
+        {"question": "Do crossposts and posts from any subreddit work?", "answer": "Yes — crossposts have their own URL and download like any other post. Any <strong>public</strong> subreddit's video content works, regardless of which community originally hosted it."},
+        {"question": "Can I download from private or NSFW-restricted subreddits?", "answer": "Only public content is supported. NSFW posts that require login confirmation and quarantined or private subreddits sit behind Reddit's authentication, so their media links are not publicly accessible."},
+        {"question": "Are Reddit GIF posts downloadable?", "answer": "Yes. Reddit GIFs are converted to MP4 videos on upload, so pasting the post link saves a smooth looping MP4 that plays everywhere — no gifv or webm compatibility issues."},
+        {"question": "What quality do Reddit videos download in?", "answer": "You get the highest resolution available for that post — Reddit serves up to 1080p depending on the original upload. The file is the exact same stream Reddit's own player uses."},
+    ],
     "title": "Download Reddit Videos With Audio - HD Free 2026",
     "meta_description": 'Download Reddit videos in HD with audio - free online tool for Android, iPhone & PC. No login, no watermark, includes audio. Fast and secure, works instantly.',
     "h1": 'Reddit Video Downloader — Download Videos With Audio Free in HD',

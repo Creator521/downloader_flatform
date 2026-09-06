@@ -1,5 +1,8 @@
+import logging
 import os
 import importlib.util
+
+logger = logging.getLogger(__name__)
 
 BLOG_POSTS = {}
 
@@ -24,9 +27,15 @@ if os.path.exists(blog_posts_dir):
                         # Template uses post.description, but newer posts use meta_description
                         if 'meta_description' in post_data and 'description' not in post_data:
                             post_data['description'] = post_data['meta_description']
+                        # E-E-A-T: replace the generic 'Admin' byline with the
+                        # editorial team name shown in the author bio box
+                        if not post_data.get('author') or str(post_data['author']).strip().lower() in ('admin', 'administrator'):
+                            post_data['author'] = 'SnapReelDownload Team'
                         # Prefer slug from the dict, otherwise infer from filename
                         slug = post_data.get('slug', module_name.replace('_', '-'))
                         post_data['slug'] = slug  # Ensure slug is always in the dict
                         BLOG_POSTS[slug] = post_data
                 except Exception as e:
-                    pass
+                    # Never silently drop a post — a syntax error here makes the
+                    # article 404 with no trace in the logs
+                    logger.error("Failed to load blog post %s: %s", filename, e)

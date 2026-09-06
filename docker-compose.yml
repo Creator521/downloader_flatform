@@ -7,6 +7,10 @@ services:
       - WORKERS=4
       - DOMAIN_NAME=https://snapreeldownload.com
       - REDIS_URL=redis://redis:6379/0
+      # AdSense review mode: disables all Monetag scripts (ad tag + push SW)
+      # and removes its domains from the CSP. Remove this line (or set to
+      # "true") after AdSense approval to re-enable Monetag revenue.
+      - MONETAG_ENABLED=false
     ports:
       - "5001:8000"
     volumes:

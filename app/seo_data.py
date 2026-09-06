@@ -1,5 +1,8 @@
+import logging
 import os
 import importlib.util
+
+logger = logging.getLogger(__name__)
 
 SEO_PAGES = {}
 
@@ -33,7 +36,9 @@ if os.path.exists(seo_pages_dir):
                         
                         SEO_PAGES[route] = page_data
                 except Exception as e:
-                    pass
+                    # Never silently drop a page — a syntax error here makes the
+                    # route fall back to generic boilerplate (thin content)
+                    logger.error("Failed to load SEO page %s: %s", filename, e)
 
 SEO_KEYWORDS = {
 

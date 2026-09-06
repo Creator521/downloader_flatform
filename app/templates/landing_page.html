@@ -123,8 +123,11 @@
 </script>
 
 {# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   4. WebPage Schema
-   ━━━━━━━━━━━━━━━━━━━━━━    "@context": "https://schema.org",
+   4. BreadcrumbList Schema
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {
@@ -169,66 +172,22 @@
 {% endif %}
 
 {# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   7. FAQPage Schema
-      Homepage (request.url.path == '/'): uses 5 fixed high-value Q&As
-      + any additional dynamic FAQs from page.faqs
-      All other pages: dynamic from page.faqs only
+   7. FAQPage Schema — mirrors the visible FAQ section exactly
+      (Google guideline: markup must match on-page visible content)
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ #}
-{% if page.faqs or request.url.path == '/' %}
+{% if page.faqs %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {% if request.url.path == '/' or request.url.path == ('/' + page.lang + '/') %}
-    {
-      "@type": "Question",
-      "name": "Is SnapReelDownload free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, SnapReelDownload is 100% free. There are no hidden charges, no subscription plans, and no daily download limits. You can download as many videos as you want at absolutely zero cost — forever."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to log in or create an account to download videos?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No login or account is required. SnapReelDownload works instantly — just paste your video link and click Download. We never ask for your email, password, or any social media credentials."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which platforms does SnapReelDownload support?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SnapReelDownload supports downloading videos from Instagram (Reels, Videos, Stories, Photos), YouTube (including Shorts and 4K), TikTok, Facebook (Reels and Watch videos), Twitter/X (videos and GIFs), Pinterest, and Snapchat Spotlight — all from one tool."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I download TikTok and Instagram videos without a watermark?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. SnapReelDownload downloads videos directly from the platform's original source, giving you a clean MP4 file without any TikTok watermark, Instagram overlay, or username stamp on the video."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is SnapReelDownload safe to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, it is completely safe. Our site uses SSL encryption, we do not require any account credentials, we never store your downloaded files, and we do not track your download history. No executable files or apps are required — everything runs securely in your browser."
-      }
-    }{% if page.faqs %},{% endif %}
-    {% endif %}
     {% for faq in page.faqs %}
     {
       "@type": "Question",
       "name": {{ faq.question | tojson }},
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": {{ faq.answer | tojson }}
+        "text": {{ faq.answer | striptags | tojson }}
       }
     }{% if not loop.last %},{% endif %}
     {% endfor %}

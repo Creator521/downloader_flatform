@@ -1,5 +1,12 @@
 page_data = {
     "route": "/twitter",
+    "faqs": [
+        {"question": "Can I download Twitter GIFs?", "answer": "<strong>Yes.</strong> Almost every GIF on X is actually a short looping MP4 video, so pasting the post link gives you a clean MP4 that loops in any modern player. If you specifically need the .gif format, convert the MP4 with any free converter."},
+        {"question": "Do videos from protected (private) accounts work?", "answer": "No. Protected accounts limit their posts to approved followers only, so the video URL is not publicly reachable. Everything from public accounts — news clips, sports highlights, memes — downloads without any login."},
+        {"question": "Does the downloader work with x.com links?", "answer": "Yes. Both <strong>x.com</strong> and legacy <strong>twitter.com</strong> URLs are fully supported, including mobile links (m.x.com) and the t.co short links that expand to posts with video."},
+        {"question": "How do I download a video inside a long thread?", "answer": "Open the specific post that contains the video (click its timestamp so it stands alone), then copy that post's URL. Each post in a thread has its own link, so you can grab exactly the clip you want without downloading the whole thread."},
+        {"question": "What quality are X videos saved in?", "answer": "You get the highest resolution the poster uploaded — commonly 720p or 1080p. X re-encodes every upload, so the download matches exactly what the platform serves to viewers with no extra compression."},
+    ],
     "title": "Download Twitter (X) Videos Free HD 2026 — No Login",
     "meta_description": ('Download Twitter (X) videos and GIFs in HD quality - free online tool for Android, iPhone & PC. Save X videos instantly, no login, no watermark. Works with '
      'all posts.'),

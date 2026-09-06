@@ -1,5 +1,12 @@
 page_data = {
     "route": "/video",
+    "faqs": [
+        {"question": "Can I download videos from a private Instagram account?", "answer": "<strong>No.</strong> Only videos from public accounts can be downloaded. Private accounts restrict access to approved followers, and bypassing that would violate both privacy and Instagram's terms. If you follow the account, ask the creator to make the post public or send you the file directly."},
+        {"question": "Does this work with carousel posts that contain videos?", "answer": "<strong>Yes.</strong> If a carousel (multi-slide post) includes videos, each video clip downloads as its own MP4 file. Paste the post link, preview it, and save the clip you need — photo slides in the same post can be downloaded with our <a href='/photo'>Instagram photo downloader</a>."},
+        {"question": "What is the difference between feed videos and Reels here?", "answer": "Feed videos are standard posts in the main grid, while Reels are Instagram's short-form vertical format with music tools and its own algorithm. Both download as clean MP4 files from this page — but if the link contains <code>/reel/</code>, our dedicated <a href='/reels'>Reels downloader</a> gives you extra Reel-specific options."},
+        {"question": "Can I download Instagram Live videos?", "answer": "Only after the broadcast ends. While a Live is streaming there is no stable file to fetch. Once the creator saves it as a replay or shares it to their profile, the video gets a normal URL and downloads like any other post."},
+        {"question": "Will the downloaded video keep its original audio?", "answer": "<strong>Yes.</strong> The MP4 contains the exact audio track from the post — original sound, voiceover, or licensed music. Note that some music is region-restricted by labels, which is an Instagram-side limitation that affects playback the same way it would in the app."},
+    ],
     "title": "Download Instagram Videos HD Free 2026 — No Watermark",
     "meta_description": ('Download Instagram videos in HD 1080p quality - free, no watermark, no login. Complete guide for Android, iPhone & PC. Works with Reels, Feed videos, '
      'Carousel & IGTV.'),
